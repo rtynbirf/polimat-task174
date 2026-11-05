@@ -1,0 +1,352 @@
+{
+ "doc": "FINAL_SYNC_SUMMARY",
+ "purpose": "Закрывающая машинная верификация контура для синхронизации параллельных агентов. Каждый SHA ниже — freshly-verified byte fact (двойной проход, байт-идентичный).",
+ "epoch": {
+  "now_utc": "2026-11-05T14:13:37Z",
+  "boot_id": "c5ff103d-419a-4b8c-9c06-72b96bcb1383",
+  "python": "3.12.14",
+  "git_head": "e9d8918920c431d2eafc2559b8ed6ee87be49b1f"
+ },
+ "method": {
+  "hash": "sha256",
+  "passes": 2,
+  "stability": "PASS",
+  "scope": "download/ + upload/ + worklog.md, рекурсивно"
+ },
+ "incident": {
+  "class": "K0-рецидив: массовое обнуление носителя (9 файлов → 0 байт) между эпохами",
+  "discovered": "двойной хеш-проход закрывающей верификации",
+  "repaired": 9,
+  "repair_source": "content-addressed git blobs + верифицированные zip-члены (CRC PASS)",
+  "receipts": [
+   {
+    "path": "download/portable_polymath.py",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git blob f27e7695 (content-addressed)",
+    "source_bytes": 29710,
+    "after_sha256": "4619289c19ef30402820defec3f642eb32fadad3ccc025e489d86c5eec44817e",
+    "ref": "4619289c19ef30402820defec3f642eb32fadad3ccc025e489d86c5eec44817e",
+    "ref_match": true
+   },
+   {
+    "path": "download/inventory_diff_task20.json",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git blob 2eb99ec6 (content-addressed)",
+    "source_bytes": 11507,
+    "after_sha256": "185487ae6b5703ffa8e921d8c6851f3914828f4dca0b180c5053806ec1861289",
+    "ref": "185487ae6b5703ffa8e921d8c6851f3914828f4dca0b180c5053806ec1861289",
+    "ref_match": true
+   },
+   {
+    "path": "download/inner_archive/unpacked/polymath_archive/╨¥╨╛╨▓╤ï╨╣ ╤é╨╡╨║╤ü╤é╨╛╨▓╤ï╨╣ ╨┤╨╛╨║╤â╨╝╨╡╨╜╤é (4).txt",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "inner zip member (MANIFEST ref)",
+    "source_bytes": 16246231,
+    "after_sha256": "cdbbba25153a7ed303b525f93a0faff8e3aaab5684db295fda86bad62400c0de",
+    "ref": "cdbbba25153a7ed303b525f93a0faff8e3aaab5684db295fda86bad62400c0de",
+    "ref_match": true
+   },
+   {
+    "path": "download/zip_extract/WORKFLOW_REPRODUCED.json",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "upload zip member (SHA256SUMS ref)",
+    "source_bytes": 1416,
+    "after_sha256": "9b0c50b9a269cd4bf7dee66e2497a475ee0304816a4de025f1051b493b9a8b46",
+    "ref": "9b0c50b9a269cd4bf7dee66e2497a475ee0304816a4de025f1051b493b9a8b46",
+    "ref_match": true
+   },
+   {
+    "path": "download/zip_extract/verify_ARCHIVARIUS_v3.5.0.py",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "upload zip member (SHA256SUMS ref)",
+    "source_bytes": 1134,
+    "after_sha256": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+    "ref": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+    "ref_match": true
+   },
+   {
+    "path": "download/POLYMATH_BOOTSTRAP_AMENDMENTS_v1.1.md",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git blob 4ac7dce3 (prefix ref d2fe5b2b из worklog)",
+    "source_bytes": 17029,
+    "after_sha256": "d2fe5b2bb7c58f9d439cae09c32556c6143394b5965ba19fa5e19c62351ee8ab",
+    "ref": "d2fe5b2b",
+    "ref_match": true
+   },
+   {
+    "path": "download/v2_extract/ARCHIVARIUS_POLYMATH_v2.py",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git blob 0b0448fa (prefix ref e0db0b5b из worklog)",
+    "source_bytes": 29256,
+    "after_sha256": "e0db0b5b3d07691c6e6b7faac0ab3d531c731a74e5c217aed34a8ade060c5212",
+    "ref": "e0db0b5b",
+    "ref_match": true
+   },
+   {
+    "path": "download/POLYMATH_BOOTSTRAP_v1.1_PROMPT.txt",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git blob dab32e38 (критерий 17056 байт; приёмка чекером после)",
+    "source_bytes": 17056,
+    "after_sha256": "ff318e1f55513973e312c1decdf23f3e72dc6915f9c43c46c04a30aea06d0a22",
+    "ref": "ff318e1f (worklog T8); after=ff318e1f5551",
+    "ref_match": true,
+    "note": "приёмка: check_bootstrap_prompt.py 63/63 PASS, негативный режим exit 1"
+   },
+   {
+    "path": "download/proof_envelope_spec_v0.json",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git commit-path f2a3905:download/proof_envelope_spec_v0.json",
+    "source_bytes": 0,
+    "after_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ref": null,
+    "ref_match": null
+   },
+   {
+    "path": "download/proof_envelope_spec_v0.json",
+    "before_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "before_empty": true,
+    "source": "git blob eb4e3f68 (= f139849/0374bd2, 9833 байт; f2a3905 уже содержал пустой файл)",
+    "source_bytes": 9833,
+    "after_sha256": "3d191b041008a82fe1fb4db90b2451e77af249d0c34d1e99853d86928bd1fb66",
+    "ref": null,
+    "ref_match": null,
+    "note": "критерий: JSON валиден, spec_id=PORTABLE-PROOF-ENVELOPE, v0-DRAFT, SPEC_ONLY, implementation=None — совпадает с worklog T5"
+   }
+  ],
+  "note": "ложная квитанция «portable exit=0» (пустой файл) аннулирована и заменена живой 27/27"
+ },
+ "live_receipts_this_epoch": [
+  {
+   "test": "стабильность двойного хеш-прохода (финальное состояние)",
+   "result": "PASS",
+   "detail": "61 файлов, pass_a == pass_b"
+  },
+  {
+   "test": "bootstrap_acceptance_suite.py --selftest",
+   "result": "PASS 16/16",
+   "exit": 0
+  },
+  {
+   "test": "POLYMATH_BOOTSTRAP_v12_machine.py --selftest (v12.1)",
+   "result": "PASS 18/18",
+   "exit": 0
+  },
+  {
+   "test": "portable_polymath.py --selftest (восстановленный)",
+   "result": "PASS 27/27",
+   "exit": 0
+  },
+  {
+   "test": "v2_extract/ARCHIVARIUS_POLYMATH_v2.py --selftest (восстановленный)",
+   "result": "PASS 45/45",
+   "exit": 0
+  },
+  {
+   "test": "verify_ARCHIVARIUS_v3.5.0.py (независимый верификатор ядра f9973c89…)",
+   "result": "PASS 81/81 + изоляция + неизменность",
+   "exit": 0
+  },
+  {
+   "test": "check_bootstrap_prompt.py (позитив)",
+   "result": "PASS 63/63 маркеров",
+   "exit": 0
+  },
+  {
+   "test": "check_bootstrap_prompt.py --negative (2 planted-мутации)",
+   "result": "ОТКЛОНЕНО (гейт работает)",
+   "exit": 1
+  },
+  {
+   "test": "sha256sum -c zip_extract/SHA256SUMS.txt (после ремонта)",
+   "result": "3/3 OK",
+   "exit": 0
+  },
+  {
+   "test": "CRC-тест обоих zip-контейнеров (testzip)",
+   "result": "PASS",
+   "detail": "upload 84a8a3eb…; inner 66d8fe97…"
+  },
+  {
+   "test": "кросс-чек ссылочных SHA",
+   "result": "14/14 CONFIRMED"
+  }
+ ],
+ "reference_crosscheck": {
+  "download/portable_polymath.py": {
+   "ref": "4619289c19ef30402820defec3f642eb32fadad3ccc025e489d86c5eec44817e",
+   "ref_source": "worklog T2/T4",
+   "actual": "4619289c19ef30402820defec3f642eb32fadad3ccc025e489d86c5eec44817e",
+   "status": "CONFIRMED"
+  },
+  "download/inventory_diff_task20.json": {
+   "ref": "185487ae6b5703ffa8e921d8c6851f3914828f4dca0b180c5053806ec1861289",
+   "ref_source": "worklog T5",
+   "actual": "185487ae6b5703ffa8e921d8c6851f3914828f4dca0b180c5053806ec1861289",
+   "status": "CONFIRMED"
+  },
+  "download/inner_archive/unpacked/polymath_archive/╨¥╨╛╨▓╤ï╨╣ ╤é╨╡╨║╤ü╤é╨╛╨▓╤ï╨╣ ╨┤╨╛╨║╤â╨╝╨╡╨╜╤é (4).txt": {
+   "ref": "cdbbba25153a7ed303b525f93a0faff8e3aaab5684db295fda86bad62400c0de",
+   "ref_source": "MANIFEST.json внутреннего архива",
+   "actual": "cdbbba25153a7ed303b525f93a0faff8e3aaab5684db295fda86bad62400c0de",
+   "status": "CONFIRMED"
+  },
+  "download/zip_extract/WORKFLOW_REPRODUCED.json": {
+   "ref": "9b0c50b9a269cd4bf7dee66e2497a475ee0304816a4de025f1051b493b9a8b46",
+   "ref_source": "zip-член SHA256SUMS",
+   "actual": "9b0c50b9a269cd4bf7dee66e2497a475ee0304816a4de025f1051b493b9a8b46",
+   "status": "CONFIRMED"
+  },
+  "download/zip_extract/verify_ARCHIVARIUS_v3.5.0.py": {
+   "ref": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+   "ref_source": "zip-член SHA256SUMS + MANIFEST",
+   "actual": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+   "status": "CONFIRMED"
+  },
+  "download/verify_ARCHIVARIUS_v3.5.0.py": {
+   "ref": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+   "ref_source": "worklog T5",
+   "actual": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+   "status": "CONFIRMED"
+  },
+  "download/POLYMATH_BOOTSTRAP_AMENDMENTS_v1.1.md": {
+   "ref": "d2fe5b2bb7c5",
+   "ref_source": "worklog T6 (префикс d2fe5b2b)",
+   "actual": "d2fe5b2bb7c58f9d439cae09c32556c6143394b5965ba19fa5e19c62351ee8ab",
+   "status": "CONFIRMED"
+  },
+  "download/v2_extract/ARCHIVARIUS_POLYMATH_v2.py": {
+   "ref": "e0db0b5b3d07",
+   "ref_source": "worklog T5 (префикс e0db0b5b)",
+   "actual": "e0db0b5b3d07691c6e6b7faac0ab3d531c731a74e5c217aed34a8ade060c5212",
+   "status": "CONFIRMED"
+  },
+  "download/POLYMATH_BOOTSTRAP_v1.1_PROMPT.txt": {
+   "ref": "ff318e1f5551",
+   "ref_source": "worklog T8 (префикс ff318e1f) + чекер 63/63",
+   "actual": "ff318e1f55513973e312c1decdf23f3e72dc6915f9c43c46c04a30aea06d0a22",
+   "status": "CONFIRMED"
+  },
+  "download/proof_envelope_spec_v0.json": {
+   "ref": "3d191b041008",
+   "ref_source": "коммиты f139849/0374bd2 (9833 байт) + поля DRAFT/SPEC_ONLY/NONE",
+   "actual": "3d191b041008a82fe1fb4db90b2451e77af249d0c34d1e99853d86928bd1fb66",
+   "status": "CONFIRMED"
+  },
+  "download/ARCHIVARIUS_POLYMATH_v3.5.0.py": {
+   "ref": "f9973c89d687f4db0eb5881a669f8fc3cea5af572b3b2491ef7231a8ad78a8d2",
+   "ref_source": "MANIFEST.json + независимый верификатор",
+   "actual": "f9973c89d687f4db0eb5881a669f8fc3cea5af572b3b2491ef7231a8ad78a8d2",
+   "status": "CONFIRMED"
+  },
+  "download/zip_extract/ARCHIVARIUS_POLYMATH_v3.5.0.py": {
+   "ref": "96018346b1de8a0679918369a0fddcc8e8c4953c382efaf58a8ce99df1a803d2",
+   "ref_source": "zip SHA256SUMS + worklog T4/T5",
+   "actual": "96018346b1de8a0679918369a0fddcc8e8c4953c382efaf58a8ce99df1a803d2",
+   "status": "CONFIRMED"
+  },
+  "download/zip_extract/POLYMATH_CHAT_ALGORITHMS.py": {
+   "ref": "6a2020fb35b68a5991326036ff4505dd5e5d09746ee44d304fa87808a3a31951",
+   "ref_source": "zip SHA256SUMS + MANIFEST",
+   "actual": "6a2020fb35b68a5991326036ff4505dd5e5d09746ee44d304fa87808a3a31951",
+   "status": "CONFIRMED"
+  },
+  "upload/POLYMATH_ARCHIVARIUS_CHAT_ALGORITHMS_2026-09-01.zip": {
+   "ref": "84a8a3eb2b7a4571cc810039501642f872e2d0e84c47bb621b4937ffd8ee0cb0",
+   "ref_source": "worklog T4 (zip CONFIRMED)",
+   "actual": "84a8a3eb2b7a4571cc810039501642f872e2d0e84c47bb621b4937ffd8ee0cb0",
+   "status": "CONFIRMED"
+  }
+ },
+ "contested": {
+  "download/POLYMATH_BOOTSTRAP_v12_machine.py": {
+   "claim": "worklog T11: v12.1 sha256 64183f36…",
+   "actual": "78bfe46657cd80155141ab0e8b1b9e2552b52a5352906ae23cc9d8479e099277",
+   "actual_size_bytes": 24819,
+   "status": "CONTESTED",
+   "facts": [
+    "64183f36… не найден ни среди 61 файла контура, ни среди 279 git-блобов",
+    "в git хранится только v12.0 (b9cf6b34…, 17621 байт)",
+    "текущие байты содержат маркеры v12.1: known_receipt_ids×9, re.ASCII×7, fullmatch×2; delta vs v12.0: +7198 байт (~200 строк)",
+    "живой selftest текущих байтов в этой эпохе: 18/18 PASS, включая негативы V17–V23 по ATX-находкам"
+   ],
+   "conclusion": "функциональность v12.1 CONFIRMED машиной; байтовый эталон T11 не воспроизводим — расхождение зафиксировано, не сглажено"
+  }
+ },
+ "fresh_facts_no_external_ref": {
+  "download/POLYMATH_SYNTHESIS_v1.3.json": "ef5df07edfdb52efc62329187a7d869735336657dd8d8ae4a4f18743f56b9699",
+  "download/lab1_capchain.json": "57fbdbbd83a38784a547fb679553178a600e2137c8353491ca4af5d7ab90fa9a",
+  "download/survey1_verdicts.json": "47ffc4ece41b9ce29c27656387a5121a5d9c74b0138f6dd9ce6793141e653aff"
+ },
+ "manifest": {
+  "download/ARCHIVARIUS_POLYMATH_v3.5.0.py": "f9973c89d687f4db0eb5881a669f8fc3cea5af572b3b2491ef7231a8ad78a8d2",
+  "download/POLYMATH_BOOTSTRAP_AMENDMENTS_v1.1.md": "d2fe5b2bb7c58f9d439cae09c32556c6143394b5965ba19fa5e19c62351ee8ab",
+  "download/POLYMATH_BOOTSTRAP_AMENDMENTS_v1.2.md": "d2a3dbfda1d741c6a9bb587e8f3f8ee793bec6d132372a9a27556cbbc2bf72a5",
+  "download/POLYMATH_BOOTSTRAP_KERNEL.txt": "ec6c24afe6679900bd378dfc23943e7090c28a3e2a706be6e81ee95cc5239b8a",
+  "download/POLYMATH_BOOTSTRAP_v1.1_PROMPT.txt": "ff318e1f55513973e312c1decdf23f3e72dc6915f9c43c46c04a30aea06d0a22",
+  "download/POLYMATH_BOOTSTRAP_v12_machine.py": "78bfe46657cd80155141ab0e8b1b9e2552b52a5352906ae23cc9d8479e099277",
+  "download/POLYMATH_SYNTHESIS_v1.3.json": "ef5df07edfdb52efc62329187a7d869735336657dd8d8ae4a4f18743f56b9699",
+  "download/README.md": "0a345f2f749266ca2d137ab27249a8480f89a9bcb33ad51fe3afb149c81a7acc",
+  "download/archivarius_v2_core.py": "287e1b7cc3a5a5cc020054b3735272ddb3c447948d9e950bf885a169766ee3e6",
+  "download/bootstrap_acceptance_suite.py": "e4b187a8c2c2a6209bd538fe96d420e16809fa817445a11eb959996c2261d63c",
+  "download/bootstrap_review_v1.json": "2bb38f9cf4297503e50785bcdf2e817f10e0cd90a3441c9669fba1caf73f25dc",
+  "download/claims_bootstrap_v1.1.json": "3f0a42321334d81e2c1b77df28dcabc2d334d9bb561c3e43747494d7aabbd2c2",
+  "download/claims_portable_core.json": "26889143d7d1b23b7e421d3c5c5a7441ed691995b8deb1387fe88fe78d7e9bf3",
+  "download/inner_archive/POLYMATH_CHAT_ALGORITHMS_ARCHIVE_2026-09-01.zip": "66d8fe978f4e3a856e65e97568e52746d54fb6a208c66a863825899f3a3da238",
+  "download/inner_archive/unpacked/polymath_archive/ARCHIVARIUS_POLYMATH_v3.5.0.py": "f9973c89d687f4db0eb5881a669f8fc3cea5af572b3b2491ef7231a8ad78a8d2",
+  "download/inner_archive/unpacked/polymath_archive/CHAT_ANALYSIS.md": "7936a4ad34a83554be55b3ba4e777899002e09230bde78e84a680148bd1be324",
+  "download/inner_archive/unpacked/polymath_archive/MANIFEST.json": "2136384f7f801c2e17a34133033f7070decc5584c05a140516c132a36cbc9093",
+  "download/inner_archive/unpacked/polymath_archive/POLYMATH_CHAT_ALGORITHMS.py": "6a2020fb35b68a5991326036ff4505dd5e5d09746ee44d304fa87808a3a31951",
+  "download/inner_archive/unpacked/polymath_archive/README.txt": "8be667d06b38777c466a5f73f4f82de200d88eea9f0fb80b680e15e0eb4b8859",
+  "download/inner_archive/unpacked/polymath_archive/WORKFLOW_RESULT.json": "b58a18fb1a18108fc5f140a911533b34c4eb9adaae6fb0e25e3d5e8395a61e6c",
+  "download/inner_archive/unpacked/polymath_archive/polymath_agent_JOHNSON_v3.5.0.py": "f9973c89d687f4db0eb5881a669f8fc3cea5af572b3b2491ef7231a8ad78a8d2",
+  "download/inner_archive/unpacked/polymath_archive/verify_ARCHIVARIUS_v3.5.0.py": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+  "download/inner_archive/unpacked/polymath_archive/╨¥╨╛╨▓╤ï╨╣ ╤é╨╡╨║╤ü╤é╨╛╨▓╤ï╨╣ ╨┤╨╛╨║╤â╨╝╨╡╨╜╤é (4).txt": "cdbbba25153a7ed303b525f93a0faff8e3aaab5684db295fda86bad62400c0de",
+  "download/inventory_diff_task20.json": "185487ae6b5703ffa8e921d8c6851f3914828f4dca0b180c5053806ec1861289",
+  "download/lab1_capchain.json": "57fbdbbd83a38784a547fb679553178a600e2137c8353491ca4af5d7ab90fa9a",
+  "download/portable_polymath.py": "4619289c19ef30402820defec3f642eb32fadad3ccc025e489d86c5eec44817e",
+  "download/proof_envelope_spec_v0.json": "3d191b041008a82fe1fb4db90b2451e77af249d0c34d1e99853d86928bd1fb66",
+  "download/selftest_log_v2.txt": "09c75896fdff075330fffe8d6b0b44e949a30d241f228d18d0db40b585eabc56",
+  "download/subagent_reports/attack_v12_probes.py": "d36b449d159ee9843b345a2d2257b6a7b4e8b9a3e9a92dae188c307e4aa8093b",
+  "download/subagent_reports/attack_v12_probes_output.txt": "2148f2c8e2fd08e77ceee056650e2e76308b4a2a1ee96c669f409d173230f327",
+  "download/subagent_reports/attack_v12_report.md": "4cfb90c1f3dbc0ae4a3b96a6e6a9c3d12ce1cc389ed0c846bd6c37899aff8b0c",
+  "download/subagent_reports/e_experiments_results.json": "c5d2ebaf27e6204a7c16a1970399ffe634791b166e49eaf187bb3240486f20d0",
+  "download/subagent_reports/e_experiments_summary.md": "7182646961176b63ccc874aaec8abfbc6170aa17e6eb50e751d325d2327fcd4a",
+  "download/subagent_reports/world_practices_2025.md": "fc0a82955d13779959db551c1f682f6f670158d712bfb1f8b9446f7d33923729",
+  "download/survey1_verdicts.json": "47ffc4ece41b9ce29c27656387a5121a5d9c74b0138f6dd9ce6793141e653aff",
+  "download/v2_extract/ARCHIVARIUS_POLYMATH_v2.py": "e0db0b5b3d07691c6e6b7faac0ab3d531c731a74e5c217aed34a8ade060c5212",
+  "download/verify_ARCHIVARIUS_v3.5.0.py": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+  "download/zip_extract/ARCHIVARIUS_POLYMATH_v3.5.0.py": "96018346b1de8a0679918369a0fddcc8e8c4953c382efaf58a8ce99df1a803d2",
+  "download/zip_extract/POLYMATH_CHAT_ALGORITHMS.py": "6a2020fb35b68a5991326036ff4505dd5e5d09746ee44d304fa87808a3a31951",
+  "download/zip_extract/README_ARCHIVE.md": "3e678aa2f4ed25c2f922e73cc1feee76d3487dca9fb4868565c9fe4f6a5c21ff",
+  "download/zip_extract/SHA256SUMS.txt": "c80a025c2c2fd29220158fb988eae5423938f51488a2cf90a7d18d06699199bb",
+  "download/zip_extract/WORKFLOW_REPRODUCED.json": "9b0c50b9a269cd4bf7dee66e2497a475ee0304816a4de025f1051b493b9a8b46",
+  "download/zip_extract/WORKFLOW_RESULT.json": "b58a18fb1a18108fc5f140a911533b34c4eb9adaae6fb0e25e3d5e8395a61e6c",
+  "download/zip_extract/verify_ARCHIVARIUS_v3.5.0.py": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+  "download/АРХИВАРИУС_v1.0_из_корпуса_базлайн.py": "63a87ef26d2888857c4336b7c3b39c23a13583017419d34a291a1b644d4fc441",
+  "download/АРХИВАРИУС_v2.0_ПРОМПТ.txt": "a770fc6596149e5cebf75a16b1e0cd5f35cf510c0abf4ddad1e5d79b7799edf5",
+  "download/ОТЧЁТ_АРХИВАРИУС_v2.0_стратегия_алгоритм_реализация.pdf": "902fa77c5df8f7f67a5a407c01d150d088203c2c6253025374d67ab921eda5d1",
+  "download/ОТЧЁТ_обложка_источник.html": "46621028be1328fde0de1b79367562664277295422c94ce25adae68f8775692d",
+  "upload/ALL.tar": "8b756875be0333faf42486bc8e77383fda8a1691a374ddc532dce4a58e23027a",
+  "upload/ARCHIVARIUS_POLYMATH_v3.5.0(1).py": "f9973c89d687f4db0eb5881a669f8fc3cea5af572b3b2491ef7231a8ad78a8d2",
+  "upload/CHAT_ANALYSIS.md": "7936a4ad34a83554be55b3ba4e777899002e09230bde78e84a680148bd1be324",
+  "upload/POLYMATH_ARCHIVARIUS_CHAT_ALGORITHMS_2026-09-01.zip": "84a8a3eb2b7a4571cc810039501642f872e2d0e84c47bb621b4937ffd8ee0cb0",
+  "upload/POLYMATH_CHAT_ALGORITHMS.py": "6a2020fb35b68a5991326036ff4505dd5e5d09746ee44d304fa87808a3a31951",
+  "upload/WORKFLOW_RESULT.json": "b58a18fb1a18108fc5f140a911533b34c4eb9adaae6fb0e25e3d5e8395a61e6c",
+  "upload/verify_ARCHIVARIUS_v3.5.0(1).py": "72c2ab5efeded4819d3886fd71fed9c6d233763e4a7f12047d7ac816600c3fd7",
+  "upload/ПОЕБЕНЬ.txt": "e8a09790f2f6a07b0f6a48b43e30456804523d5036828b63a99016e43b583415",
+  "upload/СУММАРНЫЕ ОТВЕТЫ НА ГАЛЛОГРАММУ.txt": "972a57a6a0e2bdae813fb8a886b7a506dd79859cefc91d710864a1bfceb329b3",
+  "upload/СУММАРНЫЕ ОТВЕТЫ НА ГАЛЛОГРАММУ_1.txt": "1f2c0df9ee59df7de2e8a73e7184a79bf8a2bdf0dfffbfb2f5751365604614d7",
+  "upload/СУММАРНЫЕ ОТВЕТЫ НА ГАЛЛОГРАММУ_2.txt": "75e48a5f8f8c76cc13a4bd4eb9fb01eec406100a49731189ac5d5c0ff16c2537",
+  "upload/СУММАРНЫЕ ОТВЕТЫ НА ГАЛЛОГРАММУ_3.txt": "f05ed08049335a80e01e32733ac3d8083eeaf91adcb2a1f11f50562d2f60ba1f",
+  "worklog.md": "48969f3417f76c4a0e4cce3bb02b5d3c983460a2c95374a551b656edee3e0bbd"
+ }
+}
