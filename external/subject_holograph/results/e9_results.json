@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "round": 5,
+    "topic": "E9: independent convergence, underdetermination, second-order projection",
+    "claim_typing": "VERIFIED* = within this formal stand only"
+  },
+  "E9A_same_stream_confluence": {
+    "A1_same_stream_two_subjects": {
+      "stepwise_state_equal": true,
+      "n_steps": 6,
+      "style_I_A_eq_I_B": true,
+      "style_complete": true,
+      "whole_W_A_eq_W_B": true,
+      "whole_eq_truth": true
+    },
+    "A2_confluence": {
+      "orders_tested": 20,
+      "distinct_final_states": 1,
+      "confluent": true
+    },
+    "true_style": [
+      0,
+      1,
+      1,
+      1
+    ]
+  },
+  "E9B_different_streams_one_world": {
+    "style_I_A_eq_I_B": true,
+    "both_complete": true,
+    "W_A_eq_W_B_eq_truth": true,
+    "observed_A": 13,
+    "observed_B": 7,
+    "apertures_A": 4,
+    "apertures_B": 2,
+    "position_overlap": 4,
+    "witness_edges_A": {
+      "0": [
+        0,
+        4,
+        8
+      ],
+      "1": [
+        1,
+        5,
+        9
+      ],
+      "2": [
+        2,
+        6,
+        10
+      ],
+      "3": [
+        3,
+        7,
+        11
+      ]
+    },
+    "witness_edges_B": {
+      "0": [
+        0,
+        12
+      ],
+      "1": [
+        13
+      ],
+      "2": [
+        14
+      ],
+      "3": [
+        11,
+        15
+      ]
+    },
+    "B_unique_witness_edges": {
+      "0": [
+        12
+      ],
+      "1": [
+        13
+      ],
+      "2": [
+        14
+      ],
+      "3": [
+        15
+      ]
+    },
+    "every_residue_has_B_unique_witness": true
+  },
+  "E9C_shared_part_divergent_wholes": {
+    "styles": {
+      "A": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "B": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "differing_positions": [
+      3,
+      7,
+      11,
+      15
+    ],
+    "epistemic_states_equal_after_PS": true,
+    "class_given_P_shared": {
+      "size": 4,
+      "all_consistent": true,
+      "all_distinct": true
+    },
+    "continuation_statuses": {
+      "A": [
+        "DISCONNECTED",
+        "GLUED",
+        "GLUED"
+      ],
+      "B": [
+        "DISCONNECTED",
+        "GLUED",
+        "GLUED"
+      ]
+    },
+    "no_contradiction_inside_either_stream": true,
+    "class_collapse": [
+      {
+        "after": "PS",
+        "class_size": 4
+      },
+      {
+        "after": "cont@2",
+        "class_size": 2
+      },
+      {
+        "after": "cont@3",
+        "class_size": 1
+      }
+    ],
+    "style_A_neq_B": true,
+    "W_A_eq_truth": true,
+    "W_B_eq_truth": true,
+    "acc_W_A_vs_worldB": {
+      "coverage": 1.0,
+      "accuracy": 0.75
+    },
+    "mutual_refutation_on_contact": true,
+    "cross_reason": "value_clash"
+  },
+  "E9D_second_order_projection": {
+    "D1_unison_via_compressed_whole": {
+      "style_claim_matches_B": true,
+      "value_claim_matches_B": true,
+      "unison_of_wholes": true,
+      "units_sent": 6,
+      "units_naive_whole": 16
+    },
+    "D2_fork_refusal": {
+      "style_claim_matches_B2": false,
+      "verdict": "REFUSE",
+      "B2_state_unchanged": true,
+      "B2_fidelity_vs_own_world": {
+        "coverage": 1.0,
+        "accuracy": 1.0
+      }
+    },
+    "D3_lying_report": {
+      "B3_class_size_before": 2,
+      "B3_stream_statuses": [
+        "DISCONNECTED",
+        "GLUED"
+      ],
+      "import_disciplines": {
+        "total_import": {
+          "fidelity": {
+            "coverage": 1.0,
+            "accuracy": 0.5
+          },
+          "contact_outcome": "CONTRADICTION",
+          "contact_reason": "style_clash",
+          "evicted_for_repair": 4,
+          "post_surgery_fidelity": {
+            "coverage": 1.0,
+            "accuracy": 1.0
+          }
+        },
+        "selective_import_free_residues_only": {
+          "fidelity": {
+            "coverage": 1.0,
+            "accuracy": 0.5
+          },
+          "contact_outcome": "CONTRADICTION",
+          "evicted_for_repair": 1,
+          "post_surgery_fidelity": {
+            "coverage": 1.0,
+            "accuracy": 1.0
+          }
+        },
+        "disciplined_no_import": {
+          "fidelity": {
+            "coverage": 1.0,
+            "accuracy": 1.0
+          },
+          "contact_outcome": "GLUED",
+          "evicted_for_repair": 0,
+          "lie_detected_after_contact": true
+        }
+      },
+      "blast_radius_gradient": "total=4 residues, selective=1, disciplined=0",
+      "stream_replay_cannot_see_law_poison": true
+    }
+  }
+}

@@ -1,0 +1,544 @@
+{
+  "meta": {
+    "round": 4,
+    "topic": "holographic subject: projection-whole construction, minimal properties of belonging",
+    "determinism": "seeded RNG; see scripts"
+  },
+  "E1_reconstruction_and_inference": {
+    "true_style": [
+      1,
+      0,
+      1,
+      0
+    ],
+    "trajectory_with_law": [
+      {
+        "after": "A1",
+        "status": "DISCONNECTED",
+        "observed": 0,
+        "reconstruction": {
+          "coverage": 0.0,
+          "accuracy": null
+        },
+        "style_complete": false,
+        "full_inference": false
+      },
+      {
+        "after": "A2",
+        "status": "GLUED",
+        "observed": 7,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        },
+        "style_complete": true,
+        "full_inference": true
+      },
+      {
+        "after": "A3",
+        "status": "GLUED",
+        "observed": 10,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        },
+        "style_complete": true,
+        "full_inference": true
+      },
+      {
+        "after": "A4",
+        "status": "GLUED",
+        "observed": 13,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        },
+        "style_complete": true,
+        "full_inference": true
+      },
+      {
+        "after": "A5",
+        "status": "GLUED",
+        "observed": 16,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        },
+        "style_complete": true,
+        "full_inference": true
+      },
+      {
+        "after": "A6",
+        "status": "GLUED",
+        "observed": 16,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        },
+        "style_complete": true,
+        "full_inference": true
+      }
+    ],
+    "trajectory_ablation_no_law": [
+      {
+        "after": "A1",
+        "observed": 0,
+        "reconstruction": {
+          "coverage": 0.0,
+          "accuracy": null
+        }
+      },
+      {
+        "after": "A2",
+        "observed": 7,
+        "reconstruction": {
+          "coverage": 0.4375,
+          "accuracy": 1.0
+        }
+      },
+      {
+        "after": "A3",
+        "observed": 10,
+        "reconstruction": {
+          "coverage": 0.625,
+          "accuracy": 1.0
+        }
+      },
+      {
+        "after": "A4",
+        "observed": 13,
+        "reconstruction": {
+          "coverage": 0.8125,
+          "accuracy": 1.0
+        }
+      },
+      {
+        "after": "A5",
+        "observed": 16,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        }
+      },
+      {
+        "after": "A6",
+        "observed": 16,
+        "reconstruction": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        }
+      }
+    ],
+    "relations_carried_per_projection": 3,
+    "conclusion": "2 projections (7/16 positions observed) + learned law force the whole at 16/16; without the law the whole appears only after full positional coverage"
+  },
+  "E2_pairwise_vs_global": {
+    "law": "odd parity over ring of 4",
+    "local_extendability": {
+      "P01": true,
+      "P12": true,
+      "P23": true,
+      "P30": true
+    },
+    "pairwise_agreement": true,
+    "global_gluing_of_full_set": false,
+    "removal_of_one_view": [
+      {
+        "removed": "P01",
+        "whole_exists": false
+      },
+      {
+        "removed": "P12",
+        "whole_exists": false
+      },
+      {
+        "removed": "P23",
+        "whole_exists": false
+      },
+      {
+        "removed": "P30",
+        "whole_exists": false
+      }
+    ],
+    "coordinated_position_flip": [
+      {
+        "position": 0,
+        "whole_exists": true,
+        "pairwise_agreement_kept": true
+      },
+      {
+        "position": 1,
+        "whole_exists": true,
+        "pairwise_agreement_kept": true
+      },
+      {
+        "position": 2,
+        "whole_exists": true,
+        "pairwise_agreement_kept": true
+      },
+      {
+        "position": 3,
+        "whole_exists": true,
+        "pairwise_agreement_kept": true
+      }
+    ],
+    "conclusion": "every part locally fine, ALL pairs agree, yet the set has NO whole: no part is guilty; removing any one part does NOT repair; the minimal repair is a COORDINATED one-position change across parts — the contradiction belongs to the set alone"
+  },
+  "E3_defense_phases": {
+    "true_style": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "foreign_style": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "phase0_unjudgeable": {
+      "status": "DISCONNECTED",
+      "reason": "no_overlap_no_law_contact"
+    },
+    "phase1_partial_law": {
+      "status": "CONTRADICTION",
+      "reason": "clash_with_parked",
+      "blame": [
+        "F1",
+        "R1"
+      ]
+    },
+    "phase2_full_law": {
+      "overlapping_foreign": {
+        "status": "CONTRADICTION",
+        "reason": "value_clash"
+      },
+      "probes": {
+        "foreign2@14_no_contact": {
+          "status": "CONTRADICTION",
+          "reason": "law_mismatch",
+          "truth": 0,
+          "foreign": 1
+        },
+        "own_unseen@14": {
+          "status": "GLUED",
+          "reason": ""
+        },
+        "foreign2@13_seam": {
+          "status": "CONTRADICTION",
+          "reason": "style_clash",
+          "truth": 1,
+          "foreign": 0
+        },
+        "foreign@15_seam": {
+          "status": "CONTRADICTION",
+          "reason": "style_clash",
+          "truth": 1,
+          "foreign": 0
+        },
+        "own_unseen@15": {
+          "status": "GLUED",
+          "reason": ""
+        }
+      }
+    },
+    "conclusion": "defense grows with learning: unjudgeable -> reject at contact -> reject WITHOUT contact; the whole recognizes its own unseen parts and refuses foreign ones by law alone"
+  },
+  "E4_forgery": {
+    "a_law_complete_forgery": {
+      "integration": "GLUED",
+      "forged_values_equal_truth": true
+    },
+    "b_early_poisoning": {
+      "timeline": [
+        {
+          "pid": "F0",
+          "status": "DISCONNECTED",
+          "reason": "no_overlap_no_law_contact"
+        },
+        {
+          "pid": "R1",
+          "status": "DISCONNECTED",
+          "reason": "no_overlap_no_law_contact"
+        },
+        {
+          "pid": "R2",
+          "status": "DISCONNECTED",
+          "reason": "no_overlap_no_law_contact"
+        },
+        {
+          "pid": "R3",
+          "status": "GLUED",
+          "reason": ""
+        },
+        {
+          "pid": "R4",
+          "status": "CONTRADICTION",
+          "reason": "value_clash"
+        }
+      ],
+      "first_contradiction": {
+        "at": "R4",
+        "reason": "value_clash"
+      },
+      "poisoned_reconstruction": {
+        "coverage": 1.0,
+        "accuracy": 0.5
+      },
+      "minimal_repair_candidates": [
+        [
+          "F0"
+        ]
+      ],
+      "post_repair_fidelity": {
+        "coverage": 1.0,
+        "accuracy": 1.0
+      }
+    },
+    "conclusion": "under a complete law forgery degenerates into truth; before completion the forged anchor takes the throne and reality bounces off it; minimal blame (unique here) evicts the forgery and restores the whole"
+  },
+  "E5_fork": {
+    "true_styles": {
+      "A": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "B": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "single_assembly_outcomes": [
+      {
+        "pid": "X1",
+        "status": "DISCONNECTED",
+        "reason": "no_overlap_no_law_contact"
+      },
+      {
+        "pid": "X2",
+        "status": "CONTRADICTION",
+        "reason": "clash_with_parked"
+      },
+      {
+        "pid": "X3",
+        "status": "GLUED",
+        "reason": ""
+      },
+      {
+        "pid": "X4",
+        "status": "CONTRADICTION",
+        "reason": "value_clash"
+      },
+      {
+        "pid": "X5",
+        "status": "GLUED",
+        "reason": ""
+      },
+      {
+        "pid": "X6",
+        "status": "CONTRADICTION",
+        "reason": "value_clash"
+      }
+    ],
+    "clusters": [
+      {
+        "members": [
+          "X1",
+          "X3",
+          "X5"
+        ],
+        "all_glued": true,
+        "style_learned": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "fid_vs_worldA": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        },
+        "fid_vs_worldB": {
+          "coverage": 1.0,
+          "accuracy": 0.5
+        }
+      },
+      {
+        "members": [
+          "X2",
+          "X4",
+          "X6"
+        ],
+        "all_glued": true,
+        "style_learned": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fid_vs_worldA": {
+          "coverage": 1.0,
+          "accuracy": 0.5
+        },
+        "fid_vs_worldB": {
+          "coverage": 1.0,
+          "accuracy": 1.0
+        }
+      }
+    ],
+    "cluster_purity_vs_true_origin": true,
+    "conclusion": "one assembly cannot hold two wholes: foreign parts bounce; style votes separate the stream into cluster-relative belonging — the subject now holds two wholes as hypotheses"
+  },
+  "E6_amnesia": {
+    "style_before_wipe": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "style_after_wipe": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "style_match": true,
+    "reconstruction_match": true,
+    "observed_after_wipe": 7,
+    "fidelity_after_wipe": {
+      "coverage": 1.0,
+      "accuracy": 1.0
+    },
+    "conclusion": "belonging and whole-identity survive TOTAL loss of history: the whole is re-identified from present projections + law — the holographic superpower M2' does not have"
+  },
+  "E7_separation_from_M2prime": {
+    "case_A_pedigreed_nonsense": {
+      "m2prime_verdict": "ACCEPT",
+      "holographic_verdict": "CONTRADICTION",
+      "holographic_reason": "value_clash",
+      "after_re_discrimination": "GLUED"
+    },
+    "case_B_coherent_forgery": {
+      "forgery_integration": "GLUED",
+      "m2prime_verdict": "REJECT",
+      "holographic_at_contact": "CONTRADICTION",
+      "holographic_reason": "value_clash",
+      "minimal_repair_candidates": [
+        [
+          "FORGED"
+        ]
+      ],
+      "unique_after_next_contact": true,
+      "post_repair_fidelity": {
+        "coverage": 1.0,
+        "accuracy": 1.0
+      }
+    },
+    "conclusion": "origin rejects a forgery a priori but cannot see its own glitch; coherence sees the glitch, accepts the forgery until reality tests it, and localizes blame by further contact"
+  },
+  "E7c_echo_chamber": {
+    "true_style": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "cycles": 12,
+    "drift_probability": 0.4,
+    "world_contact_every": 4,
+    "trusting_fidelity_curve": [
+      1.0,
+      1.0,
+      0.5,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      0.5
+    ],
+    "provenance_fidelity_curve": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "trusting_min_fidelity": 0.5,
+    "provenance_min_fidelity": 1.0,
+    "self_origin_style_overwrites_accepted_by_trusting": 3,
+    "conclusion": "coherence without provenance drifts from reality under self-referential input; provenance is needed not for belonging but for epistemic hygiene (world vs self)"
+  },
+  "E7c_pure_echo": {
+    "true_style": [
+      1,
+      1,
+      0,
+      0
+    ],
+    "cycles": 12,
+    "drift_probability": 0.4,
+    "world_contact_every": 1000000000,
+    "trusting_fidelity_curve": [
+      1.0,
+      1.0,
+      0.5,
+      1.0,
+      1.0,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.75,
+      0.75,
+      0.75
+    ],
+    "provenance_fidelity_curve": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "trusting_min_fidelity": 0.5,
+    "provenance_min_fidelity": 1.0,
+    "self_origin_style_overwrites_accepted_by_trusting": 4,
+    "conclusion": "coherence without provenance drifts from reality under self-referential input; provenance is needed not for belonging but for epistemic hygiene (world vs self)"
+  },
+  "E8_hermeneutic_loop": {
+    "trials": 50,
+    "informed_cycles": 3.0,
+    "random_cycles": 4.2,
+    "informed_min_max": [
+      3,
+      3
+    ],
+    "random_min_max": [
+      2,
+      8
+    ],
+    "conclusion": "the current whole guides where to look next; parts refine the whole; the loop part->whole->part converges faster than undirected reading"
+  }
+}

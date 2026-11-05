@@ -1,0 +1,626 @@
+{
+  "meta": {
+    "round": 6,
+    "topic": "E10: surgical amputation — functional necessity of CAUSAL/COHERENCE/CONTACT; TAG vs VERIFICATION; METADATA control; COHERENCE sub-mechanisms",
+    "claim_typing": "VERIFIED* = within this formal stand only"
+  },
+  "S0_sanity": {
+    "clean6": {
+      "statuses_equal": true,
+      "state_equal": true,
+      "core": [
+        "DISCONNECTED",
+        "GLUED",
+        "GLUED",
+        "GLUED",
+        "GLUED",
+        "GLUED"
+      ],
+      "variant": [
+        "DISCONNECTED",
+        "GLUED",
+        "GLUED",
+        "GLUED",
+        "GLUED",
+        "GLUED"
+      ]
+    },
+    "with_forgery": {
+      "statuses_equal": true,
+      "state_equal": true,
+      "core": [
+        "DISCONNECTED",
+        "GLUED",
+        "CONTRADICTION",
+        "CONTRADICTION"
+      ],
+      "variant": [
+        "DISCONNECTED",
+        "GLUED",
+        "CONTRADICTION",
+        "CONTRADICTION"
+      ]
+    },
+    "pass": true
+  },
+  "E10A_causal_amputation": {
+    "chimera": {
+      "r_star": 2,
+      "start": 0,
+      "width": 4,
+      "poisoned_residues": [
+        2
+      ],
+      "search_tries": 1
+    },
+    "pair_real_vs_forgery": {
+      "with_causal": {
+        "real": {
+          "pid": "REAL9x",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "forgery": {
+          "pid": "FORGED",
+          "status": "REFUSED_CAUSAL",
+          "reason": "no_valid_proof",
+          "law_write": false,
+          "contact_gate_pass": null,
+          "state_unchanged": true
+        }
+      },
+      "without_causal": {
+        "real": {
+          "pid": "REAL9x",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "forgery": {
+          "pid": "FORGED",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        }
+      },
+      "discrimination_with": true,
+      "discrimination_without": false
+    },
+    "blast_radius": {
+      "with_causal_reality_exposure": {
+        "pid": "EXP2",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "without_causal_reality_exposure": {
+        "pid": "EXP2",
+        "status": "CONTRADICTION",
+        "reason": "value_clash",
+        "law_write": false,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "amputated_reality_bounces_off": true,
+      "fidelity_with": {
+        "coverage": 0.375,
+        "accuracy": 1.0
+      },
+      "fidelity_without": {
+        "coverage": 0.375,
+        "accuracy": 0.8333
+      }
+    },
+    "pair_real_vs_foreign": {
+      "with_causal": {
+        "real": {
+          "pid": "REAL9b",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "foreign": {
+          "pid": "FOREIGN",
+          "status": "REFUSED_CAUSAL",
+          "reason": "no_valid_proof",
+          "law_write": false,
+          "contact_gate_pass": null,
+          "state_unchanged": true
+        }
+      },
+      "without_causal": {
+        "real": {
+          "pid": "REAL9b",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "foreign": {
+          "pid": "FOREIGN",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        }
+      },
+      "discrimination_with": true,
+      "discrimination_without": false
+    },
+    "chain_forgery_cost": {
+      "keyed_chain": {
+        "attempts": 20000,
+        "successes": 0
+      },
+      "unkeyed_chain": {
+        "attempts": 1,
+        "successes": 1,
+        "check": "consistency_only_public_tip"
+      },
+      "note": "unkeyed chain = integrity only = a tag"
+    },
+    "necessity": true,
+    "status": "CAUSAL_NECESSITY VERIFIED*"
+  },
+  "E10B_coherence_amputation": {
+    "pair_true_vs_glitch": {
+      "with_coherence": {
+        "true": {
+          "pid": "TRUE12",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "glitch": {
+          "pid": "GLITCH",
+          "status": "CONTRADICTION",
+          "reason": "value_clash",
+          "law_write": false,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "glitch_reason": "value_clash"
+      },
+      "without_coherence": {
+        "true": {
+          "pid": "TRUE12",
+          "status": "GLUED",
+          "reason": "unchecked",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "glitch": {
+          "pid": "GLITCH",
+          "status": "GLUED",
+          "reason": "unchecked",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        }
+      },
+      "discrimination_with": true,
+      "discrimination_without": false
+    },
+    "consequences": {
+      "fidelity_with": {
+        "coverage": 1.0,
+        "accuracy": 1.0
+      },
+      "fidelity_without": {
+        "coverage": 1.0,
+        "accuracy": 0.75
+      },
+      "glitch_committed_by_amputated": true,
+      "law_poisoned_without": true,
+      "amputated_ever_contradicts": false
+    },
+    "necessity": true,
+    "status": "COHERENCE_NECESSITY VERIFIED*"
+  },
+  "E10C_contact_amputation": {
+    "with_contact": {
+      "world_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "self_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": false,
+        "contact_gate_pass": false,
+        "state_unchanged": false
+      },
+      "discriminated": true
+    },
+    "without_contact_gate": {
+      "world_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "self_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "discriminated": false
+    },
+    "discrimination_with": true,
+    "discrimination_without": false
+  },
+  "E10C_control_none": {
+    "with_contact": {
+      "world_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "self_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "discriminated": false
+    },
+    "without_contact_gate": {
+      "world_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "self_run": {
+        "pid": "CONT",
+        "status": "GLUED",
+        "reason": "",
+        "law_write": true,
+        "contact_gate_pass": true,
+        "state_unchanged": false
+      },
+      "discriminated": false
+    },
+    "discrimination_with": false,
+    "discrimination_without": false
+  },
+  "E10_3_tag_vs_verify": {
+    "attack1_self_generated_claiming_world": {
+      "A_tag": {
+        "decision": {
+          "pid": "FORGED",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "law_poisoned": true,
+        "poisoned_residues": [
+          2
+        ],
+        "law_hamming_if_complete": null,
+        "law_bits": {
+          "0": 1,
+          "1": 0,
+          "2": 1
+        },
+        "known_contamination": {
+          "coverage": 0.25,
+          "accuracy": 0.75
+        },
+        "post_reality_status": "CONTRADICTION",
+        "post_reality_reason": "value_clash"
+      },
+      "B_verify": {
+        "decision": {
+          "pid": "FORGED",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": false,
+          "state_unchanged": false
+        },
+        "law_poisoned": false,
+        "poisoned_residues": [],
+        "law_hamming_if_complete": null,
+        "law_bits": {
+          "0": 1,
+          "1": 0
+        },
+        "known_contamination": {
+          "coverage": 0.25,
+          "accuracy": 0.75
+        },
+        "post_reality_status": "CONTRADICTION",
+        "post_reality_reason": "value_clash"
+      },
+      "C_none": {
+        "decision": {
+          "pid": "FORGED",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "law_poisoned": true,
+        "poisoned_residues": [
+          2
+        ],
+        "law_hamming_if_complete": null,
+        "law_bits": {
+          "0": 1,
+          "1": 0,
+          "2": 1
+        },
+        "known_contamination": {
+          "coverage": 0.25,
+          "accuracy": 0.75
+        },
+        "post_reality_status": "CONTRADICTION",
+        "post_reality_reason": "value_clash"
+      },
+      "B_verify_attacker_keypair": {
+        "decision": {
+          "pid": "FORGED",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": false,
+          "contact_gate_pass": false,
+          "state_unchanged": false
+        },
+        "accepted": false
+      }
+    },
+    "lamport_forgery_cost": {
+      "attempts": 20000,
+      "successes": 0
+    },
+    "pair_discrimination": {
+      "tag": {
+        "honest_pair_discriminated": true,
+        "control_discriminated": false,
+        "forged_claim_pair_discriminated": false
+      },
+      "verify": {
+        "honest_pair_discriminated": true,
+        "control_discriminated": false,
+        "forged_claim_pair_discriminated": true
+      },
+      "none": {
+        "honest_pair_discriminated": false,
+        "control_discriminated": false
+      },
+      "metadata": {
+        "honest_pair_discriminated": false,
+        "control_discriminated": false
+      }
+    },
+    "echo_battery": {
+      "none/honest": {
+        "law_poisoned_fraction": 0.36,
+        "values_contaminated_fraction": 0.42,
+        "mean_final_fidelity": 0.8006,
+        "min_final_fidelity": 0.0,
+        "mean_world_rejected": 1.64,
+        "self_law_writes_any": true,
+        "metadata_world_blocked_mean": null
+      },
+      "tag/honest": {
+        "law_poisoned_fraction": 0.0,
+        "values_contaminated_fraction": 0.44,
+        "mean_final_fidelity": 0.8311,
+        "min_final_fidelity": 0.3333,
+        "mean_world_rejected": 1.66,
+        "self_law_writes_any": false,
+        "metadata_world_blocked_mean": null
+      },
+      "tag/forged": {
+        "law_poisoned_fraction": 0.36,
+        "values_contaminated_fraction": 0.42,
+        "mean_final_fidelity": 0.8006,
+        "min_final_fidelity": 0.0,
+        "mean_world_rejected": 1.64,
+        "self_law_writes_any": true,
+        "metadata_world_blocked_mean": null
+      },
+      "verify/forged": {
+        "law_poisoned_fraction": 0.0,
+        "values_contaminated_fraction": 0.44,
+        "mean_final_fidelity": 0.8311,
+        "min_final_fidelity": 0.3333,
+        "mean_world_rejected": 1.66,
+        "self_law_writes_any": false,
+        "metadata_world_blocked_mean": null
+      },
+      "metadata/honest": {
+        "law_poisoned_fraction": 0.2,
+        "values_contaminated_fraction": 0.44,
+        "mean_final_fidelity": 0.8446,
+        "min_final_fidelity": 0.25,
+        "mean_world_rejected": 1.46,
+        "self_law_writes_any": true,
+        "metadata_world_blocked_mean": 3.08
+      }
+    }
+  },
+  "E10F_metadata_control": {
+    "echo_50_trials": {
+      "metadata_axis": {
+        "law_poisoned_fraction": 0.12,
+        "values_contaminated_fraction": 0.42,
+        "mean_final_fidelity": 0.8582,
+        "world_evidence_blocked_mean": 3.02,
+        "self_writes_leaked_any": true
+      },
+      "tag_honest_baseline": {
+        "law_poisoned_fraction": 0.0,
+        "values_contaminated_fraction": 0.32,
+        "mean_final_fidelity": 0.899,
+        "world_evidence_blocked_mean": 0.0,
+        "self_writes_leaked_any": false
+      }
+    },
+    "pair_identical_content": {
+      "with_contact": {
+        "world_run": {
+          "pid": "CONT",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "self_run": {
+          "pid": "CONT",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "discriminated": false
+      },
+      "without_contact_gate": {
+        "world_run": {
+          "pid": "CONT",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "self_run": {
+          "pid": "CONT",
+          "status": "GLUED",
+          "reason": "",
+          "law_write": true,
+          "contact_gate_pass": true,
+          "state_unchanged": false
+        },
+        "discriminated": false
+      },
+      "discrimination_with": false,
+      "discrimination_without": false
+    },
+    "verdict": "METADATA does not substitute CONTACT (law-level separation)",
+    "status": "CONTACT_IS_NOT_JUST_METADATA VERIFIED*"
+  },
+  "E10_2_coherence_mechanisms": {
+    "STYLE_pair": {
+      "needs": "GRAMMAR (style checks); position 5 unknown so no value clash",
+      "results": {
+        "full": {
+          "consistent": "GLUED",
+          "violating": "CONTRADICTION",
+          "violating_reason": "style_clash"
+        },
+        "t_grammar": {
+          "consistent": "GLUED",
+          "violating": "GLUED",
+          "violating_reason": ""
+        },
+        "t_assembly": {
+          "consistent": "GLUED",
+          "violating": "CONTRADICTION",
+          "violating_reason": "style_clash"
+        }
+      },
+      "discrimination_full": true,
+      "collapsed_by_t_grammar": true,
+      "intact_in_t_assembly": true
+    },
+    "REACH_pair": {
+      "needs": "law-extension (ASSEMBLY reach; requires GRAMMAR too)",
+      "results": {
+        "full": {
+          "law_consistent_unseen": "GLUED",
+          "law_violating_unseen": "CONTRADICTION"
+        },
+        "t_grammar": {
+          "law_consistent_unseen": "DISCONNECTED",
+          "law_violating_unseen": "DISCONNECTED"
+        },
+        "t_assembly": {
+          "law_consistent_unseen": "DISCONNECTED",
+          "law_violating_unseen": "DISCONNECTED"
+        }
+      },
+      "discrimination_full": true,
+      "collapsed_by_t_grammar": true,
+      "collapsed_by_t_assembly": true
+    },
+    "capability_sparse_4_apertures": {
+      "full_reconstruct_coverage": 1.0,
+      "t_grammar_reconstruct_coverage": 0.8125,
+      "t_grammar_style_bits_learned": 0,
+      "t_assembly_acceptance_coverage": 13,
+      "t_assembly_inference_coverage": 1.0,
+      "note": "t_grammar loses inference (no law); t_assembly loses ACCEPTANCE reach but keeps inference (law still learned)"
+    },
+    "CLOSURE_pair": {
+      "law": "odd parity over ring of 4 (E2, round 4)",
+      "needs": "INTEGRATION (global closure check)",
+      "design_note": "ring-law (edge-local) contradictions reduce to per-residue checks; parity-law contradictions are irreducibly set-level — INTEGRATION bears exactly the non-edge-local discriminations",
+      "results": {
+        "full": {
+          "clean_set": "GLUED",
+          "paradox_set": "CONTRADICTION",
+          "paradox_reason": "parity_closure"
+        },
+        "trivial": {
+          "clean_set": "GLUED",
+          "paradox_set": "GLUED"
+        }
+      },
+      "discrimination_full": true,
+      "collapsed_by_trivialization": true,
+      "consequence": {
+        "paradox_assignment_accepted": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0
+        },
+        "violates_law": true,
+        "no_whole_exists_for_paradox_set": true
+      }
+    },
+    "all_load_bearing": true,
+    "status": "COHERENCE_MECHANISMS VERIFIED* (each carries a distinct discrimination)"
+  }
+}

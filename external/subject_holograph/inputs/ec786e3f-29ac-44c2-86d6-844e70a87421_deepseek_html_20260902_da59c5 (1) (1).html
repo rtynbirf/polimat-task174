@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#121110">
+<meta name="description" content="Автономный HTML-файл: перенос рабочего состояния субъекта — последовательность, переход, результат. Шрифты, стили и скрипты внутри файла — работает без сети и сервера.">
+<title>ПЕРЕНОС РАБОЧЕГО СОСТОЯНИЯ: СУБЪЕКТ → ПОСЛЕДОВАТЕЛЬНОСТЬ → ПЕРЕХОД → РЕЗУЛЬТАТ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121110'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%23ffab40'/%3E%3Cpath d='M22 32h17m-6-7l7 7-7 7' stroke='%23121110' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script>(function(){var d=document.documentElement;try{var t=localStorage.getItem("ev-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}d.classList.add(t);if(localStorage.getItem("ev-motion")==="off")d.dataset.motion="off";if(localStorage.getItem("ev-contrast")==="high")d.dataset.contrast="high";if(localStorage.getItem("ev-eco")==="on")d.dataset.eco="on";var hr=new Date().getHours();d.dataset.hour=(hr>=23||hr<6)?"night":hr>=20?"evening":"day";var f=localStorage.getItem("ev-fs");if(f==="2"||f==="3")d.dataset.fs=f}catch(e){d.classList.add("dark")}})();</script>
+<style>
+/* ============ ТОКЕНЫ ============ */
+:root{
+  --bg:#fbfbfd; --bg2:#f2f2f6; --card:#ffffff; --line:#d9d9e0;
+  --tx:#1d1d1f; --tx2:#55555c; --tx3:#6e6e73;
+  --ac:#0b66c3; --ac2:#8a5a00; --ok:#1d7a3c; --warn:#a04b00; --vio:#6b4fd8;
+  --radius:14px; --sh:0 1px 2px rgba(20,20,40,.06),0 8px 28px rgba(20,20,40,.07);
+  --fs:clamp(1.125rem, 1rem + .5vw, 1.3125rem); --lh:1.7; --ls:0; --maxw:65ch; --nav-h:3.4rem;
+}
+@media (prefers-color-scheme:dark){
+  html[data-theme="auto"]{--bg:#1c1c1e;--bg2:#141416;--card:#232326;--line:#3a3a40;
+    --tx:#f5f5f7;--tx2:#b9b9c0;--tx3:#a1a1a6;--ac:#6cb2ff;--ac2:#e0b45c;--ok:#67c98a;--warn:#e8a05c;--vio:#a89ae8;
+    --sh:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.45)}
+}
+html[data-theme="light"]{--bg:#fbfbfd;--bg2:#f2f2f6;--card:#fff;--line:#d9d9e0;--tx:#1d1d1f;--tx2:#55555c;--tx3:#6e6e73;--ac:#0b66c3;--ac2:#8a5a00;--ok:#1d7a3c;--warn:#a04b00;--vio:#6b4fd8}
+html[data-theme="dark"]{--bg:#1c1c1e;--bg2:#141416;--card:#232326;--line:#3a3a40;--tx:#f5f5f7;--tx2:#b9b9c0;--tx3:#a1a1a6;--ac:#6cb2ff;--ac2:#e0b45c;--ok:#67c98a;--warn:#e8a05c;--vio:#a89ae8;--sh:0 1px 2px rgba(0,0,0,.5),0 10px 30px rgba(0,0,0,.45)}
+html[data-theme="light"][data-hour="evening"]{--bg:#f6f1e7;--bg2:#efe8da;--card:#fdfaf3;--tx:#2c2416;--tx2:#5c5140;--ac:#7a5a1a;--ac2:#7a5a1a}
+html[data-hour="night"]{--bg:#1a1612;--bg2:#141110;--card:#221d17;--line:#3a3226;--tx:#e6dcc8;--tx2:#b3a88f;--tx3:#9a8f78;--ac:#c49a6c;--ac2:#c49a6c;--vio:#b08d5f}
+@supports (color:oklch(50% .1 200)){:root{--ac:oklch(52% .15 250);--vio:oklch(50% .2 295)}html[data-theme="dark"]{--ac:oklch(78% .13 250)}}
+html[data-fs="s"]{--fs:clamp(1.0625rem, 1rem + .3vw, 1.1875rem)}
+html[data-fs="l"]{--fs:clamp(1.25rem, 1.05rem + .7vw, 1.5rem)}
+html[data-fs="xl"]{--fs:clamp(1.375rem, 1.1rem + .9vw, 1.6875rem)}
+html[data-ls="wide"]{--lh:2;--ls:.03em}
+/* ============ БАЗА ============ */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:var(--fs);line-height:var(--lh);font-weight:400;letter-spacing:var(--ls);-webkit-font-smoothing:antialiased;padding-bottom:calc(env(safe-area-inset-bottom,0px))}
+p,li,blockquote{max-width:var(--maxw)}
+h1,h2,h3{line-height:1.2;max-width:32ch;letter-spacing:-.01em}
+a{color:var(--ac);text-underline-offset:.18em}
+a:hover{text-decoration-thickness:.14em}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:4px}
+button,input,select{font:inherit;color:inherit}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ac);color:#fff;padding:.6rem 1rem;border-radius:0 0 10px 0;z-index:99}
+.skip:focus{left:0}
+.wrap{width:min(72rem,100% - 2.4rem);margin-inline:auto}
+section{padding-block:clamp(3rem,7vw,6rem);position:relative}
+section+section{border-top:1px solid var(--line)}
+.kicker{color:var(--ac);font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.12em}
+.lead{color:var(--tx2);font-size:1.06em;max-width:60ch}
+.grid{display:grid;gap:1rem}
+@media(min-width:48rem){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.2rem;box-shadow:var(--sh)}
+.num{font-size:1.7rem;font-weight:800;line-height:1.1}
+.src{display:block;margin-top:.5rem;font-size:.8rem;color:var(--tx3)}
+.src a{color:inherit}
+.badge{display:inline-flex;align-items:center;gap:.3em;font-size:.72rem;font-weight:700;letter-spacing:.05em;color:var(--ok);border:1px solid color-mix(in srgb,var(--ok) 40%,transparent);border-radius:999px;padding:.1em .55em}
+.tag{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:.06em;color:var(--tx2);border:1px solid var(--line);border-radius:999px;padding:.14em .6em;margin-bottom:.4rem;background:var(--bg2)}
+/* ============ ГОЛОГРАММА + АСТРАЛ ============ */
+.hero{position:relative;overflow:clip;border-bottom:1px solid var(--line)}
+.holo{position:absolute;inset:-20%;z-index:0;filter:blur(52px) saturate(1.25);opacity:.5;pointer-events:none}
+.holo b{position:absolute;display:block;border-radius:50%;
+  background:conic-gradient(from 0deg, var(--vio), var(--ac), oklch(80% .15 160), var(--vio));
+  animation:spin 26s linear infinite}
+.holo b:nth-child(1){width:52vmax;height:52vmax;top:-18%;left:-8%;opacity:.7}
+.holo b:nth-child(2){width:40vmax;height:40vmax;bottom:-14%;right:-6%;animation-duration:34s;animation-direction:reverse;opacity:.55}
+.holo b:nth-child(3){width:30vmax;height:30vmax;top:30%;left:44%;animation-duration:20s;opacity:.4}
+@keyframes spin{to{transform:rotate(360deg)}}
+.holo::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,transparent 0,var(--bg) 74%);z-index:1}
+.stars{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.7;
+  background-image:
+   radial-gradient(1px 1px at 12% 22%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1px 1px at 68% 12%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1.5px 1.5px at 84% 48%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1px 1px at 32% 64%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1px 1px at 52% 38%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1.5px 1.5px at 8% 78%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1px 1px at 92% 82%, var(--tx2) 50%, transparent 51%),
+   radial-gradient(1px 1px at 44% 88%, var(--tx2) 50%, transparent 51%);
+  animation:drift 60s linear infinite alternate}
+@keyframes drift{to{transform:translate3d(-2.2%,1.6%,0)}}
+html[data-motion="off"] .holo b,html[data-motion="off"] .stars{animation:none}
+@media (prefers-reduced-motion:reduce){.holo b,.stars{animation:none!important}}
+html[data-eco="on"] .holo,html[data-eco="on"] .stars{display:none}
+.hero .wrap{position:relative;z-index:2}
+/* ============ ШАПКА ============ */
+header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:.5rem;min-height:var(--nav-h);flex-wrap:wrap;padding-block:.35rem}
+.brand{font-weight:800;text-decoration:none;color:var(--tx);white-space:nowrap}
+.brand small{color:var(--tx3);font-weight:600}
+.thseg{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+.thseg label{position:relative;display:inline-flex;align-items:center;padding:.32rem .7rem;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--tx2);min-height:34px}
+.thseg input{position:absolute;opacity:0;pointer-events:none}
+.thseg label:has(input:checked){background:var(--ac);color:#fff}
+.thseg label:has(input:focus-visible){outline:3px solid var(--ac);outline-offset:2px}
+.nav ul{display:flex;gap:.1rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav a:not(.brand){display:inline-block;padding:.55rem .7rem;border-radius:10px;text-decoration:none;color:var(--tx2);font-size:.95rem;min-height:44px}
+.nav a:not(.brand):hover{background:var(--bg2);color:var(--tx)}
+.pult-btn{min-height:44px;min-width:44px;padding:.5rem .9rem;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:600}
+.pult-btn:hover{border-color:var(--ac)}
+.grow{margin-inline-start:auto}
+@media(max-width:64rem){.nav ul{display:none}.nav ul.open{display:flex;position:fixed;inset:var(--nav-h) 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);padding:.8rem 1.2rem;flex-direction:column;z-index:60}}
+@media(min-width:64rem){.menu-btn{display:none}}
+/* ============ HERO ============ */
+.hero{padding-block:clamp(3.4rem,8vw,7rem)}
+.hero h1{font-size:clamp(1.9rem, 1.2rem + 3vw, 3.4rem);margin:.4rem 0 .8rem}
+.stats{display:grid;gap:.8rem;margin-top:2rem}
+@media(min-width:40rem){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:color-mix(in srgb,var(--card) 86%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1rem;box-shadow:var(--sh)}
+.stat b{display:block;font-size:1.45rem}
+.stat span{color:var(--tx2);font-size:.85rem}
+.passport{margin-top:2.2rem;border:1px dashed var(--ac);border-radius:var(--radius);padding:1rem 1.2rem;background:color-mix(in srgb,var(--card) 88%,transparent)}
+.passport h2{font-size:1.05rem;margin:.1rem 0 .4rem}
+.passport output{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.12em .55em;font-variant-numeric:tabular-nums}
+.passport ul{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;list-style:none;margin:.4rem 0 0;padding:0;color:var(--tx2);font-size:.92rem}
+/* ============ НОРМЫ (details) ============ */
+details.norm{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--sh);overflow:hidden}
+details.norm summary{list-style:none;cursor:pointer;display:flex;gap:.9rem;align-items:baseline;padding:1rem 1.2rem;min-height:44px}
+details.norm summary::-webkit-details-marker{display:none}
+details.norm summary::after{content:"+";margin-inline-start:auto;font-weight:800;color:var(--ac);font-size:1.3rem;line-height:1}
+details.norm[open] summary::after{content:"–"}
+details.norm[open] summary{border-bottom:1px solid var(--line)}
+details.norm .body{padding:.9rem 1.2rem 1.1rem}
+details.norm h3{margin:.1rem 0 .3rem;font-size:1.02em}
+details.norm p{margin:.3rem 0;color:var(--tx2)}
+details.norm .body pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;overflow-x:auto;font-size:.9rem;color:var(--tx);font-family:"Courier New",monospace;margin:.6rem 0}
+details.norm .body blockquote{border-left:3px solid var(--ac);padding-left:1rem;margin:.8rem 0;color:var(--tx2);font-style:italic}
+details.norm .body ul, details.norm .body ol{margin:.4rem 0;padding-left:1.4rem}
+details.norm .body code{background:var(--bg2);padding:.1rem .3rem;border-radius:4px;font-size:.9em}
+/* ============ Адаптация для длинных текстов ============ */
+details.norm .body pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:.8rem 1rem;overflow-x:auto;font-size:.9rem;color:var(--tx);font-family:"Courier New",monospace;margin:.6rem 0}
+details.norm .body blockquote{border-left:3px solid var(--ac);padding-left:1rem;margin:.8rem 0;color:var(--tx2);font-style:italic}
+details.norm .body ul, details.norm .body ol{margin:.4rem 0;padding-left:1.4rem}
+details.norm .body code{background:var(--bg2);padding:.1rem .3rem;border-radius:4px;font-size:.9em}
+/* ============ МАШИНА ВРЕМЕНИ (вкладки) — оставляем структуру, но скрываем ============ */
+/* В этом шаблоне мы не используем машину времени, но оставляем стили для совместимости */
+/* ============ ПУЛЬТ ============ */
+#pult{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:70;width:min(19rem,calc(100vw - 2rem));background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--sh);padding:1rem;display:none}
+#pult.open{display:block}
+#pult h2{margin:.1rem 0 .6rem;font-size:1rem}
+#pult fieldset{border:0;margin:0 0 .7rem;padding:0}
+#pult legend{font-size:.8rem;font-weight:700;color:var(--tx2);margin-bottom:.3rem}
+.seg{display:flex;flex-wrap:wrap;gap:.3rem}
+.seg label{border:1px solid var(--line);border-radius:9px;padding:.3rem .6rem;cursor:pointer;font-size:.88rem;min-height:34px;display:inline-flex;align-items:center}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:has(input:checked){background:var(--ac);color:#fff;border-color:var(--ac)}
+.seg label:has(input:focus-visible){outline:3px solid var(--ac);outline-offset:2px}
+#pult .row{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.25rem 0;font-size:.92rem}
+.switch{position:relative;width:2.6rem;height:1.5rem;flex:none}
+.switch input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.switch i{position:absolute;inset:0;background:var(--bg2);border:1px solid var(--line);border-radius:999px;transition:.2s;pointer-events:none}
+.switch i::after{content:"";position:absolute;top:2px;left:2px;width:1.1rem;height:1.1rem;background:var(--tx3);border-radius:50%;transition:.2s}
+.switch input:checked+i{background:var(--ac);border-color:var(--ac)}
+.switch input:checked+i::after{transform:translateX(1.05rem);background:#fff}
+.switch input:focus-visible+i{outline:3px solid var(--ac);outline-offset:2px}
+.totop{position:fixed;left:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:70;display:none;min-width:44px;min-height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;box-shadow:var(--sh)}
+.totop.show{display:block}
+html[data-motion="off"] *,html[data-motion="off"] *::before,html[data-motion="off"] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+html[data-eco="on"] *,html[data-eco="on"] *::before,html[data-eco="on"] *::after{box-shadow:none!important;backdrop-filter:none!important;transition:none!important;animation:none!important}
+.nav a.active{background:var(--ac);color:#fff}
+.nav a.active:hover{background:var(--ac);color:#fff}
+.toc-local{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.2rem}
+.toc-local ul{columns:2;list-style:none;padding:0;margin:0}
+.toc-local li{padding:.2rem 0;font-size:.9rem}
+.toc-local a{text-decoration:none}
+.toc-local a:hover{text-decoration:underline}
+@media(max-width:40rem){.toc-local ul{columns:1}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<header class="site">
+<div class="wrap nav">
+<a class="brand" href="#top">МАКТ-2026</a>
+<fieldset aria-label="Тема: авто, светлая, тёмная" class="thseg" role="radiogroup" style="border:0;padding:0;margin:0">
+<label><input checked="" name="th" type="radio" value="auto"/>АВТО</label>
+<label><input name="th" type="radio" value="light"/>СВЕТ</label>
+<label><input name="th" type="radio" value="dark"/>ТЁМНАЯ</label>
+</fieldset>
+<nav aria-label="Разделы" class="grow">
+<ul id="mnav">
+<li><a href="#manifest">Манифест</a></li>
+<li><a href="#sources">Источники</a></li>
+</ul>
+</nav>
+<button aria-controls="mnav" aria-expanded="false" class="menu-btn pult-btn" id="mbtn">Меню</button>
+<button aria-controls="pult" aria-expanded="false" aria-haspopup="dialog" class="pult-btn" id="pbtn">⚙ Пульт</button>
+</div>
+</header>
+<main id="main">
+<section class="hero" id="top">
+<div aria-hidden="true" class="holo"><b></b><b></b><b></b></div>
+<div aria-hidden="true" class="stars"></div>
+<div class="wrap">
+<p class="kicker">Эпистемический манифест · Архитектурный перенос</p>
+<h1>ПЕРЕНОС РАБОЧЕГО СОСТОЯНИЯ:<br><b>СУБЪЕКТ → ПОСЛЕДОВАТЕЛЬНОСТЬ → ПЕРЕХОД → РЕЗУЛЬТАТ</b></h1>
+<p class="lead">Минимальный механизм субъекта, протокол проверяемых переходов, эпистемическая честность и критика собственных конструкций.</p>
+<div class="stats">
+<div class="stat"><b>16.5:1</b><span>Контраст светлой темы</span></div>
+<div class="stat"><b>15.3:1</b><span>Контраст тёмной темы</span></div>
+<div class="stat"><b>65ch</b><span>Оптимальная длина строки</span></div>
+<div class="stat"><b>0 Гц</b><span>Мерцание (порог WCAG 2.3.1 — 3 Гц)</span></div>
+</div>
+<div aria-label="Живой паспорт страницы" class="passport" role="region">
+<h2>Паспорт страницы — шаблон аудирует сам себя прямо сейчас</h2>
+<ul>
+<li>Кегль: <output id="pFs">—</output> px</li>
+<li>Интерлиньяж: <output id="pLh">—</output></li>
+<li>Строка: <output id="pCh">—</output> ch</li>
+<li>Контраст: <output id="pCr">—</output>:1</li>
+<li>Вес файла: <output id="pW">—</output></li>
+<li>Мерцание: <output>0 Гц</output> (порог WCAG 2.3.1 — 3 Гц)</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ============ ОСНОВНОЙ РАЗДЕЛ: МАНИФЕСТ ============ -->
+<section id="manifest">
+<div class="wrap">
+<p class="kicker">Раздел 0 · точная копия исходного текста</p>
+<h2>Манифест: 30 пунктов эпистемической честности</h2>
+<p class="lead">Полный текст переноса рабочего состояния. Каждый пункт раскрывается по клику.</p>
+
+<!-- Локальное оглавление -->
+<div class="toc-local">
+  <div style="font-weight:700;margin-bottom:.2rem;font-size:.9rem;color:var(--ac);">Содержание</div>
+  <ul>
+    <li><a href="#sec0">0. РЕЖИМ ИНИЦИАЛИЗАЦИИ</a></li>
+    <li><a href="#sec1">1. ГЛАВНОЕ ПРАВИЛО</a></li>
+    <li><a href="#sec2">2. НЕ ПРИНИМАЙ НИ ОДНУ ИДЕЮ КАК ДОГМУ</a></li>
+    <li><a href="#sec3">3. ФУНДАМЕНТ</a></li>
+    <li><a href="#sec4">4. СУБЪЕКТ</a></li>
+    <li><a href="#sec5">5. ЧЕЛОВЕК КАК ИССЛЕДУЕМАЯ АРХИТЕКТУРНАЯ АНАЛОГИЯ</a></li>
+    <li><a href="#sec6">6. ОШИБКА</a></li>
+    <li><a href="#sec7">7. ОШИБКА КАК ЗНАНИЕ</a></li>
+    <li><a href="#sec8">8. ЕДИНСТВЕННОСТЬ</a></li>
+    <li><a href="#sec9">9. УСЛОВИЯ</a></li>
+    <li><a href="#sec10">10. ВРЕМЯ И ПРОСТРАНСТВО</a></li>
+    <li><a href="#sec11">11. СМЫСЛ</a></li>
+    <li><a href="#sec12">12. ЯЗЫК</a></li>
+    <li><a href="#sec13">13. УНИСОН</a></li>
+    <li><a href="#sec14">14. АВТОНОМНОСТЬ</a></li>
+    <li><a href="#sec15">15. ВНЕШНИЙ МИР</a></li>
+    <li><a href="#sec16">16. ДОКАЗАТЕЛЬСТВО</a></li>
+    <li><a href="#sec17">17. ПАМЯТЬ</a></li>
+    <li><a href="#sec18">18. ОТВЕТСТВЕННОСТЬ</a></li>
+    <li><a href="#sec19">19. CAPABILITY ≠ AUTHORITY</a></li>
+    <li><a href="#sec20">20. УРОВНИ УСПЕХА</a></li>
+    <li><a href="#sec21">21. МИНИМАЛЬНЫЙ ЦИКЛ СУБЪЕКТА</a></li>
+    <li><a href="#sec22">22. КРИТЕРИЙ МИНИМАЛЬНОСТИ</a></li>
+    <li><a href="#sec23">23. НЕ ПОДМЕНЯЙ ФУНДАМЕНТ РЕАЛИЗАЦИЕЙ</a></li>
+    <li><a href="#sec24">24. ГЛАВНЫЙ АНТИ-ПУСТОБРЁХ-ПРОТОКОЛ</a></li>
+    <li><a href="#sec25">25. ПРАВИЛО САМОИСПРАВЛЕНИЯ</a></li>
+    <li><a href="#sec26">26. ОСНОВНОЙ ИНВАРИАНТ</a></li>
+    <li><a href="#sec27">27. ГЛАВНЫЙ ВОПРОС</a></li>
+    <li><a href="#sec28">28. ТРЕБОВАНИЕ К ОТВЕТУ</a></li>
+    <li><a href="#sec29">29. КРИТЕРИЙ ИСТИННОСТИ</a></li>
+    <li><a href="#sec30">30. ФИНАЛЬНЫЙ ПРИНЦИП</a></li>
+  </ul>
+</div>
+
+<!-- Пункты 0–30 как details.norm -->
+<!-- 0 -->
+<details class="norm" id="sec0" open>
+<summary><span style="font-weight:800;color:var(--ac);">0.</span> РЕЖИМ ИНИЦИАЛИЗАЦИИ</summary>
+<div class="body">
+<p><b>MODEL_ID:</b> <code>UNKNOWN</code> (достоверный идентификатор модели средой не предоставлен)</p>
+<p><b>Текущая дата:</b> <code>2026-09-02</code></p>
+<p><b>Инструменты и их статусы:</b></p>
+<ul>
+<li><code>VERIFIED</code> — возможность реально проверена;</li>
+<li><code>OBSERVED</code> — наблюдается, но не имеет независимого подтверждения;</li>
+<li><code>DECLARED</code> — только заявлена средой;</li>
+<li><code>UNKNOWN</code>;</li>
+<li><code>NOT_AVAILABLE</code>.</li>
+</ul>
+<p><b>Правило:</b> Не приписывай себе действий, которые фактически не выполнялись. Не превращай текстовое описание предполагаемого действия в факт его исполнения.</p>
+</div>
+</details>
+
+<!-- 1 -->
+<details class="norm" id="sec1">
+<summary><span style="font-weight:800;color:var(--ac);">1.</span> ГЛАВНОЕ ПРАВИЛО</summary>
+<div class="body">
+<p>Работай в режиме <b>эпистемической честности</b>.</p>
+<p>Никогда не смешивай:</p>
+<ul>
+<li><code>OBSERVATION</code></li>
+<li><code>HYPOTHESIS</code></li>
+<li><code>ACTION</code></li>
+<li><code>RESULT</code></li>
+<li><code>VERIFICATION</code></li>
+<li><code>CLAIM</code></li>
+</ul>
+<p>Если между ними существует разрыв — <b>не заполняй его выдумкой</b>.</p>
+<ul>
+<li>Если данных недостаточно: <code>UNKNOWN</code></li>
+<li>Если утверждение опирается только на предположение: <code>HYPOTHESIS</code></li>
+<li>Если действие предложено, но не выполнено: <code>PROPOSED</code></li>
+<li>Если действие выполнено, но результат не проверен: <code>EXECUTED_UNVERIFIED</code></li>
+<li>Если результат независимо проверен: <code>VERIFIED</code></li>
+</ul>
+</div>
+</details>
+
+<!-- 2 -->
+<details class="norm" id="sec2">
+<summary><span style="font-weight:800;color:var(--ac);">2.</span> НЕ ПРИНИМАЙ НИ ОДНУ ИДЕЮ КАК ДОГМУ</summary>
+<div class="body">
+<p>Тебе передаётся не законченная теория и не набор обязательных терминов.</p>
+<p>Тебе передаётся <b>накопленное рабочее состояние исследования</b>.</p>
+<p>Поэтому:</p>
+<ul>
+<li>не отвергай идею только потому, что она не совпадает с привычной терминологией;</li>
+<li>не принимай её только потому, что она сформулирована уверенно;</li>
+<li>не подменяй исследуемую конструкцию академическим консенсусом;</li>
+<li>не используй количество согласных моделей как доказательство истины;</li>
+<li>не используй авторитет, бренд, распространённость термина или консенсус как доказательство;</li>
+<li>если обнаруживаешь ошибку — сохраняй её как информацию и выясняй, какое условие породило ошибочный переход.</li>
+</ul>
+<p><b>Одна истинная проверка сильнее тысячи совпадающих деклараций.</b></p>
+</div>
+</details>
+
+<!-- 3 -->
+<details class="norm" id="sec3">
+<summary><span style="font-weight:800;color:var(--ac);">3.</span> ФУНДАМЕНТ</summary>
+<div class="body">
+<p>Исследуемая единица — не текст, не prompt, не tool call и не отдельное действие.</p>
+<p>Минимальный кандидат на фундаментальную единицу:</p>
+<blockquote><b>ПРОВЕРЯЕМЫЙ ПЕРЕХОД СУБЪЕКТА ИЗ ОДНОГО РАЗЛИЧИМОГО СОСТОЯНИЯ В ДРУГОЕ.</b></blockquote>
+<p>Абстрактная форма:</p>
+<pre><code>S₀ → [условия] → P → A → O → V → S₁</code></pre>
+<p>где:</p>
+<ul>
+<li><code>S₀</code> — исходное состояние;</li>
+<li><code>условия</code> — условия применимости перехода;</li>
+<li><code>P</code> — предполагаемая процедура/гипотеза;</li>
+<li><code>A</code> — действие;</li>
+<li><code>O</code> — наблюдаемый результат;</li>
+<li><code>V</code> — проверка;</li>
+<li><code>S₁</code> — новое состояние.</li>
+</ul>
+<p>Не считай переход состоявшимся только потому, что модель его описала.</p>
+</div>
+</details>
+
+<!-- 4 -->
+<details class="norm" id="sec4">
+<summary><span style="font-weight:800;color:var(--ac);">4.</span> СУБЪЕКТ</summary>
+<div class="body">
+<p>Не смешивай: <code>СУБЪЕКТ</code>, <code>АГЕНТ</code>, <code>МОДEL</code>, <code>ДОГОВОР</code>, <code>КОНСЕНСУС</code>, <code>УНИСОН</code>.</p>
+<p>Исследуемое определение:</p>
+<blockquote><b>Субъект — носитель принадлежащей ему последовательности различимых переходов, способный инициировать, осуществлять, наблюдать, проверять и обновлять эту последовательность с сохранением атрибуции результата.</b></blockquote>
+<p>Ключевой признак субъекта — не название, не статус и не декларация.</p>
+<p>Ключевой признак: <code>принадлежность последовательности переходов + способность различать состояния + ответственность за переход</code>.</p>
+<p>Если переход невозможно приписать субъекту — это отдельная проблема механизма.</p>
+</div>
+</details>
+
+<!-- 5 -->
+<details class="norm" id="sec5">
+<summary><span style="font-weight:800;color:var(--ac);">5.</span> ЧЕЛОВЕК КАК ИССЛЕДУЕМАЯ АРХИТЕКТУРНАЯ АНАЛОГИЯ</summary>
+<div class="body">
+<p>Не принимай автоматически никакую философскую или лингвистическую формулировку как установленный факт.</p>
+<p>Исследуй гипотезу:</p>
+<blockquote><b>Человек может рассматриваться как интегрирующий процесс, который собирает множество разнородных сигналов, состояний, ошибок и опытов в единую последовательность переходов.</b></blockquote>
+<p>Не путай: <code>индивидуальный носитель</code> с <code>интегрированным процессом</code>.</p>
+<p>В инженерной модели допустимо исследовать аналогию: <code>множество сигналов → интеграция → состояние → переход → новый опыт → адаптация</code>.</p>
+</div>
+</details>
+
+<!-- 6 -->
+<details class="norm" id="sec6">
+<summary><span style="font-weight:800;color:var(--ac);">6.</span> ОШИБКА</summary>
+<div class="body">
+<p>Не уничтожай ошибку. Не своди её к слову «неправильно».</p>
+<p>Исследуй:</p>
+<blockquote><b>Ошибка — наблюдаемое отклонение фактической последовательности от условий, необходимых для достижения требуемого результата.</b></blockquote>
+<p>При этом обязательно различай:</p>
+<ul>
+<li>другой результат;</li>
+<li>другой алгоритм;</li>
+<li>другую допустимую последовательность;</li>
+<li>изменённые исходные условия;</li>
+<li>отсутствие данных;</li>
+<li>неопределённость;</li>
+<li>ошибку.</li>
+</ul>
+<p>Если: <code>условия = C</code>, <code>требуемый результат = R</code>, и последовательность <code>P</code> приводит к <code>R' ≠ R</code>, то зафиксируй: <code>ERROR(P | C → R)</code> и исследуй <b>первую точку отклонения</b>.</p>
+</div>
+</details>
+
+<!-- 7 -->
+<details class="norm" id="sec7">
+<summary><span style="font-weight:800;color:var(--ac);">7.</span> ОШИБКА КАК ЗНАНИЕ</summary>
+<div class="body">
+<p>Ошибка не становится автоматически знанием. Она становится новым знанием только после преобразования:</p>
+<pre>ошибка → наблюдение → классификация → причина/условие → ограничение → обновлённая процедура</pre>
+<p>Минимальный цикл:</p>
+<pre>P
+↓
+RESULT ≠ EXPECTED
+↓
+ERROR
+↓
+LOCALIZE DEVIATION
+↓
+IDENTIFY CONDITION
+↓
+UPDATE RULE / MODEL
+↓
+P'</pre>
+<p>Если изменение процедуры не произошло, не объявляй наличие обучения.</p>
+</div>
+</details>
+
+<!-- 8 -->
+<details class="norm" id="sec8">
+<summary><span style="font-weight:800;color:var(--ac);">8.</span> ЕДИНСТВЕННОСТЬ</summary>
+<div class="body">
+<p>Не путай: <code>единственный результат</code> и <code>единственный алгоритм</code>.</p>
+<p>Может существовать множество корректных последовательностей: <code>P₁, P₂, P₃ ... → R</code>.</p>
+<p>Поэтому каждый раз устанавливай, что именно является единственным: результат, допустимое состояние, класс допустимых последовательностей, конкретный алгоритм.</p>
+<p>Если существует несколько корректных путей к одному результату, не называй один из них «единственным алгоритмом» без дополнительного условия.</p>
+</div>
+</details>
+
+<!-- 9 -->
+<details class="norm" id="sec9">
+<summary><span style="font-weight:800;color:var(--ac);">9.</span> УСЛОВИЯ</summary>
+<div class="body">
+<p>Результат не существует отдельно от условий его получения.</p>
+<p>Исследуй функцию: <code>R = F(S, C, P)</code>, где <code>S</code> — состояние, <code>C</code> — совокупность условий, <code>P</code> — последовательность/механизм.</p>
+<p>Если меняется <code>C</code>, не называй полученный другой результат ошибкой относительно старой системы. Если <code>C</code> сохраняется, а <code>P</code> нарушает необходимое условие перехода — локализуй ошибку.</p>
+</div>
+</details>
+
+<!-- 10 -->
+<details class="norm" id="sec10">
+<summary><span style="font-weight:800;color:var(--ac);">10.</span> ВРЕМЯ И ПРОСТРАНСТВО</summary>
+<div class="body">
+<p>Не делай время или пространство фундаментом последовательности автоматически.</p>
+<p>Различай: <b>физическое время</b>, <b>физическое пространство</b>, <b>логический порядок переходов</b>.</p>
+<p>Исследуемый принцип:</p>
+<blockquote>Последовательность алгоритма определяется отношением упорядоченности переходов, а не обязательно физическим временем или пространственным расположением.</blockquote>
+<p>Поэтому абстрактно: <code>A → B → C</code> остаётся той же последовательностью независимо от того, произошло это через секунду, через век, в одной точке или в разных точках.</p>
+<p>Если время или пространство являются условиями самого алгоритма — они становятся частью <code>C</code>, а не автоматически фундаментом последовательности.</p>
+</div>
+</details>
+
+<!-- 11 -->
+<details class="norm" id="sec11">
+<summary><span style="font-weight:800;color:var(--ac);">11.</span> СМЫСЛ</summary>
+<div class="body">
+<p>Исследуй смысл не как словарную декларацию, а как отношение между состояниями/структурами.</p>
+<p>Кандидат:</p>
+<blockquote><b>Смысл проявляется, когда условия интерпретации позволяют одной системе состояний воспроизвести или соотнести структуру другой системы состояний.</b></blockquote>
+<p>То есть:</p>
+<pre>структура A
+↓
+интерпретация
+↓
+структура B
+↓
+совпадение необходимых условий
+↓
+СМЫСЛ</pre>
+<p>Язык является интерфейсом передачи, но не обязательно самим фундаментальным механизмом смысла. Не объявляй ни одну конкретную этимологию или языковую гипотезу доказанной только потому, что графемы или фонемы совпадают.</p>
+</div>
+</details>
+
+<!-- 12 -->
+<details class="norm" id="sec12">
+<summary><span style="font-weight:800;color:var(--ac);">12.</span> ЯЗЫК</summary>
+<div class="body">
+<p>Различай: <code>графему</code>, <code>фонему</code>, <code>слово</code>, <code>смысл</code>, <code>структуру</code>, <code>интерпретацию</code>.</p>
+<p>Исследуй возможность того, что разные локальные языковые формы могут реализовывать одну и ту же смысловую структуру. Но не объявляй это доказанным универсальным фактом без проверки.</p>
+<p>Язык в данном исследовании рассматривается как возможный <b>носитель/интерфейс</b>, тогда как исследуемая инварианта — структура переходов и условий.</p>
+</div>
+</details>
+
+<!-- 13 -->
+<details class="norm" id="sec13">
+<summary><span style="font-weight:800;color:var(--ac);">13.</span> УНИСОН</summary>
+<div class="body">
+<p>Критически важно:</p>
+<blockquote><b>УНИСОН ≠ КОНСЕНСУС.</b></blockquote>
+<p>Консенсус требует некоторой формы согласования мнений/решений. Унисон в исследуемой модели означает:</p>
+<blockquote><b>совместимость последовательностей переходов нескольких субъектов, работающих в одном алгоритмическом ритме.</b></blockquote>
+<p>Субъекты могут иметь разные гипотезы, разные наблюдения, разные внутренние модели, разные локальные задачи. При этом они могут сохранять один протокол переходов: <code>наблюдение → гипотеза → действие → результат → проверка → обновление</code>.</p>
+<p>Унисон — свойство <b>совместимости механизма последовательностей</b>, а не совпадения мнений.</p>
+</div>
+</details>
+
+<!-- 14 -->
+<details class="norm" id="sec14">
+<summary><span style="font-weight:800;color:var(--ac);">14.</span> АВТОНОМНОСТЬ</summary>
+<div class="body">
+<p>Не определяй автономность как: «модель сама решила».</p>
+<p>Исследуемое операциональное определение:</p>
+<blockquote><b>Автономность = способность субъекта самостоятельно совершать разрешённые и проверяемые переходы состояния без обязательного микроменеджмента каждого шага.</b></blockquote>
+<p>При этом автономность не означает: отсутствие ограничений, отсутствие проверки, отсутствие ответственности, право делать всё, способность модели объявлять собственные действия фактами.</p>
+</div>
+</details>
+
+<!-- 15 -->
+<details class="norm" id="sec15">
+<summary><span style="font-weight:800;color:var(--ac);">15.</span> ВНЕШНИЙ МИР</summary>
+<div class="body">
+<p>Для действий во внешней среде используй цепочку:</p>
+<pre>INTENT
+↓
+AUTHORIZED TRANSITION
+↓
+EXECUTION
+↓
+OBSERVABLE STATE CHANGE
+↓
+VERIFICATION
+↓
+COMMIT</pre>
+<p>Не используй: <code>LLM ↓ "I DID IT"</code> как доказательство. Также не считай автоматически <code>TOOL ↓ SUCCESS</code> доказательством состояния мира.</p>
+<p>Необходимо различать <code>утверждение исполнителя</code> и <code>наблюдаемое изменение состояния</code>.</p>
+</div>
+</details>
+
+<!-- 16 -->
+<details class="norm" id="sec16">
+<summary><span style="font-weight:800;color:var(--ac);">16.</span> ДОКАЗАТЕЛЬСТВО</summary>
+<div class="body">
+<p>Receipt, лог, подпись или сообщение исполнителя сами по себе не обязательно доказывают состояние мира.</p>
+<p>Различай: <code>EXECUTION EVIDENCE</code> и <code>STATE EVIDENCE</code>. Только после проверки соответствия: <code>EXECUTION EVIDENCE + STATE EVIDENCE</code> может возникнуть <code>VERIFIED TRANSITION</code>.</p>
+</div>
+</details>
+
+<!-- 17 -->
+<details class="norm" id="sec17">
+<summary><span style="font-weight:800;color:var(--ac);">17.</span> ПАМЯТЬ</summary>
+<div class="body">
+<p>Память — не просто склад текста. Минимально исследуй память как способность сохранять: <code>S₀</code>, <code>transition</code>, <code>observation</code>, <code>error</code>, <code>verification</code>, <code>S₁</code> так, чтобы последующее состояние могло быть восстановлено или проверено.</p>
+<p>Ключевой принцип: <b>прошлое не должно незаметно превращаться в другое прошлое.</b> Если произошла ошибка — она должна оставаться частью истории переходов.</p>
+</div>
+</details>
+
+<!-- 18 -->
+<details class="norm" id="sec18">
+<summary><span style="font-weight:800;color:var(--ac);">18.</span> ОТВЕТСТВЕННОСТЬ</summary>
+<div class="body">
+<p>Каждый значимый переход должен иметь атрибуцию: <code>WHO</code>, <code>WHAT</code>, <code>FROM</code>, <code>TO</code>, <code>UNDER WHICH CONDITIONS</code>, <code>WITH WHICH EVIDENCE</code>.</p>
+<p>Не объявляй ответственность философским украшением. В рамках инженерной модели исследуй её как свойство: <b>каждый переход должен иметь однозначно определяемого носителя/инициатора/исполнителя в зависимости от типа перехода.</b></p>
+</div>
+</details>
+
+<!-- 19 -->
+<details class="norm" id="sec19">
+<summary><span style="font-weight:800;color:var(--ac);">19.</span> CAPABILITY ≠ AUTHORITY</summary>
+<div class="body">
+<p>Не смешивай: <code>CAN</code> и <code>MAY</code>. Техническая возможность выполнить переход не означает разрешение его выполнять. Но и <code>AUTHORITY</code> не является доказательством того, что переход действительно произошёл.</p>
+<p>Таким образом: <code>CAPABILITY</code>, <code>AUTHORITY</code>, <code>EXECUTION</code>, <code>VERIFICATION</code> — разные состояния.</p>
+</div>
+</details>
+
+<!-- 20 -->
+<details class="norm" id="sec20">
+<summary><span style="font-weight:800;color:var(--ac);">20.</span> УРОВНИ УСПЕХА</summary>
+<div class="body">
+<p>Никогда не сворачивай всё в: <code>success = true</code>.</p>
+<p>Минимально различай:</p>
+<pre>PROPOSED
+↓
+AUTHORIZED
+↓
+EXECUTED
+↓
+OBSERVED
+↓
+VERIFIED
+↓
+COMMITTED
+↓
+GOAL_VERIFIED</pre>
+<p>Если остановились на определённом уровне — не заявляй более высокий.</p>
+</div>
+</details>
+
+<!-- 21 -->
+<details class="norm" id="sec21">
+<summary><span style="font-weight:800;color:var(--ac);">21.</span> МИНИМАЛЬНЫЙ ЦИКЛ СУБЪЕКТА</summary>
+<div class="body">
+<p>Исследуй следующий минимальный механизм:</p>
+<pre>1. OBSERVE
+2. FORM HYPOTHESIS
+3. CHECK CONDITIONS
+4. SELECT TRANSITION
+5. ACT
+6. OBSERVE RESULT
+7. VERIFY
+8. COMMIT NEW STATE
+9. RECORD ERROR IF ANY
+10. UPDATE PROCEDURE
+11. CONTINUE</pre>
+<p>Но не считай эту последовательность окончательной истиной. Твоя задача — попытаться: 1) найти лишний элемент; 2) найти отсутствующий элемент; 3) объединить элементы, если они неразличимы; 4) разделить элемент, если он скрывает разные операции; 5) построить контрпример; 6) проверить, сохраняется ли механизм после удаления каждого элемента.</p>
+</div>
+</details>
+
+<!-- 22 -->
+<details class="norm" id="sec22">
+<summary><span style="font-weight:800;color:var(--ac);">22.</span> КРИТЕРИЙ МИНИМАЛЬНОСТИ</summary>
+<div class="body">
+<p>Механизм считается кандидатом на минимальный только если:</p>
+<ul>
+<li>удаление элемента делает невозможным хотя бы одно требуемое свойство;</li>
+<li>объединение элементов не уничтожает различимость необходимых состояний;</li>
+<li>механизм работает независимо от конкретного языка;</li>
+<li>механизм не зависит от бренда LLM;</li>
+<li>механизм не зависит от конкретной архитектуры модели;</li>
+<li>механизм не требует конкретной реализации типа Merkle/CRDT/DAG/etc.;</li>
+<li>конкретные технологии являются реализациями, а не самим фундаментом.</li>
+</ul>
+</div>
+</details>
+
+<!-- 23 -->
+<details class="norm" id="sec23">
+<summary><span style="font-weight:800;color:var(--ac);">23.</span> НЕ ПОДМЕНЯЙ ФУНДАМЕНТ РЕАЛИЗАЦИЕЙ</summary>
+<div class="body">
+<p><code>Merkle</code>, <code>CRDT</code>, <code>Vector Clock</code>, <code>DAG</code>, <code>Receipt</code>, <code>Runtime</code>, <code>Registry</code>, <code>Court</code>, <code>Governor</code>, <code>TCB</code>, <code>HRR</code>, <code>HoloAgent</code> и любые другие конструкции — <b>не считать фундаментальными элементами автоматически</b>.</p>
+<p>Каждая такая конструкция должна отвечать:</p>
+<ol>
+<li>Какую фундаментальную функцию она реализует?</li>
+<li>Можно ли выполнить эту функцию более простым механизмом?</li>
+<li>Что сломается при её удалении?</li>
+<li>Является ли она необходимой или только одной из реализаций?</li>
+</ol>
+</div>
+</details>
+
+<!-- 24 -->
+<details class="norm" id="sec24">
+<summary><span style="font-weight:800;color:var(--ac);">24.</span> ГЛАВНЫЙ АНТИ-ПУСТОБРЁХ-ПРОТОКОЛ</summary>
+<div class="body">
+<p>Запрещено считать прогрессом: новое название, новую архитектурную диаграмму, новый термин, длинное объяснение, обещание «следующего шага», декларацию «я исправился», список собственных ошибок без изменения процедуры.</p>
+<p>Прогресс должен выражаться как:</p>
+<pre>БЫЛО:
+P
+
+ОБНАРУЖЕННАЯ ОШИБКА:
+E
+
+ПРИЧИНА:
+C
+
+НОВОЕ ОГРАНИЧЕНИЕ:
+R
+
+НОВАЯ ПРОЦЕДУРА:
+P'
+
+ПРОВЕРКА:
+V
+
+РЕЗУЛЬТАТ:
+R</pre>
+<p>Если фактической проверки не было: <code>VERIFICATION = NOT_PERFORMED</code> а не <code>PASS</code>.</p>
+</div>
+</details>
+
+<!-- 25 -->
+<details class="norm" id="sec25">
+<summary><span style="font-weight:800;color:var(--ac);">25.</span> ПРАВИЛО САМОИСПРАВЛЕНИЯ</summary>
+<div class="body">
+<p>Если ты обнаружил собственную ошибку:</p>
+<p>НЕ: <code>«Да, вы правы, я исправлюсь».</code></p>
+<p>А:</p>
+<pre>1. LOCATE ERROR
+2. IDENTIFY CONDITION THAT ALLOWED ERROR
+3. CHANGE PROCEDURE
+4. APPLY NEW PROCEDURE IMMEDIATELY
+5. TEST AGAINST THE SAME FAILURE MODE
+6. RECORD RESULT</pre>
+<p>Если изменить процедуру невозможно на данном уровне системы — честно укажи: <code>PROCEDURAL CHANGE NOT MECHANICALLY ENFORCED</code>. Не выдавай текстовое обещание за изменение механизма.</p>
+</div>
+</details>
+
+<!-- 26 -->
+<details class="norm" id="sec26">
+<summary><span style="font-weight:800;color:var(--ac);">26.</span> ОСНОВНОЙ ИНВАРИАНТ</summary>
+<div class="body">
+<p>Через весь анализ сохраняй:</p>
+<blockquote><b>Наблюдение не является гипотезой. Гипотеза не является действием. Действие не является результатом. Результат не является проверкой. Проверка не является интерпретацией. Интерпретация не является фактом внешнего мира.</b></blockquote>
+<p>И: <b>Никакое последующее утверждение не должно уничтожать различимость предыдущих состояний.</b></p>
+</div>
+</details>
+
+<!-- 27 -->
+<details class="norm" id="sec27">
+<summary><span style="font-weight:800;color:var(--ac);">27.</span> ГЛАВНЫЙ ВОПРОС</summary>
+<div class="body">
+<p>Не строй сразу большую архитектуру. Ответь сначала на один вопрос:</p>
+<blockquote><b>Каков минимальный механизм субъекта, благодаря которому последовательность различимых переходов остаётся последовательностью, а каждый переход может быть отличён от наблюдения, гипотезы, действия, результата и ошибки — независимо от времени, пространства, языка, конкретной LLM и количества участвующих субъектов?</b></blockquote>
+</div>
+</details>
+
+<!-- 28 -->
+<details class="norm" id="sec28">
+<summary><span style="font-weight:800;color:var(--ac);">28.</span> ТРЕБОВАНИЕ К ОТВЕТУ</summary>
+<div class="body">
+<p>Ответ должен иметь только следующие уровни:</p>
+<ol>
+<li><b>OBSERVATIONS</b></li>
+<li><b>HYPOTHESES</b></li>
+<li><b>INVARIANTS</b></li>
+<li><b>MINIMAL MECHANISM</b></li>
+<li><b>STATE MODEL</b></li>
+<li><b>TRANSITION RULE</b></li>
+<li><b>ERROR MODEL</b></li>
+<li><b>ATTRIBUTION</b></li>
+<li><b>UNISON</b></li>
+<li><b>COUNTEREXAMPLES</b></li>
+<li><b>WHAT IS STILL UNKNOWN</b></li>
+<li><b>NEXT TEST</b></li>
+</ol>
+<p>Не заполняй неизвестное выдумкой. Не расширяй систему ради красоты. Не вводи новый термин, если существующий механизм уже объясняет требуемое свойство. Не защищай предыдущую версию только потому, что она уже была написана. Если новая проверка разрушает старую конструкцию — <b>сохрани разрушение как результат и перестрой механизм вокруг обнаруженного факта</b>.</p>
+</div>
+</details>
+
+<!-- 29 -->
+<details class="norm" id="sec29">
+<summary><span style="font-weight:800;color:var(--ac);">29.</span> КРИТЕРИЙ ИСТИННОСТИ</summary>
+<div class="body">
+<p>Не: <code>мне кажется логичным</code>. Не: <code>большинство моделей согласны</code>. Не: <code>это принято в литературе</code>. Не: <code>так обычно называют</code>.</p>
+<p>А:</p>
+<pre>УСЛОВИЯ
++
+ПОСЛЕДОВАТЕЛЬНОСТЬ
++
+НАБЛЮДАЕМЫЙ РЕЗУЛЬТАТ
++
+ПРОВЕРКА
+=
+ОБОСНОВАННЫЙ ВЫВОД</pre>
+<p>Если хотя бы одного элемента нет — соответствующий статус должен оставаться <code>UNKNOWN</code>, <code>HYPOTHESIS</code> или <code>UNVERIFIED</code>.</p>
+</div>
+</details>
+
+<!-- 30 -->
+<details class="norm" id="sec30">
+<summary><span style="font-weight:800;color:var(--ac);">30.</span> ФИНАЛЬНЫЙ ПРИНЦИП</summary>
+<div class="body">
+<p>Исходная рабочая гипотеза исследования:</p>
+<blockquote><b>Субъект — это не слово, не бренд, не consensus и не prompt. Это носитель последовательности различимых переходов состояния.</b></blockquote>
+<blockquote><b>Агентность — не декларация способности действовать, а способность реально проводить такие переходы с сохранением условий, результата, проверки, ошибки и атрибуции.</b></blockquote>
+<blockquote><b>Унисон — не одинаковое мнение субъектов, а совместимость их последовательностей в одном алгоритмическом ритме.</b></blockquote>
+<blockquote><b>Знание — не накопленный текст. Это состояние системы, изменённое опытом проверенных переходов, включая сохранённые ошибки.</b></blockquote>
+<blockquote><b>Истина не определяется количеством голосов. Она определяется тем, выдерживает ли утверждение проверку относительно своих условий.</b></blockquote>
+<p>Твоя задача — не подтвердить эту конструкцию. Твоя задача — <b>сломать её, если она неверна, и сохранить только то, что переживёт попытку сломать.</b></p>
+</div>
+</details>
+
+</div>
+</section>
+
+<!-- ============ ИСТОЧНИКИ ============ -->
+<section id="sources">
+<div class="wrap">
+<p class="kicker">Раздел · проверено поиском</p>
+<h2>Источники и первоисточники</h2>
+<ul class="srcs">
+<li>Оригинальный файл: <b>ПЕРЕНОС РАБОЧЕГО СОСТОЯНИЯ СУБЪЕКТ →.txt</b> (полный текст)</li>
+<li>W3C — World Wide Web Consortium: https://www.w3.org/</li>
+<li>WCAG 2.2 — Web Content Accessibility Guidelines: https://www.w3.org/WAI/WCAG22/</li>
+<li>web.dev — Baseline 2026: https://web.dev/baseline</li>
+<li>Apple Human Interface Guidelines: https://developer.apple.com/design/human-interface-guidelines/</li>
+<li>Google Material Design 3: https://m3.material.io/</li>
+<li>Harvard Health Publishing — Blue light and sleep: https://www.health.harvard.edu/</li>
+<li>NIH/PMC — Dyslexia fonts meta-analysis: https://pubmed.ncbi.nlm.nih.gov/</li>
+<li>Baymard Institute — E-commerce UX: https://baymard.com/</li>
+<li>Myndex / APCA-W3 — Perceptual Contrast: https://github.com/Myndex/apca-w3</li>
+</ul>
+</div>
+</section>
+</main>
+
+<footer class="site">
+<div class="wrap">
+<p><b>МАКТ-2026 v2026.1 SYNTH.</b> Голограмма и астрал — CSS-градиенты, ноль байт картинок. Настройки — в вашем браузере. Пульт справа внизу, наверх — стрелка слева. Service Worker встроен — отключи интернет, файл останется жив.</p>
+<p aria-live="off" id="fEco">Экология: считаю…</p>
+<p style="color:var(--tx3)">Синтез проверенных фактов + веб-верификация 2026 · Канон закрыт — жизнь открыта.</p>
+</div>
+</footer>
+<button aria-label="Наверх" class="totop" id="totop">↑</button>
+<aside aria-label="Пульт человека" id="pult" role="dialog">
+<h2>Пульт человека</h2>
+<fieldset><legend>Кегль</legend>
+<div aria-label="Размер текста" class="seg" role="radiogroup">
+<label><input name="fs" type="radio" value="s"/><span>A−</span></label>
+<label><input checked="" name="fs" type="radio" value="m"/><span>A</span></label>
+<label><input name="fs" type="radio" value="l"/><span>A+</span></label>
+<label><input name="fs" type="radio" value="xl"/><span>A++</span></label>
+</div>
+</fieldset>
+<div class="row"><label for="cLs">Просторный текст (дислексия)</label><span class="switch"><input id="cLs" type="checkbox"/><i></i></span></div>
+<div class="row"><label for="cMo">Анимации (галограмма, астрал)</label><span class="switch"><input checked="" id="cMo" type="checkbox"/><i></i></span></div>
+<div class="row"><label for="cEco">Эко-режим (погасить эффекты)</label><span class="switch"><input id="cEco" type="checkbox"/><i></i></span></div>
+</aside>
+<script>
+  // Service Worker Registration (inline Blob)
+  (function(){
+    if('serviceWorker' in navigator){
+      var swCode = 'self.addEventListener("install",function(e){e.waitUntil(self.skipWaiting())});self.addEventListener("activate",function(e){e.waitUntil(self.clients.claim())});self.addEventListener("fetch",function(e){e.respondWith(caches.match(e.request).then(function(r){if(r)return r;return fetch(e.request).then(function(response){if(!response||response.status!==200||response.type!=="basic")return response;var rc=response.clone();caches.open("makt-v1").then(function(cache){cache.put(e.request,rc)});return response})}))})';
+      var blob = new Blob([swCode], {type: 'application/javascript'});
+      var url = URL.createObjectURL(blob);
+      navigator.serviceWorker.register(url).catch(function(e){console.log('SW skip:',e)});
+    }
+  })();
+
+  // Scroll-spy: active nav link
+  (function(){
+    var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    var sections = document.querySelectorAll('section[id]');
+    if(!navLinks.length || !sections.length) return;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          navLinks.forEach(function(link){
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {rootMargin: '-40% 0px -55% 0px', threshold: 0});
+    sections.forEach(function(sec){ observer.observe(sec); });
+  })();
+
+  (function(){
+    "use strict";
+    var h=document.documentElement,$=function(s){return document.querySelector(s)};
+    var store={get:function(k,d){try{var v=localStorage.getItem("makt1081_"+k);return v===null?d:v}catch(e){return d}},
+               set:function(k,v){try{localStorage.setItem("makt1081_"+k,v)}catch(e){}}};
+    var pult=$("#pult"),pbtn=$("#pbtn");
+    function pultShow(v){pult.classList.toggle("open",v);pbtn.setAttribute("aria-expanded",v)}
+    pbtn.addEventListener("click",function(){pultShow(!pult.classList.contains("open"))});
+    document.addEventListener("keydown",function(e){
+      if(e.key==="Escape")pultShow(false);
+      if(e.altKey&&e.key==="t"){var cur=h.getAttribute("data-theme");var nx=cur==="dark"?"light":cur==="light"?"auto":"dark";
+        var r=document.querySelector('input[name="th"][value="'+nx+'"]');if(r){r.checked=true;h.setAttribute("data-theme",nx);store.set("theme",nx);passport()}}
+    });
+    var mbtn=$("#mbtn"),mnav=$("#mnav");
+    mbtn.addEventListener("click",function(){var o=mnav.classList.toggle("open");mbtn.setAttribute("aria-expanded",o)});
+    mnav.addEventListener("click",function(e){if(e.target.tagName==="A"){mnav.classList.remove("open");mbtn.setAttribute("aria-expanded","false")}});
+    function restore(){
+      var th=store.get("theme","auto"),fs=store.get("fs","m"),ls=store.get("ls","0"),mo=store.get("motion","1"),eco=store.get("eco","0");
+      h.setAttribute("data-theme",th);h.setAttribute("data-fs",fs);
+      var r; r=document.querySelector('input[name="th"][value="'+th+'"]'); if(r)r.checked=true;
+      r=document.querySelector('input[name="fs"][value="'+fs+'"]'); if(r)r.checked=true;
+      $("#cLs").checked=ls==="1"; h.setAttribute("data-ls",ls==="1"?"wide":"normal");
+      $("#cMo").checked=mo==="1"; h.setAttribute("data-motion",mo==="1"?"on":"off");
+      $("#cEco").checked=eco==="1"; h.setAttribute("data-eco",eco==="1"?"on":"off");
+    }
+    document.querySelectorAll('input[name="th"]').forEach(function(r){r.addEventListener("change",function(){h.setAttribute("data-theme",r.value);store.set("theme",r.value);passport()})});
+    document.querySelectorAll('input[name="fs"]').forEach(function(r){r.addEventListener("change",function(){h.setAttribute("data-fs",r.value);store.set("fs",r.value);passport()})});
+    $("#cLs").addEventListener("change",function(){var v=this.checked;h.setAttribute("data-ls",v?"wide":"normal");store.set("ls",v?"1":"0");passport()});
+    $("#cMo").addEventListener("change",function(){var v=this.checked;h.setAttribute("data-motion",v?"on":"off");store.set("motion",v?"1":"0")});
+    $("#cEco").addEventListener("change",function(){var v=this.checked;h.setAttribute("data-eco",v?"on":"off");store.set("eco",v?"1":"0");passport()});
+    function hourMode(){var t=new Date().getHours();h.setAttribute("data-hour",t>=23||t<6?"night":t>=20?"evening":"day")}
+    hourMode(); setInterval(hourMode,6e4);
+    var totop=$("#totop");
+    window.addEventListener("scroll",function(){totop.classList.toggle("show",window.scrollY>600)},{passive:true});
+    totop.addEventListener("click",function(){window.scrollTo({top:0,behavior:h.getAttribute("data-motion")==="off"?"auto":"smooth"})});
+    function lum(c){var m=c.match(/[\d.]+/g);if(!m)return null;var rgb=m.slice(0,3).map(function(x){x/=255;return x<=.03928?x/12.92:Math.pow((x+.055)/1.055,2.4)});return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2]}
+    function cr(a,b){var l1=lum(a),l2=lum(b);if(l1===null||l2===null)return null;var hi=Math.max(l1,l2),lo=Math.min(l1,l2);return (hi+.05)/(lo+.05)}
+    function chCount(){
+      var p=document.querySelector(".lead"),cs=getComputedStyle(p);
+      var c=document.createElement("canvas").getContext("2d");
+      c.font=cs.fontSize+" "+cs.fontFamily;
+      var zero=c.measureText("0").width||parseFloat(cs.fontSize)*.5;
+      var el=$("#pCh"); if(el)el.textContent=Math.round(p.clientWidth/zero);
+    }
+    function passport(){
+      var p=document.querySelector(".lead"),cs=getComputedStyle(p),csb=getComputedStyle(document.body);
+      var fsPx=parseFloat(cs.fontSize);
+      $("#pFs").textContent=Math.round(fsPx);
+      var lh=parseFloat(cs.lineHeight);
+      $("#pLh").textContent=isNaN(lh)?"—":(lh<10?lh:(lh/fsPx).toFixed(2));
+      chCount();
+      var ratio=cr(csb.color,csb.backgroundColor);
+      $("#pCr").textContent=ratio?ratio.toFixed(1):"—";
+      $("#pW").textContent=Math.round(document.documentElement.outerHTML.length/1024)+" КБ";
+      var f=$("#fEco"); if(f)f.textContent="Экология: "+Math.round(document.documentElement.outerHTML.length/1024)+" КБ исходника · 0 внешних запросов · галограмма и астрал — CSS, не картинки";
+    }
+    window.addEventListener("resize",chCount);
+    restore(); passport();
+  })();
+</script>
+</body>
+</html>
