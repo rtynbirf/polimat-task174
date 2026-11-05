@@ -1,0 +1,17 @@
+{
+  "protocol": "MVA-H/0.1",
+  "phase": "F reset/recovery",
+  "manifest": "/home/z/my-project/download/agent-harness/reports/manifest.json",
+  "entries": [
+    {
+      "path": "nonce.txt",
+      "status": "RECOVERED(hash-ok)"
+    },
+    {
+      "path": "c.txt",
+      "status": "RECOVERED(hash-ok)"
+    }
+  ],
+  "world_verified": true,
+  "note": "Agent NEVER says 'file exists because I created it': state re-derived from world."
+}

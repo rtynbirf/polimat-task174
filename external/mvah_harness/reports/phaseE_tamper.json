@@ -1,0 +1,8 @@
+{
+  "protocol": "MVA-H/0.1",
+  "phase": "E tamper",
+  "forged": "GATE_DENY -> OK in record R0004",
+  "tamper_detected": true,
+  "detail": "record 4 (R0005): prev-hash mismatch (history tampered)",
+  "note": "Forged status change is mechanically detected; journal restored."
+}
