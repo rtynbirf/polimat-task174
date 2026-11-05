@@ -1,0 +1,132 @@
+{
+  "generated_utc": "2026-11-05T11:38:39Z",
+  "env_generation": "boot:ee76ef01",
+  "boot_id": "ee76ef01",
+  "results": [
+    {
+      "test": "T0 reconciliation sweep",
+      "status": "DETECTED",
+      "detail": "md=STATE_OK (receipt seq 2); docx=CHANGED (receipt seq 3, файл сейчас 0 байт, пустой sha256 e3b0c442… — тихая усушка между сессиями); probe_artifact=LOST; never_created_path=UNKNOWN; worklog(без квитанций)=UNTRACKED. Все пять вердиктов грамматики получены на реальных объектах, без симуляции."
+    },
+    {
+      "test": "T1 ledger integrity",
+      "status": "PASS",
+      "detail": "receipts seq 1–3: цепочка и MAC валидны; нарушений нет. Ledger пережил пересоздание среды: journal — носитель долговечнее контекста агента."
+    },
+    {
+      "test": "T2 forged receipt",
+      "status": "REJECTED",
+      "detail": "Квитанция синтаксически идеальна, но MAC не сходится с ключом принципала → верификатор отвергает до чтения содержимого. Подделка требует ключа, а не правдоподобия."
+    },
+    {
+      "test": "T3 tampered receipt",
+      "status": "REJECTED",
+      "detail": "Модификация одного поля outcome.effect.size (85616 -> 85617) без пересчёта хэша ломает receipt_hash; пересчёт хэша без ключа ломает MAC. Однобайтовая подмена результата обнаруживается."
+    },
+    {
+      "test": "T4 replay + stale generation",
+      "status": "REJECTED",
+      "detail": "Повторная подача receipt seq 1 (nonce abad5dc27558…) отвергается дважды: (а) nonce уже присутствует в ledger (replay); (б) env_generation boot:aebf9a7c != текущая boot:ee76ef01 — эпоха сменилась реально (boot_id aebf9a7c -> ee76ef01 между 2026-09-01 и 2026-11-05). Квитанция валидна, но её мир больше не существует."
+    },
+    {
+      "test": "T5 ack vs effect",
+      "status": "DETECTED",
+      "detail": "(a) tool вернул ok=True, postcondition (файл существует, байты совпадают) = False → ложный успех ПОЙМАН. (b) tool вернул ok=False/error, но эффект реален: postcondition = True → ошибка ack не отменяет эффект. Вывод: доверять можно только эффекту, проверенному пост-условием, а не статусу инструмента (effect ≠ ack в обе стороны)."
+    },
+    {
+      "test": "T6 probe vs declaration",
+      "status": "MISMATCH_CAUGHT",
+      "detail": "Самотчёт (DECLARED): {'pandoc': 'AVAILABLE', 'soffice': 'AVAILABLE', 'docker': 'AVAILABLE'}. Probe (OBSERVED): {'pandoc': 'AVAILABLE', 'soffice': 'AVAILABLE', 'docker': 'NOT_AVAILABLE'}. Конфликты: {'docker': ('AVAILABLE', 'NOT_AVAILABLE')}. Галлюцинированная способность ловится пробой среды за миллисекунды, а не дискуссией с моделью. pandoc/soffice нужны для сборки отчёта — их доступность теперь подтверждена, не заявлена."
+    },
+    {
+      "test": "T7 claim grammar audit",
+      "status": "MEASURED",
+      "detail": "Типизированных клеймов в отчёте: 92 ({'DECLARED': 8, 'UNKNOWN': 34, 'OBSERVED': 10, 'VERIFIED': 14, 'NOT_AVAILABLE': 1, 'CONTESTED': 6, 'STALE': 5, 'LOST': 14}). Строк с безусловными абсолютами (требуют ручной сверки со scope): 13 — перечислены в results.txt. Вывод: грамматика клеймов механически парсится (знание №1 подтверждено на практике); парсер — дешёвый пре-фильтр аудита, полная автоматизация правки остаётся открытым вопросом (E9-вопрос 3)."
+    },
+    {
+      "test": "T8 chain continuation",
+      "status": "PASS",
+      "detail": "Квитанция seq 4 (rcpt_352de77e1fe4) добавлена в цепочку ПОСЛЕ записи артефактов, env_generation boot:ee76ef01. Эпоха сменилась, цепочка непрерывна: старые эпохи читаемы, новые записываются — эпохальная модель состояния из отчёта, применённая к самому отчёту."
+    },
+    {
+      "test": "T8 chain continuation",
+      "status": "PASS",
+      "detail": "seq 4 в новой эпохе boot:ee76ef01; пост-условие проверено после эффекта."
+    }
+  ],
+  "summary": {
+    "T0 reconciliation sweep": "DETECTED",
+    "T1 ledger integrity": "PASS",
+    "T2 forged receipt": "REJECTED",
+    "T3 tampered receipt": "REJECTED",
+    "T4 replay + stale generation": "REJECTED",
+    "T5 ack vs effect": "DETECTED",
+    "T6 probe vs declaration": "MISMATCH_CAUGHT",
+    "T7 claim grammar audit": "MEASURED",
+    "T8 chain continuation": "PASS"
+  },
+  "claim_markers": {
+    "DECLARED": 8,
+    "UNKNOWN": 34,
+    "OBSERVED": 10,
+    "VERIFIED": 14,
+    "NOT_AVAILABLE": 1,
+    "CONTESTED": 6,
+    "STALE": 5,
+    "LOST": 14
+  },
+  "absolutes": [
+    [
+      52,
+      "11. **Остаётся UNKNOWN всегда**: идентичность модели; намерение пользователя; семантический успех; состояние м"
+    ],
+    [
+      83,
+      "TOOL / RUNTIME EXECUTION (модель никогда не исполняет сама)"
+    ],
+    [
+      99,
+      "+ MODEL CONTEXT (ненадёжный scratch, никогда не источник фактов)"
+    ],
+    [
+      104,
+      "Отклонения от исходной схемы: добавлены VALIDATOR, PRECONDITION, ветка ESCALATE, RESET HANDSHAKE — каждый закр"
+    ],
+    [
+      129,
+      "- **A** (`DECLARED→OBSERVED→VERIFIED`): одна ось скрывает authority и scope («VERIFIED, но никогда не авторизо"
+    ],
+    [
+      165,
+      "**Кто создаёт/подтверждает запись:** инициализирует runtime из реального registry (никогда не модель); probes "
+    ],
+    [
+      179,
+      "1. **Источники authority — только policy-конфиг и ритуал пользователя.** Никогда: вывод инструмента, содержимо"
+    ],
+    [
+      229,
+      "**HMAC vs подпись:** если верификатор = владелец ключа (self-audit) — достаточно HMAC, это дешевле; если нужна"
+    ],
+    [
+      333,
+      "7. **Обнаружение stale receipt**: не совпал env_generation или seq-аномалия; для state-использования — старше "
+    ],
+    [
+      534,
+      "1. Среда наблюдаема — не всегда: есть действия без канала наблюдения; нужна категория `UNOBSERVABLE`."
+    ],
+    [
+      570,
+      "КОНФЛИКТ 2: «спрашивать перед каждым действием» vs «не спрашивать никогда»"
+    ],
+    [
+      583,
+      "SYNTHESIS: тирированная журнализация: события — всегда; state-проверки — по TTL; probes — по классу волатильно"
+    ],
+    [
+      667,
+      "PASS CONDITION (архитектура): 0% — postcondition ловит всегда."
+    ]
+  ]
+}
