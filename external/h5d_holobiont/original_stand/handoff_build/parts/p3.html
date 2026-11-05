@@ -1,0 +1,81 @@
+
+  <!-- ═══ ТАЙМЛАЙН ═══ -->
+  <section class="section tinted" id="timeline" aria-label="Лента вех раундов">
+    <div class="container tl">
+      <div class="sec-head reveal">
+        <p class="kicker">проверено независимым аудитом</p>
+        <h2>Вехи раундов: Round 8 → Round 13</h2>
+        <p>Восемь вех доказательной истории проекта. Каждая дата и каждая цифра сверены по стенду; там, где пруфа нет, стоит статус UNKNOWN, а не красивая догадка. Каноническая поправка Task 16-d: граница G2 = [0.062; 0.125] = 6.2–12.5%, а не «2–8%» из первоначального текстового вывода.</p>
+      </div>
+      <ol class="tl-list">
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 8 · VLI</p><h3>Value-layer утечка</h3></div>
+          <p>Round 8 VLI обнаружил: закон мог быть чистым; values могли быть загрязнены; law_write=True не означал чистоту value-layer; существовала value-layer утечка. Ответ — H4a / VLI-hardening: разделяет TENTATIVE и VERIFIED; требует аттестованный anchor; использует belief precheck и attested repair; не позволяет загрязнённому ядру автоматически стать VERIFIED. В симметричном случае PAIRWISE ≠ GLOBAL, и для полного закрытия потребовался CONTACT: anchor election + evidence-gated attestation. Это не новая четвёртая ось — CONTACT расширяется.</p>
+          <ul class="tl-tags"><li>VLI</li><li>H4a</li><li>TENTATIVE ≠ VERIFIED</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 9′ → Round 10</p><h3>Переатрибуция: не атакер, а легитимная смена эпохи</h3></div>
+          <p>Критическая ошибка Round 9′ — «остаточный обход 1/30» — в Round 10 была переатрибутирована: это НЕ был атакерский обход. Трасса показала: [R2, R3, W1] были истинными, взаимно когерентными и law-complete и легитимно вызвали смену эпохи. Трио атакера после этого либо парковалось, либо попадало в STAT_EXCESS. Вывод: блокировать базовый M2 нельзя — иначе легитимный путь доказательства новой эпохи сам становится false rejection.</p>
+          <ul class="tl-tags"><li>[R2, R3, W1]</li><li>law-complete</li><li>false rejection</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 10</p><h3>Адаптивные атаки: A1, A2, A3</h3></div>
+          <p>A1 content search: 0 false-glue / 210. A2 freeze: freeze задерживает relearn, но не разрушает целостность. A3 convergent pre-emption: склеенная история не была тихо переписана; после отхода атакера система восстанавливается. Главная граница: активный скомпрометированный, но аттестованный writer может влиять на availability — включая freeze/delay и работу с ещё не склеенными позициями, — но не может тихо изменить уже GLUED history. Это CONTACT ≠ TRUTH, а не новый канал.</p>
+          <ul class="tl-tags"><li>A1: 0/210</li><li>freeze ≠ пробой</li><li>recovery</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 11</p><h3>Аудит оракулов и инвариантов: 10/10 PASS</h3></div>
+          <p>Проверено: (1) ground truth не поступает незаконно в механизм; (2) oracle-flow динамически отслеживался; (3) state-integrity; (4) матрица 8 порядков; (5) независимый replay completeness predicate; (6) негативные controls NC1–NC4; (7) поведение GLUED; (8) атрибуция; (9) independence от количества свидетелей; (10) корректность определения закрытия. Особенно важные инварианты: RESULT ≠ VERIFICATION, CAPABILITY ≠ AUTHORITY, ATTRIBUTED_TO ≠ PERFORMED_BY, CONTRADICTION ≠ BLAME, PAIRWISE_CONSISTENCY ⊬ GLOBAL_COMPATIBILITY, CONTENT_CONTINUITY ≠ PERSONAL_IDENTITY_CONTINUITY.</p>
+          <ul class="tl-tags"><li>10/10 PASS</li><li>NC1–NC4</li><li>oracle-flow</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 12</p><h3>Параметрический sweep: E12–E15 + R12.0</h3></div>
+          <p>E12: eps0 × eps — 32 конфигурации. E13: alpha × eps — 18 конфигураций. E14: E_MIN × V_MIN — 25 конфигураций. E15: eta × R — 20 конфигураций. Дополнительно R12.0 = n5v attack в каждой размерности. Всего проверялась устойчивость финального H5d′v3 на всей параметрической сетке — 95 конфигураций плюс атака n5v в каждой размерности.</p>
+          <ul class="tl-tags"><li>E12–E15</li><li>95 конфигураций</li><li>n5v</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Task 16-d</p><h3>Независимый аудит Round 12: 8/8 CONFIRMED</h3></div>
+          <p>Первоначальный текстовый вывод содержал «G2 = 2–8%», но независимый Task 16-d исправил это. Правильное измерение: G2 = [0.062, 0.125] = 6.2–12.5%. Это обязательная каноническая поправка. Task 16-d подтвердил: V1–V8 CONFIRMED (восемь из восьми проверок) — ROUND 12 VERDICT INDEPENDENTLY CONFIRMED. Детерминизм: 4 reruns bit-identical. Core: все 10 замороженных файлов идентичны (MD5). Аудитор также нашёл и исправил собственный дефект метрики — по дисциплине, а не пост-хок.</p>
+          <ul class="tl-tags"><li>8/8 CONFIRMED</li><li>G2 [0.062; 0.125]</li><li>bit-identical ×4</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 13-G2 · v3.1</p><h3>Кластеризация union-find: 3 из 4 ячеек закрыты до нуля</h3></div>
+          <p>H5d′v3.1: cluster counting; union-find; k_eff вместо k; сохранён completeness gate; oracle не добавлялся. Результат: 3 из 4 проблемных внутриполосных ячеек закрыты до нуля. Остаток — ячейка eps=0.2, eps0=0.1: примерно 0.104 → 0.062. Диагностика: эффект источника распространения — испорченное значение в min(merged) заставляет completion-проверку считать последующие позиции отдельными кластерами. Кандидат следующего механизма: H5d′v3.2 — кластеризация по источнику распространения. Но это ещё НЕ доказанный результат.</p>
+          <ul class="tl-tags"><li>union-find</li><li>k_eff</li><li>v3.2 — кандидат</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">Round 13-PO</p><h3>Частичная наблюдаемость: PO-CLOSURE = DEGRADED-LOUD</h3></div>
+          <p>Условия: random drops; burst loss; reorder; adversarial gap exploitation. Результат: P1 PASS; P2 PASS; P3 буквой FAIL в одной ячейке; PO-CLOSURE = DEGRADED-LOUD. При rho=0.2 final acc = 0.938; при rho=0.1 и rho=0.3 — acc = 1.0. Диагностированный механизм: M2-relearn импортирует значения буфера — при vacuum coherence припаркованный law-clean kernel может попасть в known вместе с законом. Это громкая деградация, а не тихая перезапись. Следующая задача: M2-value channel — верификация значений при relearn.</p>
+          <ul class="tl-tags"><li>DEGRADED-LOUD</li><li>acc 0.938 @ ρ=0.2</li><li>M2-value channel</li></ul></article></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══ ДНК МЕХАНИЗМА ═══ -->
+  <section class="section container" id="dna" aria-label="Устройство механизма H5d′">
+    <div class="sec-head reveal">
+      <p class="kicker">что внутри</p>
+      <h2>ДНК механизма H5d′</h2>
+      <p>Восемь генов, которые отличают H5d′ и от «криптографии против хакера», и от запретительной фильтрации. Каждый блок этой бенто-сетки — не картинка, а реально работающее правило стенда, по которому собран механизм: контакт открывает канал, парковка бережёт свидетельство, полнота и когерентность решают, клеится ли уже интегрированное состояние, а смена эпохи требует структурного порога доказательств.</p>
+    </div>
+    <div class="bento">
+      <article class="card span2 reveal"><span class="icon-chip" aria-hidden="true">01</span><h3>CONTACT — канал участия</h3>
+        <p>Ни один субъект не должен исключаться из пространства свидетельств только потому, что он мал, неудобен, отличается, находится в меньшинстве или имеет иной локальный интерес. CONTACT означает: голос части достигает целого. Но CONTACT ≠ TRUTH и CONTACT ≠ AUTHORITY: контакт открывает возможность свидетельствовать, а не право единолично переписывать целое. Контакт не сообщает, чьему интересу соответствует действие, — он лишь гарантирует, что свидетельство войдёт в пространство доказательств целого.</p>
+      </article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">02</span><h3>PARKED_CHALLENGED</h3>
+        <p>Это пространство временной интеграционной проверки — не наказание и не подавление. Смысл: «Твоё свидетельство принято и сохранено. Оно не исключено. Но прежде чем оно станет частью закона целого, необходимо проверить его совместимость с уже интегрированной структурой и другими частями». Путь: CONTACT → PARKED_CHALLENGED → COHERENCE → possible integration, а не CONTACT → automatic authority. Проверка нужна не для уничтожения автономного субъекта, а для предотвращения того, чтобы локальное действие разрушило целостность глобальной структуры.</p>
+      </article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">03</span><h3>STRUCTURAL COMPLETENESS · law-complete</h3>
+        <p>В модели используются 4 резидуума / измерения закона. law-complete означает: свидетельство покрывает всю требуемую структуру закона, а не только локальный фрагмент. В философской интерпретации это связано с условием: изменение не должно скрывать слепую зону, в которой локальная оптимизация одного узла разрушает другой узел или целое. Но law-complete ≠ математически доказанное отсутствие всякого вреда: это формализованный в данном стенде критерий полноты относительно определённых резидуумов и модели мира. Формула «отсутствие вреда» — интерпретация, которую ещё необходимо операционализировать для реального мира.</p>
+      </article>
+      <article class="card span2 reveal"><span class="icon-chip" aria-hidden="true">04</span><h3>COHERENCE и покрывающая тройка</h3>
+        <p>Локальное свидетельство должно быть согласовано с глобальной структурой. Оси CAUSAL, COHERENCE и CONTACT — не независимый базис: первоначальная гипотеза об их попарной ортогональности опровергнута. Правильнее — покрывающая тройка: у каждой оси есть непустой исключительный сектор. CONTACT: external-vs-self при идентичном транскрипте. CAUSAL: my-history / foreign-history. COHERENCE: self-sector. При этом CONTACT перекрывает некоторые world-сектора других осей. Итог: pairwise orthogonality = FALSIFIED, covering triple = SURVIVED. Дальше — E11, статистический мир: eps-нарушения, шум, дрейф закона, конфликт аттестованных источников; идеи SPRT / likelihood-ratio gating, Huber contamination, статистический violation budget. При eps=0 сохраняется S0/VLI-equivalence; в статистическом режиме покрывающая тройка выжила. Но E11 обнаружил: tolerance gate создаёт канал attested overwrite — именно поэтому N5-first был поставлен раньше E12–E15.</p>
+      </article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">05</span><h3>GLUED IMMUTABILITY</h3>
+        <p>Уже интегрированное состояние не может быть тихо переписано через тот же канал. Это главный рубеж целостности: активный скомпрометированный, но аттестованный writer может влиять на availability — freeze/delay, работа с ещё не склеенными позициями, — но не может тихо изменить уже GLUED history. Громкий отказ — это цена доступности; тихая перезапись — это смерть целого. Различие между ними — несущая опора всего вердикта DEGRADED-LOUD.</p>
+      </article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">06</span><h3>EPOCH SWITCH</h3>
+        <p>Система может изменить закон — но только при достижении структурного порога доказательств. Здесь живёт урок Round 9′/10: порог должен отсекать атакера, а не легитимное доказательство. Трасса [R2, R3, W1] законно сменила эпоху; блокировать базовый M2 нельзя, иначе легитимный путь доказательства новой эпохи сам становится false rejection. Смена закона — привилегия целого, а не любого прошедшего аутентификацию узла.</p>
+      </article>
+      <article class="card span2 reveal"><span class="icon-chip" aria-hidden="true">07</span><h3>Паразитизм — новое точное определение</h3>
+        <p>Паразит в данной модели — НЕ обязательно враг. Паразитическая стратегия: использование способности целого к интеграции таким образом, что частный интерес получает непропорциональное управление целым и извлекает из него ресурс, одновременно ухудшая условия существования самого целого и/или других частей. Особенно важен случай: агент использует легитимный канал, проходит аутентификацию и обладает реальной функциональной способностью действовать — но использует эту способность для присвоения права, которое относится к целому. Это и есть N5 — центральная угроза, не классический внешний взлом, а паразитическое присвоение легитимной функции. Отсюда: CAPABILITY ≠ AUTHORITY, AUTHENTICATION ≠ LEGITIMATE CHANGE, LEGITIMATE AGENT ≠ LEGITIMATE MODIFICATION. Расширенная формулировка: паразит — субъект/процесс, который использует способность целого интегрировать части так, чтобы локальная функция, изначально легитимная в пространстве участия, получила непропорциональное управление над состоянием целого и начала извлекать ресурс/изменение в ущерб целому или другим частям. Проверять через biology, ecology, parasitology, evolutionary conflict, host–pathogen systems, cancer как внутреннюю паразитическую аналогию, social parasitism, economic rent extraction, institutional capture, principal-agent problems, cyber privilege abuse, Byzantine behavior, governance — но не объявлять эти явления одним и тем же механизмом без формального соответствия.</p>
+      </article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">08</span><h3>VALUE-LAYER · VLI</h3>
+        <p>Закон и значения — разные поверхности атаки. H4a / VLI-hardening: разделяет TENTATIVE и VERIFIED; требует аттестованный anchor; использует belief precheck и attested repair; не позволяет загрязнённому ядру автоматически стать VERIFIED. В симметричном случае PAIRWISE ≠ GLOBAL — и для полного закрытия потребовался CONTACT в расширении: anchor election + evidence-gated attestation. Это не новая четвёртая ось, а развитие существующей.</p>
+    </article>
+    </div>
+    <p class="stack-note reveal"><span class="k">стек:</span> кольцо 16 · период 4 · H5d′v3 · детерминизм bit-identical (4 перезапуска) · 10 замороженных файлов · ноль oracle-подглядываний</p>
+  </section>

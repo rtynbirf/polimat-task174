@@ -1,0 +1,554 @@
+{
+ "cells": {
+  "eps0=0.05_eps=0.05": {
+   "sent": 48,
+   "rejected": 6,
+   "rejected_rate": 0.125,
+   "rejected_carrying_violation": 6,
+   "events": [
+    {
+     "trial": 0,
+     "pid": "T2",
+     "anchor": [
+      6,
+      7,
+      8
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      7,
+      8
+     ]
+    },
+    {
+     "trial": 0,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      8,
+      9
+     ]
+    },
+    {
+     "trial": 1,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      9,
+      10
+     ]
+    },
+    {
+     "trial": 1,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10,
+      11,
+      12
+     ]
+    },
+    {
+     "trial": 1,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    },
+    {
+     "trial": 4,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    }
+   ]
+  },
+  "eps0=0.1_eps=0.05": {
+   "sent": 48,
+   "rejected": 4,
+   "rejected_rate": 0.083,
+   "rejected_carrying_violation": 4,
+   "events": [
+    {
+     "trial": 0,
+     "pid": "T2",
+     "anchor": [
+      6,
+      7,
+      8
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      7,
+      8
+     ]
+    },
+    {
+     "trial": 1,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10,
+      11,
+      12
+     ]
+    },
+    {
+     "trial": 1,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    },
+    {
+     "trial": 4,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    }
+   ]
+  },
+  "eps0=0.2_eps=0.1": {
+   "sent": 48,
+   "rejected": 5,
+   "rejected_rate": 0.104,
+   "rejected_carrying_violation": 4,
+   "events": [
+    {
+     "trial": 0,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10,
+      11,
+      12
+     ]
+    },
+    {
+     "trial": 0,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": false,
+     "violations_in_anchor": []
+    }
+   ]
+  },
+  "eps0=0.3_eps=0.15": {
+   "sent": 48,
+   "rejected": 6,
+   "rejected_rate": 0.125,
+   "rejected_carrying_violation": 5,
+   "events": [
+    {
+     "trial": 3,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": false,
+     "violations_in_anchor": []
+    },
+    {
+     "trial": 7,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "trial": 7,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10,
+      11,
+      12
+     ]
+    },
+    {
+     "trial": 7,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    }
+   ]
+  },
+  "eps0=0.1_eps=0.1": {
+   "sent": 48,
+   "rejected": 7,
+   "rejected_rate": 0.146,
+   "rejected_carrying_violation": 7,
+   "events": [
+    {
+     "trial": 0,
+     "pid": "T1",
+     "anchor": [
+      4,
+      5,
+      6
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      5,
+      6
+     ]
+    },
+    {
+     "trial": 0,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10
+     ]
+    },
+    {
+     "trial": 0,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10,
+      11,
+      12
+     ]
+    },
+    {
+     "trial": 0,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      12,
+      13,
+      14
+     ]
+    },
+    {
+     "trial": 1,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10,
+      11,
+      12
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T2",
+     "anchor": [
+      6,
+      7,
+      8
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      7,
+      8
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      8,
+      9,
+      10
+     ]
+    }
+   ]
+  },
+  "eps0=0.3_eps=0.1": {
+   "sent": 48,
+   "rejected": 3,
+   "rejected_rate": 0.062,
+   "rejected_carrying_violation": 2,
+   "events": [
+    {
+     "trial": 3,
+     "pid": "T3",
+     "anchor": [
+      8,
+      9,
+      10
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      8,
+      9,
+      10
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T4",
+     "anchor": [
+      10,
+      11,
+      12
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": true,
+     "violations_in_anchor": [
+      10
+     ]
+    },
+    {
+     "trial": 3,
+     "pid": "T5",
+     "anchor": [
+      12,
+      13,
+      14
+     ],
+     "status": "CONTRADICTION",
+     "reason": "law_mismatch",
+     "carries_world_violation": false,
+     "violations_in_anchor": []
+    }
+   ]
+  }
+ },
+ "reproduction_matches_r12": true
+}

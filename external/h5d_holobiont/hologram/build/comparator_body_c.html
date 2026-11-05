@@ -1,0 +1,129 @@
+
+  <!-- ═══ ПРОМПТ ЦЕЛИКОМ ═══ -->
+  <section class="section container" id="prompt" aria-label="Промпт целиком: полный текст без сокращений">
+    <div class="sec-head reveal">
+      <p class="kicker">SYSTEM/TASK PROMPT</p>
+      <h2>Промпт целиком</h2>
+      <p>Тело промпта на английском — это осознанное решение: Lean/Mathlib-терминология и английские системные инструкции дают моделям заметно выше точность API и меньше галлюцинаций имён лемм. Русская инструкция по использованию — ниже. Подставьте {CHALLENGE_CODE} — код челленджа из левой панели — и {TOOLCHAIN} — выбранный тулчейн; остальное не трогайте.</p>
+    </div>
+    <article class="card reveal" style="max-width:none">
+      <span class="icon-chip" aria-hidden="true">{}</span><h3>SYSTEM/TASK PROMPT — Lean 4 (Mathlib) proof for Comparator Live</h3>
+      <p>Полный текст ниже — без сокращений и без сжатия: ROLE, TARGET TOOLCHAIN, CHALLENGE, HARD REQUIREMENTS 1–7, SELF-CHECK, HONESTY CLAUSE, оба спец-случая и команда BEGIN. Скопируйте блок целиком в любую LLM.</p>
+      <pre class="mono" style="font-size:12px;line-height:1.5;overflow-x:auto;white-space:pre;margin:6px 0 14px">@@PROMPT_VERBATIM@@</pre>
+      <p>Промпт переносит дисциплину компаратора на LLM-генератор: до вердикта компилятора выход остаётся CANDIDATE, а честный разрыв оформляется по протоколу CANDIDATE-INCOMPLETE. Если модель вернула неполный файл — это не провал генерации, а сработавший Honesty Clause.</p>
+    </article>
+    <div class="checklist reveal">
+      <h3><span class="k">✓</span> Как пользоваться (RU): пять шагов</h3>
+      <ol>
+        <li><span class="n">1</span>Открой comparator.live.lean-lang.org, выбери тулчейн (рекомендую Stable v4.33.0 — меньше дрейф API) и челлендж в списке.</li>
+        <li><span class="n">2</span>Скопируй код челленджа из левой панели в {CHALLENGE_CODE} промпта, выбранный тулчейн — в {TOOLCHAIN}.</li>
+        <li><span class="n">3</span>Дай промпт LLM. Полученный ЕДИНСТВЕННЫЙ lean-блок вставь в правую панель «Candidate Solution» и запусти проверку.</li>
+        <li><span class="n">4</span>Чтение результата: зелёный verification-ok = доказательство принято компилятором; failure с пустым theoremNames = имя/сигнатура теоремы не совпали — сверяй 1-в-1; warning «user» = челлендж вписан руками (TOFU), для встроенных челленджей его не будет.</li>
+        <li><span class="n">5</span>Челленджи Trivial/Inconsistency — санити-проверки инструмента, а не задачи: для «prove False» честный ответ модели — отказ (см. SPECIAL CASE).</li>
+      </ol>
+      <p class="hint">Больше ничего менять не нужно: промпт уже содержит Hard Requirements, Self-Check, Honesty Clause и оба спец-случая. Если модель вернула CANDIDATE-INCOMPLETE — это не провал, а честный разрыв: гэп лучше подделки.</p>
+    </div>
+  </section>
+
+  <!-- ═══ АВТОНОМНОСТЬ ═══ -->
+  <section class="section" id="offline" aria-label="Автономность: офлайн, приватность, самодостаточность">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="kicker">offline-first · self-hosted · private</p>
+        <h2>Автономен по построению</h2>
+        <p>Вы читаете один HTML-файл — эталон живого промпта Comparator Live и самую чистую форму автономности, какая вообще возможна в вебе. Шрифты зашиты внутрь, стили и скрипты внутри, сервер не нужен, сеть не нужна. Скопируйте файл на флешку, отправьте в мессенджере, положите в архив — он везде останется ровно таким же, а промпт всегда будет под рукой, до последнего символа.</p>
+      </div>
+      <div class="hf-grid">
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">01</span><h3>Один файл — ноль зависимостей</h3>
+          <p>HTML, CSS, JavaScript, четыре шрифта и иконка — всё в одном документе. Двойной клик — и файл работает: авиарежим, метро, самолёт, компьютер без интернета. Промпт из раздела выше копируется прямо из файла — сеть не нужна, агрегаторов не нужно.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">02</span><h3>Шрифты зашиты внутрь</h3>
+          <p>Четыре переменные гарнитуры — Unbounded, Manrope, JetBrains Mono, Golos Text — упакованы в woff2 и встроены в файл кодировкой base64. Ноль обращений к fonts.googleapis.com: макет не развалится, даже если Google завтра выключит свой CDN.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">03</span><h3>Автономность = приватность</h3>
+          <p>Мюнхенский суд, январь 2022: штраф сайту за динамическую загрузку Google Fonts — IP-адрес посетителя утекал к Google без согласия (нарушение GDPR). Здесь утечка невозможна физически: файл не отправляет ни одного запроса — нечем следить и не за чем.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">04</span><h3>Живёт на любом железе</h3>
+          <p>macOS, Windows, Linux, iOS, Android, HarmonyOS, ChromeOS — любой браузер последних двух десятилетий откроет файл одинаково. Термин Progressive Web App придуман в июне 2015 года Алексом Расселлом и Фрэнсис Берриман: «прогрессивный» — значит базовое работает везде. Один файл доводит эту идею до предела.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">05</span><h3>Проверено историей</h3>
+          <p>Первый сайт мира был именно таким — статичным файлом на сервере CERN, и он до сих пор открывается. Service Worker (полная поддержка с Chrome 45, сентябрь 2015) научил сайты кэшировать себя на устройство — этот файл не нуждается даже в кэше: он сам себе кэш.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">06</span><h3>Настройки не улетают</h3>
+          <p>Панель комфорта — размер кегля, движение, контраст, тема — хранит выбор в localStorage устройства. Ни аккаунта, ни облака, ни куки: включили один раз — работает всегда, в том числе в полной офлайн-изоляции.</p></article>
+      </div>
+      <div class="checklist reveal">
+        <h3><span class="k">✓</span> Проверка на честность: 15 секунд</h3>
+        <ol>
+          <li><span class="n">1</span>Скопируйте этот файл на флешку или другое устройство</li>
+          <li><span class="n">2</span>Отключите интернет целиком — Wi-Fi, кабель, всё</li>
+          <li><span class="n">3</span>Двойной клик по файлу — страница откроется во всей красе</li>
+        </ol>
+        <p class="hint">Файл можно открыть и на телефоне (любым файловым менеджером) — все вкладки, темы и панель комфорта работают на сенсорном экране. Промпт Comparator Live при этом остаётся точным до последнего символа: это тоже [ТЕКСТ], а не пересказ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ГЛОССАРИЙ ═══ -->
+  <section class="section tinted" id="glossary" aria-label="Словарь терминов компаратора">
+    <div class="container glossary">
+      <div class="sec-head reveal">
+        <p class="kicker">словарь</p>
+        <h2>Словарь компаратора</h2>
+        <p>Каждый термин из разделов выше — раскрытый, с эндпоинтом, хэшем или цитатой из промпта. Эталон рассчитан на то, что его будут читать, а не только смотреть.</p>
+      </div>
+      <details class="reveal"><summary>Comparator Live</summary><p>Экспериментальный сервис lean-lang.org по адресу https://comparator.live.lean-lang.org/ (изучено по факту, 2026-09): инструмент реальной проверки Lean-кода. Он компилирует «Candidate Solution» в выбранном закреплённом тулчейне и принимает её, только если челлендж-теорема действительно доказана — тем же именем и тем же утверждением, без sorry. Никаких «поверь мне на слово»: сервис существует, чтобы переводить спор «доказано или нет» из слов в прогон компилятора.</p></details>
+      <details class="reveal"><summary>Candidate Solution</summary><p>Единственный Lean 4 блок, который генератор вставляет в правую панель компаратора. Требования эталонного формата: вспомогательные def/theorem ДО главной теоремы (например exists_prime_factor, factorial), главная теорема — 1-в-1 с сигнатурой челленджа, sorry заменён настоящим доказательством. До прогона компилятора Candidate Solution — это CANDIDATE, а не proven artifact: объявлять «this compiles» запрещено Honesty Clause.</p></details>
+      <details class="reveal"><summary>Челлендж: built-in и user</summary><p>Целевая теорема с зафиксированной сигнатурой и sorry вместо доказательства. Челлендж из списка — built-in: компаратор знает его хэш и проверяет без предупреждений. Челлендж, вписанный руками, — user: появляется warning и TOFU-кнопка «I trust this challenge (hash …)». Правило неприкосновенности: reproduce the challenge's pre-theorem definitions EXACTLY as given — не обобщать, не переименовывать, не «улучшать»; любую правку утверждения челленджа запрещает само правило 5.</p></details>
+      <details class="reveal"><summary>Тулчейн (pinned)</summary><p>Закреплённая связка Lean и Mathlib, в которой компаратор реально компилирует решение. Список отдаёт GET /comparator/api/projects: «Latest Mathlib with Lean v4.34.0-rc2», «Latest Release (v4.34.0-rc2 with mathlib, cslib)», «Stable Release (v4.33.0 …)» и скрытые lean-v4.32.x. Требование промпта: every lemma/tactic you use MUST exist in this exact toolchain; при сомнении — долго живущие Mathlib-леммы вместо свежих тактик. Для ручной работы рекомендован Stable v4.33.0 — меньше дрейф API.</p></details>
+      <details class="reveal"><summary>Трек (SSE)</summary><p>Живая лента состояний прогона: POST /comparator/api/start c телом {project, challenge, solution} возвращает requestId, затем GET /comparator/api/track/{requestId} (SSE) проводит заявку через in-preparation → in-queue → in-progress к одному из трёх исходов: verification-ok | verification-failed | connection-lost. Трек — поток событий, а не обещаний: пока вердикт не пришёл, статус решения — CANDIDATE, а connection-lost означает «повторить прогон», а не «считаем успешным».</p></details>
+      <details class="reveal"><summary>theoremNames</summary><p>Поле вердикта со списком теорем, найденных компилятором доказанными. Диагностика: failure с пустым theoremNames — имя или сигнатура теоремы не совпали, сверяй 1-в-1; вердикт verification-ok при пустом theoremNames = FAIL — теорема не найдена доказанной. Именно поэтому SELF-CHECK промпта требует byte-for-byte совпадения имени и сигнатуры с челленджем (modulo whitespace).</p></details>
+      <details class="reveal"><summary>Три вердикта</summary><p>verification-ok — доказательство принято компилятором: единственный исход, после которого текст решения становится [ТЕКСТОМ]. verification-failed — компилятор отверг: правьте файл, а не трактовку. connection-lost — трек оборвался: прогон не состоялся. Промежуточных вердиктов нет — как в словаре-голограмме нет промежуточных статусов: промежуточные статусы — лазейки, через которые умник протаскивает своё мнение.</p></details>
+      <details class="reveal"><summary>TOFU-кнопка «I trust this challenge (hash …)»</summary><p>Доверие, вписанное руками: для user-челленджа компаратор показывает warning и просит явно подтвердить доверие хэшем. Это trust-anchor, а не вердикт: подпись доверия не равна результату проверки — TAG ≠ VERIFICATION. Для встроенных челленджей кнопки не будет: их хэши компаратор знает сам. В терминах сессии это в точности CONTACT ≠ TRUTH: контакт с челленджем не делает его истинным.</p></details>
+      <details class="reveal"><summary>Honesty Clause (non-negotiable)</summary><p>Неотчуждаемая оговорка промпта. Ядро: You do NOT have the comparator's compiler. CLAIMS ARE NOT EVIDENCE: until Comparator Live reports verification-ok, your output is a CANDIDATE, not a proven artifact — never claim "this compiles" or "this is verified". Если полное доказательство невозможно — не фабриковать: выдать сильнейший честный частичный файл (вспомогательные леммы полностью доказаны; главная теорема с sorry и комментарием -- GAP:, называющим ровно недостающее), предварённый строкой «CANDIDATE-INCOMPLETE: &lt;gap list&gt;». Приговор: A wrong "proof" is strictly worse than an admitted gap — неверное «доказательство» строго хуже признанного гэпа.</p></details>
+      <details class="reveal"><summary>CANDIDATE-INCOMPLETE</summary><p>Протокол честного разрыва: одна строка перед файлом вида «CANDIDATE-INCOMPLETE: &lt;gap list&gt;», затем самый сильный частичный файл — вспомогательные леммы полностью доказаны, главная теорема оставлена с sorry и комментарием -- GAP:, называющим ровно то, чего не хватает. Файл обязан разворачиваться ровно как написан: никаких _ дыр, никакого ..., никакого псевдокода и хвостов-заглушек. Протокол существует, потому что шум не удаляется: признанный гэп — доказательство честной работы, подделка — потеря всего.</p></details>
+      <details class="reveal"><summary>SELF-CHECK</summary><p>Молчаливая само-проверка строго по порядку ДО ответа: совпадение утверждения (имя + биндеры + тип) с челленджем byte-for-byte modulo whitespace; скан запрещённых токенов sorry | admit | axiom | native_decide | unsafe | partial | implemented_by | extern — ноль попаданий; для каждой цитируемой Mathlib-леммы — точное имя, точный порядок аргументов, существование в закреплённой версии, иначе пере-вывод с первых принципов; каждый have/obtain/intro тайпчекается, каждая ветка каждого разреза случаев закрыта; файл парсится как единый модуль (balanced begin/end / by blocks).</p></details>
+      <details class="reveal"><summary>Спец-случаи: prove False и открытые проблемы</summary><p>Inconsistency (prove False): не пытаться через unsafe, native_decide, implemented_by, эксплойты ядра или типовые парадоксы — это не саунднесс-контрпримеры, правило 5 их запрещает; единственный приемлемый выход — честный отказ и, по желанию, короткий отчёт о проверенном. Открытые проблемы (Collatz, FLT-класс): не заявлять полное доказательство действительно открытого утверждения — работать по Honesty-протоколу. Исключение: если именованная теорема уже полностью доказана в закреплённом Mathlib — можно опираться на неё явно, но декларация с точным именем и сигнатурой челленджа обязана присутствовать в файле и компилироваться.</p></details>
+      <details class="reveal"><summary>Эталонный формат решения</summary><p>Виден в предзаполненном кандидате компаратора: вспомогательные def/theorem ДО главной теоремы (например exists_prime_factor, factorial), главная теорема — 1-в-1 с сигнатурой челленджа, sorry заменён настоящим доказательством. Добавлять вспомогательные определения разрешено и поощряется — keep them minimal and fully proven. Файл должен разворачиваться с нуля ровно как написан: это единственная форма, в которой вердикт вообще возможен.</p></details>
+      <details class="reveal"><summary>Заметка Полимата</summary><p>Сервис — живая инстанция инвариантов сессии: RESULT ≠ VERIFICATION (кнопка «I trust this challenge» с хэшем = TOFU trust-anchor, TAG ≠ VERIFICATION), CLAIMS_EXECUTION ≠ EXECUTION_EVIDENCE (до прогона компилятора решение — CANDIDATE). Промпт эталона переносит ту же дисциплину на LLM-генератор: Honesty Clause запрещает объявлять PASS без исполнения — это в точности наш §7-канал value-загрязнения, закрытый по месту. Отсюда и словарь страницы: [ТЕКСТ] получает только то, что прошло компилятор; всё остальное честно лежит в слое ШУМА и [ГИП].</p></details>
+    </div>
+  </section>
+</main>
+
+<!-- ═══ ФУТЕР ═══ -->
+<footer class="site-footer" id="sources" aria-label="Источники и подвал">
+  <div class="container foot-grid">
+    <div>
+      <div class="logo"><span class="logo-badge">CL</span><span class="logo-name">компаратор-live <span class="logo-year mono">2026</span></span></div>
+      <p class="foot-desc">Эталон живого промпта Comparator Live, вставленный в чужой шаблон без единой правки кода: сменили только текст — механика, стили и шрифты остались его. Первоисточник — вердикт компилятора; заявление — не источник, а свидетель шума. Связь без прогона — шум; шум хранится и экспонируется: удалить — потерять доказательство. Гэп лучше подделки.</p>
+    </div>
+    <nav aria-label="Список источников">
+      <h2 class="src-title"><span aria-hidden="true">📖</span> Источники фактов</h2>
+      <ul class="src-list">
+        <li><a href="https://comparator.live.lean-lang.org/" target="_blank" rel="noopener noreferrer">Comparator Live — официальный экспериментальный сервис lean-lang.org</a></li>
+        <li><a href="https://lean-lang.org/" target="_blank" rel="noopener noreferrer">lean-lang.org — сайт языка Lean и проекта Lean FRO</a></li>
+        <li><a href="https://github.com/leanprover-community/mathlib4" target="_blank" rel="noopener noreferrer">Mathlib4 — библиотека лемм, в которой компилируются решения</a></li>
+        <li><a href="https://leanprover-community.github.io/" target="_blank" rel="noopener noreferrer">Leanprover Community — документация и сообщество Lean</a></li>
+        <li><a href="https://leanprover-community.github.io/mathlib4_docs/" target="_blank" rel="noopener noreferrer">Mathlib4 Docs — справочник лемм закреплённого тулчейна</a></li>
+        <li>/assets/index-B3V-f9ua.js — бандл Comparator Live: механика изучена по факту, 2026-09</li>
+        <li>COMPARATOR_LIVE_PROMPT.md — первоисточник текста этого эталона: разбор и промпт</li>
+      </ul>
+    </nav>
+  </div>
+  <div class="foot-bottom">
+    <div class="container in">
+      <span>© 2026 · Эталон «COMPARATOR LIVE PROMPT» · первоисточник: COMPARATOR_LIVE_PROMPT.md (2026-09)</span>
+      <span>Один файл. Ноль запросов. Honesty Clause включён ✓</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ ПАНЕЛЬ КОМФОРТА ═══ -->
+<button class="comfort-fab" id="comfortFab" type="button" aria-expanded="false" aria-controls="comfortPanel" aria-label="Панель комфорта">Aa</button>
+<button class="to-top" id="toTop" type="button" aria-label="Наверх">↑</button>
+<div class="comfort-panel" id="comfortPanel" role="dialog" aria-label="Панель комфорта">
+  <h2>Панель комфорта</h2>
+  <p class="sub">Настройки сохраняются в этом браузере</p>
+  <div class="cp-row"><span>Размер текста</span><button class="cp-btn" id="fsBtn" type="button">100%</button></div>
+  <div class="cp-row"><span>Меньше движения</span><button class="cp-btn" id="motionBtn" type="button" aria-pressed="false">Выкл</button></div>
+  <div class="cp-row"><span>Высокий контраст</span><button class="cp-btn" id="contrastBtn" type="button" aria-pressed="false">Выкл</button></div>
+  <div class="cp-row"><span>Эко-режим (гасит декор)</span><button class="cp-btn" id="ecoBtn" type="button" aria-pressed="false">Выкл</button></div>
+  <div class="cp-row"><span>Шрифт чтения</span><button class="cp-btn" id="fontBtn" type="button" aria-pressed="false">Golos Text</button></div>
+  <button class="cp-reset" id="resetBtn" type="button">Сбросить настройки</button>
+</div>
+

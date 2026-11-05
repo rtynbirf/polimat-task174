@@ -1,0 +1,219 @@
+
+</head>
+
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container hdr-inner">
+    <a class="logo" href="#top" aria-label="Comparator Live — эталон промпта, на главную">
+      <span class="logo-badge">CL<span class="logo-dot" aria-hidden="true"></span></span>
+      <span class="logo-name">компаратор-live<span class="logo-year mono">2026</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a href="#time-machine">Машина времени</a>
+      <a href="#timeline">Вехи прогона</a>
+      <a href="#dna">Механизм</a>
+      <a href="#health">Честность</a>
+      <a href="#prompt">Промпт</a>
+      <a href="#offline">Автономность</a>
+      <a href="#glossary">Словарь</a>
+      <a href="#sources">Источники</a>
+    </nav>
+    <div class="hdr-actions">
+      <button class="btn-icon" id="themeBtn" type="button" aria-label="Переключить тему">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="top" aria-label="Главный экран">
+    <div class="mesh" aria-hidden="true">
+      <div class="blob blob-1"></div><div class="blob blob-2"></div>
+      <div class="blob blob-3"></div><div class="blob blob-4"></div>
+      <div class="bg-grid"></div>
+    </div>
+    <span class="chip-float chip-a" aria-hidden="true">TAG ≠ VERIFICATION</span>
+    <span class="chip-float chip-b" aria-hidden="true">verification-ok ≠ «я уверен»</span>
+    <div class="container hero-inner">
+      <div class="badge-row reveal">
+        <span class="badge">✓ Режим антигаллюцинации: CLAIMS ≠ EVIDENCE</span>
+        <span class="badge badge-ghost">⌁ Промпт переносим: вставить в любую LLM</span>
+      </div>
+      <h1 class="reveal"><span class="grad-text">Заявление — не доказательство.</span><br><span>Вердикт — за компилятором.</span></h1>
+      <p class="lead reveal">Comparator Live — официальный экспериментальный сервис lean-lang.org по адресу comparator.live.lean-lang.org: инструмент реальной проверки Lean-кода. Он компилирует «Candidate Solution» в выбранном закреплённом тулчейне и принимает её, только если челлендж-теорема действительно доказана — тем же именем и тем же утверждением, без sorry. До вердикта компилятора решение — CANDIDATE, а не proven artifact: заявлять «this compiles» запрещает Honesty Clause, потому что CLAIMS ARE NOT EVIDENCE. Этот эталон несёт полный живой промпт — с Hard Requirements, Self-Check, Honesty Clause и обоими спец-случаями — и переносит дисциплину компаратора на LLM-генератор. Всё уместилось в один HTML-файл: шрифты внутри, стили внутри, скрипты внутри.</p>
+      <div class="cta-row reveal">
+        <a class="btn btn-primary" href="#time-machine">✦ Прогнать цепочку «verification-ok»</a>
+        <a class="btn btn-ghost" href="#dna">Устройство промпта ↓</a>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b>6</b><span>встроенных челленджей: primes · FLT · Ramsey · Collatz · True · False</span></div>
+        <div class="stat"><b>5</b><span>состояний трека: in-preparation → in-queue → in-progress → ok | failed | lost</span></div>
+        <div class="stat"><b>3</b><span>публичных тулчейна (v4.34.0-rc2, +cslib, v4.33.0) + скрытые lean-v4.32.x</span></div>
+        <div class="stat"><b>0</b><span>внешних запросов — файл самодостаточен</span></div>
+      </div>
+      <div class="passport reveal" role="region" aria-label="Живой паспорт страницы: файл аудирует сам себя">
+        <h2>Паспорт страницы</h2>
+        <p class="pp-sub">Числа ниже не написаны от руки — файл вычисляет их из живого DOM прямо сейчас: при смене темы, кегля, режима и даже времени суток. Тот же принцип, что и у компаратора: измерение вместо заявления.</p>
+        <ul>
+          <li><span>Кегль текста<small>замер из computed style</small></span><output id="pFs">—</output></li>
+          <li><span>Интерлиньяж<small>норма 1.5+</small></span><output id="pLh" data-ok="1">—</output></li>
+          <li><span>Длина строки<small>оптимум 50–75 знаков</small></span><output id="pCh">—</output></li>
+          <li><span>Контраст текста<small>норма WCAG 2.2 ≥ 4.5:1</small></span><output id="pCr" data-ok="1">—</output></li>
+          <li><span>Контраст контролов<small>кнопки и переключатели, тот же порог</small></span><output id="pCc" data-ok="1">—</output></li>
+          <li><span>Вес файла<small>шрифты и стили внутри</small></span><output id="pW">—</output></li>
+          <li><span>Мерцание<small>порог WCAG 2.3.1 — 3 Гц</small></span><output>0 Гц</output></li>
+          <li><span>Внешних запросов<small>сеть не нужна</small></span><output data-ok="1">0</output></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ БЕГУЩАЯ СТРОКА ═══ -->
+  <div class="marquee" role="marquee" aria-label="Состояния трека и инварианты компаратора">
+    <div class="mq-track">
+      <div class="mq-row" id="mqRow1"></div>
+      <div class="mq-row" aria-hidden="true" id="mqRow2"></div>
+    </div>
+    <div class="mq-fade l" aria-hidden="true"></div>
+    <div class="mq-fade r" aria-hidden="true"></div>
+  </div>
+
+  <!-- ═══ МАШИНА ВРЕМЕНИ ═══ -->
+  <section class="section container tm" id="time-machine" aria-label="Машина времени: прогон через пять состояний">
+    <div class="sec-head reveal">
+      <p class="kicker">интерактивный экспонат</p>
+      <h2>Машина времени</h2>
+      <p>Один и тот же путь — от заявления модели до вердикта — прогнан через пять состояний компаратора. Переключайте вкладки и смотрите, как меняется статус записи: от «Candidate Solution», который ещё ничем не подтверждён, через заявку и очередь к компиляции, вердикту и полиматовским инвариантам. Механизм экспоната не тронут — сменён только текст: так работает принцип «экспонат не перекрашивается».</p>
+    </div>
+    <div class="tm">
+      <input type="radio" name="era" id="e1991" checked>
+      <input type="radio" name="era" id="e1996">
+      <input type="radio" name="era" id="e2005">
+      <input type="radio" name="era" id="e2013">
+      <input type="radio" name="era" id="e2026">
+      <div class="tm-tabs" role="tablist" aria-label="Выбор состояния прогона">
+        <label class="tm-tab" for="e1991" role="tab" aria-selected="true" tabindex="-1"><b>ШАГ 0</b><em>Candidate</em></label>
+        <label class="tm-tab" for="e1996" role="tab" aria-selected="false" tabindex="-1"><b>POST</b><em>requestId</em></label>
+        <label class="tm-tab" for="e2005" role="tab" aria-selected="false" tabindex="-1"><b>SSE</b><em>in-queue</em></label>
+        <label class="tm-tab" for="e2013" role="tab" aria-selected="false" tabindex="-1"><b>КОМПИЛЯЦИЯ</b><em>in-progress</em></label>
+        <label class="tm-tab" for="e2026" role="tab" aria-selected="false" tabindex="-1"><b>2026</b><em>Инварианты</em></label>
+      </div>
+      <div class="tm-panels">
+        <div class="tm-panel p-1991" role="tabpanel" aria-label="Состояние: Candidate Solution до прогона">
+          <div class="frame">
+            <div class="frame-bar"><div class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame-addr">🔒 llm.local · Candidate Solution · до прогона</div><span class="mono" style="font-size:10px;color:var(--muted-fg)">⇅</span></div>
+            <div class="era-screen">
+              <div class="era91">
+                <h1>Candidate Solution</h1>
+                <p class="meta">https://comparator.live.lean-lang.org/ — правая панель · состояние: до прогона</p>
+                <hr>
+                <p>Модель выдала один самодостаточный Lean 4 блок: главная теорема — тем же именем и тем же утверждением, что у челленджа, sorry заменён настоящим доказательством. Пока компилятор молчал, это заявление, а не доказательство: CLAIMS ARE NOT EVIDENCE.</p>
+                <p>Статус записи — [ГИП]: гипотеза агента, помечена и ждёт пруфа. Выберите, куда идти дальше.</p>
+                <ul>
+                  <li><a href="#top" onclick="return false">Honesty Clause (non-negotiable)</a></li>
+                  <li><a href="#top" onclick="return false">CANDIDATE-INCOMPLETE: список гэпов</a></li>
+                  <li><a href="#top" onclick="return false">Спец-случай: prove False — отказ</a></li>
+                  <li><a href="#top" onclick="return false">Как пользоваться: пять шагов</a></li>
+                </ul>
+                <hr>
+                <p class="fin">© 2026 · до вердикта — CANDIDATE · заявление ≠ доказательство</p>
+              </div>
+            </div>
+          </div>
+          <div class="era-desc"><b>До прогона · Candidate Solution · [ГИП]</b><p>Так выглядит решение до контакта с компилятором: один Lean-блок, главная теорема — 1-в-1 с сигнатурой челленджа, вспомогательные леммы до неё. Но Honesty Clause прямо запрещает выдавать это за проверенное: You do NOT have the comparator's compiler — у автора текста нет компилятора, поэтому «this compiles» произносить нельзя. Это [ГИП] — гипотеза, помеченная и ждущая пруфа; пруфом может быть только вердикт компаратора, а не уверенность автора.</p></div>
+        </div>
+        <div class="tm-panel p-1996" role="tabpanel" aria-label="Состояние: заявка принята, трек открыт">
+          <div class="frame">
+            <div class="frame-bar"><div class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame-addr">🔒 comparator.live · POST /comparator/api/start</div><span class="mono" style="font-size:10px;color:var(--muted-fg)">⇅</span></div>
+            <div class="era-screen">
+              <div class="era96">
+                <div class="era96-box">
+                  <div class="era96-head"><h1>☕ COMPARATOR API ☕</h1><p>ЖИВАЯ МЕХАНИКА ИЗ БАНДЛА · 2026!!!</p></div>
+                  <table class="era96-t"><tbody>
+                    <tr>
+                      <td class="era96-news"><b>СТАРТ ПРИНЯТ</b><p>— POST /comparator/api/start!</p><p>— Тело: {project, challenge, solution}!</p><p>— В ответ: requestId!</p></td>
+                      <td class="era96-main"><p class="navy">«Трек открыт: GET /comparator/api/track/{requestId} (SSE) — поток состояний, а не обещаний: in-preparation → in-queue → in-progress → вердикт.»</p><p>Автор запроса — не источник вердикта. Заявка в очереди — это приём, а не результат: сервер пока ничего не доказал.</p><span class="counter blink">СТАТУС: IN-QUEUE · ЗАЯВКА № 000001</span></td>
+                    </tr>
+                  </tbody></table>
+                  <div class="era96-marq">★★★ IN-QUEUE ★★★ ЗАЯВЛЕНИЕ ПРИНЯТО ★★★ ЭТО ЕЩЁ НЕ ВЕРДИКТ ★★★ VERIFICATION-OK ДАЁТ ТОЛЬКО КОМПИЛЯТОР ★★★</div>
+                  <p class="era96-foot">This state is in-queue · SSE ведёт к вердикту</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="era-desc"><b>POST /start → requestId · in-queue</b><p>Механика изучена по бандлу /assets/index-B3V-f9ua.js: POST /comparator/api/start c телом {project, challenge, solution} возвращает requestId, после чего GET /comparator/api/track/{requestId} (SSE) ведёт заявку через in-preparation → in-queue → in-progress к одному из трёх исходов: verification-ok | verification-failed | connection-lost. Заявка, принятая сервером, — приём, а не результат: по закону цепочек связь «заявка = доказательство» не существует, пока не пришёл вердикт.</p></div>
+        </div>
+        <div class="tm-panel p-2005" role="tabpanel" aria-label="Состояние: компиляция в закреплённом тулчейне">
+          <div class="frame">
+            <div class="frame-bar"><div class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame-addr">🔒 comparator.live · GET /api/track · in-progress</div><span class="mono" style="font-size:10px;color:var(--muted-fg)">⇅</span></div>
+            <div class="era-screen">
+              <div class="era05">
+                <div class="era05-wrap">
+                  <div class="era05-hd"><div class="era05-hd-row"><span class="era05-title">Comparator Live</span><span class="era05-beta">SSE</span></div></div>
+                  <div class="era05-bd">
+                    <div class="era05-stars"><span class="st">★★★★★</span><small>закреплённый тулчейн · pinned toolchain</small></div>
+                    <div class="era05-card"><span class="era05-cup" aria-hidden="true">⚙</span><b>Компиляция в закреплённом тулчейне</b><small>in-queue → in-progress · каждая лемма обязана существовать в этой версии</small></div>
+                    <div class="era05-btns"><button class="era05-btn" type="button">Latest Mathlib v4.34.0-rc2</button><button class="era05-btn ghost" type="button">Stable v4.33.0</button></div>
+                    <p class="era05-c">© 2026 Comparator Live · компилятор — единственный свидетель</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="era-desc"><b>IN-PROGRESS · закреплённый тулчейн</b><p>Тулчейны выдаёт GET /comparator/api/projects: «Latest Mathlib with Lean v4.34.0-rc2», «Latest Release (v4.34.0-rc2 with mathlib, cslib)», «Stable Release (v4.33.0 …)» плюс скрытые lean-v4.32.x. Промпт требует: Every lemma/tactic you use MUST exist in this exact toolchain — сомневаешься в имени леммы, бери долго живущие Mathlib-леммы вместо свежих тактик. Рекомендация по использованию: Stable v4.33.0 — меньше дрейф API.</p></div>
+        </div>
+        <div class="tm-panel p-2013" role="tabpanel" aria-label="Состояние: вердикт">
+          <div class="frame">
+            <div class="frame-bar"><div class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame-addr">🔒 comparator.live · вердикт · verification-*</div><span class="mono" style="font-size:10px;color:var(--muted-fg)">⇅</span></div>
+            <div class="era-screen">
+              <div class="era13">
+                <div class="era13-wrap">
+                  <p class="era13-kicker">вердикт · [ТЕКСТ] или отказ</p>
+                  <h1>Вердикт</h1>
+                  <div class="era13-grid">
+                    <div class="tile green">verification-ok</div>
+                    <div class="tile red">verification-failed</div>
+                    <div class="tile amber">connection-lost</div>
+                    <div class="tile cyan">theoremNames: [] = FAIL</div>
+                  </div>
+                  <div class="era13-kpi">
+                    <div class="num">2026<div class="cap">изучено по факту: бандл /assets/index-B3V-f9ua.js</div></div>
+                    <div class="era13-bars" aria-hidden="true"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:100%"></i></div>
+                  </div>
+                  <p class="era13-c">три исхода · пустой theoremNames = FAIL · © 2026</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="era-desc"><b>Вердикт · ok / failed / lost</b><p>Чтение результата: зелёный verification-ok = доказательство принято компилятором. Вердикт verification-ok при пустом theoremNames = FAIL — теорема не найдена доказанной; failure с пустым theoremNames — имя или сигнатура теоремы не совпали, сверяй 1-в-1. Челлендж из списка = built-in → success; челлендж, вписанный руками = user → warning + TOFU-кнопка «I trust this challenge (hash …)». connection-lost — трек оборвался: повторить прогон, а не объявлять победу.</p></div>
+        </div>
+        <div class="tm-panel p-2026" role="tabpanel" aria-label="Состояние: полиматовские инварианты 2026">
+          <div class="frame">
+            <div class="frame-bar"><div class="frame-dots" aria-hidden="true"><i></i><i></i><i></i></div><div class="frame-addr">🔒 словарь-голограмма.локал · 2026</div><span class="mono" style="font-size:10px;color:var(--muted-fg)">⇅</span></div>
+            <div class="era-screen">
+              <div class="era26">
+                <div class="mb mb1" aria-hidden="true"></div><div class="mb mb2" aria-hidden="true"></div><div class="mb mb3" aria-hidden="true"></div>
+                <div class="era26-wrap">
+                  <div class="era26-nav"><b>полимат</b><span>инварианты&nbsp;&nbsp;статусы&nbsp;&nbsp;<span class="in">промпт</span></span></div>
+                  <h1>Промпт, который <span class="g">знает себя</span></h1>
+                  <p class="era26-sub">RESULT ≠ VERIFICATION, CLAIMS ≠ EVIDENCE — и ни одного нового разрешения.</p>
+                  <div class="era26-grid">
+                    <div class="b26 full"><span class="cap"><span class="ai">✦</span> шесть слоёв промпта</span><p class="big">ROLE · TOOLCHAIN · CHALLENGE · RULES · SELF-CHECK · HONESTY</p><small>МАШИНА компилирует · ИИ пишет · СУД = компилятор</small></div>
+                    <div class="b26"><p class="num">3</p><small>вердикта: ok · failed · lost</small></div>
+                    <div class="b26"><p class="num">0</p><small>доказательств без прогона — без компиляции это шум, а не связь</small></div>
+                    <div class="b26 cta full"><span><b>Взять промпт целиком</b><small>единственный Lean-блок · гэп лучше подделки</small></span><span class="go">К промпту</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="era-desc"><b>2026 · Полимат · инварианты</b><p>Сервис — живая инстанция инвариантов сессии: RESULT ≠ VERIFICATION (кнопка «I trust this challenge» с хэшем = TOFU trust-anchor, TAG ≠ VERIFICATION), CLAIMS_EXECUTION ≠ EXECUTION_EVIDENCE (до прогона компилятора решение — CANDIDATE). Промпт этого эталона переносит ту же дисциплину на LLM-генератор: Honesty Clause запрещает объявлять PASS без исполнения — это в точности наш §7-канал value-загрязнения, закрытый по месту. Экспонат собран тем же приёмом, что и весь словарь: чужая оболочка 2026-го, свой текст — и ни одной правки механики.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>

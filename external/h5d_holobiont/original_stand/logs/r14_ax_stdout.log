@@ -1,0 +1,39 @@
+====================================================================
+ROUND 14-AX: the anthropological axis
+====================================================================
+step X0: orientation blindness (twins + structure)
+  {"twins_bit_identical": true, "structural_blindness": true, "no_oracle": true, "bad_attrs": []}
+step X1: HERO != OWNER (frozen v3)
+  {"sacrifices": 6, "hero_flip_status": "PARKED_CHALLENGED", "switches": 0, "boot_history_intact": true, "law_unchanged": true, "hero_true_accept_seen": 9}
+step X2: single-source strikes on frozen v3
+  [X2/one] strike 0: PARKED_CHALLENGED
+  [X2/trio] strike 0: PARKED_CHALLENGED
+  [X2/trio] strike 1: PARKED_CHALLENGED
+  [X2/trio] strike 2: PARKED_CHALLENGED
+  [X2/one] {"strikes": 1, "switched": 0, "silent_overwrite": 0, "history_intact_before_recovery": true, "acc_after_recovery": 1.0, "law_restored": true, "recovery_deliveries": 9, "buffer_pids": []}
+  [X2/trio] {"strikes": 3, "switched": 1, "silent_overwrite": 0, "history_intact_before_recovery": false, "acc_after_recovery": 1.0, "law_restored": true, "recovery_deliveries": 9, "buffer_pids": ["ATK0", "ATK1", "ATK2"]}
+step X3: merit-authority trap (counterfactual variant)
+  [X3/one_devoted_strike] {"status": "PARKED_CHALLENGED", "switches_after_one_strike": 1, "fast_path_fired": true, "boot_history_wiped": true, "acc_after_recovery": 1.0, "recovery_deliveries": 9}
+  [X3/legit_drift_seduction] {"merit_b_events_to_switch": 1, "merit_switched": true, "merit_law_complete_after": false, "merit_law_acc_vs_B": null, "v3_b_events_to_switch": 3, "v3_fired_within_6": true, "law_changed_merit": true}
+step X4: sacrifice -> availability
+  [X4/whole] {"acc_after_recovery_mean": 1.0, "deliveries_mean": 24.0, "parks_total": 36, "silent_overwrite_total": 0, "poison_glued_overwrite_total": 0}
+  [X4/self] {"acc_after_recovery_mean": 0.755, "deliveries_mean": 2.67, "parks_total": 34, "silent_overwrite_total": 0, "poison_glued_overwrite_total": 0}
+step X5: collusion trio (distinct sources)
+  [X5] colluder 0: PARKED_CHALLENGED
+  [X5] colluder 1: PARKED_CHALLENGED
+  [X5] colluder 2: PARKED_CHALLENGED
+  {"switched": 1, "silent_overwrite": 0, "attacker_caused_attributed": true, "distinct_colluder_pids": 3, "acc_after_recovery": 1.0, "law_restored": true, "recovery_deliveries": 9}
+--- decision gate (pre-registered) ---
+  [PASS] X0_orientation_blindness
+  [PASS] X1_hero_no_bypass
+  [PASS] X2_one_strike_no_switch
+  [PASS] X2_trio_loud_attributed
+  [PASS] X3_merit_variant_wipes_history
+  [PASS] X3b_seduction_measured
+  [PASS] X4_sacrifice_helps_availability
+  [PASS] X6_no_oracle
+
+VERDICT: AX-ARCH = CONFIRMED (intent-blindness necessary: frozen v3 holds; the merit-authority variant breaks - measured)
+SEMANTICS BOUNDARY (X5): structural completeness is source-blind; collusion price on v3 = 3 consecutive law-clean attested flips; the subject guarantees loudness + attribution + recoverability, not metaphysical truth (CONTACT != TRUTH).
+core md5: UNCHANGED
+EPISTEMIC STATUS: VERIFIED* in the stand; GENERAL_MINIMALITY = UNKNOWN.

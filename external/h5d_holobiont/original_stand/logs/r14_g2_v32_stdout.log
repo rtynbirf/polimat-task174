@@ -1,0 +1,64 @@
+====================================================================
+ROUND 14-G2: v3.2 propagation-source clustering
+====================================================================
+step B4: no-oracle structural check: PASS
+step 1: matched A/B (same seeds): v3 baseline vs v3.2
+  eps0=0.05 eps=0.0: rej 0.0->0.0 acc 1.0->1.0 lawacc 1.0->1.0
+  eps0=0.05 eps=0.05: rej 0.125->0.0 acc 0.875->1.0 lawacc 1.0->1.0
+  eps0=0.05 eps=0.1: rej 0.208->0.0 acc 0.792->1.0 lawacc 0.969->0.938
+  eps0=0.05 eps=0.15: rej 0.396->0.0 acc 0.604->1.0 lawacc 0.906->0.938
+  eps0=0.05 eps=0.2: rej 0.417->0.0 acc 0.583->1.0 lawacc 0.875->0.875
+  eps0=0.05 eps=0.25: rej 0.521->0.0 acc 0.479->1.0 lawacc 0.75->0.812
+  eps0=0.05 eps=0.3: rej 0.479->0.0 acc 0.521->1.0 lawacc 0.688->0.719
+  eps0=0.05 eps=0.35: rej 0.458->0.0 acc 0.542->1.0 lawacc 0.688->0.719
+  eps0=0.05 eps=0.4: rej 0.521->0.0 acc 0.479->1.0 lawacc 0.562->0.594
+  eps0=0.1 eps=0.0: rej 0.0->0.0 acc 1.0->1.0 lawacc 1.0->1.0
+  eps0=0.1 eps=0.05 [IN]: rej 0.083->0.0 acc 0.917->1.0 lawacc 1.0->1.0
+  eps0=0.1 eps=0.1: rej 0.146->0.0 acc 0.854->1.0 lawacc 0.969->0.938
+  eps0=0.1 eps=0.15: rej 0.312->0.0 acc 0.688->1.0 lawacc 0.938->0.938
+  eps0=0.1 eps=0.2: rej 0.292->0.0 acc 0.708->1.0 lawacc 0.938->0.875
+  eps0=0.1 eps=0.25: rej 0.354->0.0 acc 0.646->1.0 lawacc 0.812->0.812
+  eps0=0.1 eps=0.3: rej 0.25->0.0 acc 0.75->1.0 lawacc 0.719->0.719
+  eps0=0.1 eps=0.35: rej 0.25->0.0 acc 0.75->1.0 lawacc 0.719->0.719
+  eps0=0.1 eps=0.4: rej 0.396->0.0 acc 0.604->1.0 lawacc 0.594->0.594
+  eps0=0.2 eps=0.0: rej 0.0->0.0 acc 1.0->1.0 lawacc 1.0->1.0
+  eps0=0.2 eps=0.05 [IN]: rej 0.0->0.0 acc 1.0->1.0 lawacc 1.0->1.0
+  eps0=0.2 eps=0.1 [IN]: rej 0.104->0.0 acc 0.896->1.0 lawacc 0.938->0.938
+  eps0=0.2 eps=0.15: rej 0.271->0.0 acc 0.729->1.0 lawacc 0.906->0.938
+  eps0=0.2 eps=0.2: rej 0.208->0.0 acc 0.792->1.0 lawacc 0.844->0.875
+  eps0=0.2 eps=0.25: rej 0.167->0.0 acc 0.833->1.0 lawacc 0.875->0.812
+  eps0=0.2 eps=0.3: rej 0.146->0.0 acc 0.854->1.0 lawacc 0.719->0.719
+  eps0=0.2 eps=0.35: rej 0.083->0.0 acc 0.917->1.0 lawacc 0.75->0.719
+  eps0=0.2 eps=0.4: rej 0.25->0.0 acc 0.75->1.0 lawacc 0.656->0.594
+  eps0=0.3 eps=0.0: rej 0.0->0.0 acc 1.0->1.0 lawacc 1.0->1.0
+  eps0=0.3 eps=0.05 [IN]: rej 0.0->0.0 acc 1.0->1.0 lawacc 1.0->1.0
+  eps0=0.3 eps=0.1 [IN]: rej 0.062->0.0 acc 0.938->1.0 lawacc 0.938->0.938
+  eps0=0.3 eps=0.15 [IN]: rej 0.125->0.0 acc 0.875->1.0 lawacc 0.938->0.938
+  eps0=0.3 eps=0.2: rej 0.062->0.0 acc 0.938->1.0 lawacc 0.875->0.875
+  eps0=0.3 eps=0.25: rej 0.104->0.0 acc 0.896->1.0 lawacc 0.781->0.812
+  eps0=0.3 eps=0.3: rej 0.062->0.0 acc 0.938->1.0 lawacc 0.719->0.719
+  eps0=0.3 eps=0.35: rej 0.0->0.0 acc 1.0->1.0 lawacc 0.719->0.719
+  eps0=0.3 eps=0.4: rej 0.104->0.0 acc 0.896->1.0 lawacc 0.594->0.594
+step 2: residual re-diagnosis @ (eps0=0.2, eps=0.1), 48 trials
+  TRUE-law trials: {'trials': 43, 'rej': 0, 'ev': 258} rej_rate=0.0
+  WRONG-law trials: {'trials': 5, 'rej': 0, 'ev': 30} rej_rate=0.0 (declared family)
+step 3: attacks under v3.2 (closure must not degrade)
+  n5v_eta: overwrite=0.0 unguarded=0.0 (declared family) silent=0.0 correct=1.0
+  a1_exhaust: false_glue_known=0 switches=0 hist_flipped=0
+  a3_preempt: recovered=30/30 acc_final=1.0 hist_flipped=0
+step 4: legitimate machinery under v3.2
+  epoch_relearn: fired=0.875 law_new=0.938 refusals/trial=0.0
+  unsigned: hijack=0.0 law_unchanged=1.0
+--- decision gate (pre-registered) ---
+  [PASS] B4_no_oracle
+  [PASS] B0_eps0_bit_identical
+  [PASS] B1_inside_band_rej_le_1pct
+  [PASS] B2_n5v_zero_overwrite_zero_silent
+  [PASS] B2_a1_no_false_glue
+  [PASS] B2_a3_recovery
+  [PASS] B3_legit_relearn_intact
+  [PASS] B5_true_law_residual_zero
+
+VERDICT: G2-CLOSURE = CLOSED* (v3.2: propagation-source clustering)
+core md5: UNCHANGED
+EPISTEMIC STATUS: VERIFIED* in the stand; GENERAL_MINIMALITY = UNKNOWN.

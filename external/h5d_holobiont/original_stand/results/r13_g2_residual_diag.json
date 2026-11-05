@@ -1,0 +1,12 @@
+{
+ "true_law": {
+  "trials": 43,
+  "rej": 8,
+  "ev": 258
+ },
+ "wrong_law": {
+  "trials": 5,
+  "rej": 3,
+  "ev": 30
+ }
+}

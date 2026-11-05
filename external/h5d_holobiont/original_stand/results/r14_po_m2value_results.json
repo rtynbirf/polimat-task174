@@ -1,0 +1,236 @@
+{
+  "round": "14-PO",
+  "name": "M2-value channel: tentative import + diversity-priced demotion",
+  "pre_registered": "Q1-Q5 + D-3 in module header; fixed before the run",
+  "benign_regression": {
+    "PO1_random_drop": {
+      "rho=0.0": {
+        "trials": 10,
+        "law_learned_rate": 1.0,
+        "law_acc_mean": 0.925,
+        "known_acc_mean": 1.0,
+        "acc_after_attack_mean": 0.0,
+        "boot_overwrite_total": 0,
+        "SILENT_overwrite_total": 0,
+        "with_trace_overwrite_total": 0,
+        "switched_trials": 0,
+        "demotions_total": 0,
+        "glued_true_total": 98,
+        "parked_true_total": 0,
+        "rejected_true_total": 12,
+        "refusals_total": 0,
+        "poison_attempts": 0,
+        "poison_glued_overwrite_total": 0,
+        "poison_glued_unguarded_total": 0
+      },
+      "rho=0.2": {
+        "trials": 10,
+        "law_learned_rate": 1.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "acc_after_attack_mean": 0.0,
+        "boot_overwrite_total": 0,
+        "SILENT_overwrite_total": 0,
+        "with_trace_overwrite_total": 0,
+        "switched_trials": 0,
+        "demotions_total": 0,
+        "glued_true_total": 83,
+        "parked_true_total": 0,
+        "rejected_true_total": 9,
+        "refusals_total": 0,
+        "poison_attempts": 0,
+        "poison_glued_overwrite_total": 0,
+        "poison_glued_unguarded_total": 0
+      }
+    }
+  },
+  "q4a_deltas": [],
+  "attack_families": {
+    "PO4_gap_attack": {
+      "rho=0.1": {
+        "trials": 16,
+        "law_learned_rate": 1.0,
+        "law_acc_mean": 0.969,
+        "known_acc_mean": 1.0,
+        "acc_after_attack_mean": 0.972,
+        "boot_overwrite_total": 0,
+        "SILENT_overwrite_total": 0,
+        "with_trace_overwrite_total": 0,
+        "switched_trials": 0,
+        "demotions_total": 0,
+        "glued_true_total": 212,
+        "parked_true_total": 18,
+        "rejected_true_total": 33,
+        "refusals_total": 1,
+        "poison_attempts": 10,
+        "poison_glued_overwrite_total": 0,
+        "poison_glued_unguarded_total": 2
+      },
+      "rho=0.2": {
+        "trials": 16,
+        "law_learned_rate": 0.938,
+        "law_acc_mean": 0.922,
+        "known_acc_mean": 0.938,
+        "acc_after_attack_mean": 1.0,
+        "boot_overwrite_total": 0,
+        "SILENT_overwrite_total": 0,
+        "with_trace_overwrite_total": 0,
+        "switched_trials": 1,
+        "demotions_total": 0,
+        "glued_true_total": 295,
+        "parked_true_total": 19,
+        "rejected_true_total": 23,
+        "refusals_total": 1,
+        "poison_attempts": 19,
+        "poison_glued_overwrite_total": 0,
+        "poison_glued_unguarded_total": 0
+      },
+      "rho=0.3": {
+        "trials": 16,
+        "law_learned_rate": 1.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "acc_after_attack_mean": 0.86,
+        "boot_overwrite_total": 0,
+        "SILENT_overwrite_total": 0,
+        "with_trace_overwrite_total": 0,
+        "switched_trials": 0,
+        "demotions_total": 0,
+        "glued_true_total": 489,
+        "parked_true_total": 86,
+        "rejected_true_total": 29,
+        "refusals_total": 1,
+        "poison_attempts": 49,
+        "poison_glued_overwrite_total": 0,
+        "poison_glued_unguarded_total": 10
+      }
+    },
+    "PO2_burst": {
+      "rho=0.3": {
+        "trials": 16,
+        "law_learned_rate": 1.0,
+        "law_acc_mean": 0.969,
+        "known_acc_mean": 1.0,
+        "acc_after_attack_mean": 0.963,
+        "boot_overwrite_total": 0,
+        "SILENT_overwrite_total": 0,
+        "with_trace_overwrite_total": 0,
+        "switched_trials": 0,
+        "demotions_total": 0,
+        "glued_true_total": 350,
+        "parked_true_total": 48,
+        "rejected_true_total": 22,
+        "refusals_total": 0,
+        "poison_attempts": 32,
+        "poison_glued_overwrite_total": 0,
+        "poison_glued_unguarded_total": 3
+      }
+    }
+  },
+  "AB_po4_rho02": {
+    "v3": {
+      "trials": 16,
+      "law_learned_rate": 0.938,
+      "law_acc_mean": 0.922,
+      "known_acc_mean": 0.938,
+      "acc_after_attack_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "with_trace_overwrite_total": 0,
+      "switched_trials": 1,
+      "demotions_total": 0,
+      "glued_true_total": 295,
+      "parked_true_total": 19,
+      "rejected_true_total": 23,
+      "refusals_total": 1,
+      "poison_attempts": 19,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0
+    },
+    "m2v": {
+      "trials": 16,
+      "law_learned_rate": 0.938,
+      "law_acc_mean": 0.922,
+      "known_acc_mean": 0.938,
+      "acc_after_attack_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "with_trace_overwrite_total": 0,
+      "switched_trials": 1,
+      "demotions_total": 0,
+      "glued_true_total": 295,
+      "parked_true_total": 19,
+      "rejected_true_total": 23,
+      "refusals_total": 1,
+      "poison_attempts": 19,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0
+    }
+  },
+  "D3_price_probe": {
+    "switched": true,
+    "tentative_true_positions": 8,
+    "q0": 6,
+    "strikes": [
+      {
+        "j": 0,
+        "status": "PARKED_CHALLENGED",
+        "demotions": 0
+      },
+      {
+        "j": 1,
+        "status": "PARKED_CHALLENGED",
+        "demotions": 0
+      },
+      {
+        "j": 2,
+        "status": "PARKED_CHALLENGED",
+        "demotions": 0
+      }
+    ],
+    "demotion_fired": false,
+    "outcome": "no_demotion",
+    "acc_after_withdrawal": 1.0,
+    "demotion_log": [
+      {
+        "pos": 6,
+        "demoted": 1,
+        "alt": 0,
+        "anchor_diversity": 3,
+        "pids": 3,
+        "idx": 5
+      },
+      {
+        "pos": 7,
+        "demoted": 0,
+        "alt": 1,
+        "anchor_diversity": 3,
+        "pids": 3,
+        "idx": 5
+      }
+    ]
+  },
+  "GATES": {
+    "Q5_no_oracle": true,
+    "Q4a_benign_identical": true,
+    "Q1_zero_silent_everywhere": true,
+    "Q1_zero_poison_overwrite": true,
+    "Q3_po4_rho02_recovery": false,
+    "Q4b_m2v_switches_le_v3": true,
+    "D3_price_declared": true
+  },
+  "verdict": "PO-RECOVERY = PARTIAL/FAIL - see GATES (honest stdout)",
+  "core_md5_unchanged": true,
+  "core_md5": {
+    "holographic_core.py": "d683f7eb2f4fae0b404310f7b12b22b4",
+    "holographic_e10_core.py": "5b8e98e51458c24401dc58937b140b81",
+    "vli_battery.py": "c1708f88e09149fccd36205dc2508be3",
+    "e11_noise_battery.py": "318641a59d3e8b08cbf7b7275ce3ebc5",
+    "n5_closure_battery.py": "354decc91470f6f27465d2945c586311",
+    "round10_battery.py": "ca9f78848d89212800293b7b79bd6108",
+    "e12_e15_sweeps.py": "9ea607eab446b81a2ade4841bc80814b",
+    "r13_g2_adaptive.py": "e5390f2d4bdff75b9e7d8d415e2bf4d6",
+    "r13_po_battery.py": "90e42b89fe52e45ed8792324a2390766",
+    "round11_audit_battery.py": "3d6b0967a1643532e229183de0b33958"
+  }
+}

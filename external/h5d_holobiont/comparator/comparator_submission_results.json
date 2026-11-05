@@ -1,0 +1,99 @@
+{
+  "service": "https://comparator.live.lean-lang.org",
+  "project": "mathlib-stable",
+  "honesty_clause": "verdicts below are the service's; before verification-ok everything is a CANDIDATE",
+  "selfcheck": {
+    "primes": {
+      "candidate": "primes.lean",
+      "challenge": "primes",
+      "checks": {
+        "forbidden_tokens": {
+          "hits": [],
+          "ok": true
+        },
+        "signature_identity": {
+          "ok": true,
+          "challenge_theorem": "InfinitudeOfPrimes"
+        },
+        "aux_before_main": {
+          "ok": true
+        }
+      },
+      "ok": true
+    }
+  },
+  "projects": [
+    {
+      "project": "MathlibDemoForComparator",
+      "name": "Latest Mathlib with Lean v4.34.0-rc2",
+      "hidden": false
+    },
+    {
+      "project": "mathlib-release",
+      "name": "Latest Release (v4.34.0-rc2 with mathlib, cslib)",
+      "hidden": false
+    },
+    {
+      "project": "mathlib-stable",
+      "name": "Stable Release (v4.33.0 with mathlib, cslib)",
+      "hidden": false
+    },
+    {
+      "project": "lean-v4.32.0",
+      "name": "Lean v4.32.0",
+      "hidden": true
+    },
+    {
+      "project": "lean-v4.32.2",
+      "name": "Lean v4.32.2",
+      "hidden": true
+    }
+  ],
+  "submissions": [
+    {
+      "challenge": "primes",
+      "candidate": "primes.lean",
+      "label": "CANDIDATE",
+      "project": "mathlib-stable",
+      "events": [
+        {
+          "t": 0.9,
+          "event": {
+            "type": "in-queue",
+            "position": 0
+          }
+        },
+        {
+          "t": 1.6,
+          "event": {
+            "type": "in-progress"
+          }
+        },
+        {
+          "t": 13.3,
+          "event": {
+            "type": "verification-ok",
+            "theoremNames": [
+              "InfinitudeOfPrimes"
+            ]
+          }
+        }
+      ],
+      "projects_http": 200,
+      "start_http": 200,
+      "start_response": {
+        "type": "ready",
+        "requestId": "cd3c0544-a438-4364-8c2d-ac406e237080"
+      },
+      "requestId": "cd3c0544-a438-4364-8c2d-ac406e237080",
+      "verdict": "verification-ok",
+      "theoremNames": [
+        "InfinitudeOfPrimes"
+      ],
+      "description": null
+    }
+  ],
+  "summary_verdicts": {
+    "primes": "verification-ok"
+  }
+}

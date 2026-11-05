@@ -1,0 +1,25 @@
+====================================================================
+COMPARATOR LIVE RUNNER (Task 16-c)
+====================================================================
+1) static self-check
+  primes.lean: ok=True forbidden=[] sig=True order=True
+  ramsey.lean: ok=True forbidden=[] sig=True order=True
+2) reachability: GET /comparator/api/projects
+  HTTP 200: ['MathlibDemoForComparator', 'mathlib-release', 'mathlib-stable']
+3) live submissions (sequential)
+  submitting primes.lean (CANDIDATE) to mathlib-stable ...
+    [primes t+0.6s] in-queue 0
+    [primes t+0.6s] in-progress 
+    [primes t+11.7s] verification-failed Compilation of olean for Solution returned a non-zero exit code, indicating failure
+  -> primes: verification-failed []
+  submitting ramsey.lean (CANDIDATE-EXPERIMENTAL) to mathlib-stable ...
+    [ramsey t+0.9s] in-queue 0
+    [ramsey t+0.9s] in-progress 
+    [ramsey t+8.4s] verification-failed Compilation of olean for Solution returned a non-zero exit code, indicating failure
+  -> ramsey: verification-failed []
+
+SUMMARY VERDICTS (service-reported): {"primes": "verification-failed", "ramsey": "verification-failed"}
+verified-ok: none
+HONESTY CLAUSE: only verification-ok entries may be called proven; everything else stays CANDIDATE/REFUSED/INCOMPLETE.
+saved: /home/z/my-project/download/comparator_submission_results.json
+saved: /home/z/my-project/download/comparator_candidates_stdout.log

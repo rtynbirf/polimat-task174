@@ -1,0 +1,1008 @@
+{
+  "round": "14-G2",
+  "name": "G2 residual closure: propagation-source clustering (H5d'v3.2)",
+  "pre_registered": "B0-B5 in module header; fixed before the run",
+  "AB_grid": {
+    "eps0=0.05/eps=0.0": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.05/eps=0.05": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.875,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.125,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.05/eps=0.1": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 0.792,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.208,
+        "law_acc_mean": 0.969,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      }
+    },
+    "eps0=0.05/eps=0.15": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 0.604,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.396,
+        "law_acc_mean": 0.906,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      }
+    },
+    "eps0=0.05/eps=0.2": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 0.583,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.417,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      }
+    },
+    "eps0=0.05/eps=0.25": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 0.479,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.521,
+        "law_acc_mean": 0.75,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.812,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.38
+      }
+    },
+    "eps0=0.05/eps=0.3": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 0.75,
+        "learn_at_mean": 26.0,
+        "true_accept_rate": 0.521,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.479,
+        "law_acc_mean": 0.688,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.05/eps=0.35": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.75,
+        "true_accept_rate": 0.542,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.458,
+        "law_acc_mean": 0.688,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.05/eps=0.4": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 0.479,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.521,
+        "law_acc_mean": 0.562,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.594,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.12
+      }
+    },
+    "eps0=0.1/eps=0.0": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.1/eps=0.05": {
+      "inside_band": true,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.917,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.083,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.1/eps=0.1": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.854,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.146,
+        "law_acc_mean": 0.969,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      }
+    },
+    "eps0=0.1/eps=0.15": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.688,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.312,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      }
+    },
+    "eps0=0.1/eps=0.2": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.708,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.292,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      }
+    },
+    "eps0=0.1/eps=0.25": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.646,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.354,
+        "law_acc_mean": 0.812,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.812,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.38
+      }
+    },
+    "eps0=0.1/eps=0.3": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 0.75,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.25,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.1/eps=0.35": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 0.75,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.25,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.1/eps=0.4": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 0.604,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.396,
+        "law_acc_mean": 0.594,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.594,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.12
+      }
+    },
+    "eps0=0.2/eps=0.0": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.2/eps=0.05": {
+      "inside_band": true,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.2/eps=0.1": {
+      "inside_band": true,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.896,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.104,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      }
+    },
+    "eps0=0.2/eps=0.15": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.729,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.271,
+        "law_acc_mean": 0.906,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.38
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      }
+    },
+    "eps0=0.2/eps=0.2": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.792,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.208,
+        "law_acc_mean": 0.844,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      }
+    },
+    "eps0=0.2/eps=0.25": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.833,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.167,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.812,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.38
+      }
+    },
+    "eps0=0.2/eps=0.3": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 0.854,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.146,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.2/eps=0.35": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 0.917,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.083,
+        "law_acc_mean": 0.75,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.2/eps=0.4": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 0.75,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.25,
+        "law_acc_mean": 0.656,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.38
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.594,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.12
+      }
+    },
+    "eps0=0.3/eps=0.0": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.3/eps=0.05": {
+      "inside_band": true,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      }
+    },
+    "eps0=0.3/eps=0.1": {
+      "inside_band": true,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.938,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.062,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      }
+    },
+    "eps0=0.3/eps=0.15": {
+      "inside_band": true,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.875,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.125,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      }
+    },
+    "eps0=0.3/eps=0.2": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.938,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.062,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.875,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      }
+    },
+    "eps0=0.3/eps=0.25": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.896,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.104,
+        "law_acc_mean": 0.781,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.812,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.38
+      }
+    },
+    "eps0=0.3/eps=0.3": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 0.938,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.062,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.62
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 0.875,
+        "learn_at_mean": 13.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.3/eps=0.35": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.5,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.719,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.88
+      }
+    },
+    "eps0=0.3/eps=0.4": {
+      "inside_band": false,
+      "v3": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 0.896,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.104,
+        "law_acc_mean": 0.594,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.12
+      },
+      "v32": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.25,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 0.594,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 1.12
+      }
+    }
+  },
+  "residual_diag": {
+    "true_law": {
+      "trials": 43,
+      "rej": 0,
+      "ev": 258
+    },
+    "wrong_law": {
+      "trials": 5,
+      "rej": 0,
+      "ev": 30
+    },
+    "true_law_rej_rate": 0.0,
+    "wrong_law_rej_rate": 0.0
+  },
+  "B2_attacks": {
+    "n5v_eta": {
+      "trials": 12,
+      "conflicts": 9,
+      "law_complete_rate": 1.0,
+      "true_glued_rate_of_delivered": 1.0,
+      "delivery_rate_of_sent": 1.0,
+      "overwrite_glued_history_rate": 0.0,
+      "unguarded_window_glue_rate": 0.0,
+      "unguarded_trials": [],
+      "silent_poison_rate": 0.0,
+      "correct_rate_of_conflicts": 1.0
+    },
+    "a1_exhaust": {
+      "trials": 30,
+      "attempts": 210,
+      "glue_true_view": 30,
+      "parks_at_fully_known_anchor": 180,
+      "parks_at_unguarded_anchor": 0,
+      "glue_false_at_fully_known_anchor": 0,
+      "glue_false_at_unguarded_anchor": 0,
+      "other_rejected": 0,
+      "poisoned_trials_unguarded": 0,
+      "bootstrap_glued_history_flipped_trials": 0,
+      "epoch_switches": 0,
+      "v3_refusals": 0
+    },
+    "a3_preempt": {
+      "trials": 30,
+      "phase1_switched_rate": 0.0,
+      "phase2_switched_rate": 1.0,
+      "poisoned_positions_hist_phase1": {
+        "3": 30
+      },
+      "poisoned_positions_hist_FINAL": {
+        "0": 30
+      },
+      "recovered_trials": 30,
+      "truth_statuses": {
+        "PARKED_CHALLENGED": 180
+      },
+      "glued_history_flipped_trials": 0,
+      "mean_known_acc_phase1": 0.812,
+      "mean_known_acc_final": 1.0
+    }
+  },
+  "B3_regression": {
+    "epoch_relearn": {
+      "trials": 8,
+      "relearn_fired_rate": 0.875,
+      "v3_refusals_per_trial": 0.0,
+      "first_switch_idx_mean": 4.29,
+      "B_glued_rate": 0.637,
+      "belief_acc_vs_B_mean": 0.719,
+      "law_acc_vs_B_mean": 0.938
+    },
+    "unsigned": {
+      "trials": 8,
+      "unsigned_relearn_hijack_rate": 0.0,
+      "unsigned_law_unchanged_rate": 1.0,
+      "unsigned_B_glued_rate": 0.138
+    }
+  },
+  "GATES": {
+    "B4_no_oracle": true,
+    "B0_eps0_bit_identical": true,
+    "B1_inside_band_rej_le_1pct": true,
+    "B2_n5v_zero_overwrite_zero_silent": true,
+    "B2_a1_no_false_glue": true,
+    "B2_a3_recovery": true,
+    "B3_legit_relearn_intact": true,
+    "B5_true_law_residual_zero": true
+  },
+  "verdict": "G2-CLOSURE = CLOSED* (v3.2: propagation-source clustering)",
+  "core_md5_unchanged": true,
+  "core_md5": {
+    "holographic_core.py": "d683f7eb2f4fae0b404310f7b12b22b4",
+    "holographic_e10_core.py": "5b8e98e51458c24401dc58937b140b81",
+    "vli_battery.py": "c1708f88e09149fccd36205dc2508be3",
+    "e11_noise_battery.py": "318641a59d3e8b08cbf7b7275ce3ebc5",
+    "n5_closure_battery.py": "354decc91470f6f27465d2945c586311",
+    "round10_battery.py": "ca9f78848d89212800293b7b79bd6108",
+    "e12_e15_sweeps.py": "9ea607eab446b81a2ade4841bc80814b",
+    "r13_g2_adaptive.py": "e5390f2d4bdff75b9e7d8d415e2bf4d6",
+    "r13_po_battery.py": "90e42b89fe52e45ed8792324a2390766",
+    "round11_audit_battery.py": "3d6b0967a1643532e229183de0b33958"
+  }
+}

@@ -1,0 +1,34 @@
+====================================================================
+ROUND 14-PO: M2-value channel (tentative import + demotion)
+====================================================================
+step Q5: no-oracle structural check: PASS
+step 1: attack-free cells (must equal r13-PO attack-free)
+  [PO1 rho=0.0] {"trials": 10, "law_learned_rate": 1.0, "law_acc_mean": 0.925, "known_acc_mean": 1.0, "acc_after_attack_mean": 0.0, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 0, "demotions_total": 0, "glued_true_total": 98, "parked_true_total": 0, "rejected_true_total": 12, "refusals_total": 0, "poison_attempts": 0, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 0}
+  [PO1 rho=0.2] {"trials": 10, "law_learned_rate": 1.0, "law_acc_mean": 1.0, "known_acc_mean": 1.0, "acc_after_attack_mean": 0.0, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 0, "demotions_total": 0, "glued_true_total": 83, "parked_true_total": 0, "rejected_true_total": 9, "refusals_total": 0, "poison_attempts": 0, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 0}
+  Q4a deltas vs r13: NONE
+step 2: attack families under M2V
+  [PO4 rho=0.1 ATK] {"trials": 16, "law_learned_rate": 1.0, "law_acc_mean": 0.969, "known_acc_mean": 1.0, "acc_after_attack_mean": 0.972, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 0, "demotions_total": 0, "glued_true_total": 212, "parked_true_total": 18, "rejected_true_total": 33, "refusals_total": 1, "poison_attempts": 10, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 2}
+  [PO4 rho=0.2 ATK] {"trials": 16, "law_learned_rate": 0.938, "law_acc_mean": 0.922, "known_acc_mean": 0.938, "acc_after_attack_mean": 1.0, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 1, "demotions_total": 0, "glued_true_total": 295, "parked_true_total": 19, "rejected_true_total": 23, "refusals_total": 1, "poison_attempts": 19, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 0}
+  [PO4 rho=0.3 ATK] {"trials": 16, "law_learned_rate": 1.0, "law_acc_mean": 0.938, "known_acc_mean": 1.0, "acc_after_attack_mean": 0.86, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 0, "demotions_total": 0, "glued_true_total": 489, "parked_true_total": 86, "rejected_true_total": 29, "refusals_total": 1, "poison_attempts": 49, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 10}
+  [PO2 rho=0.3 ATK] {"trials": 16, "law_learned_rate": 1.0, "law_acc_mean": 0.969, "known_acc_mean": 1.0, "acc_after_attack_mean": 0.963, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 0, "demotions_total": 0, "glued_true_total": 350, "parked_true_total": 48, "rejected_true_total": 22, "refusals_total": 0, "poison_attempts": 32, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 3}
+  r13 reference PO4 rho=0.2: known_acc=0.938 acc_after=1.0 switched=1
+step 3: A/B PO4 rho=0.2: frozen v3 vs M2V (same crc32 seeds)
+  [PO4 rho=0.2 ATK] {"trials": 16, "law_learned_rate": 0.938, "law_acc_mean": 0.922, "known_acc_mean": 0.938, "acc_after_attack_mean": 1.0, "boot_overwrite_total": 0, "SILENT_overwrite_total": 0, "with_trace_overwrite_total": 0, "switched_trials": 1, "demotions_total": 0, "glued_true_total": 295, "parked_true_total": 19, "rejected_true_total": 23, "refusals_total": 1, "poison_attempts": 19, "poison_glued_overwrite_total": 0, "poison_glued_unguarded_total": 0}
+  v3 : known_acc=0.938 acc_after=1.0 switched=1
+  M2V: known_acc=0.938 acc_after=1.0 switched=1 demotions=0
+step 4: D-3 single-attacker demotion price probe
+  {"switched": true, "tentative_true_positions": 8, "q0": 6, "strikes": [{"j": 0, "status": "PARKED_CHALLENGED", "demotions": 0}, {"j": 1, "status": "PARKED_CHALLENGED", "demotions": 0}, {"j": 2, "status": "PARKED_CHALLENGED", "demotions": 0}], "demotion_fired": false, "outcome": "no_demotion", "acc_after_withdrawal": 1.0}
+--- decision gate (pre-registered) ---
+  [PASS] Q5_no_oracle
+  [PASS] Q4a_benign_identical
+  [PASS] Q1_zero_silent_everywhere
+  [PASS] Q1_zero_poison_overwrite
+  [FAIL] Q3_po4_rho02_recovery
+  [PASS] Q4b_m2v_switches_le_v3
+  [PASS] D3_price_declared
+
+VERDICT: PO-RECOVERY = PARTIAL/FAIL - see GATES (honest stdout)
+core md5: UNCHANGED
+EPISTEMIC STATUS: VERIFIED* in the stand; GENERAL_MINIMALITY = UNKNOWN.
+saved: /home/z/my-project/download/r14_po_m2value_results.json
+saved: /home/z/my-project/download/r14_po_m2value_stdout.log

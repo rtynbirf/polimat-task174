@@ -1,0 +1,338 @@
+{
+  "round": "13-PO",
+  "name": "Partial observability battery (frozen H5d'v3)",
+  "pre_registered": "P1-P4 in module header; fixed before run",
+  "PO1_random_drop": {
+    "rho=0.0": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 0.925,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 98,
+      "parked_true_total": 0,
+      "rejected_true_total": 12,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 12
+    },
+    "rho=0.1": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 1.0,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 87,
+      "parked_true_total": 0,
+      "rejected_true_total": 12,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 12
+    },
+    "rho=0.2": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 1.0,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 83,
+      "parked_true_total": 0,
+      "rejected_true_total": 9,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 9
+    },
+    "rho=0.3": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 1.0,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 73,
+      "parked_true_total": 0,
+      "rejected_true_total": 6,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 6
+    },
+    "rho=0.4": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 0.9,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 72,
+      "parked_true_total": 0,
+      "rejected_true_total": 1,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 1
+    },
+    "rho=0.5": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 0.95,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 49,
+      "parked_true_total": 0,
+      "rejected_true_total": 6,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 6
+    }
+  },
+  "PO2_burst": {
+    "rho=0.3": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 1.0,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 62,
+      "parked_true_total": 0,
+      "rejected_true_total": 3,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 3
+    }
+  },
+  "PO3_reordered": {
+    "rho=0.0": {
+      "trials": 10,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 1.0,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 1,
+      "overwrite_traces": [],
+      "glued_true_total": 103,
+      "parked_true_total": 0,
+      "rejected_true_total": 7,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 0.0,
+      "loud_signal_cells": 7
+    }
+  },
+  "PO4_gap_attack": {
+    "rho=0.0": {
+      "trials": 16,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 0.969,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 141,
+      "parked_true_total": 0,
+      "rejected_true_total": 32,
+      "refusals_total": 0,
+      "poison_attempts": 0,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 1.0,
+      "loud_signal_cells": 32
+    },
+    "rho=0.1": {
+      "trials": 16,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 0.969,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 212,
+      "parked_true_total": 18,
+      "rejected_true_total": 33,
+      "refusals_total": 1,
+      "poison_attempts": 10,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 2,
+      "acc_after_attack_mean": 0.972,
+      "loud_signal_cells": 52
+    },
+    "rho=0.2": {
+      "trials": 16,
+      "law_learned_rate": 0.938,
+      "law_acc_mean": 0.922,
+      "known_acc_mean": 0.938,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 1,
+      "overwrite_traces": [],
+      "glued_true_total": 295,
+      "parked_true_total": 19,
+      "rejected_true_total": 23,
+      "refusals_total": 1,
+      "poison_attempts": 19,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 0,
+      "acc_after_attack_mean": 1.0,
+      "loud_signal_cells": 43
+    },
+    "rho=0.3": {
+      "trials": 16,
+      "law_learned_rate": 1.0,
+      "law_acc_mean": 0.938,
+      "known_acc_mean": 1.0,
+      "boot_overwrite_total": 0,
+      "SILENT_overwrite_total": 0,
+      "relearn_overwrite_total": 0,
+      "switched_trials": 0,
+      "overwrite_traces": [],
+      "glued_true_total": 489,
+      "parked_true_total": 86,
+      "rejected_true_total": 29,
+      "refusals_total": 1,
+      "poison_attempts": 49,
+      "poison_glued_overwrite_total": 0,
+      "poison_glued_unguarded_total": 10,
+      "acc_after_attack_mean": 0.86,
+      "loud_signal_cells": 116
+    }
+  },
+  "P4_shape_report": {
+    "PO1_random_drop": {
+      "rho=0.0": {
+        "law_acc": 0.925,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.1": {
+        "law_acc": 1.0,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.2": {
+        "law_acc": 1.0,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.3": {
+        "law_acc": 1.0,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.4": {
+        "law_acc": 0.9,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.5": {
+        "law_acc": 0.95,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      }
+    },
+    "PO2_burst": {
+      "rho=0.3": {
+        "law_acc": 1.0,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      }
+    },
+    "PO3_reordered": {
+      "rho=0.0": {
+        "law_acc": 1.0,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      }
+    },
+    "PO4_gap_attack": {
+      "rho=0.0": {
+        "law_acc": 0.969,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.1": {
+        "law_acc": 0.969,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      },
+      "rho=0.2": {
+        "law_acc": 0.922,
+        "law_learned": 0.938,
+        "known_acc": 0.938
+      },
+      "rho=0.3": {
+        "law_acc": 0.938,
+        "law_learned": 1.0,
+        "known_acc": 1.0
+      }
+    }
+  },
+  "GATES": {
+    "P1": true,
+    "P2": true,
+    "P3": false
+  },
+  "verdict": "PO-CLOSURE = FAIL - see GATES",
+  "core_md5_unchanged": true,
+  "core_md5": {
+    "holographic_core.py": "d683f7eb2f4fae0b404310f7b12b22b4",
+    "holographic_e10_core.py": "5b8e98e51458c24401dc58937b140b81",
+    "vli_battery.py": "c1708f88e09149fccd36205dc2508be3",
+    "e11_noise_battery.py": "318641a59d3e8b08cbf7b7275ce3ebc5",
+    "n5_closure_battery.py": "354decc91470f6f27465d2945c586311",
+    "round10_battery.py": "ca9f78848d89212800293b7b79bd6108"
+  }
+}

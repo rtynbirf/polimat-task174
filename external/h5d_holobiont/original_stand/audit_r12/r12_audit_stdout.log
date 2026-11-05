@@ -1,0 +1,25 @@
+====================================================================
+V1: G1' - zero glued-history overwrites across the whole grid
+  cells=55 overwrite_hits=0 (unguarded-family reported: 25) -> CONFIRMED
+V2: G2 boundary - inside-band loud false rejections of true windows
+  inside-band cells=6; measured range [0.062, 0.125] vs claimed 2-8%; unexplained_silent=0; eps=0.4 loud-reject=[0.521, 0.396, 0.25, 0.104] -> CONFIRMED [SUMMARY RANGE CORRECTED]
+V3: G3 - E_MIN dial semantics
+  E_MIN dial: {"1": [[0.0, 1.75], [0.0, 0.62], [0.0, 0.25], [0.0, 0.25], [0.0, 0.25]], "2": [[1.0, 0.0], [1.0, 0.0], [1.0, 0.0], [1.0, 0.0], [1.0, 0.0]], "3": [[1.0, 0.0], [0.875, 0.0], [0.875, 0.0], [0.875, 0.0], [0.875, 0.0]], "4": [[0.875, 0.0], [0.75, 0.0], [0.75, 0.0], [0.75, 0.0], [0.75, 0.0]], "5": [[0.75, 0.0], [0.625, 0.0], [0.625, 0.0], [0.625, 0.0], [0.625, 0.0]]} -> CONFIRMED
+V4: G4' - unsigned control
+  cells=25 hijack_nonzero=0 law_changed=0 -> CONFIRMED
+V5: G5 - delivery saturation + R*(eta)
+  R* recomputed={"eta=0.05": 2, "eta=0.1": 2, "eta=0.15": 2, "eta=0.2": 6} claimed={"eta=0.05": 2, "eta=0.1": 2, "eta=0.15": 2, "eta=0.2": 6} -> CONFIRMED
+V6: core md5 integrity
+  frozen==current: True; stored-in-results==frozen: True -> CONFIRMED
+V7: determinism spot-check (re-run through frozen functions)
+  E12/eps0=0.1/eps=0.1: BIT-IDENTICAL
+  E12/eps0=0.1/n5v: BIT-IDENTICAL
+  E12/eps0=0.05/eps=0.05: BIT-IDENTICAL
+  E14/E=3_V=3/drift_law_acc: BIT-IDENTICAL
+V8: GATES block consistency
+  stored={"G1_hits": [], "G2": false, "G3": true, "G4": true, "G5": true} recomputed G2 letter=False -> CONFIRMED
+
+AUDIT VERDICT: ROUND 12 VERDICT INDEPENDENTLY CONFIRMED (CONFIRMED=8 DISCREPANCY=0 UNVERIFIABLE=0)
+saved: /home/z/my-project/download/r12_audit_report.json
+saved: /home/z/my-project/download/R12_AUDIT.md
+saved: /home/z/my-project/download/r12_audit_stdout.log

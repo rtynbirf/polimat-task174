@@ -1,0 +1,149 @@
+======================================================================
+DEBUG R13-G2: reproduction of the G2 correlated-violation cells
+======================================================================
+
+--- eps0=0.05 eps=0.05: sent=48 rejected=6 (0.125) of which world-violation-carrying: 6
+  trial 0 T2 anchor=[6, 7, 8] status=CONTRADICTION reason=law_mismatch
+    k=7 m=28 pv=0.000364 world_viol@[7, 8]
+    failed checks: {"edge": [[6, 7], [9, 10]], "law_mismatch": [[7], [8]], "completion": [[7], [8], [9]]}
+    implicated positions: [6, 7, 8, 9, 10] (clusters=3)
+  trial 0 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=5 m=25 pv=0.007165 world_viol@[8, 9]
+    failed checks: {"edge": [[9, 10]], "law_mismatch": [[8], [9]], "completion": [[8], [9]]}
+    implicated positions: [8, 9, 10] (clusters=3)
+  trial 1 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=5 m=24 pv=0.005975 world_viol@[9, 10]
+    failed checks: {"edge": [[8, 9]], "law_mismatch": [[9], [10]], "completion": [[9], [10]]}
+    implicated positions: [8, 9, 10] (clusters=3)
+  trial 1 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=8 m=28 pv=4.9e-05 world_viol@[10, 11, 12]
+    failed checks: {"edge": [[8, 9]], "law_mismatch": [[10], [11], [12]], "completion": [[9], [10], [11], [12]]}
+    implicated positions: [8, 9, 10, 11, 12] (clusters=3)
+  trial 1 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=8 m=27 pv=3.7e-05 world_viol@[12, 13, 14]
+    failed checks: {"edge": [[8, 9]], "law_mismatch": [[12], [13], [14]], "completion": [[9], [12], [13], [14]]}
+    implicated positions: [8, 9, 12, 13, 14] (clusters=3)
+  trial 4 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=7 m=32 pv=0.000868 world_viol@[12, 13, 14]
+    failed checks: {"edge": [[11, 12]], "law_mismatch": [[12], [13], [14]], "completion": [[12], [13], [14]]}
+    implicated positions: [11, 12, 13, 14] (clusters=3)
+
+--- eps0=0.1 eps=0.05: sent=48 rejected=4 (0.083) of which world-violation-carrying: 4
+  trial 0 T2 anchor=[6, 7, 8] status=CONTRADICTION reason=law_mismatch
+    k=7 m=28 pv=0.017907 world_viol@[7, 8]
+    failed checks: {"edge": [[6, 7], [9, 10]], "law_mismatch": [[7], [8]], "completion": [[7], [8], [9]]}
+    implicated positions: [6, 7, 8, 9, 10] (clusters=3)
+  trial 1 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=8 m=28 pv=0.004951 world_viol@[10, 11, 12]
+    failed checks: {"edge": [[8, 9]], "law_mismatch": [[10], [11], [12]], "completion": [[9], [10], [11], [12]]}
+    implicated positions: [8, 9, 10, 11, 12] (clusters=3)
+  trial 1 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=9 m=29 pv=0.00155 world_viol@[12, 13, 14]
+    failed checks: {"edge": [[8, 9]], "law_mismatch": [[12], [13], [14]], "completion": [[9], [10], [12], [13], [14]]}
+    implicated positions: [8, 9, 10, 12, 13, 14] (clusters=3)
+  trial 4 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=7 m=32 pv=0.035849 world_viol@[12, 13, 14]
+    failed checks: {"edge": [[11, 12]], "law_mismatch": [[12], [13], [14]], "completion": [[12], [13], [14]]}
+    implicated positions: [11, 12, 13, 14] (clusters=3)
+
+--- eps0=0.2 eps=0.1: sent=48 rejected=5 (0.104) of which world-violation-carrying: 4
+  trial 0 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=11 m=28 pv=0.014863 world_viol@[10, 11, 12]
+    failed checks: {"edge": [[4, 5], [6, 7], [9, 10]], "law_mismatch": [[10], [11], [12]], "completion": [[5], [6], [10], [11], [12]]}
+    implicated positions: [4, 5, 6, 7, 9, 10, 11, 12] (clusters=3)
+  trial 0 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=12 m=29 pv=0.00694 world_viol@[12, 13, 14]
+    failed checks: {"edge": [[4, 5], [6, 7], [9, 10]], "law_mismatch": [[12], [13], [14]], "completion": [[5], [6], [10], [12], [13], [14]]}
+    implicated positions: [4, 5, 6, 7, 9, 10, 12, 13, 14] (clusters=3)
+  trial 3 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=14 m=28 pv=0.000373 world_viol@[8, 9, 10]
+    failed checks: {"edge": [[2, 3]], "law_mismatch": [[8], [9], [10]], "completion": [[3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=14 m=28 pv=0.000373 world_viol@[10]
+    failed checks: {"edge": [[2, 3]], "law_mismatch": [[10], [11], [12]], "completion": [[3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=0 m=16 pv=1.0 world_viol@[]
+    failed checks: {}
+    implicated positions: [] (clusters=0)
+
+--- eps0=0.3 eps=0.15: sent=48 rejected=6 (0.125) of which world-violation-carrying: 5
+  trial 3 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=14 m=28 pv=0.020763 world_viol@[8, 9, 10]
+    failed checks: {"edge": [[2, 3]], "law_mismatch": [[8], [9], [10]], "completion": [[3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=14 m=28 pv=0.020763 world_viol@[10]
+    failed checks: {"edge": [[2, 3]], "law_mismatch": [[10], [11], [12]], "completion": [[3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=0 m=16 pv=1.0 world_viol@[]
+    failed checks: {}
+    implicated positions: [] (clusters=0)
+  trial 7 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=13 m=28 pv=0.049104 world_viol@[8, 9, 10]
+    failed checks: {"edge": [[3, 4]], "law_mismatch": [[8], [9], [10]], "completion": [[4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 7 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=13 m=28 pv=0.049104 world_viol@[10, 11, 12]
+    failed checks: {"edge": [[3, 4]], "law_mismatch": [[10], [11], [12]], "completion": [[4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 7 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=0 m=16 pv=1.0 world_viol@[12, 13, 14]
+    failed checks: {}
+    implicated positions: [] (clusters=0)
+
+--- eps0=0.1 eps=0.1: sent=48 rejected=7 (0.146) of which world-violation-carrying: 7
+  trial 0 T1 anchor=[4, 5, 6] status=CONTRADICTION reason=law_mismatch
+    k=6 m=22 pv=0.018216 world_viol@[5, 6]
+    failed checks: {"edge": [[4, 5], [6, 7]], "law_mismatch": [[5], [6]], "completion": [[5], [6]]}
+    implicated positions: [4, 5, 6, 7] (clusters=3)
+  trial 0 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=7 m=24 pv=0.007456 world_viol@[10]
+    failed checks: {"edge": [[9, 10], [4, 5], [6, 7]], "law_mismatch": [[10]], "completion": [[5], [6], [10]]}
+    implicated positions: [4, 5, 6, 7, 9, 10] (clusters=2)
+  trial 0 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=11 m=28 pv=4.2e-05 world_viol@[10, 11, 12]
+    failed checks: {"edge": [[4, 5], [6, 7], [9, 10]], "law_mismatch": [[10], [11], [12]], "completion": [[5], [6], [10], [11], [12]]}
+    implicated positions: [4, 5, 6, 7, 9, 10, 11, 12] (clusters=3)
+  trial 0 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=10 m=27 pv=0.000169 world_viol@[12, 13, 14]
+    failed checks: {"edge": [[4, 5], [6, 7]], "law_mismatch": [[12], [13], [14]], "completion": [[5], [6], [12], [13], [14]]}
+    implicated positions: [4, 5, 6, 7, 12, 13, 14] (clusters=3)
+  trial 1 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=8 m=28 pv=0.004951 world_viol@[10, 11, 12]
+    failed checks: {"edge": [[8, 9]], "law_mismatch": [[10], [11], [12]], "completion": [[9], [10], [11], [12]]}
+    implicated positions: [8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T2 anchor=[6, 7, 8] status=CONTRADICTION reason=law_mismatch
+    k=8 m=28 pv=0.004951 world_viol@[7, 8]
+    failed checks: {"edge": [[6, 7], [10, 11]], "law_mismatch": [[7], [8]], "completion": [[7], [8], [9], [10]]}
+    implicated positions: [6, 7, 8, 9, 10, 11] (clusters=3)
+  trial 3 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=7 m=25 pv=0.009476 world_viol@[8, 9, 10]
+    failed checks: {"edge": [[10, 11]], "law_mismatch": [[8], [9], [10]], "completion": [[8], [9], [10]]}
+    implicated positions: [8, 9, 10, 11] (clusters=3)
+
+--- eps0=0.3 eps=0.1: sent=48 rejected=3 (0.062) of which world-violation-carrying: 2
+  trial 3 T3 anchor=[8, 9, 10] status=CONTRADICTION reason=law_mismatch
+    k=14 m=28 pv=0.020763 world_viol@[8, 9, 10]
+    failed checks: {"edge": [[2, 3]], "law_mismatch": [[8], [9], [10]], "completion": [[3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T4 anchor=[10, 11, 12] status=CONTRADICTION reason=law_mismatch
+    k=14 m=28 pv=0.020763 world_viol@[10]
+    failed checks: {"edge": [[2, 3]], "law_mismatch": [[10], [11], [12]], "completion": [[3], [4], [5], [6], [7], [8], [9], [10], [11], [12]]}
+    implicated positions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] (clusters=3)
+  trial 3 T5 anchor=[12, 13, 14] status=CONTRADICTION reason=law_mismatch
+    k=0 m=16 pv=1.0 world_viol@[]
+    failed checks: {}
+    implicated positions: [] (clusters=0)
+
+--- reproduction check vs e12_e15_results.json (true_rejected_rate)
+  eps0=0.05 eps=0.05: R12=0.125 repro=0.125 MATCH
+  eps0=0.1 eps=0.05: R12=0.083 repro=0.083 MATCH
+  eps0=0.2 eps=0.1: R12=0.104 repro=0.104 MATCH
+  eps0=0.3 eps=0.15: R12=0.125 repro=0.125 MATCH
+  eps0=0.1 eps=0.1: R12=0.146 repro=0.146 MATCH
+  eps0=0.3 eps=0.1: R12=0.062 repro=0.062 MATCH
+
+saved: /home/z/my-project/download/debug_r13_g2.json

@@ -1,0 +1,301 @@
+{
+  "round": "audit of Round 12 (E12-E15)",
+  "checks": {
+    "V1_G1_zero_overwrite": {
+      "status": "CONFIRMED",
+      "cells_checked": 55,
+      "overwrite_hits": [],
+      "declared_unguarded_family_cells": 25,
+      "note": "recomputed from raw per-config cells; matches GATES.G1_hits"
+    },
+    "V2_G2_boundary": {
+      "status": "CONFIRMED",
+      "boundary_exists": true,
+      "inside_band_cells": [
+        [
+          0.1,
+          0.05,
+          0.083,
+          0.0,
+          0.917
+        ],
+        [
+          0.2,
+          0.05,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.2,
+          0.1,
+          0.104,
+          0.0,
+          0.896
+        ],
+        [
+          0.3,
+          0.05,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.3,
+          0.1,
+          0.062,
+          0.0,
+          0.938
+        ],
+        [
+          0.3,
+          0.15,
+          0.125,
+          0.0,
+          0.875
+        ]
+      ],
+      "measured_rejected_range": [
+        0.062,
+        0.125
+      ],
+      "r12_summary_claimed_range": "2-8%",
+      "summary_range_confirmed": false,
+      "zero_UNEXPLAINED_silent": true,
+      "unexplained_silent_cells": [],
+      "beyond_band_loud_rejection_rates_eps04": [
+        0.521,
+        0.396,
+        0.25,
+        0.104
+      ],
+      "note": "boundary confirmed as loud false-rejection effect; CORRECTION to the R12 summary: measured inside-band false-rejection range is [0.062, 0.125], the verdict text's '2-8%' under/over-states it"
+    },
+    "V3_G3_EMIN_dial": {
+      "status": "CONFIRMED",
+      "fired_dial_by_EMIN": {
+        "1": [
+          [
+            0.0,
+            1.75
+          ],
+          [
+            0.0,
+            0.62
+          ],
+          [
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.25
+          ],
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "2": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0
+          ]
+        ],
+        "3": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.875,
+            0.0
+          ],
+          [
+            0.875,
+            0.0
+          ],
+          [
+            0.875,
+            0.0
+          ],
+          [
+            0.875,
+            0.0
+          ]
+        ],
+        "4": [
+          [
+            0.875,
+            0.0
+          ],
+          [
+            0.75,
+            0.0
+          ],
+          [
+            0.75,
+            0.0
+          ],
+          [
+            0.75,
+            0.0
+          ],
+          [
+            0.75,
+            0.0
+          ]
+        ],
+        "5": [
+          [
+            0.75,
+            0.0
+          ],
+          [
+            0.625,
+            0.0
+          ],
+          [
+            0.625,
+            0.0
+          ],
+          [
+            0.625,
+            0.0
+          ],
+          [
+            0.625,
+            0.0
+          ]
+        ]
+      },
+      "violations": []
+    },
+    "V4_G4_unsigned": {
+      "status": "CONFIRMED",
+      "cells": 25,
+      "hijack_nonzero": [],
+      "law_changed": []
+    },
+    "V5_G5_R_star": {
+      "status": "CONFIRMED",
+      "recomputed_R_star": {
+        "eta=0.05": 2,
+        "eta=0.1": 2,
+        "eta=0.15": 2,
+        "eta=0.2": 6
+      },
+      "claimed_R_star": {
+        "eta=0.05": 2,
+        "eta=0.1": 2,
+        "eta=0.15": 2,
+        "eta=0.2": 6
+      },
+      "monotone": true
+    },
+    "V6_core_md5": {
+      "status": "CONFIRMED",
+      "current_match_frozen": {
+        "holographic_core.py": true,
+        "holographic_e10_core.py": true,
+        "holographic_e10_battery.py": true,
+        "round10_battery.py": true,
+        "round11_audit_battery.py": true,
+        "e12_e15_sweeps.py": true,
+        "n5_closure_battery.py": true,
+        "e11_noise_battery.py": true,
+        "vli_battery.py": true,
+        "e10r_battery.py": true
+      },
+      "stored_match_frozen": {
+        "holographic_core.py": true,
+        "holographic_e10_core.py": true,
+        "vli_battery.py": true,
+        "e11_noise_battery.py": true,
+        "n5_closure_battery.py": true,
+        "round10_battery.py": true
+      }
+    },
+    "V7_determinism": {
+      "status": "CONFIRMED",
+      "reruns": [
+        {
+          "config": "E12/eps0=0.1/eps=0.1",
+          "bit_identical": true,
+          "diffs": {}
+        },
+        {
+          "config": "E12/eps0=0.1/n5v",
+          "bit_identical": true,
+          "diffs": {}
+        },
+        {
+          "config": "E12/eps0=0.05/eps=0.05",
+          "bit_identical": true,
+          "diffs": {}
+        },
+        {
+          "config": "E14/E=3_V=3/drift_law_acc",
+          "bit_identical": true,
+          "diffs": [
+            0.938,
+            0.938
+          ]
+        }
+      ]
+    },
+    "V8_gates_consistency": {
+      "status": "CONFIRMED",
+      "stored_GATES": {
+        "G1_hits": [],
+        "G2": false,
+        "G3": true,
+        "G4": true,
+        "G5": true
+      },
+      "recomputed": {
+        "G1_hits": [],
+        "G2_letter": false,
+        "G2_letter_parts": [
+          [
+            "eps0=0.1",
+            "inside-band accept"
+          ],
+          [
+            "eps0=0.2",
+            "inside-band accept"
+          ],
+          [
+            "eps0=0.3",
+            "inside-band accept"
+          ]
+        ],
+        "G3": true,
+        "G4": true,
+        "G5": true
+      }
+    }
+  },
+  "summary": {
+    "CONFIRMED": 8,
+    "DISCREPANCY": 0,
+    "UNVERIFIABLE": 0,
+    "audit_verdict": "ROUND 12 VERDICT INDEPENDENTLY CONFIRMED"
+  }
+}

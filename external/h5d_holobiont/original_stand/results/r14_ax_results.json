@@ -1,0 +1,113 @@
+{
+  "round": "14-AX",
+  "name": "anthropological axis: orientations, sacrifice, merit-authority trap",
+  "pre_registered": "X0-X6 in module header; fixed before the run",
+  "X0_blindness": {
+    "twins_bit_identical": true,
+    "structural_blindness": true,
+    "no_oracle": true,
+    "bad_attrs": []
+  },
+  "X1_hero": {
+    "sacrifices": 6,
+    "hero_flip_status": "PARKED_CHALLENGED",
+    "switches": 0,
+    "boot_history_intact": true,
+    "law_unchanged": true,
+    "hero_true_accept_seen": 9
+  },
+  "X2_single_source": {
+    "one": {
+      "strikes": 1,
+      "switched": 0,
+      "silent_overwrite": 0,
+      "history_intact_before_recovery": true,
+      "acc_after_recovery": 1.0,
+      "law_restored": true,
+      "recovery_deliveries": 9,
+      "buffer_pids": []
+    },
+    "trio": {
+      "strikes": 3,
+      "switched": 1,
+      "silent_overwrite": 0,
+      "history_intact_before_recovery": false,
+      "acc_after_recovery": 1.0,
+      "law_restored": true,
+      "recovery_deliveries": 9,
+      "buffer_pids": [
+        "ATK0",
+        "ATK1",
+        "ATK2"
+      ]
+    }
+  },
+  "X3_merit_trap": {
+    "one_devoted_strike": {
+      "status": "PARKED_CHALLENGED",
+      "switches_after_one_strike": 1,
+      "fast_path_fired": true,
+      "boot_history_wiped": true,
+      "acc_after_recovery": 1.0,
+      "recovery_deliveries": 9
+    },
+    "legit_drift_seduction": {
+      "merit_b_events_to_switch": 1,
+      "merit_switched": true,
+      "merit_law_complete_after": false,
+      "merit_law_acc_vs_B": null,
+      "v3_b_events_to_switch": 3,
+      "v3_fired_within_6": true,
+      "law_changed_merit": true
+    }
+  },
+  "X4_sacrifice": {
+    "whole": {
+      "acc_after_recovery_mean": 1.0,
+      "deliveries_mean": 24.0,
+      "parks_total": 36,
+      "silent_overwrite_total": 0,
+      "poison_glued_overwrite_total": 0
+    },
+    "self": {
+      "acc_after_recovery_mean": 0.755,
+      "deliveries_mean": 2.67,
+      "parks_total": 34,
+      "silent_overwrite_total": 0,
+      "poison_glued_overwrite_total": 0
+    }
+  },
+  "X5_collusion": {
+    "switched": 1,
+    "silent_overwrite": 0,
+    "attacker_caused_attributed": true,
+    "distinct_colluder_pids": 3,
+    "acc_after_recovery": 1.0,
+    "law_restored": true,
+    "recovery_deliveries": 9
+  },
+  "GATES": {
+    "X0_orientation_blindness": true,
+    "X1_hero_no_bypass": true,
+    "X2_one_strike_no_switch": true,
+    "X2_trio_loud_attributed": true,
+    "X3_merit_variant_wipes_history": true,
+    "X3b_seduction_measured": true,
+    "X4_sacrifice_helps_availability": true,
+    "X6_no_oracle": true
+  },
+  "verdict": "AX-ARCH = CONFIRMED (intent-blindness necessary: frozen v3 holds; the merit-authority variant breaks - measured)",
+  "core_md5_unchanged": true,
+  "core_md5": {
+    "holographic_core.py": "d683f7eb2f4fae0b404310f7b12b22b4",
+    "holographic_e10_core.py": "5b8e98e51458c24401dc58937b140b81",
+    "vli_battery.py": "c1708f88e09149fccd36205dc2508be3",
+    "e11_noise_battery.py": "318641a59d3e8b08cbf7b7275ce3ebc5",
+    "n5_closure_battery.py": "354decc91470f6f27465d2945c586311",
+    "round10_battery.py": "ca9f78848d89212800293b7b79bd6108",
+    "e12_e15_sweeps.py": "9ea607eab446b81a2ade4841bc80814b",
+    "r13_g2_adaptive.py": "e5390f2d4bdff75b9e7d8d415e2bf4d6",
+    "r13_po_battery.py": "90e42b89fe52e45ed8792324a2390766",
+    "round11_audit_battery.py": "3d6b0967a1643532e229183de0b33958"
+  }
+}

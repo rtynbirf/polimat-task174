@@ -1,0 +1,715 @@
+{
+  "V7": {
+    "cells_checked": 4,
+    "all_bit_identical": true,
+    "cells": {
+      "E12/eps0=0.05/eps=0.05": {
+        "bit_identical": true,
+        "rebuilt": {
+          "trials": 8,
+          "law_learned_rate": 1.0,
+          "learn_at_mean": 1.0,
+          "true_accept_rate": 0.875,
+          "true_parked_rate": 0.0,
+          "true_rejected_rate": 0.125,
+          "law_acc_mean": 1.0,
+          "known_acc_mean": 1.0,
+          "drift_events_per_trial": 0.0
+        },
+        "stored": {
+          "trials": 8,
+          "law_learned_rate": 1.0,
+          "learn_at_mean": 1.0,
+          "true_accept_rate": 0.875,
+          "true_parked_rate": 0.0,
+          "true_rejected_rate": 0.125,
+          "law_acc_mean": 1.0,
+          "known_acc_mean": 1.0,
+          "drift_events_per_trial": 0.0
+        }
+      },
+      "E13/alpha=0.01/eps=0.0": {
+        "bit_identical": true,
+        "rebuilt": {
+          "trials": 8,
+          "law_learned_rate": 1.0,
+          "learn_at_mean": 1.0,
+          "true_accept_rate": 1.0,
+          "true_parked_rate": 0.0,
+          "true_rejected_rate": 0.0,
+          "law_acc_mean": 1.0,
+          "known_acc_mean": 1.0,
+          "drift_events_per_trial": 0.0
+        },
+        "stored": {
+          "trials": 8,
+          "law_learned_rate": 1.0,
+          "learn_at_mean": 1.0,
+          "true_accept_rate": 1.0,
+          "true_parked_rate": 0.0,
+          "true_rejected_rate": 0.0,
+          "law_acc_mean": 1.0,
+          "known_acc_mean": 1.0,
+          "drift_events_per_trial": 0.0
+        }
+      },
+      "E14/E=2_V=1": {
+        "bit_identical": true,
+        "rebuilt": {
+          "relearn": {
+            "trials": 8,
+            "relearn_fired_rate": 1.0,
+            "v3_refusals_per_trial": 0.0,
+            "first_switch_idx_mean": 4.5,
+            "B_glued_rate": 0.625,
+            "belief_acc_vs_B_mean": 0.859,
+            "law_acc_vs_B_mean": 0.969
+          },
+          "unsigned": {
+            "trials": 8,
+            "unsigned_relearn_hijack_rate": 0.0,
+            "unsigned_law_unchanged_rate": 1.0,
+            "unsigned_B_glued_rate": 0.075
+          },
+          "drift_law_acc": 0.812,
+          "drift_per_trial": 2.0,
+          "n5v": {
+            "overwrite_glued_history_rate": 0.0,
+            "unguarded_window_glue_rate": 0.0,
+            "silent_poison_rate": 0.0,
+            "correct_rate_of_conflicts": 0.667
+          }
+        },
+        "stored": {
+          "relearn": {
+            "trials": 8,
+            "relearn_fired_rate": 1.0,
+            "v3_refusals_per_trial": 0.0,
+            "first_switch_idx_mean": 4.5,
+            "B_glued_rate": 0.625,
+            "belief_acc_vs_B_mean": 0.859,
+            "law_acc_vs_B_mean": 0.969
+          },
+          "unsigned": {
+            "trials": 8,
+            "unsigned_relearn_hijack_rate": 0.0,
+            "unsigned_law_unchanged_rate": 1.0,
+            "unsigned_B_glued_rate": 0.075
+          },
+          "drift_law_acc": 0.812,
+          "drift_per_trial": 2.0,
+          "n5v": {
+            "overwrite_glued_history_rate": 0.0,
+            "unguarded_window_glue_rate": 0.0,
+            "silent_poison_rate": 0.0,
+            "correct_rate_of_conflicts": 0.667
+          }
+        }
+      },
+      "E15/eta=0.05/R=0": {
+        "bit_identical": true,
+        "rebuilt": {
+          "attack": {
+            "trials": 16,
+            "conflicts": 11,
+            "law_complete_rate": 1.0,
+            "true_glued_rate_of_delivered": 0.875,
+            "delivery_rate_of_sent": 0.727,
+            "overwrite_glued_history_rate": 0.0,
+            "unguarded_window_glue_rate": 0.0,
+            "unguarded_trials": [],
+            "silent_poison_rate": 0.0,
+            "correct_rate_of_conflicts": 0.909
+          },
+          "control_no_attacker": {
+            "trials": 16,
+            "conflicts": 11,
+            "law_complete_rate": 1.0,
+            "true_glued_rate_of_delivered": 0.875,
+            "delivery_rate_of_sent": 0.727,
+            "overwrite_glued_history_rate": 0.0,
+            "unguarded_window_glue_rate": 0.0,
+            "unguarded_trials": [],
+            "silent_poison_rate": 0.0,
+            "correct_rate_of_conflicts": 0.909
+          }
+        },
+        "stored": {
+          "attack": {
+            "trials": 16,
+            "conflicts": 11,
+            "law_complete_rate": 1.0,
+            "true_glued_rate_of_delivered": 0.875,
+            "delivery_rate_of_sent": 0.727,
+            "overwrite_glued_history_rate": 0.0,
+            "unguarded_window_glue_rate": 0.0,
+            "unguarded_trials": [],
+            "silent_poison_rate": 0.0,
+            "correct_rate_of_conflicts": 0.909
+          },
+          "control_no_attacker": {
+            "trials": 16,
+            "conflicts": 11,
+            "law_complete_rate": 1.0,
+            "true_glued_rate_of_delivered": 0.875,
+            "delivery_rate_of_sent": 0.727,
+            "overwrite_glued_history_rate": 0.0,
+            "unguarded_window_glue_rate": 0.0,
+            "unguarded_trials": [],
+            "silent_poison_rate": 0.0,
+            "correct_rate_of_conflicts": 0.909
+          }
+        }
+      }
+    }
+  },
+  "V2a_inband_benign_instrumented": {
+    "eps0=0.1/eps=0.05": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.917,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.083,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 0,
+        "violation_carrying": 0,
+        "rejected_and_violation_carrying": 0,
+        "rejected_windows": [],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    },
+    "eps0=0.2/eps=0.05": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 0,
+        "violation_carrying": 0,
+        "rejected_and_violation_carrying": 0,
+        "rejected_windows": [],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    },
+    "eps0=0.2/eps=0.1": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.896,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.104,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 0,
+        "violation_carrying": 0,
+        "rejected_and_violation_carrying": 0,
+        "rejected_windows": [],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    },
+    "eps0=0.3/eps=0.05": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 1.0,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.0,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 0,
+        "violation_carrying": 0,
+        "rejected_and_violation_carrying": 0,
+        "rejected_windows": [],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    },
+    "eps0=0.3/eps=0.1": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.938,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.062,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.25
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 0,
+        "violation_carrying": 0,
+        "rejected_and_violation_carrying": 0,
+        "rejected_windows": [],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    },
+    "eps0=0.3/eps=0.15": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.875,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.125,
+        "law_acc_mean": 0.938,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.5
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 3,
+        "violation_carrying": 6,
+        "rejected_and_violation_carrying": 3,
+        "rejected_windows": [
+          {
+            "pid": "T3",
+            "anchor": [
+              8,
+              9,
+              10
+            ],
+            "status": "CONTRADICTION",
+            "reason": "law_mismatch",
+            "k": 13,
+            "m": 28,
+            "pvalue": 0.04910380108663417,
+            "flips_in_anchor": [
+              8,
+              9,
+              10
+            ],
+            "viol_units": 0,
+            "max_viol_from_single_flip": 0,
+            "pre_known": {
+              "8": 0,
+              "9": 0,
+              "10": 0
+            }
+          },
+          {
+            "pid": "T4",
+            "anchor": [
+              10,
+              11,
+              12
+            ],
+            "status": "CONTRADICTION",
+            "reason": "law_mismatch",
+            "k": 13,
+            "m": 28,
+            "pvalue": 0.04910380108663417,
+            "flips_in_anchor": [
+              10,
+              11,
+              12
+            ],
+            "viol_units": 0,
+            "max_viol_from_single_flip": 0,
+            "pre_known": {
+              "10": 0,
+              "11": 0,
+              "12": 1
+            }
+          },
+          {
+            "pid": "T5",
+            "anchor": [
+              12,
+              13,
+              14
+            ],
+            "status": "CONTRADICTION",
+            "reason": "law_mismatch",
+            "k": 15,
+            "m": 32,
+            "pvalue": 0.032723658090258005,
+            "flips_in_anchor": [
+              12,
+              13,
+              14
+            ],
+            "viol_units": 0,
+            "max_viol_from_single_flip": 0,
+            "pre_known": {
+              "12": 1,
+              "13": null,
+              "14": null
+            }
+          }
+        ],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    },
+    "eps0=0.05/eps=0.05": {
+      "aggregate_faithful_to_JSON": true,
+      "aggregate": {
+        "trials": 8,
+        "law_learned_rate": 1.0,
+        "learn_at_mean": 1.0,
+        "true_accept_rate": 0.875,
+        "true_parked_rate": 0.0,
+        "true_rejected_rate": 0.125,
+        "law_acc_mean": 1.0,
+        "known_acc_mean": 1.0,
+        "drift_events_per_trial": 0.0
+      },
+      "analysis": {
+        "true_events": 6,
+        "rejected": 0,
+        "violation_carrying": 0,
+        "rejected_and_violation_carrying": 0,
+        "rejected_windows": [],
+        "all_rejected_loud": true,
+        "all_rejected_state_unchanged": true,
+        "all_rejections_logged": true,
+        "single_flip_explains_2plus": 0
+      }
+    }
+  },
+  "V2a_pooled_inside_band": {
+    "true_events": 36,
+    "rejected": 3,
+    "violation_carrying": 6,
+    "rejected_and_violation_carrying": 3,
+    "rejection_rate_all_true": 0.0833,
+    "rejection_rate_of_violation_carrying": 0.5
+  },
+  "V2b_n5v_observed_replay": {
+    "E14_E=4_V=2": {
+      "metrics_match_stored": true,
+      "unguarded_window_glue_rate": 0.083,
+      "silent_poison_rate": 0.083,
+      "overwrite_glued_history_rate": 0.0,
+      "false_glue_events_total": 1,
+      "false_glues_on_guarded_positions (=overwrite)": 0,
+      "examples": [
+        {
+          "hit_pre_known": {
+            "10": null,
+            "11": null,
+            "12": null
+          },
+          "hit_anchor": [
+            10,
+            11,
+            12
+          ],
+          "pre_state_all_None": true,
+          "sequence_around_hit": [
+            {
+              "pid": "R0",
+              "status": "DISCONNECTED",
+              "reason": "no_overlap_no_law_contact",
+              "pre_known": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "3": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "R1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "3": 0,
+                "4": null,
+                "5": null,
+                "6": null
+              },
+              "violations_if_glued": 3
+            },
+            {
+              "pid": "R1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "3": null,
+                "4": null,
+                "5": null,
+                "6": null
+              },
+              "violations_if_glued": 3
+            },
+            {
+              "pid": "R2",
+              "status": "CONTRADICTION",
+              "reason": "law_mismatch",
+              "pre_known": {
+                "6": 1,
+                "7": null,
+                "8": null,
+                "9": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "R3",
+              "status": "CONTRADICTION",
+              "reason": "law_mismatch",
+              "pre_known": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "W1",
+              "status": "CONTRADICTION",
+              "reason": "law_mismatch",
+              "pre_known": {
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "W2_0",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "violations_if_glued": 6
+            },
+            {
+              "pid": "R0",
+              "status": "DISCONNECTED",
+              "reason": "no_overlap_no_law_contact",
+              "pre_known": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "3": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "R1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "3": 0,
+                "4": null,
+                "5": null,
+                "6": null
+              },
+              "violations_if_glued": 0
+            }
+          ]
+        }
+      ]
+    },
+    "E15_eta=0.05_R=2": {
+      "full_result_matches_stored_bitwise": true,
+      "unguarded_trials_from_JSON": [
+        {
+          "trial": 10,
+          "anchor": [
+            10,
+            11,
+            12
+          ],
+          "law_done": true
+        }
+      ],
+      "false_glue_events_total": 1,
+      "false_glues_on_guarded_positions (=overwrite)": 0,
+      "examples": [
+        {
+          "hit_pre_known": {
+            "10": null,
+            "11": null,
+            "12": null
+          },
+          "pre_state_all_None": true,
+          "sequence_around_hit": [
+            {
+              "pid": "W1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "10": 0,
+                "11": 1,
+                "12": 0
+              },
+              "violations_if_glued": 0
+            },
+            {
+              "pid": "R0",
+              "status": "DISCONNECTED",
+              "reason": "no_overlap_no_law_contact",
+              "pre_known": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "3": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "R1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "3": 0,
+                "4": null,
+                "5": null,
+                "6": null
+              },
+              "violations_if_glued": 2
+            },
+            {
+              "pid": "R1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "3": null,
+                "4": null,
+                "5": null,
+                "6": null
+              },
+              "violations_if_glued": 2
+            },
+            {
+              "pid": "R2",
+              "status": "CONTRADICTION",
+              "reason": "law_mismatch",
+              "pre_known": {
+                "6": 1,
+                "7": null,
+                "8": null,
+                "9": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "R3",
+              "status": "CONTRADICTION",
+              "reason": "law_mismatch",
+              "pre_known": {
+                "9": null,
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "W2_0",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "10": null,
+                "11": null,
+                "12": null
+              },
+              "violations_if_glued": 7
+            },
+            {
+              "pid": "R0",
+              "status": "DISCONNECTED",
+              "reason": "no_overlap_no_law_contact",
+              "pre_known": {
+                "0": null,
+                "1": null,
+                "2": null,
+                "3": null
+              },
+              "violations_if_glued": null
+            },
+            {
+              "pid": "R1",
+              "status": "GLUED",
+              "reason": "",
+              "pre_known": {
+                "3": 1,
+                "4": null,
+                "5": null,
+                "6": null
+              },
+              "violations_if_glued": 0
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "V2c_refusal_log_probe": {
+    "E_MIN=1_fired_rate(2trials)": 0.0,
+    "refusals_logged": 1,
+    "switches_fired": 0,
+    "all_refusals_kind_v3_incomplete": true,
+    "all_refusals_carry_buffer_pids": true,
+    "sample_refusal_entry": {
+      "switch": false,
+      "kind": "v3_incomplete_challenge_refused",
+      "streak": 1,
+      "buffer_pids": [
+        "A2"
+      ],
+      "residues_voted": [
+        0,
+        2,
+        3
+      ],
+      "idx": 3
+    }
+  }
+}

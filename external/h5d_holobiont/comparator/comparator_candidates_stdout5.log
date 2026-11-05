@@ -1,0 +1,19 @@
+====================================================================
+COMPARATOR LIVE RUNNER (Task 16-c)
+====================================================================
+1) static self-check
+  primes.lean: ok=True forbidden=[] sig=True order=True
+2) reachability: GET /comparator/api/projects
+  HTTP 200: ['MathlibDemoForComparator', 'mathlib-release', 'mathlib-stable']
+3) live submissions (sequential)
+  submitting primes.lean (CANDIDATE) to mathlib-stable ...
+    [primes t+0.9s] in-queue 0
+    [primes t+1.6s] in-progress 
+    [primes t+13.3s] verification-ok ['InfinitudeOfPrimes']
+  -> primes: verification-ok ['InfinitudeOfPrimes']
+
+SUMMARY VERDICTS (service-reported): {"primes": "verification-ok"}
+verified-ok: ['primes']
+HONESTY CLAUSE: only verification-ok entries may be called proven; everything else stays CANDIDATE/REFUSED/INCOMPLETE.
+saved: /home/z/my-project/download/comparator_submission_results.json
+saved: /home/z/my-project/download/comparator_candidates_stdout.log

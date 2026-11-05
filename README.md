@@ -56,7 +56,12 @@ scripts/                                     — build_v512 (сборка кан
 external/origin/worklog_TASK174_полный.md    — полный сессионный журнал линии (Task 1–35)
 external/h5d_holobiont/                      — линия H5d′/HOLOBIONT: Round 14 M2V
                                                (REPLICA-1, аудит 8/8), ядро/батарея/аудит,
-                                               пломбы линии, отчёт интеграции
+                                               пломбы линии, отчёт интеграции;
+                                               дожим: original_stand/ (оригинальный стенд:
+                                               R12-аудит, R13-G2/R13-PO, 14-G2 CLOSED*,
+                                               14-AX CONFIRMED, M2V-оригинал, полный журнал),
+                                               hologram/ (голограмма-компаратор),
+                                               comparator/ (сабмиты), хендофф-HTML
 ```
 
 ## Воспроизводимость
@@ -81,4 +86,4 @@ python3 scripts/prep_blind_svazka.py    # слепая рука прогона 3
 - [`red-thread-debt-audit`](https://github.com/rtynbirf/red-thread-debt-audit) (private) — программа «Красная Нить»: аудит динамики суверенного долга («долговая яма = рента»). Мост линий: `run3_svazka/КРАСНАЯ_НИТЬ_СВЯЗКА.md` — 12 артефактов обеих программ, одна рекурсия записи, два режима оператора приёмки (долг A≈0 / знание A>0, A_crit = D_t·i_m); прогон 3 проверил связку чужаками.
 - [`rent-mechanism-q43`](https://github.com/rtynbirf/rent-mechanism-q43) (private) — рента-программа R11–R49 (канон V8.0, ядро Q43 v2, законы L1–L6).
 - **линия «канон-инжиниринг»** (сессия Хозяина 2026-11-05) — интегрирована в `external/canon_inzh/`: полный журнал Task 1–26 вербатим, реестр пломб вне среды носителя, сверка линий Р33/Р36; **криптозамыкание T174 из Task ID 2 закрыто**: tar v3 существует (`92c10f4a…ce68ca`, 464 506 880 Б, PASS 1624/1624), поманифестный реестр 1624 файлов — `external/canon_inzh/00_MANIFEST_SHA256.txt`.
-- **линия «H5d′ / HOLOBIONT»** (сессия Хозяина 2026-09-03) — интегрирована в `external/h5d_holobiont/`: мастер-хендофф вербатим; Round 14 — закрытие канала M2-value механизмом M2V на стенде REPLICA-1 (baseline 0.9375 → 1.0 при silent=0; N5/G2/легитимный путь эпохи без регрессий; независимый аудит 8/8 = CONFIRMED*); канон исходного стенда (G2=[0.062,0.125], N5=CLOSED*) не пересмотрен; отчёт — `external/h5d_holobiont/ИНТЕГРАЦИЯ_R14_ОТЧЁТ.md`.
+- **линия «H5d′ / HOLOBIONT»** (сессия Хозяина 2026-09-03) — интегрирована в `external/h5d_holobiont/`: мастер-хендофф вербатим; Round 14 — закрытие канала M2-value механизмом M2V на стенде REPLICA-1 (baseline 0.9375 → 1.0 при silent=0; N5/G2/легитимный путь эпохи без регрессий; независимый аудит 8/8 = CONFIRMED*); канон исходного стенда (G2=[0.062,0.125], N5=CLOSED*) не пересмотрен; отчёт — `external/h5d_holobiont/ИНТЕГРАЦИЯ_R14_ОТЧЁТ.md`; **дожим 2026-11-05**: оригинальный стенд линии перенесён вербатим (`original_stand/`) — 14-G2 = CLOSED* (v3.2 propagation-source clustering), 14-AX = CONFIRMED (антропологическая ось: intent-blindness необходима, merit-authority ломает историю — измерено), R13-G2 = PARTIAL / R13-PO = FAIL с диагностикой остаточных ячеек, аудит R12, полный журнал сессии; голограмма-компаратор (`hologram/`), хендофф-HTML, comparator-сабмиты (`comparator/`: triv.lean и primes.lean VERIFIED, ramsey/FLT — честные incomplete).

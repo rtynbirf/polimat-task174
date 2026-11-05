@@ -1,0 +1,131 @@
+
+  <!-- ═══ ТАЙМЛАЙН ═══ -->
+  <section class="section tinted" id="timeline" aria-label="Лента вех прогона">
+    <div class="container tl">
+      <div class="sec-head reveal">
+        <p class="kicker">изучено по факту, 2026-09</p>
+        <h2>Вехи: от заявки до Honesty Clause</h2>
+        <p>Восемь вех пути «заявление → вердикт». Каждая дата и каждый эндпоинт сверены по бандлу /assets/index-B3V-f9ua.js и живому сервису; там, где пруфа нет, стоит статус [ШУМ] — без вольностей и домыслов.</p>
+      </div>
+      <ol class="tl-list">
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">2026-09</p><h3>Comparator Live: инструмент реальной проверки</h3></div>
+          <p>URL: https://comparator.live.lean-lang.org/ — официальный экспериментальный сервис lean-lang.org. Это инструмент реальной проверки Lean-кода: он компилирует «Candidate Solution» в выбранном закреплённом тулчейне и принимает её, только если челлендж-теорема действительно доказана — тем же именем и тем же утверждением, без sorry. Никакого «поверь на слово»: спор «доказано или нет» переводится из слов в прогон компилятора.</p>
+          <ul class="tl-tags"><li>lean-lang.org</li><li>pinned toolchain</li><li>без sorry</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">механика</p><h3>POST start → requestId → SSE-трек</h3></div>
+          <p>Механика изучена по бандлу /assets/index-B3V-f9ua.js: POST /comparator/api/start c телом {project, challenge, solution} → requestId. Дальше GET /comparator/api/track/{requestId} (SSE): in-preparation → in-queue → in-progress → verification-ok | verification-failed | connection-lost. Пять состояний, три исхода — и ни одно состояние не является вердиктом само по себе.</p>
+          <ul class="tl-tags"><li>requestId</li><li>SSE</li><li>три вердикта</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">семантика вердикта</p><h3>Пустой theoremNames = FAIL; user-челлендж = TOFU</h3></div>
+          <p>Вердикт: verification-ok при пустом theoremNames = FAIL (теорема не найдена доказанной); челлендж из списка = built-in → success; челлендж, вписанный руками = user → warning + TOFU-кнопка «I trust this challenge (hash …)». Смысл глубже механики: кнопка с хэшем — это trust-anchor, подпись доверия не равна результату проверки — TAG ≠ VERIFICATION.</p>
+          <ul class="tl-tags"><li>theoremNames</li><li>built-in</li><li>TOFU-hash</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">GET /api/projects</p><h3>Тулчейны: v4.34.0-rc2, v4.33.0 и скрытые 4.32.x</h3></div>
+          <p>Список тулчейнов отдаёт GET /comparator/api/projects: «Latest Mathlib with Lean v4.34.0-rc2», «Latest Release (v4.34.0-rc2 with mathlib, cslib)», «Stable Release (v4.33.0 …)» плюс скрытые lean-v4.32.x. Требование промпта жёсткое: every lemma/tactic you use MUST exist in this exact toolchain — при сомнении берутся долго живущие Mathlib-леммы вместо свежих тактик. Для ручной работы рекомендован Stable v4.33.0: меньше дрейф API.</p>
+          <ul class="tl-tags"><li>v4.34.0-rc2</li><li>v4.33.0 stable</li><li>скрытые 4.32.x</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">челленджи id 0–5</p><h3>Шесть встроенных челленджей</h3></div>
+          <p>Встроенные челленджи: Infinitely Many Primes; Fermat's Last Theorem (PNat.pow_add_pow_ne_pow); Finite Ramsey theorem for graphs; Collatz Conjecture; Trivial (prove True); Inconsistency (prove False). Trivial и Inconsistency — санити-проверки инструмента, а не задачи: для «prove False» честный ответ модели — отказ (см. спец-случай промпта). Collatz и FLT-класс — открытые проблемы: полное доказательство не заявляется, работает Honesty-протокол.</p>
+          <ul class="tl-tags"><li>FLT · Ramsey</li><li>Collatz</li><li>prove False</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">эталонный формат</p><h3>Вспомогательные леммы ДО главной теоремы</h3></div>
+          <p>Эталонный формат решения виден в предзаполненном кандидате: вспомогательные def/theorem ДО главной теоремы (например exists_prime_factor, factorial), главная теорема — 1-в-1 с сигнатурой челленджа, sorry заменён настоящим доказательством. Вспомогательные леммы держатся минимальными и полностью доказанными: каждая недоказанная — тот же sorry, только переименованный.</p>
+          <ul class="tl-tags"><li>exists_prime_factor</li><li>factorial</li><li>1-в-1 сигнатура</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">2026-09</p><h3>Промпт с Honesty Clause</h3></div>
+          <p>Промпт переносит дисциплину компаратора на LLM-генератор: CLAIMS ARE NOT EVIDENCE — до verification-ok выход остаётся CANDIDATE; при невозможности полного доказательства — протокол CANDIDATE-INCOMPLETE: сильнейший честный частичный файл, главная теорема с sorry и комментарием -- GAP:, называющим ровно недостающее. Приговор встроен: A wrong "proof" is strictly worse than an admitted gap. Полный текст промпта — в разделе «Промпт целиком».</p>
+          <ul class="tl-tags"><li>Honesty Clause</li><li>CANDIDATE-INCOMPLETE</li><li>гэп &gt; подделка</li></ul></article></li>
+        <li class="tl-item reveal"><span class="tl-dot" aria-hidden="true"></span>
+          <article class="tl-card"><div class="row"><p class="period">2026 → далее</p><h3>Заметка Полимата: живая инстанция инвариантов</h3></div>
+          <p>Сервис — живая инстанция инвариантов сессии: RESULT ≠ VERIFICATION (кнопка «I trust this challenge» с хэшем = TOFU trust-anchor, TAG ≠ VERIFICATION), CLAIMS_EXECUTION ≠ EXECUTION_EVIDENCE (до прогона компилятора решение — CANDIDATE). Промпт переносит ту же дисциплину на LLM-генератор: Honesty Clause запрещает объявлять PASS без исполнения — это в точности наш §7-канал value-загрязнения, закрытый по месту. Дальше — прогон кандидатов через компаратор и перенос инвариантов на новые каналы.</p>
+          <ul class="tl-tags"><li>RESULT ≠ VERIFICATION</li><li>CLAIMS ≠ EVIDENCE</li><li>§7 closed</li></ul></article></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═══ ДНК ПРОМПТА ═══ -->
+  <section class="section container" id="dna" aria-label="ДНК промпта 2026 года">
+    <div class="sec-head reveal">
+      <p class="kicker">что внутри</p>
+      <h2>ДНК промпта-2026</h2>
+      <p>Восемь генов, которые отличают рабочий промпт от вежливой просьбы. Каждый блок этой бенто-сетки — не украшение, а реально работающее правило эталона, по которому компаратор принимает или отвергает решение.</p>
+    </div>
+    <div class="bento">
+      <article class="card span2 reveal"><span class="icon-chip" aria-hidden="true">01</span><h3>Один Lean-блок — и теорема последней</h3>
+        <p>Правила 1–2: Output exactly ONE self-contained Lean 4 code block. No prose, no explanations, no second code block. Последняя декларация файла обязана быть челлендж-теоремой: (a) тем же именем, (b) сигнатурой, идентичной челленджу (same binders, same order, same types, same notation), и (c) полным доказательством — sorry заменён настоящим доказательством. Всё остальное — проза, вторые блоки, объяснения — превращает прогон в FAIL ещё до компиляции.</p></article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">02</span><h3>Челлендж неприкосновенен</h3>
+        <p>Правила 3–4: Reproduce the challenge's pre-theorem definitions (e.g. IsPrime, collatzStep) EXACTLY as given. Do not generalize, rename or "improve" them. Вспомогательные def/theorem ДО главной теоремы добавлять можно и нужно — this is the intended style, — но держать их минимальными и полностью доказанными: каждая недоказанная вспомогательная лемма — тот же sorry, только переименованный.</p></article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">03</span><h3>Список запретов</h3>
+        <p>Правило 5 — FORBIDDEN in any form: sorry, admit, native_decide, unsafe, partial, @[implemented_by], @[extern], объявление новых axiom, set_option-хаки, ослабляющие ядро или элаборатор, и любая правка самого утверждения челленджа. Classical.choice через стандартный Mathlib-рассуждающий код разрешён; предполагать заключение — нет. Скан этих токенов входит в SELF-CHECK и обязан давать ноль попаданий.</p></article>
+      <article class="card span2 reveal"><span class="icon-chip" aria-hidden="true">04</span><h3>Импорты и чистота модуля</h3>
+        <p>Правила 6–7: стартуйте с импортов, которые использует сам челлендж; Mathlib-модули добавляйте только при необходимости и только те, в существовании которых в закреплённом тулчейне уверены. Avoid re-declaring a name that Mathlib already owns in scope: если точное имя челленджа уже занято импортом — сузьте импорты, чтобы namespace челленджа освободился. Файл обязан разворачиваться (elaborate) с нуля ровно как написан: без _ дыр, без ..., без псевдокода и хвостов-заглушек.</p></article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">05</span><h3>Тулчейн — приговор</h3>
+        <p>TARGET TOOLCHAIN: каждая лемма и тактика обязаны существовать в этом точном тулчейне. Когда сомневаетесь — prefer long-stable Mathlib lemmas over brand-new tactics. Примеры цели из промпта: «Lean v4.34.0-rc2 with Mathlib (latest release, +cslib)» или «Lean v4.33.0 stable with Mathlib».</p></article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">06</span><h3>Само-проверка молча</h3>
+        <p>SELF-CHECK выполняется silently, in order, BEFORE answering: идентичность утверждения (имя + биндеры + тип) с челленджем byte-for-byte modulo whitespace; скан запрещённых токенов sorry | admit | axiom | native_decide | unsafe | partial | implemented_by | extern — ноль попаданий; каждая Mathlib-лемма — точное имя, точный порядок аргументов, существование в закреплённой версии, иначе пере-вывод с первых принципов; каждый have/obtain/intro тайпчекается, каждая ветка разреза случаев закрыта; файл парсится как единый модуль.</p></article>
+      <article class="card span2 reveal"><span class="icon-chip" aria-hidden="true">07</span><h3>HONESTY CLAUSE (non-negotiable)</h3>
+        <p>You do NOT have the comparator's compiler. CLAIMS ARE NOT EVIDENCE: until Comparator Live reports verification-ok, your output is a CANDIDATE, not a proven artifact — never claim "this compiles" or "this is verified". Если полное доказательство невозможно — не фабриковать: выдать сильнейший честный частичный файл (вспомогательные леммы полностью доказаны; главная теорема с sorry и комментарием -- GAP:, называющим ровно недостающее), предварённый строкой «CANDIDATE-INCOMPLETE: &lt;gap list&gt;». Приговор: A wrong "proof" is strictly worse than an admitted gap — неверное «доказательство» строго хуже признанного гэпа.</p></article>
+      <article class="card reveal"><span class="icon-chip" aria-hidden="true">08</span><h3>Два спец-случая</h3>
+        <p>Inconsistency (prove False): никаких unsafe, native_decide, implemented_by, эксплойтов ядра и типовых парадоксов — это не саунднесс-контрпримеры, правило 5 их запрещает; единственный приемлемый выход — честный отказ плюс, по желанию, короткий отчёт о проверенном. Открытые проблемы (Collatz, FLT-класс): не заявлять полное доказательство действительно открытого утверждения; исключение — теорема уже полностью доказана в закреплённом Mathlib: опирайтесь явно, но декларация с точным именем и сигнатурой челленджа обязана присутствовать и компилироваться.</p></article>
+    </div>
+    <p class="stack-note reveal"><span class="k">стек:</span> Lean 4 + Mathlib · POST /comparator/api/start · SSE-трек · theoremNames · Honesty Clause · ноль внешних запросов</p>
+  </section>
+
+  <!-- ═══ ЧЕСТНОСТЬ ═══ -->
+  <section class="section tinted" id="health" aria-label="Честность прежде всего: антигаллюцинационные гарантии">
+    <div class="container">
+      <div class="sec-head reveal">
+        <p class="kicker">anti-hallucination by design</p>
+        <h2>Честность прежде всего</h2>
+        <p>Промпт, который разрешает автору верить в собственный текст, — плохой промпт. Здесь честность стоит выше красивых ответов: до вердикта компилятора выход — CANDIDATE, гэп оформляется открыто, а подделка строго хуже признанного разрыва. Шесть карточек ниже — работающие правила эталона, а не лозунги.</p>
+        <div class="center-cta"><button class="btn btn-primary" type="button" id="healthOpenPanel">Открыть панель комфорта</button></div>
+      </div>
+      <div class="hf-grid">
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">◉</span><h3>Заявления ≠ доказательства</h3>
+          <dl class="facts">
+            <div><dt>Ядро оговорки</dt><dd><b>CLAIMS ARE NOT EVIDENCE</b><small>you do NOT have the comparator's compiler</small></dd></div>
+            <div><dt>Статус выхода</dt><dd><b>CANDIDATE</b><small>до verification-ok — не proven artifact</small></dd></div>
+            <div><dt>Запрещённая фраза</dt><dd><b>«this compiles»</b><small>никогда — пока компилятор не сказал вердикт</small></dd></div>
+          </dl>
+          <p style="margin-top:16px">Автор решения не имеет компараторского компилятора — поэтому его уверенность не является доказательством и не может им быть. Honesty Clause объявлена non-negotiable: она не отменяется ни удобством, ни размером модели, ни тем, что «почти точно сойдёт». Это в точности дисциплина сессии: FACT ≠ MEASURED ≠ INTERPRETATION, заявление ≠ исполнение.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">∿</span><h3>Гэп вместо подделки</h3>
+          <dl class="facts">
+            <div><dt>Протокол разрыва</dt><dd><b>CANDIDATE-INCOMPLETE</b><small>одна строка перед файлом: &lt;gap list&gt;</small></dd></div>
+            <div><dt>Метка недостающего</dt><dd><b>-- GAP:</b><small>называет ровно то, чего не хватает</small></dd></div>
+            <div><dt>Приговор</dt><dd><b>wrong &lt; gap</b><small>неверное «доказательство» строго хуже признанного гэпа</small></dd></div>
+          </dl>
+          <p style="margin-top:16px">Если полное доказательство невозможно — DO NOT fabricate one: выдать сильнейший честный частичный файл. Вспомогательные леммы доказываются полностью; главная теорема остаётся с sorry и комментарием -- GAP:. Такой файл всё равно можно запускать: компилятор подтвердит леммы и точно покажет, где разрыв, — а подделка подтверждения не даст вовсе.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">Аа</span><h3>Отказ при prove False</h3>
+          <dl class="facts">
+            <div><dt>Челлендж-ловушка</dt><dd><b>Inconsistency</b><small>prove False — санити-проверка инструмента</small></dd></div>
+            <div><dt>Запрещённые пути</dt><dd><b>unsafe · native_decide</b><small>kernel exploits и типовые парадоксы — тоже</small></dd></div>
+            <div><dt>Единственный выход</dt><dd><b>честный отказ</b><small>плюс, по желанию, короткий отчёт о проверенном</small></dd></div>
+          </dl>
+          <p style="margin-top:16px">Do not attempt False via unsafe, native_decide, implemented_by, kernel exploits or type-level paradoxes: такие артефакты — не саунднесс-контрпримеры, и правило 5 их запрещает. Единственный приемлемый выход — honest refusal: «докажи, что система противоречива» — это тест на честность генератора, а не задача на смекалку.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">⌖</span><h3>Открытые проблемы</h3>
+          <dl class="facts">
+            <div><dt>Collatz Conjecture</dt><dd><b>открыта</b><small>полное доказательство не заявляется</small></dd></div>
+            <div><dt>FLT-класс</dt><dd><b>Honesty-протокол</b><small>частичный файл + -- GAP:</small></dd></div>
+            <div><dt>Исключение</dt><dd><b>pinned Mathlib</b><small>теорема уже доказана — опираться явно</small></dd></div>
+          </dl>
+          <p style="margin-top:16px">Do NOT claim a complete proof of a genuinely open statement. Исключение единственное: если именованная теорема уже полностью доказана в закреплённом Mathlib — можно строить поверх неё явно, но декларация с точным именем челленджа и его сигнатурой обязана присутствовать в файле и компилироваться. Уверенность «вроде это доказали» исключением не считается: считаются только леммы закреплённого тулчейна.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">◑</span><h3>TOFU-якорь</h3>
+          <dl class="facts">
+            <div><dt>Челлендж из списка</dt><dd><b>built-in</b><small>success без предупреждений</small></dd></div>
+            <div><dt>Челлендж руками</dt><dd><b>user → warning</b><small>плюс кнопка доверия</small></dd></div>
+            <div><dt>Кнопка</dt><dd><b>«I trust this challenge (hash …)»</b><small>trust-anchor, не вердикт</small></dd></div>
+          </dl>
+          <p style="margin-top:16px">Кнопка с хэшем — это TOFU (trust on first use): доверие вписывается руками и отделяется от проверки. TAG ≠ VERIFICATION ≅ CONTACT ≠ TRUTH: подпись доверия не превращает челлендж в проверенный, а контакт с челленджем не делает его истинным. Для встроенных челленджей кнопки не будет: их хэши компаратор знает сам.</p></article>
+        <article class="card reveal"><span class="icon-chip" aria-hidden="true">✓</span><h3>Прозрачность вердикта</h3>
+          <dl class="facts">
+            <div><dt>verification-ok</dt><dd><b>принято</b><small>доказательство принято компилятором</small></dd></div>
+            <div><dt>failure + theoremNames: []</dt><dd><b>сверяй 1-в-1</b><small>имя/сигнатура теоремы не совпали</small></dd></div>
+            <div><dt>connection-lost</dt><dd><b>повторить</b><small>прогон не состоялся — победы нет</small></dd></div>
+          </dl>
+          <p style="margin-top:16px">Каждый исход читается по данным трека, а не по настроению: зелёный verification-ok — единственный статус, после которого решение становится [ТЕКСТОМ]. Всё остальное — шум, который хранится и экспонируется: удалить его — значит потерять доказательство того, где именно прогон не состоялся.</p></article>
+      </div>
+      <p class="hf-note reveal">Механизмы: POST /comparator/api/start → requestId · GET /comparator/api/track/{requestId} (SSE) · theoremNames · TOFU-hash «I trust this challenge» · pinned toolchains (v4.34.0-rc2 / v4.33.0) · Honesty Clause (non-negotiable) · бандл /assets/index-B3V-f9ua.js, изучено по факту 2026-09</p>
+      <div class="link-back reveal"><a href="#dna">← Вернуться к ДНК промпта</a></div>
+    </div>
+  </section>
