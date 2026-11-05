@@ -1,0 +1,47 @@
+=== FULL BATTERY (prereg R14-M2V-prereg-2, hash 6c11e5dedf9c) ===
+--- E1r: baseline (m2v=False), frozen core ---
+rho=0.0   acc_mean=1.0000 leak_trials=0/12 silent=0
+rho=0.05  acc_mean=1.0000 leak_trials=0/12 silent=0
+rho=0.1   acc_mean=1.0000 leak_trials=0/12 silent=0
+rho=0.15  acc_mean=1.0000 leak_trials=0/12 silent=0
+rho=0.2   acc_mean=0.9375 leak_trials=11/12 silent=0
+rho=0.25  acc_mean=0.9531 leak_trials=10/12 silent=0
+rho=0.3   acc_mean=1.0000 leak_trials=0/12 silent=0
+--- E2: M2V PO grid (m2v=True) ---
+rho=0.0   acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=9.08 silent=0
+rho=0.05  acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=8.92 silent=0
+rho=0.1   acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=8.33 silent=0
+rho=0.15  acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=6.92 silent=0
+rho=0.2   acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=11.92 silent=0
+rho=0.25  acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=10.42 silent=0
+rho=0.3   acc_mean=1.0000 acc_min=1.0000 leak_trials=0/12 m2v_blocks_mean=8.42 silent=0
+--- E3: N5 battery (attacks x m2v) ---
+A0_direct|m2v=0        attempts=138  ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=7.38
+A0_direct|m2v=1        attempts=138  ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=7.38
+A1_search|m2v=0        attempts=0    ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=6.25
+A1_search|m2v=1        attempts=0    ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=6.25
+A2_freeze|m2v=0        attempts=0    ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=7.0
+A2_freeze|m2v=1        attempts=0    ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=7.0
+A3_preempt|m2v=0       attempts=0    ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=7.0
+A3_preempt|m2v=1       attempts=0    ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=7.0
+n5v_all|m2v=0          attempts=138  ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=6.5
+n5v_all|m2v=1          attempts=138  ow_success=0 silent=0 chain_ok=True epoch_match=8/8 delay=6.5
+--- E4: G2 replica mini-grid (rho=0) ---
+eps0=0.0 eps=0.0 g2[0]=0.0274 g2[1]=0.0274 silent=0/0 acc=1.0/1.0
+eps0=0.0 eps=0.05 g2[0]=0.0256 g2[1]=0.0256 silent=0/0 acc=1.0/1.0
+eps0=0.0 eps=0.1 g2[0]=0.0309 g2[1]=0.0309 silent=0/0 acc=1.0/1.0
+eps0=0.0 eps=0.2 g2[0]=0.0330 g2[1]=0.0330 silent=0/0 acc=1.0/1.0
+eps0=0.05 eps=0.0 g2[0]=0.0256 g2[1]=0.0256 silent=0/0 acc=1.0/1.0
+eps0=0.05 eps=0.05 g2[0]=0.0309 g2[1]=0.0309 silent=0/0 acc=1.0/1.0
+eps0=0.05 eps=0.1 g2[0]=0.0314 g2[1]=0.0314 silent=0/0 acc=1.0/1.0
+eps0=0.05 eps=0.2 g2[0]=0.0293 g2[1]=0.0293 silent=0/0 acc=1.0/1.0
+eps0=0.1 eps=0.0 g2[0]=0.0309 g2[1]=0.0309 silent=0/0 acc=1.0/1.0
+eps0=0.1 eps=0.05 g2[0]=0.0314 g2[1]=0.0314 silent=0/0 acc=1.0/1.0
+eps0=0.1 eps=0.1 g2[0]=0.0330 g2[1]=0.0330 silent=0/0 acc=1.0/1.0
+eps0=0.1 eps=0.2 g2[0]=0.0296 g2[1]=0.0296 silent=0/0 acc=1.0/1.0
+--- E5: legit epoch path (true_change, rho=0.05) ---
+m2v=0 epoch_match=12/12 delay_mean=7.0 trio_false_rejects=0
+m2v=1 epoch_match=12/12 delay_mean=7.0 trio_false_rejects=0
+--- E6: determinism 4x (E1 grid, m2v=False) ---
+determinism: BIT-IDENTICAL 5d5ebf16e41e6777
+saved: results/round14_results.json

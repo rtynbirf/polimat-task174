@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://d-scholarship.pitt.edu/concern/etds/7bed849a-2dca-48d6-9ccc-4e4d28e9be36",
+    "name": "Robust Estimation and Inference under Huber's Contamination Model",
+    "snippet": "Jan 26, 2023 · Huber's contamination model is widely used for analyzing distributional robustness when the shape of the real underlying data distribution ...",
+    "host_name": "d-scholarship.pitt.edu",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com/topics/huber-s-contamination-model",
+    "name": "Huber's Contamination Model - Emergent Mind",
+    "snippet": "Nov 12, 2025 · Huber's contamination model unifies robust estimation, inference, and learning across parametric, nonparametric, and high-dimensional regimes.",
+    "host_name": "www.emergentmind.com",
+    "rank": 1,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://papers.nips.cc/paper/2020/file/bca382c81484983f2d437f97d1e141f3-Paper.pdf",
+    "name": "[PDF] On Learning Ising Models under Huber's Contamination Model - NIPS",
+    "snippet": "We study the problem of learning Ising models in a setting where some of the samples from the underlying distribution can be arbitrarily corrupted. In such.",
+    "host_name": "papers.nips.cc",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/1511.04144v2",
+    "name": "A General Decision Theory for Huber's ϵ -Contamination Model - arXiv",
+    "snippet": "Aug 11, 2026 · Huber's ε \\epsilon -contamination model provides a favored framework which allows a joint study of statistical efficiency and robustness.",
+    "host_name": "arxiv.org",
+    "rank": 3,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.researchgate.net/publication/325413609_Robust_Nonparametric_Regression_under_Huber's_epsilon-contamination_Model",
+    "name": "Robust Nonparametric Regression under Huber's $\\epsilon",
+    "snippet": "We propose a novel testing procedure that leads to the construction of robust estimators adaptive to the proportion of contamination.",
+    "host_name": "www.researchgate.net",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  }
+]

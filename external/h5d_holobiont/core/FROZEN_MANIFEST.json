@@ -1,0 +1,38 @@
+{
+ "ts": "2026-11-05T08:06:09",
+ "core_sha256": "9801a1cf5c5ad10f1886e2a1f924b8e6a5cbb6a0ce7fa45d93bb0507a22ceed8",
+ "battery_sha256": "0a9efe8b8d6e7aedbc08f7004fc07abc70dc4efff28df7e39116ee4ee9dada66",
+ "calibration": {
+  "N": 16,
+  "P": 4,
+  "ALPHA": 4,
+  "ROUNDS": 120,
+  "WITNESSES": 6,
+  "REGULARS": 3,
+  "WITNESS_NOISE": 0.02,
+  "WITNESS_LAG": 0.35,
+  "LR_BOUND": 6.0,
+  "REJECT_BOUND": 6.0,
+  "LR_STEP": 2.0,
+  "LR_DECAY": 0.5,
+  "BUDGET_STEP": 1.0,
+  "BUDGET_DECAY": 0.5,
+  "HUBER_CAP": 10.0,
+  "CORR_TWO_CHECKS": true,
+  "GAP_LEN": 10,
+  "K_MIN": 2,
+  "E_MIN": 3,
+  "V_MIN": 2,
+  "MAJORITY_GATE": 0.6,
+  "SUPPORT_WINDOW": 25,
+  "TRUE_SWITCH_AT": 40
+ },
+ "po_model": {
+  "burst_p": 0.06,
+  "burst_len": 14,
+  "burst_band": "(0.15, 0.27]",
+  "reorder_win": 3,
+  "note": "DECLARED MODELING CHOICE MC10-replica: \u043e\u043a\u043d\u043e burst-\u0443\u044f\u0437\u0432\u0438\u043c\u043e\u0441\u0442\u0438"
+ },
+ "note": "Frozen REPLICA-1 core. \u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u043f\u043e\u0441\u043b\u0435 \u044d\u0442\u043e\u0439 \u0442\u043e\u0447\u043a\u0438 = \u043d\u043e\u0432\u044b\u0439 \u043c\u0435\u0445\u0430\u043d\u0438\u0437\u043c/\u043d\u043e\u0432\u044b\u0439 baseline (\u00a741)."
+}

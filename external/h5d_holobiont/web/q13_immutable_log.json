@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://transparency.dev",
+    "name": "An open-source append only ledger | Trillian",
+    "snippet": "A tamper - evident log enables multiple parties to monitor each others' actions. Where organisations can be required to publish data about their actions, a tamper ...",
+    "host_name": "transparency.dev",
+    "rank": 0,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://arxiv.org/html/2605.00065v1",
+    "name": "A Merkle-Tree Pipeline with Adaptive Chunking",
+    "snippet": "Apr 30, 2026 — This paper presents an evaluated, lightweight integrity -verification pipeline that combines Merkle-tree commitments to deliver tamper evidence ...",
+    "host_name": "arxiv.org",
+    "rank": 1,
+    "date": "Apr 30, 2026",
+    "favicon": ""
+  },
+  {
+    "url": "https://papers.ssrn.com/sol3/Delivery.cfm/7045938.pdf?abstractid=7045938&mirid=1",
+    "name": "Dual-Path Integrity Verification for Immutable Audit Trails",
+    "snippet": "Tamper - Proof Audit Trails: Cryptographic hashing and the append - only ledger together prevent post-creation modification of log records. • Real-Time Integrity ...",
+    "host_name": "papers.ssrn.com",
+    "rank": 2,
+    "date": "",
+    "favicon": ""
+  },
+  {
+    "url": "https://www.emergentmind.com/topics/immutable-audit-log",
+    "name": "Immutable Audit Log Architecture",
+    "snippet": "Nov 28, 2025 — Immutable audit logs are append-only , cryptographically secured records that guarantee data integrity, non-repudiation, and verifiable event ...",
+    "host_name": "www.emergentmind.com",
+    "rank": 3,
+    "date": "Nov 28, 2025",
+    "favicon": ""
+  },
+  {
+    "url": "https://finqub.io/learn/tamper-evident-audit-trail",
+    "name": "Tamper-Evident Audit Logs: What Examiners Accept (Hash",
+    "snippet": "Tamper - evident requires a cryptographic mechanism ( hash chains, signed exports, or notarization) on top of append - only storage.",
+    "host_name": "finqub.io",
+    "rank": 4,
+    "date": "",
+    "favicon": ""
+  }
+]

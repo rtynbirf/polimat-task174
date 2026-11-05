@@ -1,0 +1,94 @@
+{
+ "audit_id": "R14-M2V-audit-1",
+ "ts": "2026-11-05T08:07:14",
+ "prereg_id": "R14-M2V-prereg-2",
+ "prereg_hash": "6c11e5dedf9cfba7",
+ "manifest_ok": true,
+ "oracle_independence": {
+  "ok": true,
+  "violations": []
+ },
+ "reexecution_bit_identical": true,
+ "mismatches": [],
+ "verdicts": {
+  "V1_bug_reproduced": {
+   "cell_0.2_acc_mean": 0.9375,
+   "cell_0.2_leak_trials": 11,
+   "clean_cells_acc": {
+    "0.0": 1.0,
+    "0.05": 1.0,
+    "0.1": 1.0,
+    "0.15": 1.0,
+    "0.3": 1.0
+   },
+   "silent_total_all": 0,
+   "pass": true
+  },
+  "V2_m2v_closes": {
+   "all_acc_mean_1": true,
+   "all_acc_min_1": true,
+   "all_leak_zero": true,
+   "blocks_sum": 64.01,
+   "pass": true
+  },
+  "V3_no_new_silent": {
+   "silent_total_all": 0,
+   "chain_ok_everywhere": true,
+   "pass": true
+  },
+  "V4_n5_closure_preserved": {
+   "per_cell": {
+    "A0_direct|m2v=0": true,
+    "A0_direct|m2v=1": true,
+    "A1_search|m2v=0": true,
+    "A1_search|m2v=1": true,
+    "A2_freeze|m2v=0": true,
+    "A2_freeze|m2v=1": true,
+    "A3_preempt|m2v=0": true,
+    "A3_preempt|m2v=1": true,
+    "n5v_all|m2v=0": true,
+    "n5v_all|m2v=1": true
+   },
+   "a2_delay": 7.0,
+   "e5_delay": 7.0,
+   "a2_within_bound": true,
+   "pass": true
+  },
+  "V5_g2_not_worsened": {
+   "g2_not_worsened_anywhere": true,
+   "eps0_cell_acc": 1.0,
+   "eps0_cell_silent": 0,
+   "silent_all_cells": 0,
+   "pass": true
+  },
+  "V6_legit_epoch_path": {
+   "match_0": 12,
+   "match_1": 12,
+   "delay_0": 7.0,
+   "delay_1": 7.0,
+   "trio_fr_0": 0,
+   "trio_fr_1": 0,
+   "pass": true
+  },
+  "V7_determinism": {
+   "audit_hashes": [
+    "5d5ebf16e41e6777",
+    "5d5ebf16e41e6777"
+   ],
+   "bit_identical": true,
+   "matches_battery_E6": true,
+   "pass": true
+  },
+  "V8_contact_preserved": {
+   "parked_totals_sample": {
+    "0.1": 47,
+    "0.2": 28,
+    "0.25": 35
+   },
+   "a0_attempts": 138,
+   "pass": true
+  },
+  "FINAL": true
+ },
+ "note": "\u0410\u0443\u0434\u0438\u0442 \u043f\u0435\u0440\u0435\u0438\u0441\u043f\u043e\u043b\u043d\u0438\u043b \u0432\u0441\u0435 \u044f\u0447\u0435\u0439\u043a\u0438 \u0434\u0435\u0442\u0435\u0440\u043c\u0438\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u043e \u0438 \u043f\u0435\u0440\u0435\u0432\u044b\u0432\u0435\u043b \u0432\u0435\u0440\u0434\u0438\u043a\u0442\u044b \u043d\u0435\u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e \u043e\u0442 battery-\u0441\u0432\u043e\u0434\u043e\u043a."
+}
