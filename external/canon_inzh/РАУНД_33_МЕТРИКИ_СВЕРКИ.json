@@ -1,0 +1,119 @@
+{
+  "generated": "2026-09-05",
+  "line": "TASK69 (наша)",
+  "counterpart": "TASK174 (их отчёт)",
+  "our_task69_tar": {
+    "size_bytes": 517632000,
+    "sha256": "25e53a5ba57620fd0598ca40ffe46d417288acc1b08cbe4b937ba25c64012208",
+    "matches_registration_task21": true,
+    "members": 1810,
+    "payload_incl_manifest": 514513701,
+    "manifest_txt_size": 292776,
+    "overhead_bytes": 3118299,
+    "overhead_per_member": 1722.8
+  },
+  "their_report_checks": {
+    "sections_sum": 731,
+    "members_total_claimed": 731,
+    "sections_eq_members": true,
+    "files_verified_eq_members": true,
+    "archive_size_ge_verified": true,
+    "verified_minus_payload": 96235,
+    "tar_overhead": 1273102,
+    "overhead_per_member": 1741.6
+  },
+  "their_doc_mismatches": [
+    {
+      "doc": "МАНИФЕСТ_АРХИВА_TASK174.md",
+      "section": "05_SCRIPTS",
+      "manifest_text": "52 скрипта",
+      "json": 53,
+      "delta": 1
+    },
+    {
+      "doc": "МАНИФЕСТ_АРХИВА_TASK174.md",
+      "section": "07_DOWNLOAD",
+      "manifest_text": "110 файлов",
+      "json": 112,
+      "delta": 2
+    }
+  ],
+  "shared_carriers_our_copies": {
+    "upload/1.tar": {
+      "size": 12953600,
+      "sha256": "42897517dfcf3893f3222cbd7bc8e33c2856ada59b633bababa6f5a042359fad"
+    },
+    "upload/2.tar": {
+      "size": 12984320,
+      "sha256": "668fc16bb99d52168e8b64f4785e9752cee440280ddd67e75a402adc9464e78e"
+    },
+    "upload/4 (1).tar": {
+      "size": 6144000,
+      "sha256": "f9d9000ff5946a67ea82bf286ce52093c25412d139e32b789f5f63ae3c74dbf3"
+    },
+    "upload/5.tar": {
+      "size": 8581120,
+      "sha256": "0e22f4167a942985c8d5af0a68be8dab8e0038134131839b2b4493a377e203d9"
+    },
+    "upload/6.tar": {
+      "size": 8581120,
+      "sha256": "e225236a10943aadc9bc0c75f468d65de0a73b9cf5716312e93e55739828785a"
+    },
+    "upload/worklog_supplement.md": {
+      "size": 1393,
+      "sha256": "637088bc599f6c84266d42505caa0d42db62dc45d7d4adbefd151a3d02f5f6c9"
+    },
+    "upload/POLIMAT_H5d_HOLOBIONT_HANDOFF_2026-09-03.html": {
+      "size": 449007,
+      "sha256": "a25b3bf98d465935fa77be7f611fe76fd7bbf7ded218c38a2cb456424740f3b4"
+    },
+    "download/МАНИФЕСТ_АРХИВА_TASK69.md": {
+      "size": 3114,
+      "sha256": "6b422d7366c6bd703eb0652c0c2f58fc6e37c60c97b3ce8dc418b1e6fd35efaa"
+    },
+    "download/ВЕСЬ_ПРОМПТ_ОТ_НАЧАЛА_ЧАТА.md": {
+      "size": 32409,
+      "sha256": "c001225127c5bcafab530231a228f0e6d9f8c1b257e0527ecf32d499622723bf"
+    },
+    "download/POLIMAT_R26_РЕЦЕПТ_В_ИНСТРУМЕНТ.tar": {
+      "size": 81920,
+      "sha256": "70b5a10e63ce6725a616a2ff9ef332069406921f22448ea4744689554e54f0e7"
+    }
+  },
+  "received_t174_docs": {
+    "ЗАДАЧА174_ОТЧЁТ_СБОРКИ_АРХИВА.json": {
+      "size": 1002,
+      "sha256": "17ed5a63d45eb759fc4c507d4bacee4a8c65ad71cdfe71a1560a64207d043cf3"
+    },
+    "МАНИФЕСТ_АРХИВА_TASK174.md": {
+      "size": 4921,
+      "sha256": "f8edc71cc454ee81f0e9deeb228da5e98adc4f12abce1cfbd2ae2601bce0272e"
+    }
+  },
+  "our_worklog": {
+    "records": 21,
+    "task_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21"
+    ]
+  }
+}

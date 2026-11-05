@@ -1,0 +1,81 @@
+{
+  "round": "Раунд 36 (Task 24), сверка T174 v2",
+  "date_utc8": "2026-09-06",
+  "carriers_measured_here": {
+    "manifest": {
+      "path": "/home/z/my-project/upload/МАНИФЕСТ_АРХИВА_TASK174.md",
+      "size_bytes": 4921,
+      "sha256": "f8edc71cc454ee81f0e9deeb228da5e98adc4f12abce1cfbd2ae2601bce0272e",
+      "mtime_iso": "2026-09-05T08:02:27",
+      "lines": 30
+    },
+    "report": {
+      "path": "/home/z/my-project/upload/ЗАДАЧА174_ОТЧЁТ_СБОРКИ_АРХИВА.json",
+      "size_bytes": 1002,
+      "sha256": "17ed5a63d45eb759fc4c507d4bacee4a8c65ad71cdfe71a1560a64207d043cf3",
+      "mtime_iso": "2026-09-05T08:02:27",
+      "lines": 35
+    }
+  },
+  "manifest_declarations": {
+    "03_UPLOAD": 19,
+    "04_EXTRACTED": 233,
+    "05_SCRIPTS": 52,
+    "06_ANALYSIS": 310,
+    "07_DOWNLOAD": 110,
+    "00_top_level_docs": 4
+  },
+  "manifest_arithmetic_total": 728,
+  "report_declarations": {
+    "00_МАНИФЕСТ_АРХИВА.md": 1,
+    "00_MANIFEST_SHA256.txt": 1,
+    "01_ВЕСЬ_ПРОМПТ_ОТ_НАЧАЛА_ЧАТА.md": 1,
+    "02_WORKLOG.md": 1,
+    "03_UPLOAD": 19,
+    "04_EXTRACTED": 233,
+    "05_SCRIPTS": 53,
+    "06_ANALYSIS": 310,
+    "07_DOWNLOAD": 112
+  },
+  "report_members_total_declared": 731,
+  "report_sum_of_sections": 731,
+  "report_self_consistent": true,
+  "discrepancies_manifest_vs_report": [
+    {
+      "section": "05_SCRIPTS",
+      "manifest_declares": 52,
+      "report_declares": 53,
+      "delta": 1
+    },
+    {
+      "section": "07_DOWNLOAD",
+      "manifest_declares": 110,
+      "report_declares": 112,
+      "delta": 2
+    }
+  ],
+  "total_delta_manifest_vs_report": 3,
+  "cross_line_contact_markers": {
+    "упоминание МАНИФЕСТ_АРХИВА_TASK69.md в их 03_UPLOAD": true,
+    "упоминание ВЕСЬ_ПРОМПТ_ОТ_НАЧАЛА_ЧАТА.md в их 03_UPLOAD": true,
+    "их ссылка на образец TASK69": true,
+    "их честная регистрация разрыва журнала 20–25": true
+  },
+  "their_tar_declarations": {
+    "archive": "POLIMAT_TASK174_ПОЛНЫЙ_АРХИВ.tar",
+    "archive_size_bytes": 318945280,
+    "archive_sha256": "a0d38f637067fc45e4e68031dc4aa69a625346d50a07c7f25556d24792c4e602",
+    "members_total": 731,
+    "files_verified": 731,
+    "verification": "PASS",
+    "compression": "none (tar, железное правило проекта)"
+  },
+  "byte_level_verification_of_their_tar": "UNKNOWN — их тар в нашей среде отсутствует, перемерять нечего",
+  "notes": [
+    "Их отчёт внутренне согласован: сумма секций = members_total = files_verified = 731.",
+    "Ровно 2 расхождения деклараций: 05_SCRIPTS (манифест 52 / отчёт 53) и 07_DOWNLOAD (манифест 110 / отчёт 112); сумма расхождений = 3 = 731 − 728.",
+    "Независимое воспроизведение: утраченная запись Задачи 22 (эстафета) регистрировала ровно «2 описки T174» — свежая сверка нашла те же 2 расхождения на тех же носителях.",
+    "verified_bytes (317 672 178) > payload_bytes_total (317 575 943) на 96 235 Б — разные базы учёта (с служебными данными участников), не классифицируется как ошибка.",
+    "Их манифест подтверждает межлинейный контакт: наши МАНИФЕСТ_АРХИВА_TASK69.md и ВЕСЬ_ПРОМПТ были у них в 03_UPLOAD."
+  ]
+}

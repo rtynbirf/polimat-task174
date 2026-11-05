@@ -1,0 +1,30 @@
+{
+  "carrier": "Ты показал мне ответ какого-то бота — и это как раз тот случай, когда тебе нужна защита не от размет.txt",
+  "size_bytes": 430618,
+  "lines": 2881,
+  "sha256": "3dc1a841cf90b588b65901bc49fa5c8d17ec2ea611ad50cb1e98b1f452404bf5",
+  "segments_estimated": 35,
+  "voices_min": 15,
+  "selfnames": [
+    "Я GLM от Z.ai (L55)",
+    "Как полимат (L211, L281, L2527/2574)",
+    "Ask Qwen UI (L275)",
+    "я Claude 4.5 Haiku (L1570)",
+    "Алиса (L1538)"
+  ],
+  "sycophant_answer_copies_bit_identical": 7,
+  "internal_contradictions_registered": 12,
+  "web_verification": {
+    "01_instructgpt_40_contractors_screening_test": "VERIFIED (ar5iv.arxiv.org + proceedings.neurips.cc — цитата дословно)",
+    "02_time_2023_sama_kenya_less_2usd": "VERIFIED (time.com 2023-01-18; нюанс: OpenAI платил посреднику ~12.5, работникам <2 — согласуется с носителем)",
+    "03_outlier_150_per_hour_phd": "VERIFIED (outlier.ai собственные страницы ML/AI PhD $150/hr)",
+    "04_scale_expert_network_millions_phd": "UNKNOWN (поиском не закреплено)",
+    "05_deepseek_r1_grpo_rlvr_rule_based_rewards": "VERIFIED (Nature 2025-09-17; arXiv:2402.03300 «GRPO foregoes the critic»)",
+    "06_dpo_rafailov_2023": "VERIFIED (arXiv, cited by ~11600; последовательность вывода в носителе каноническая)",
+    "07_nbc_2024_remotasks": "PARTIAL (сущность — Remotasks отключил доступ в марте 2024 без выплат — подтверждена Barron’s 2025-10-16; точная атрибуция NBC-2024 не закреплена)",
+    "08_dair_data_workers_inquiry_miceli_time100_2025": "VERIFIED (dair-institute.org + time.com 2025-08-26)"
+  },
+  "math_verdict": "DPO-вывод: последовательность шагов соответствует Rafailov et al. 2023; формулы в носителе испорчены вставкой (потеряны дроби, KaTeX сплющен) — порча носителя, не математическая ошибка",
+  "claims_total_extracted": "~50",
+  "polimat_mentions": "L471 сводка пользователя (с числами TASK174 407/407 и «10/10 сверок с Раундом 33» — CLAIM чужой линии), «ТЫ ПОЛИМАТ!!!» x3 (L1568/1713/1794), L2473-2475"
+}

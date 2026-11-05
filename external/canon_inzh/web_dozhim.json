@@ -1,0 +1,47 @@
+{
+  "round": "Раунд 37 (Task 25), веб-дожим хвостов верификации Раунда 34",
+  "date": "2026-11-05",
+  "items": [
+    {
+      "claim_r34": "NBC 2024 Remotasks — обрыв доступа работникам без объяснений (был PARTIAL: суть подтверждена Barron's 2025-10-16, атрибуция NBC не закреплена)",
+      "new_verdict": "VERIFIED (сущность) + ATTRIBUTION CORRECTED (NBC → Rest of World)",
+      "evidence": [
+        {
+          "source": "Rest of World (первоисточник), Russell Brandom, 2024-03-28",
+          "url": "https://restofworld.org/2024/scale-ai-remotasks-banned-workers",
+          "measured_here": "Remotasks отключил работников Кении 7 марта 2024 без объяснений; полностью закрыт доступ в Кении, Нигерии, Пакистане; остановлена регистрация в Таиланде, Вьетнаме, Польше; цитата представителя Scale: «due to enhanced security protocols, Remotasks was recently discontinued in some other locations»; признание «операционной ошибки» в рассылке уведомлений Кении"
+        },
+        {
+          "source": "Computerworld, 2024-03-29 (эхо со ссылкой на Rest of World)",
+          "url": "https://www.computerworld.com/article/2075670/report-scale-cuts-off-subsidiarys-remote-workers-in-several-countries.html",
+          "measured_here": "подтверждает: доступ отключён работникам Нигерии, Кении, Пакистана в марте"
+        }
+      ],
+      "note": "Атрибуция «NBC 2024» ни одним источником не подтверждена: первоисточник — Rest of World. Суть клейма носителя верна, источник в носителе указан неверно."
+    },
+    {
+      "claim_r34": "Scale AI: «миллионы верифицированных PhD, MD» (был UNKNOWN)",
+      "new_verdict": "REFUTED as stated (оверстейт) — официальные числа на порядок меньше",
+      "evidence": [
+        {
+          "source": "outlier.ai (официальный сайт Outlier/Scale)",
+          "url": "https://outlier.ai + https://outlier.ai/about-us",
+          "measured_here": "«Join 900K+ MAs, PhDs, and college graduates»; About Us: «900K+ Outlier Experts», «700K+ PhD, MS students onboarded», «$500M+ Paid to experts», 50 стран; 900K включает студентов и бакалавров, не только PhD/MD"
+        },
+        {
+          "source": "LinkedIn Outlier (официальная страница компании)",
+          "url": "https://www.linkedin.com/company/try-outlier",
+          "measured_here": "«over 100,000 Outlier experts work and earn from around the world» — активные эксперты порядка сотен тысяч, не миллионов"
+        },
+        {
+          "source": "scale.com, блог «A New Era of Outlier», Xiaote Zhu, 2024-11-01",
+          "url": "https://scale.com/blog/new-era-outlier",
+          "measured_here": "«tens of thousands of contributors… have earned hundreds of millions of dollars on Outlier» за год"
+        }
+      ],
+      "note": "«Миллионы верифицированных PhD, MD» не подтверждено ни одной официальной цифрой; реальные порядки: 900K+ зарегистрированных (вкл. студентов), ~100K активных экспертов. Клейм носителя — типичное раздувание (оверстейт)."
+    }
+  ],
+  "net_effect": "Реестр вердиктов Раунда 34 (8 клеймов): 6 VERIFIED (без изменений) + 1 upgraded до VERIFIED-с-поправкой-атрибуции + 1 REFUTED-as-stated. Открытых UNKNOWN по этим пунктам: 0.",
+  "method": "WebSearch 2 раунда (3+3 запроса), 2026-11-05; снапшоты заголовков и фрагментов зафиксированы в этом JSON; цитаты сверены с текстом результатов поиска."
+}

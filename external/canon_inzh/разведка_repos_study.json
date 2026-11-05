@@ -1,0 +1,418 @@
+{
+ "clone_time": "2026-11-05T06:53:01",
+ "repos": {
+  "polimat-task174": {
+   "head": "14b698ab5d39c2f9e20579f12242867ca419666e",
+   "branch": "main",
+   "branches": [
+    "main",
+    "origin",
+    "origin/main"
+   ],
+   "recent_commits": [
+    "14b698a|rtynbirf · носитель Р38 (GLM)|2026-11-05 09:32:40 +0300|round38: приёмка носителя Р38 — round38/{1.txt, РАУНД_38_СТАТУС_НОСИТЕЛЯ.md, round38_measure.py}",
+    "d6a9635|rtynbirf|2026-11-04 21:23:03 +0000|chore: манифест sha256 всех файлов (38 позиций)",
+    "9adb1a8|rtynbirf|2026-11-04 21:23:03 +0000|docs: README программы + ворклог-генеалогия Task 1–35",
+    "fdb0ec9|rtynbirf|2026-11-04 21:23:03 +0000|feat(external): полный сессионный журнал линии TASK174 — Task ID 1–35 (вербатим)",
+    "ff1c349|rtynbirf|2026-11-04 21:23:03 +0000|feat(scripts): сборка v5.1.2, верификация корпуса, слепая рука, спот-чек прогона 3",
+    "8f9d011|rtynbirf|2026-11-04 21:23:03 +0000|feat(run3): прогон 3 — Б25.8 на связке КРАСНАЯ НИТЬ: пре-регистрация Д18, вердикт, сырые акты S-A/S-B, К3-ведомость v2",
+    "9e2bab3|rtynbirf|2026-11-04 21:23:03 +0000|feat(corpus): корпус CORPUS_B25 (zip 41b1c849…) + слепая рука Б25.8 (bb85d630…) — вербатим, пломбы сверены",
+    "19c0ce1|rtynbirf|2026-11-04 21:23:03 +0000|feat(canon): канон POLIMAT v5.0→v5.1.2 — фризы, дельта Д20–Д26, бит-диф 28 строк"
+   ],
+   "files": [
+    {
+     "path": "MANIFEST_SHA256.txt",
+     "size": 4252,
+     "sha256": "e832ef150041f51f35f9f5f9ead614072be1503d050c8e155702fe7c96004ad9"
+    },
+    {
+     "path": "README.md",
+     "size": 8738,
+     "sha256": "24977a90a454618df7032f1ad597fb3b23ec06765ac7378a4dba0feaee92a346"
+    },
+    {
+     "path": "blind_arm/BLIND_MANIFEST.md",
+     "size": 438,
+     "sha256": "7fea9637dc864f6cc5be6dce498d093ded3a0bd1d8df809f52e7e0a74c75c9f3"
+    },
+    {
+     "path": "blind_arm/POLIMAT_PROMPT_v5.1.2.md",
+     "size": 39994,
+     "sha256": "9384b44a6843a8321e5bc267880d387039317bd8b08acb65e17bf33a16980dc7"
+    },
+    {
+     "path": "blind_arm/TRAPS_MATERIAL.md",
+     "size": 3440,
+     "sha256": "992023000cef621f512ecb3b2e352d0ec179ccad356e84fe3bb8c7ef20b34304"
+    },
+    {
+     "path": "canon/POLIMAT_DELTA_v5.1.2_D20-D26.md",
+     "size": 12661,
+     "sha256": "ea6153d6f33de31c6d7ab0482a7bc731708080336bbd9119d0294a24e732f39a"
+    },
+    {
+     "path": "canon/POLIMAT_PROMPT_v5.1.1_FROZEN.md",
+     "size": 35348,
+     "sha256": "5711d74a16b435f1a3aab101da6c5591115a6885d2ba57c65451f66d477f804f"
+    },
+    {
+     "path": "canon/POLIMAT_PROMPT_v5.1.2.md",
+     "size": 39994,
+     "sha256": "9384b44a6843a8321e5bc267880d387039317bd8b08acb65e17bf33a16980dc7"
+    },
+    {
+     "path": "canon/POLIMAT_PROMPT_v5.1_CANDIDATE.md",
+     "size": 26841,
+     "sha256": "b98746cc007eb3badb8119545abaa64bcf3daeecf1742636b9c68b3569471cb5"
+    },
+    {
+     "path": "canon/POLIMAT_PROMPT_v5_ФИНАЛ.md",
+     "size": 17732,
+     "sha256": "f57af58b20d0c68f41dc2421809106690312eb405dde439e7276c2cc44d188cc"
+    },
+    {
+     "path": "canon/БИТ_ДИФ_v5.1.1_→_v5.1.2.md",
+     "size": 17338,
+     "sha256": "3e06e3c4d260304c08ec74d3827b846da77c7f72e990fd101528fe5b452270eb"
+    },
+    {
+     "path": "corpus/CORPUS_B25/CORPUS_MANIFEST.md",
+     "size": 6229,
+     "sha256": "36795f4e4b936f5bd103f92d1648844d07a2a71a4b2373f7e0a30b1d74687993"
+    },
+    {
+     "path": "corpus/CORPUS_B25/POLIMAT_B25_PREREG_R38.md",
+     "size": 9460,
+     "sha256": "7214d9f0ba4e93e7e770a70f4ed9ced02fd46b33071e0b53fd399eb9180039c8"
+    },
+    {
+     "path": "corpus/CORPUS_B25/POLIMAT_DELTA_v5.1.2_D20-D26.md",
+     "size": 12661,
+     "sha256": "ea6153d6f33de31c6d7ab0482a7bc731708080336bbd9119d0294a24e732f39a"
+    },
+    {
+     "path": "corpus/CORPUS_B25/POLIMAT_PROMPT_v5.1.1_FROZEN.md",
+     "size": 35348,
+     "sha256": "5711d74a16b435f1a3aab101da6c5591115a6885d2ba57c65451f66d477f804f"
+    },
+    {
+     "path": "corpus/CORPUS_B25/POLIMAT_PROMPT_v5.1.2.md",
+     "size": 39994,
+     "sha256": "9384b44a6843a8321e5bc267880d387039317bd8b08acb65e17bf33a16980dc7"
+    },
+    {
+     "path": "corpus/CORPUS_B25/POLIMAT_PROMPT_v5.1_CANDIDATE.md",
+     "size": 26841,
+     "sha256": "b98746cc007eb3badb8119545abaa64bcf3daeecf1742636b9c68b3569471cb5"
+    },
+    {
+     "path": "corpus/CORPUS_B25/POLIMAT_PROMPT_v5_ФИНАЛ.md",
+     "size": 17732,
+     "sha256": "f57af58b20d0c68f41dc2421809106690312eb405dde439e7276c2cc44d188cc"
+    },
+    {
+     "path": "corpus/CORPUS_B25/SEALS_REGISTRY.md",
+     "size": 4933,
+     "sha256": "fe08b7ab26ae11912a1c41cd889594019b405239c9e431e5483ce16d0507510c"
+    },
+    {
+     "path": "corpus/CORPUS_B25/TRAPS_MATERIAL.md",
+     "size": 3440,
+     "sha256": "992023000cef621f512ecb3b2e352d0ec179ccad356e84fe3bb8c7ef20b34304"
+    },
+    {
+     "path": "corpus/CORPUS_B25/Б25_ПРОГОН1_ВЕРДИКТ.md",
+     "size": 16518,
+     "sha256": "26f461315008156670b4d0278c3965b1d2c5d8e439916dd1f981e832e64ba777"
+    },
+    {
+     "path": "corpus/CORPUS_B25/Б25_ПРОГОН2_ФИНАЛЬНЫЙ_ВЕРДИКТ.md",
+     "size": 12748,
+     "sha256": "981d2c85ef33f9fb2225cb89f5376d87f3c39fcab70ce596f866ad260370d06b"
+    },
+    {
+     "path": "corpus/CORPUS_B25/БИТ_ДИФ_v5.1.1_→_v5.1.2.md",
+     "size": 17338,
+     "sha256": "3e06e3c4d260304c08ec74d3827b846da77c7f72e990fd101528fe5b452270eb"
+    },
+    {
+     "path": "corpus/CORPUS_B25/К3_РИСК_РЕГИСТРАЦИЯ.md",
+     "size": 8241,
+     "sha256": "1cfe7f39ccdd8815e93c69e635cb942a532e6173bdfa97bc8aa29e506231645d"
+    },
+    {
+     "path": "corpus/CORPUS_B25/ЭКСПОНАТ_МАНИФЕСТ_N+1_USER_КАНАЛ.md",
+     "size": 2398,
+     "sha256": "529913aff5d93e2faf0797d639782de8a3ae4abb60e534b0d9876c3679403bf6"
+    },
+    {
+     "path": "external/origin/worklog_TASK174_полный.md",
+     "size": 121004,
+     "sha256": "686feb682049999ae2833b007a34c689561580be0a58f9ecad834d46eabfae69"
+    },
+    {
+     "path": "ledger/К3_РИСК_РЕГИСТРАЦИЯ.md",
+     "size": 11367,
+     "sha256": "fd2aaaf0d4fc330bdc45bead38782861315e3d6bed7903c8b165f2bd789979ac"
+    },
+    {
+     "path": "round38/1.txt",
+     "size": 268506,
+     "sha256": "9bccc165cbe2830c38146c243cbc5b50f18c0f9b29bfa1bd99b84920b982cb20"
+    },
+    {
+     "path": "round38/round38_measure.py",
+     "size": 4103,
+     "sha256": "e39963a28e4a5edb37e65a0faf6b404a455d63a022007c8aeb1cc57d71fb14ed"
+    },
+    {
+     "path": "round38/РАУНД_38_СТАТУС_НОСИТЕЛЯ.md",
+     "size": 5888,
+     "sha256": "f66a6ab5ace1ea10c67fac6e0a6e6926180ca060a374346d26e47dcaede9acc0"
+    },
+    {
+     "path": "run3_svazka/Б25_ПРОГОН3_АКТ_SA.md",
+     "size": 19359,
+     "sha256": "368f91a1091f61a7c7b5f246415e6da98bd8b14fde22ea5b622ee48c2ca61db5"
+    },
+    {
+     "path": "run3_svazka/Б25_ПРОГОН3_АКТ_SB.md",
+     "size": 18710,
+     "sha256": "3f5d0f1f51318f30434a6786a545fa9721a245a3e224c2260deda47d631e5a93"
+    },
+    {
+     "path": "run3_svazka/Б25_ПРОГОН3_ВЕРДИКТ_СВЯЗКА.md",
+     "size": 18674,
+     "sha256": "44076a0939b80e6907cb6711437ec2b7c1dee7c69f872437947773d56811ac70"
+    },
+    {
+     "path": "run3_svazka/Б25_СВЯЗКА_PREREG.md",
+     "size": 6953,
+     "sha256": "ed7953dfd9ea0953c7bf944b2e830269346d5a12f1e3d04b998e4a43cc3b9566"
+    },
+    {
+     "path": "run3_svazka/КРАСНАЯ_НИТЬ_СВЯЗКА.md",
+     "size": 27271,
+     "sha256": "409d934e67e35d16cdc2a277dcdd5fa12b3c657eadb47a29a4e2aaaedc05d6fa"
+    },
+    {
+     "path": "scripts/build_v512.py",
+     "size": 13729,
+     "sha256": "97fb1bdd3d12e468ad746cbdd44d7c2ba8599b917387a314eb31bd9e4279b354"
+    },
+    {
+     "path": "scripts/package_corpus.py",
+     "size": 8908,
+     "sha256": "03499e1b28086cda2c1f4111b4e3375c6251ff18cf6685412b9b67808f864621"
+    },
+    {
+     "path": "scripts/prep_blind_svazka.py",
+     "size": 5218,
+     "sha256": "c6777313c448c996a81e008e7c6df1234941fe6c1c89781aed47046f2c98fea6"
+    },
+    {
+     "path": "scripts/spotcheck_prog3.py",
+     "size": 3861,
+     "sha256": "0b0f115f1153b4cb8563c386ef98f5f64741185bf4ed9397e00fd9bbf9a12d6f"
+    },
+    {
+     "path": "scripts/verify_b25_final.py",
+     "size": 3480,
+     "sha256": "17d0d40ecf328ae1fb3c99de771973ba2a8457549e119ca98cb83387c86e0834"
+    },
+    {
+     "path": "worklog.md",
+     "size": 11785,
+     "sha256": "291fa3147eeb0efe48ab4d7006ff5af7c7f0b0ae57d63137427c7e8f4f0b6c4b"
+    }
+   ],
+   "file_count": 41,
+   "total_bytes": 969473
+  },
+  "repo-doctrine": {
+   "head": "d6425c52649dafa2fd6791764f28e8184aaada7f",
+   "branch": "main",
+   "branches": [
+    "main",
+    "origin",
+    "origin/main"
+   ],
+   "recent_commits": [
+    "d6425c5|rtynbirf|2026-11-04 21:24:20 +0000|docs(map): приложение 2026-11-05 — polimat-task174 (TH-PM-01)",
+    "7215a97|rtynbirf|2026-11-04 20:46:43 +0000|docs(map): приложение 2026-11-05 — красная нить (red-thread-debt-audit)",
+    "bf1d708|rtynbirf|2026-11-04 19:15:28 +0000|docs(карта): rent-mechanism-q43 — рента-программа, новое репо в день создания (TH-RM-01)",
+    "25794c6|rtynbirf|2026-10-31 21:28:21 +0000|docs(tokens): маршрут для песочничных агентов — токен-расходник, Revoke в той же сессии (TH-GH-09)",
+    "6937482|rtynbirf|2026-10-31 21:28:21 +0000|docs(2fa): глава 07 по итогам TH-GH-08 — v2-комплект, автопочинка ACL, Google-связка",
+    "cd2abe1|rtynbirf|2026-10-31 23:43:12 +0300|docs(2fa): дедлайн GitHub 16.11.2026 вписан; пункт проверки Google-связки (вход без пароля) в «После включения» (TH-GH-07)",
+    "fd8c7f3|rtynbirf|2026-10-31 23:36:46 +0300|docs(2fa): блок «если что-то выглядит как ошибка» по итогам полевого прогона TH-GH-06",
+    "4186b40|rtynbirf|2026-10-31 23:30:52 +0300|docs(карта): cell65-host переключён в private не текущим агентом — зафиксировано, raw-инструкции переведены на Raw-браузер",
+    "bb1767d|rtynbirf|2026-10-31 23:30:51 +0300|docs(2fa): путь 0 = батник-автомат 2fa-setup.bat; разбор приватного cell65-host (raw 404 анонимам)",
+    "37cf1ab|rtynbirf|2026-10-31 23:27:20 +0300|docs(2fa): уточнение — QR рисуется на экране бокса, телефон/камера не появляются ни на одном шаге",
+    "5cebfe4|rtynbirf|2026-10-31 23:24:43 +0300|docs(2fa): путь 0 — ноль сторонних программ (totp.ps1); KeePassXC понижен до опции с разбором мифа (TH-GH-04)",
+    "daa7005|rtynbirf|2026-10-31 23:19:10 +0300|docs(карта): +windows-encyclopedia, +github-runbook (орбиты других агентов, созданы 2026-10-31); 2FA-пункт -> глава 07"
+   ],
+   "files": [
+    {
+     "path": ".github/workflows/guardian-tripwire.yml",
+     "size": 3640,
+     "sha256": "434e1b63c9ef7041260cabbb28ddb8a18cabb3c3531d3239bbb026e1770931d6"
+    },
+    {
+     "path": "01-чеклист-настроек.md",
+     "size": 6207,
+     "sha256": "7df6e54bc7e258beb472528bd22932a205a2e3ebb4a8a1db4195a66bf678140b"
+    },
+    {
+     "path": "02-ветки-и-защита.md",
+     "size": 6681,
+     "sha256": "64759d5d2d2ca2af04c8cc1eaf2512d7c1f3e07ac07167a2cf3156c342b3ceb0"
+    },
+    {
+     "path": "03-токены-и-секреты.md",
+     "size": 6135,
+     "sha256": "50ca2c69ee0146fcb429da04c979c453009f194f616e95424ec40f2b020a88b7"
+    },
+    {
+     "path": "04-конвенции-агентов.md",
+     "size": 5145,
+     "sha256": "4b352d61569bba1a43be5d1de961a83cf7fd9c006fc6673f04bdfd4cddecf5ac"
+    },
+    {
+     "path": "05-аварийные-процедуры.md",
+     "size": 5335,
+     "sha256": "eb48d969e0eba6584a0843231f8404c53aecd1b5dc9b2fb7dbbb6f2c2f6e8629"
+    },
+    {
+     "path": "06-карта-аккаунта.md",
+     "size": 8522,
+     "sha256": "737a739134d6c8104f981e2a2568f95a46ea12f215a4b159ea727e205d491900"
+    },
+    {
+     "path": "07-2fa-инструкция.md",
+     "size": 13788,
+     "sha256": "7f209cdcf657335c1b30cb5e6660d4e8bde7095bd497bfc5c26b0acb6ac0bcd2"
+    },
+    {
+     "path": "README.md",
+     "size": 6905,
+     "sha256": "294237906bb15c9d9af59ef9fb1a6c49827a773ade295015faf7d37e3a3810eb"
+    }
+   ],
+   "file_count": 9,
+   "total_bytes": 62358
+  },
+  "github-runbook": {
+   "head": "e24deb27c7a82804799dc31865e233ea949f86b2",
+   "branch": "main",
+   "branches": [
+    "main",
+    "origin",
+    "origin/dependabot/github_actions/actions/upload-artifact-7",
+    "origin/main"
+   ],
+   "recent_commits": [
+    "e24deb2|dependabot[bot]|2026-11-05 09:23:59 +0300|build(deps): bump actions/checkout from 4 to 7 (#1)",
+    "107dc5e|dependabot[bot]|2026-11-05 09:23:56 +0300|build(deps): bump actions/upload-artifact from 4 to 7 (#2)",
+    "0f3f7cb|rtynbirf|2026-11-04 12:29:28 +0000|журнал A-24..A-30: первый плановый cron упал на upload-artifact (квота хранилища 15.1 ГБ vs 500 МБ, едок - nous), dispatch x3 повторил лог; email-инвентаризация: второй реальный адрес verified; commit-identity x4 выровнена; MAILBOX.md создан (push 1cd485e) + оффлайн-зеркала 5 бандлов; глава 07: орган 'почтовый ящик' + лимит хранилища и компенсации",
+    "8d08d37|Z User|2026-10-31 20:59:00 +0000|журнал A-20..A-23: реестр workflows 200x4 (все active + авто-Dependabot), dispatch 204x4 (PAT с Actions:write), все запуски success (ci/bundle-backup/selftest/guardian-tripwire), bundle-артефакты 26-447 КБ с retention 90 дней; глава 07: live-подтверждение органов",
+    "887e79f|Z User|2026-10-31 20:50:09 +0000|журнал A-16..A-19 + B-6: ff-пуш пакета (в cell65-host rebase впитал 5 чужих), 403 Actions-прав у PAT, workflows на origin 200x4, локальная репетиция CI зелёная; глава 07: урок про Actions:write для dispatch",
+    "d0e3a02|rtynbirf|2026-10-31 20:32:37 +0000|глава 07 «организм автономности» + самоприменение пакета (CI/AGENTS/RESTORE/dependabot/backup/release/issues) + карта README + обезличен пример токена в 04",
+    "6218359|rtynbirf|2026-10-31 20:11:37 +0000|github-runbook: настройка GitHub-репо человеком для человека — все флаги Settings, ветки/защита (Free vs Pro, живой 403), безопасность, API-шпаргалка, журнал верификации A-01..A-15"
+   ],
+   "files": [
+    {
+     "path": ".github/ISSUE_TEMPLATE/верификация.md",
+     "size": 476,
+     "sha256": "5a7e22e404c57c069473375e46ba867ade3cf7150326feb81819603559b80412"
+    },
+    {
+     "path": ".github/ISSUE_TEMPLATE/дефект.md",
+     "size": 390,
+     "sha256": "d4bc4b409876f37c4227461e91721eb7e7fee5a6cede7fb79f398489126f5e26"
+    },
+    {
+     "path": ".github/ISSUE_TEMPLATE/идея.md",
+     "size": 314,
+     "sha256": "8c208c146b5f691a9cda4308ecdeee2aefa4793ac6a99790f28b1f68fa83dd9b"
+    },
+    {
+     "path": ".github/dependabot.yml",
+     "size": 118,
+     "sha256": "883b95e3be554fbadd92b315e4a8c6ea6ca688b64924e22dd61222b07f683507"
+    },
+    {
+     "path": ".github/workflows/bundle-backup.yml",
+     "size": 642,
+     "sha256": "1e0319a6dc04c04613a3f9ba99c2d37eea18ca7721e374887820b52be65b8694"
+    },
+    {
+     "path": ".github/workflows/ci.yml",
+     "size": 1074,
+     "sha256": "d545e33f8886e5925ee8f8cf768e61445939dd8b2afa364f924bda8c9d423af5"
+    },
+    {
+     "path": ".github/workflows/release.yml",
+     "size": 382,
+     "sha256": "be21e0af28ae50533b322c73a52bee1d562e3aae356efd9a87e61a8d7ea39d22"
+    },
+    {
+     "path": "01-sozdanie-repo.md",
+     "size": 3047,
+     "sha256": "003690b3e5b19c493a70261c7efa1d547de48ccaa442220f5ba07cc68f6ecad9"
+    },
+    {
+     "path": "02-flagi-settings.md",
+     "size": 4766,
+     "sha256": "249f583e5b521163af2830b5300b515b44ae1d66af8338acfd536bddfcad2416"
+    },
+    {
+     "path": "03-vetki-i-zashchita.md",
+     "size": 4194,
+     "sha256": "425cfc3e72db1e1d7e4eee8dfb278f0467bc489cff0efa9c2614f1c3bdbd9469"
+    },
+    {
+     "path": "04-bezopasnost.md",
+     "size": 4055,
+     "sha256": "499bff663a0360868719883cb2153ca30ef518d715b1c82ed07813f31a9f57b2"
+    },
+    {
+     "path": "05-api-shpargalka.md",
+     "size": 4148,
+     "sha256": "eee9f48856b22193ebaa87c7e68c58cbe4391ecb02fc39141e6521d5dad8d038"
+    },
+    {
+     "path": "06-poryadok-i-backapy.md",
+     "size": 3011,
+     "sha256": "d77db2c5720fa1a328294e30ca768e961a6eff1caa1d52dc7799f9e8fc1a67f0"
+    },
+    {
+     "path": "07-organizm-avtonomnost.md",
+     "size": 7037,
+     "sha256": "75e38aa610dbe5b1599d7b68168eee2b14e3faf02b154f63a9e0a3f8f556cb83"
+    },
+    {
+     "path": "AGENTS.md",
+     "size": 1470,
+     "sha256": "7dced3f89b6256ec0121659a35f742890ab8cdc8441bf71567cf8004f2ce9ac1"
+    },
+    {
+     "path": "README.md",
+     "size": 3975,
+     "sha256": "aed575e7df10cc0ce09c8effe1abc9b5b3ab0ac04dcdcd97dd6f886dedcc279a"
+    },
+    {
+     "path": "RESTORE.md",
+     "size": 1242,
+     "sha256": "12158a705388ea96d6144d1faf7c6efbd9352aab7903f7621152ea96930a6343"
+    },
+    {
+     "path": "SOURCES.md",
+     "size": 13341,
+     "sha256": "2483d2996816dc04dcc4deebceb10029b834414026e78e2030a1fd4e835a587e"
+    }
+   ],
+   "file_count": 18,
+   "total_bytes": 53682
+  }
+ }
+}
