@@ -1,0 +1,7 @@
+# SHA256SUMS_task12_addendum.txt — конституция instrument-слоя (Task 12)
+# Пути от корня распакованного handoff-архива.
+# Проверка: sha256sum -c SHA256SUMS_task12_addendum.txt  (из корня архива)
+# Зависит от: SHA256SUMS_P5_rev2_addendum.txt (Task 11) — в силе.
+8c5e7e5fb302078d12e41b54454404ef9a49d868788fb6dfeac1d048f7d6634a  03_proof_batteries/battery_harness.py
+78554cc47a1952bba9f476966d4a8415886e44d6284c21c24d86c233ea8d93b6  03_proof_batteries/harness_p5_reference.py
+3459a806b625d13eadd23c9574a5dd0e2a8cf41cb66a3660e2d2cc4187d8b177  CONSTITUTION_TASK12_WITNESSES.md

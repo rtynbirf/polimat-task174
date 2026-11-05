@@ -1,0 +1,37 @@
+{
+  "project": "POLYMAT",
+  "version": "3.8.0",
+  "baseline": "polymath_agent_v3.7.0.py (09df3cf8…, 114/114)",
+  "merged_source": "JOHNSON v3.6.0 ROOT_TRUST (0a9500252428c09616334afcd9d327e8326c724e2c5488c1ea6cf3c81460955b)",
+  "version_string": "ROOT EPOCH CHAIN WIRING",
+  "status": "IMPLEMENTED_AND_SELFTESTED",
+  "artifact": "polymath_agent_v3.8.0.py",
+  "sha256": "04199e6efff4474bda16fd9c7a7945fae923dce332fea216b4eaf75ffaaaa84f",
+  "selftest": "130/130 PASS",
+  "exit_code": 0,
+  "batteries": {
+    "proof_v300_defects.py": "0/5",
+    "proof_v310_defects.py": "0/2",
+    "proof_v330_defects.py": "0/8",
+    "proof_v340_defects.py": "0/6",
+    "proof_v360_defects.py": "0/4",
+    "proof_v360_root_trust_defects.py": "0/4"
+  },
+  "battery_on_source_branch": {
+    "target": "JOHNSON v3.6.0 ROOT_TRUST",
+    "proof_v360_root_trust_defects.py": "4/4 REPRODUCED"
+  },
+  "changes": [
+    "RootEpochChain: append-only история корневых эпох (genesis/rotate/revoke/verify/digest) — порт ветки ROOT_TRUST",
+    "N-RT4: RootTrustError наследник KnowledgeLedgerError (контракт исключений цел)",
+    "N-RT2: revoke_current от уже отозванного корня отклоняется (ветка принимала молча)",
+    "N-RT1: пин дайджеста истории обязателен на production-пути; усечение хвоста, невидимое verify_history, ловится пином",
+    "N-RT3: ROOT TRUST GATE в ProofCarryingGovernor.commit — активная эпоха вшивается в ProofObject/state.proof/commit-запись/ledger COMMIT",
+    "replay: откат корневой эпохи в журнале отклоняется (root epoch rollback)",
+    "Ленивый бутстрап цепи для состояний вне runtime — инвариант универсален, 0 регрессий",
+    "Двухконтурная политика чекпоинтов: validate_checkpoint_active (новые коммиты) vs validate_epoch (исторический аудит)",
+    "Тесты T121–T126 новые + T127–T136 порт проб ветки (T130 усилен: пин отклоняет усечение на production-форме)"
+  ],
+  "tests_added": ["T121","T122","T123","T124","T125","T126","T127","T128","T129","T130","T131","T132","T133","T134","T135","T136"],
+  "timestamp_utc": "2026-08-28T21:20:00+00:00"
+}

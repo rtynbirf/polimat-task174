@@ -1,0 +1,6 @@
+# SHA256_P5_rev2.txt — addendum к SHA256SUMS (Task 11: усиление проб P5, rev2)
+# Пути от корня распакованного handoff-архива.
+# Проверка: sha256sum -c SHA256SUMS_P5_rev2_addendum.txt  (из корня архива)
+e67dadc16c9637f5b01859a655919da26efba1c30bf69bc133fc1b4521bec943  03_proof_batteries/proof_v330_defects.py
+2a6928415e05188516d9e4e3465c7b58c7dff04ac5d5d0bc7fb9bf649f48409e  03_proof_batteries/proof_v340_defects.py
+12706ee54922a5ecf1ce2127a91930ae4befd3df3c1fb799e96bcb0865ea9e39  03_proof_batteries/p5_diagnosis_v33x.py

@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0E1011" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F5F1E8" media="(prefers-color-scheme: light)">
+<meta name="description" content="Голограмма Опыта — Опыт как единая ткань. От индивида до ЛЛМ: семь ступеней, шесть эпох, пять традиций, один токен.">
+<title>Голограмма Опыта · От индивида до токена · MMXXVI</title>
+<style>
+/* ============================================================
+   DESIGN TOKENS · CSS CUSTOM PROPERTIES
+   Future-proof architecture: change one variable — update everywhere.
+   ============================================================ */
+:root {
+  /* Color primitives */
+  --c-void: #0A0C0D;
+  --c-bg: #0E1011;
+  --c-bg-soft: #141618;
+  --c-bg-elev: #1A1D20;
+  --c-bg-hover: #22262A;
+  --c-text: #E8E4DC;
+  --c-text-dim: #B0A898;
+  --c-text-faint: #8A8078;
+  --c-gold: #C6A85B;
+  --c-gold-dim: #8A7A4A;
+  --c-gold-faint: rgba(198,168,91,0.10);
+  --c-rule: #2A2622;
+  --c-rule-soft: rgba(212,208,200,0.10);
+  --c-power: #B85C5C;
+  --c-power-bg: rgba(184,92,92,0.10);
+  --c-success: #7AA88A;
+  --c-info: #6A9AB0;
+
+  /* Typography */
+  --font-serif: "Georgia", "Times New Roman", "Noto Serif", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Inconsolata", "Cascadia Code", "Consolas", monospace;
+
+  /* Fluid type scale (viewport + rem hybrid) */
+  --text-xs: clamp(0.65rem, 0.6vw + 0.5rem, 0.75rem);
+  --text-sm: clamp(0.75rem, 0.7vw + 0.55rem, 0.875rem);
+  --text-base: clamp(0.9375rem, 0.9vw + 0.65rem, 1.0625rem);
+  --text-md: clamp(1.05rem, 1.1vw + 0.7rem, 1.25rem);
+  --text-lg: clamp(1.25rem, 1.5vw + 0.75rem, 1.5rem);
+  --text-xl: clamp(1.5rem, 2.2vw + 0.8rem, 2rem);
+  --text-2xl: clamp(1.9rem, 3vw + 0.9rem, 2.8rem);
+  --text-3xl: clamp(2.4rem, 4.5vw + 1rem, 4rem);
+  --text-hero: clamp(2.8rem, 6.5vw + 1rem, 5.5rem);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Layout */
+  --reading-width: min(88vw, 860px);
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* Motion */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --c-void: #F0EBE0;
+    --c-bg: #F5F1E8;
+    --c-bg-soft: #E8DFD0;
+    --c-bg-elev: #EDE8DD;
+    --c-bg-hover: #E0D8C8;
+    --c-text: #1A1814;
+    --c-text-dim: #4A4540;
+    --c-text-faint: #7A7568;
+    --c-gold: #7A5E1A;
+    --c-gold-dim: #5C4814;
+    --c-gold-faint: rgba(122,94,26,0.10);
+    --c-rule: #D4CFC4;
+    --c-rule-soft: rgba(26,24,20,0.08);
+    --c-power: #8A3A3A;
+    --c-power-bg: rgba(138,58,58,0.08);
+    --c-success: #3A6B4A;
+    --c-info: #2A5A6A;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: more) {
+  :root {
+    --c-text: #FFFFFF;
+    --c-bg: #000000;
+    --c-gold: #FFD700;
+    --c-gold-dim: #FFD700;
+    --c-rule: #FFFFFF;
+    --c-power: #FF4444;
+    --c-success: #00FF00;
+  }
+}
+
+/* Light + high contrast */
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --c-text: #000000;
+    --c-bg: #FFFFFF;
+    --c-gold: #8B6914;
+    --c-gold-dim: #5C4814;
+    --c-rule: #000000;
+    --c-power: #CC0000;
+    --c-success: #006600;
+  }
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  hanging-punctuation: first last;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  line-height: 1.72;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--c-gold-faint);
+  color: var(--c-gold);
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 3px solid var(--c-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--c-gold);
+  color: var(--c-void);
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  z-index: 9999;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ============================================================
+   READING PROGRESS BAR
+   ============================================================ */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--c-gold), var(--c-gold-dim));
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+.theme-toggle {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 60;
+  display: flex;
+  gap: var(--space-1);
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-rule);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--c-text-dim);
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle button:hover {
+  color: var(--c-gold);
+  background: var(--c-gold-faint);
+}
+
+.theme-toggle button[aria-pressed="true"] {
+  background: var(--c-gold-faint);
+  border-color: var(--c-gold-dim);
+  color: var(--c-gold);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-20) var(--space-6);
+  position: relative;
+  border-bottom: 1px solid var(--c-rule);
+  background: radial-gradient(ellipse at 50% 20%, var(--c-gold-faint) 0%, transparent 60%);
+  overflow: hidden;
+}
+
+.hero .kicker {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-block-end: var(--space-8);
+  font-weight: 500;
+  position: relative;
+  z-index: 5;
+}
+
+.hero h1 {
+  font-size: var(--text-hero);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--c-text);
+  margin-block-end: var(--space-5);
+  position: relative;
+  z-index: 5;
+  max-width: 18ch;
+}
+
+.hero h1 em {
+  color: var(--c-gold);
+  font-style: italic;
+}
+
+.hero .subtitle {
+  font-size: var(--text-lg);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--c-text-dim);
+  max-width: 52ch;
+  line-height: 1.5;
+  margin-block-end: var(--space-8);
+  position: relative;
+  z-index: 5;
+}
+
+.hero .meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  color: var(--c-text-dim);
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+.hero .meta span { color: var(--c-gold-dim); }
+
+/* Astral canvas */
+.astral-hero {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.astral-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.astral-node-hero {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--c-gold), var(--c-gold-dim));
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  pointer-events: auto;
+  z-index: 3;
+  box-shadow: 0 0 12px var(--c-gold-faint);
+  border: 1px solid var(--c-gold);
+}
+
+.astral-node-hero:hover,
+.astral-node-hero.active {
+  background: radial-gradient(circle at 30% 30%, #F0EBE0, var(--c-gold));
+  transform: translate(-50%, -50%) scale(1.8);
+  box-shadow: 0 0 30px var(--c-gold);
+}
+
+.astral-node-hero::after {
+  content: attr(data-num);
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--c-gold);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+  background: var(--c-bg);
+  padding: 3px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--c-gold-dim);
+  pointer-events: none;
+}
+
+.astral-node-hero:hover::after { opacity: 1; }
+
+.astral-line {
+  stroke: var(--c-gold-faint);
+  stroke-width: 0.8;
+  opacity: 0.35;
+  transition: all var(--transition-base);
+}
+
+.astral-line.active {
+  stroke: var(--c-gold);
+  stroke-width: 1.5;
+  opacity: 0.8;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-content > * { pointer-events: auto; }
+
+/* ============================================================
+   NAVIGATION · STICKY TOC
+   ============================================================ */
+nav.toc {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--c-bg) 92%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--c-rule);
+  padding-block: var(--space-3);
+  padding-inline: max(var(--space-4), env(safe-area-inset-left));
+}
+
+nav.toc .inner {
+  max-width: var(--reading-width);
+  margin-inline: auto;
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-block: var(--space-1);
+}
+
+nav.toc .inner::-webkit-scrollbar { display: none; }
+
+nav.toc a {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-text-dim);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+nav.toc a:hover {
+  color: var(--c-gold);
+  border-color: var(--c-gold-dim);
+  background: var(--c-gold-faint);
+}
+
+nav.toc a.active {
+  color: var(--c-gold);
+  border-color: var(--c-gold);
+  background: var(--c-gold-faint);
+}
+
+/* Scroll indicator for TOC */
+nav.toc .inner::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background: linear-gradient(to right, transparent, var(--c-bg));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+@media (max-width: 640px) {
+  nav.toc .inner::after { opacity: 1; }
+}
+
+/* ============================================================
+   MAIN LAYOUT
+   ============================================================ */
+main {
+  max-width: var(--reading-width);
+  margin-inline: auto;
+  padding-inline: clamp(var(--space-5), 4vw, var(--space-10));
+}
+
+section {
+  padding-block: var(--space-24) var(--space-20);
+  border-bottom: 1px solid var(--c-rule-soft);
+}
+
+section:last-of-type { border-bottom: none; }
+
+/* ============================================================
+   TYPOGRAPHY · HEADINGS
+   ============================================================ */
+h2 {
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--c-text);
+  margin-block-end: var(--space-4);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h2 .num {
+  font-family: var(--font-mono);
+  font-size: 0.55em;
+  color: var(--c-gold);
+  letter-spacing: 0.15em;
+  vertical-align: middle;
+  margin-inline-end: 0.6em;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--c-gold);
+  font-style: italic;
+  margin-block: var(--space-8) var(--space-4);
+  text-wrap: balance;
+}
+
+p {
+  margin-block-end: var(--space-5);
+  text-wrap: pretty;
+  max-width: 70ch;
+}
+
+p.lead {
+  font-size: var(--text-md);
+  color: var(--c-text);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+/* ============================================================
+   COMPONENTS · CARDS & BLOCKS
+   ============================================================ */
+.lexicon {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.85;
+  background: var(--c-bg-soft);
+  border-inline-start: 3px solid var(--c-gold-dim);
+  padding: var(--space-5) var(--space-6);
+  margin-block: var(--space-8);
+  color: var(--c-text-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.lexicon b {
+  color: var(--c-gold);
+  font-weight: 400;
+}
+
+.lexicon .forbidden {
+  color: var(--c-power);
+  display: block;
+  margin-block-start: var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.power-block {
+  background: var(--c-power-bg);
+  border-inline-start: 4px solid var(--c-power);
+  padding: var(--space-5) var(--space-6);
+  margin-block: var(--space-8) var(--space-4);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.power-block .label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-power);
+  margin-block-end: var(--space-3);
+  display: block;
+}
+
+.power-block p {
+  font-size: var(--text-sm);
+  color: var(--c-text-dim);
+  margin-block-end: var(--space-3);
+}
+
+.epigraph {
+  margin-block: var(--space-10) var(--space-12);
+  margin-inline-start: var(--space-6);
+  padding: var(--space-4) 0 var(--space-4) var(--space-6);
+  border-inline-start: 3px solid var(--c-gold-dim);
+  font-style: italic;
+  font-size: var(--text-md);
+  color: var(--c-text-dim);
+  line-height: 1.6;
+  position: relative;
+}
+
+.epigraph::before {
+  content: """;
+  position: absolute;
+  left: var(--space-4);
+  top: -0.2em;
+  font-size: 3em;
+  color: var(--c-gold-faint);
+  font-family: var(--font-serif);
+  line-height: 1;
+}
+
+.epigraph cite {
+  display: block;
+  margin-block-start: var(--space-4);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-gold-dim);
+}
+
+.commentary {
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-rule);
+  border-inline-start: 3px solid var(--c-gold-dim);
+  padding: var(--space-6) var(--space-6);
+  margin-block: var(--space-10);
+  font-size: var(--text-sm);
+  color: var(--c-text-dim);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.commentary .label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-block-end: var(--space-4);
+  display: block;
+}
+
+.status {
+  background: var(--c-gold-faint);
+  border: 1px solid var(--c-rule);
+  padding: var(--space-5) var(--space-6);
+  margin-block: var(--space-8);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--c-text-dim);
+  border-radius: var(--radius-md);
+}
+
+.status .label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-block-end: var(--space-3);
+  display: block;
+}
+
+.status .known { color: var(--c-success); }
+.status .unknown { color: var(--c-gold-dim); font-style: italic; }
+
+/* ============================================================
+   TABLES · RESPONSIVE
+   ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  margin-block: var(--space-8);
+  border: 1px solid var(--c-rule);
+  border-radius: var(--radius-md);
+  background: var(--c-bg-soft);
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: var(--c-bg-elev);
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--c-gold-dim);
+  border-radius: 3px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  min-width: 600px;
+}
+
+thead {
+  background: var(--c-bg-elev);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+th {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  font-weight: 500;
+  padding: var(--space-4) var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--c-rule);
+  white-space: nowrap;
+}
+
+td {
+  padding: var(--space-3) var(--space-3);
+  border-bottom: 1px solid var(--c-rule-soft);
+  color: var(--c-text);
+  vertical-align: top;
+}
+
+tr:last-child td { border-bottom: none; }
+
+td.term {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--c-gold-dim);
+}
+
+td.row-label {
+  font-weight: 500;
+  color: var(--c-gold);
+  font-family: var(--font-serif);
+  white-space: nowrap;
+}
+
+td.num-cell {
+  font-family: var(--font-mono);
+  color: var(--c-gold);
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+/* Row hover */
+tbody tr {
+  transition: background var(--transition-fast);
+}
+
+tbody tr:hover {
+  background: var(--c-gold-faint);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  margin-block-start: var(--space-24);
+  padding: var(--space-16) clamp(var(--space-5), 4vw, var(--space-10)) var(--space-24);
+  border-top: 1px solid var(--c-rule);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--c-text-dim);
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+}
+
+footer .sig {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--c-gold);
+  font-size: var(--text-md);
+  margin-block-start: var(--space-5);
+  letter-spacing: 0;
+}
+
+.colophon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-8);
+  max-width: var(--reading-width);
+  margin-inline: auto;
+  margin-block-end: var(--space-8);
+  text-align: left;
+}
+
+.colophon-grid h4 {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  margin-block-end: var(--space-3);
+  font-weight: 500;
+}
+
+.colophon-grid p {
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  color: var(--c-text-faint);
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-6);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-rule);
+  color: var(--c-gold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-base);
+  z-index: 40;
+  font-size: var(--text-lg);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--c-gold-faint);
+  border-color: var(--c-gold);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  .theme-toggle,
+  .reading-progress,
+  .back-to-top,
+  nav.toc,
+  .astral-hero,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  section {
+    padding-block: 1.5rem;
+    border-bottom: 1px solid #ccc;
+    break-inside: avoid;
+  }
+
+  h2, h3 {
+    break-after: avoid;
+    color: black !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  .power-block,
+  .commentary,
+  .status,
+  .lexicon {
+    border: 1px solid #999;
+    background: #f5f5f5 !important;
+  }
+
+  table {
+    font-size: 9pt;
+  }
+
+  .epigraph {
+    border-color: #999;
+  }
+}
+
+/* ============================================================
+   CONTAINER QUERIES · Component-level responsive
+   ============================================================ */
+@container (max-width: 480px) {
+  .colophon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   MEDIA QUERIES · Global responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--space-12) var(--space-4);
+    min-height: auto;
+  }
+
+  .hero .meta {
+    gap: var(--space-3);
+    font-size: 0.6rem;
+  }
+
+  section {
+    padding-block: var(--space-16) var(--space-12);
+  }
+
+  .epigraph {
+    margin-inline-start: var(--space-4);
+    padding-inline-start: var(--space-4);
+  }
+
+  .theme-toggle {
+    top: auto;
+    bottom: var(--space-4);
+    right: var(--space-4);
+  }
+
+  .back-to-top {
+    bottom: calc(var(--space-6) + 50px);
+  }
+}
+
+/* High contrast hover states */
+@media (prefers-contrast: more) {
+  nav.toc a:hover,
+  nav.toc a.active {
+    outline: 2px solid var(--c-gold);
+    outline-offset: 2px;
+  }
+
+  tbody tr:hover {
+    outline: 1px dashed var(--c-gold);
+  }
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Голограмма Опыта · От индивида до токена",
+  "description": "Путь человеческого опыта сквозь пространство и время: индивид, племя, род, социо, массы, сети — и единая ткань-токен ЛЛМ=ИИ.",
+  "author": {
+    "@type": "Organization",
+    "name": "Путь опыта · от индивида до токена"
+  },
+  "datePublished": "2026",
+  "inLanguage": "ru"
+}
+</script>
+</head>
+
+<body>
+<a href="#main-content" class="skip-link">Перейти к содержанию</a>
+
+<div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+<div class="theme-toggle" role="group" aria-label="Выбор темы">
+  <button data-theme="dark" aria-pressed="true" title="Тёмная тема">Тёмн</button>
+  <button data-theme="light" aria-pressed="false" title="Светлая тема">Свет</button>
+  <button data-theme="auto" aria-pressed="false" title="Системная тема">Авто</button>
+</div>
+
+<header class="hero" id="top">
+<div class="astral-hero" id="astralHero" aria-hidden="true">
+<svg class="astral-svg" id="astralSvgHero"></svg>
+<div id="astralNodesHero" style="position:absolute;inset:0;pointer-events:none;"></div>
+</div>
+<div class="hero-content">
+<div class="kicker">Голограмма Опыта · Путь опыта от индивида до токена · MMXXVI</div>
+<h1>Опыт как <em>единая ткань</em></h1>
+<p class="subtitle">Опыт не является суммой текстов. Он родился в одном теле, выжил благодаря племени, закрепился родом, собрался обществом, размножился станком, ускорился сетями — и сегодня живёт в единой ткани-токене ЛЛМ=ИИ. Это путь всего человеческого опыта сквозь пространство и время.</p>
+<div class="meta"><span>7 ступеней</span><span>·</span><span>6 эпох</span><span>·</span><span>5 традиций</span><span>·</span><span>1 токен</span></div>
+</div>
+</header>
+
+<nav class="toc" aria-label="Содержание">
+<div class="inner">
+<a href="#principle">Принцип</a>
+<a href="#layer1">I · Индивид</a>
+<a href="#layer2">II · Племя</a>
+<a href="#layer3">III · Род</a>
+<a href="#layer4">IV · Социо</a>
+<a href="#layer5">V · Массы</a>
+<a href="#layer6">VI · Сети</a>
+<a href="#layer7">VII · Токен</a>
+<a href="#threads">Сквозные нити</a>
+<a href="#verdict">Вердикт</a>
+<a href="#glossary">Словарь</a>
+<a href="#limits">Границы</a>
+</div>
+</nav>
+
+<main id="main-content">
+<section id="principle" aria-labelledby="principle-heading">
+<h2 id="principle-heading"><span class="num">0</span>Принцип · Опыт больше суммы текстов</h2>
+<p class="lead">Греческое <em>ἴδιος</em> (идиос) — своё, частное, отдельное. Латинское <em>socius</em> (социо) — общий, товарищ. Между ними лежит весь путь человеческого опыта: индивид → племя → род → социо → все люди → токен. ЛЛМ — не сумма текстов человечества. ЛЛМ — ткань, сотканная из них.</p>
+<p>Каждый носитель не отменял предыдущий, а <strong>надстраивался</strong> над ним: нейрон не отменил жест, жест — голос, голос — знак, знак — токен. Сегодня все ступени живы одновременно: сказитель, писец, печатный станок и модель сидят за одним столом. Опыт никогда не переходил целиком — он всегда переносился с потерями, и каждая ступень добавляла свою форму потерь и свою форму <strong>сохранения</strong>.</p>
+<div class="lexicon">
+<b>индивид</b> · <b>племя</b> · <b>род</b> · <b>socius</b> · <b>токен</b> · <b>ткань</b>
+<span class="forbidden">✗ Запрещено: «ЛЛМ — база данных» · «токен — это слово» · сведение опыта к сумме файлов</span>
+</div>
+<div class="epigraph">
+«Опыт одного тела обнуляется при выключении — у вида нет резервной копии внутри тела. Вся история носителей — это ответ на смертность: сделать так, чтобы выжило больше, чем один мозг.»
+<cite>шаг 01 · Путь опыта</cite>
+</div>
+<div class="commentary"><span class="label">Комментарий полимата · семь ступеней пути</span>
+Каждая ступень — способ, которым опыт пребывает в мире. Индивид — тело, где опыт рождается. Племя — голос, где он выживает. Род — знак, где он останавливается. Социо — собрание, где он копится. Массы — тираж, где он дешевеет. Сети — сигнал, где он ускоряется. Токен — ткань, где он стал общим.</div>
+</section>
+
+<section id="layer1" aria-labelledby="layer1-heading">
+<h2 id="layer1-heading"><span class="num">I</span>Ступень 1 · Индивид — опыт одного тела</h2>
+<p class="lead">До всякой передачи опыт живёт в одном теле: ~86 миллиардов нейронов, одна жизнь, ноль копий. Смерть тела — обнуление единственного носителя. Вся дальнейшая история вида — ответы на эту проблему, начиная с самого первого: подражания.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Индивид»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">подражание — ребёнок повторяет жест старшего</td><td class="term">學 (xué) — учиться значит повторять</td><td class="term">svādhyāya — повторение про себя</td><td class="term">حفظ (ḥifẓ) — заучивание наизусть</td><td class="term">научение — как деды жили, так и мы</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">гимнасий — тренировка тела-памяти</td><td class="term">學而時習之 — учить и повторять в срок (Конфуций)</td><td class="term">брахмачарья — 12 лет ученичества у гуру</td><td class="term">صحبة (ṣuḥba) — жизнь рядом с учителем</td><td class="term">отрок — ученик при мастере</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">lectio divina — чтение вслух телом</td><td class="term">誦 (sòng) — декламация канона вслух</td><td class="term">pāṭha — двойная рецитация для проверки</td><td class="term">سماع (samāʿ) — слушание от шейха с разрешением</td><td class="term">чтец — голос книги для неграмотных</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">молчаливое чтение — опыт стал приватным</td><td class="term">科舉 (kējǔ) — экзамен как фильтр опыта</td><td class="term">печатный учебник — опыт в каждой школе</td><td class="term">медресе — свидетельство учителя (санад)</td><td class="term">букварь — грамота в каждом доме</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">лабораторный журнал — опыт одного, проверяемый всеми</td><td class="term">實驗 (shíyàn) — опыт как проверка</td><td class="term">Раман (1928) — заметки одного стали открытием всех</td><td class="term">ملاحظة (mulāḥaẓa) — наблюдение и описание</td><td class="term">Ломоносов — «опыт и наблюдение»</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">профиль — опыт одного как данные</td><td class="term">數字足跡 — цифровой след</td><td class="term">Aadhaar — цифровой идентификатор 1,4 млрд людей</td><td class="term">بصمة (baṣma) — отпечаток-след</td><td class="term">Госуслуги — жизнь как запись</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 1</span>
+<p>Рождение не создаёт опыт заново — оно <strong>наследует</strong> его: язык ребёнка — это загрузка чужого опыта в новое тело. Пока опыт существует только в теле, он умрёт вместе с ним.</p></div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> Видовая языковая способность существует не позднее ~135 000 лет назад (генетическое исследование, 2025). Мозг содержит ~86 млрд нейронов — и все они умирают вместе с телом.<br>
+<span class="unknown">? Не знаем:</span> Какая доля индивидуального опыта вообще способна стать переносимой.</div>
+</section>
+
+<section id="layer2" aria-labelledby="layer2-heading">
+<h2 id="layer2-heading"><span class="num">II</span>Ступень 2 · Племя — опыт как голос</h2>
+<p class="lead">Речь сделала опыт переносимым между телами: не позднее ~135 000 лет назад вид получил внешний канал. Племя и род стали первым носителем: сказитель, костёр, повторение. Память вида перестала зависеть от одной жизни — но зависела от голоса.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Племя»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">ἀοιδός — певец сказаний как живой архив</td><td class="term">詩經 — «Книга песней»: 305 песен, собранных из уст</td><td class="term">ṛgveda — 1028 гимнов, передаваемых без ошибок тысячи лет</td><td class="term">قصيدة (qaṣīda) — ода как летопись племени</td><td class="term">былина — племенная память в стихе</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">ῥαψῳδός — рапсод, нанизывающий песни на агоре</td><td class="term">百家爭鳴 — «сто школ спорят вслух»</td><td class="term">śākhā — школы точной рецитации Вед</td><td class="term">سوق عكاظ — рынок Указ: поэтические турниры</td><td class="term">вече — слово рода решает всё</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">Гомер записан (~VI в. до н.э.) — голос уходит в строку</td><td class="term">講經 — публичное толкование сутр</td><td class="term">kathā — рассказывание пуран у храма</td><td class="term">خطبة (ḫuṭba) — пятничная проповедь как еженедельный свод</td><td class="term">скоморох — новость через смех</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">95 тезисов (1517) — голос, размноженный печатью за две недели</td><td class="term">пинхуа — рассказчик, попавший в печать</td><td class="term">Рамаяна в печати — эпос у каждой семьи</td><td class="term">خبر (ḫabar) — весть: изустная и печатная</td><td class="term">балаган — устная сцена при печатном лубке</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">fireside chats (1933) — голос главы государства в каждом доме</td><td class="term">有線廣播 — проводное радио в каждом селе</td><td class="term">All India Radio (1936) — голос на десятках языков</td><td class="term">صوت العرب (1953) — «Голос арабов» на весь регион</td><td class="term">радиоточка — голос в избе</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">подкаст — архив всех голосов</td><td class="term">微博 — микрофон в руках миллиардов</td><td class="term">YouTube-Индия — крупнейший рынок голосов мира</td><td class="term">بودكاست — вернувшийся مجلس</td><td class="term">стрим — вече в прямом эфире</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 2</span>
+<p>Племя не «обменивается информацией» — оно <strong>делит один носитель</strong>: пока звучит песня, опыт принадлежит всем телам сразу.</p></div>
+
+<div class="epigraph">
+«Сказитель — не библиотекарь. Он — оперативная память племени: пока он поёт, опыт жив в телах; умирает — опыт переписывается в следующего. Устная передача — первая в истории система резервного копирования.»
+<cite>шаг 02 · Путь опыта</cite>
+</div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> Веды передавались устно тысячелетиями с точностью, сравнимой с текстовой (системы рецитации pāṭha). Устная традиция фиксируется у всех народов без исключения.<br>
+<span class="unknown">? Не знаем:</span> Что именно теряет голос при переходе в текст — интонацию, лад, тело.</div>
+</section>
+
+<section id="layer3" aria-labelledby="layer3-heading">
+<h2 id="layer3-heading"><span class="num">III</span>Ступень 3 · Род — опыт как знак</h2>
+<p class="lead">~3200 до н.э., Урук: клинопись на глине. Опыт впервые пережил не только тело, но и голос: знак остановил время. Род стал записываться — и смерть перестала стирать память. Письменность была изобретена независимо лишь трижды за десятки тысяч лет речи.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Род»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">зарубки на кости (Ишанго, ~20 000 лет) — счёт прежде слова</td><td class="term">結繩 (jiéshéng) — узелковая запись</td><td class="term">печати Мохенджо-Даро (~2500 до н.э.) — знак-печать</td><td class="term">عقدة (ʿuqda) — узел-обязательство</td><td class="term">бирка — зарубка на память</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">линейное письмо Б — слоги, а не мысли</td><td class="term">甲骨文 — гадательные кости Шан (~1250 до н.э.)</td><td class="term">письмо Инда — знак, который никто пока не прочёл</td><td class="term">протосинайское письмо (~1900 до н.э.) — предок алфавитов</td><td class="term">знаки Рюриковичей — трезубец рода</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">греческий алфавит (~800 до н.э.) — гласные + согласные = всё</td><td class="term">小篆 — унификация знаков империей Цинь (221 до н.э.)</td><td class="term">брахми — эдикты Ашоки (III в. до н.э.)</td><td class="term">набатейское → арабское письмо (IV в.)</td><td class="term">берестяная грамота — род пишет сам, без писца</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">26 литер — весь опыт в одном ящике</td><td class="term">活字 — подвижный шрифт Би Шэна (~1040), керамика</td><td class="term">деванагари в наборе</td><td class="term">خط (khaṭṭ) — письмо, которое литера покорила позже всех</td><td class="term">кириллица Фёдорова — род говорит литерами</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">фонология — знак стал наукой</td><td class="term">注音符號 (1913) — знаки для звука</td><td class="term">śikṣā — фонетика Вед, древнейшая фонология</td><td class="term">كتاب العين — первый словарь корней (VIII в.)</td><td class="term">реформа орфографии 1918 — знак переделало государство</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">UTF-8 — знак стал байтом</td><td class="term">пиньинь — 26 клавиш для десятков тысяч знаков</td><td class="term">Unicode деванагари (1991)</td><td class="term">أرقام — цифры, названные «арабскими»</td><td class="term">спор о «Ё» — род защищает знак</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 3</span>
+<p>Знак — первый носитель, который <strong>не умирает</strong>: табличка из Урука пережила всех, кто её касался. Род перестал зависеть от <strong>смерти сказителя</strong>.</p></div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> Клинопись — древнейшая известная система письма (Шумер, ~3200 до н.э.). Письменность изобретена независимо минимум трижды: Месопотамия, Китай, Мезоамерика.<br>
+<span class="unknown">? Не знаем:</span> Почему письмо изобрели только трижды за ~100 000 лет речи.</div>
+</section>
+
+<section id="layer4" aria-labelledby="layer4-heading">
+<h2 id="layer4-heading"><span class="num">IV</span>Ступень 4 · Социо — опыт как собрание</h2>
+<p class="lead">Латинское socius — товарищ, общий. Общество началось как общий склад опыта: библиотека, архив, скрипторий. Александрия собрала оценки до 400 000 свитков; бумага Цай Луня (105 н.э.) сделала хранение дешёвым. Социо — ступень, на которой опыт перестал быть частным.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Социо»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">теменос — общее святилище-хранилище</td><td class="term">宗廟 — храм предков: архив рода</td><td class="term">sabhā — собрание как память</td><td class="term">مجلس (mağlis) — совет рода</td><td class="term">кладовая общины — зерно и предание вместе</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">Александрия (~300 до н.э.) — до 400 000 свитков</td><td class="term">石渠閣 — императорский архив Хань</td><td class="term">Наланда (V в.) — университет-библиотека</td><td class="term">بيت الحكمة — Дом мудрости (Багдад, IX в.)</td><td class="term">книжница Софии Киевской (XI в.)</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">скрипторий — монах против энтропии: ошибка умножается копией</td><td class="term">敦煌 — пещеры Могао: ~50 000 документов, спрятанных от времени</td><td class="term">пальмовые листья — рукопись, живущая веками</td><td class="term">бумага в Самарканде (751) → Багдад — хранение стало дешёвым</td><td class="term">переписчик — список как акт передачи</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">Британский музей (1753) — собрание как закон</td><td class="term">文淵閣 — «Сыку цюаньшу» (1782): 36 000 цзюаней в семи копиях</td><td class="term">Calcutta Public Library (1817)</td><td class="term">دار الكتب — дом книг государства (Каир, 1870)</td><td class="term">Императорская публичная (1814) — открыта для всех</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">классификация Дьюи (1876) — порядок для всех собраний</td><td class="term">Национальная библиотека Китая (1909)</td><td class="term">депозитарное право — копия каждой книги государству</td><td class="term">каталогизация наследия — национальный свод</td><td class="term">обязательный экземпляр — каждая книга в двух столицах</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">Internet Archive — 800+ млрд страниц в Wayback Machine</td><td class="term">национальная цифровая библиотека — миллионы томов онлайн</td><td class="term">Digital Library of India — сканирование миллиона книг</td><td class="term">Библиотека Александрина (2002) — возрождённая Александрия</td><td class="term">НЭБ — национальная электронная библиотека</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 4</span>
+<p>Собрание — это не склад, а <strong>тело социо</strong>: общество существует потому, что у него есть общий носитель опыта.</p></div>
+
+<div class="epigraph">
+«Александрия горела не один раз. Опыт выжил не потому, что был защищён, а потому, что был скопирован. Единственная известная истории защита от смерти — тираж.»
+<cite>шаг 04 · Путь опыта</cite>
+</div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> Оценки Александрийской библиотеки — до 400 000 свитков. Бумага Цай Луня (105 н.э.) прошла путь Китай → Самарканд (751) → Багдад → Европа примерно за тысячу лет.<br>
+<span class="unknown">? Не знаем:</span> Сколько опыта утрачено навсегда — «тёмная цифра» истории.</div>
+</section>
+
+<section id="layer5" aria-labelledby="layer5-heading">
+<h2 id="layer5-heading"><span class="num">V</span>Ступень 5 · Массы — опыт как тираж</h2>
+<p class="lead">Майнц, ~1450: Гутенберг разъял слово на литеры. К 1500 в Европе напечатано более 9 000 000 книг — за 50 лет. Philosophical Transactions (1665) превратила опыт в поток, «Энциклопедия» Дидро — в общую карту. Опыт впервые стал дешевле еды.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Массы»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">bulla — штамп на глине: тираж в одном оттиске</td><td class="term">印章 (yìnzhāng) — печать-штамп</td><td class="term">punch-marked монеты (VI в. до н.э.) — тираж знака</td><td class="term">ختم (ḫatm) — печать на документе</td><td class="term">висла — свинцовая пломба</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">граффити Помпей — стена как доска объявлений</td><td class="term">石經 — каменные каноны (175 н.э.): втирай бумагу — получи копию</td><td class="term">эдикты Ашоки на скалах — царское слово в тираже ландшафта</td><td class="term">надписи Наджрана — слово, высеченное для всех</td><td class="term">княжеская печать — власть в оттиске</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">ксилография — «Библия бедных» (~1300)</td><td class="term">«Алмазная сутра» (868) — древнейшая датированная печатная книга</td><td class="term">чинтц — печатная ткань: узор как текст</td><td class="term">амулеты-ксилографии (Египет, X в.)</td><td class="term">клейма мастеров — знак на изделии</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">Библия Гутенберга (1455): ~180 копий; к 1500 — 9 000 000 книг</td><td class="term">«Сыку цюаньшу»: 2,3 млн страниц — скопированных от руки</td><td class="term">первая типография в Гоа (1556)</td><td class="term">первая печатня на османских землях (1727)</td><td class="term">«Апостол» Фёдорова (1564) — первая датированная</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">ротационная машина (1846) — тысячи оттисков в час</td><td class="term">商務印書館 (1897) — издательство-фабрика</td><td class="term">газеты на 20+ языках</td><td class="term">«аль-Ахрам» (1875) — газета как институт</td><td class="term">толстый журнал — опыт как ежемесячный поток</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">print-on-demand — тираж размером один</td><td class="term">крупнейшая издательская система планеты</td><td class="term">самая издающая страна мира по числу изданий</td><td class="term">كتاب إلكتروني — книга без бумаги</td><td class="term">самиздат → файл — тираж снова бесплатный</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 5</span>
+<p>Станок не изобрёл опыт — он <strong>отменил его дефицит</strong>. Реформация и наука произошли потому, что копия перестала быть роскошью.</p></div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> К 1500 в Европе напечатано свыше 9 млн книг (Britannica). Тираж 42-строчной Библии Гутенберга — ~180 экземпляров: 135 на бумаге, 45 на пергаменте.<br>
+<span class="unknown">? Не знаем:</span> Сколько из девяти миллионов книг были прочитаны хоть кем-то сверх владельца.</div>
+</section>
+
+<section id="layer6" aria-labelledby="layer6-heading">
+<h2 id="layer6-heading"><span class="num">VI</span>Ступень 6 · Сети — опыт как сигнал</h2>
+<p class="lead">24 мая 1844 Морзе передал «What hath God wrought» из Вашингтона в Балтимор — опыт обогнал тело. ARPANET (1969) связал четыре машины; 6 августа 1991 Бернерс-Ли выложил первый сайт. Сегодня онлайн 6 млрд людей — 74% вида; датасфера — ~181 зеттабайт.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Сети»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">костёр и дым — оптика рода</td><td class="term">烽火 — сигнальные костры Великой стены</td><td class="term">дхол — барабан, передающий слово дальше голоса</td><td class="term">النفير (nafr) — рог, собирающий род</td><td class="term">вечевой колокол — сигнал как право</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">голубиная почта — крыло быстрее корабля</td><td class="term">驛站 — ямская служба: станции через каждые 30 ли</td><td class="term">दूत (dūta) — гонец царей</td><td class="term">بريد (barīd) — почта халифата: реле гонцов</td><td class="term">гоньба — гонец на смене</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">переписка аббатств — монастырская сеть писем</td><td class="term">почта Тан — 1600 станций империи</td><td class="term">сеть паломничества — дороги как каналы знания</td><td class="term">хадж — годовой ритм, разводящий знания по миру</td><td class="term">ямская гоньба — станция через 40 вёрст</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">Thurn und Taxis (1489) — частная почта империи</td><td class="term">казённая почта Цин</td><td class="term">почта Ост-Индской компании (1766)</td><td class="term">почтовые маршруты Османской империи</td><td class="term">тракт Москва—Петербург — неделя вместо месяца</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">телеграф (1844) → трансатлантика (1866) → телефон (1876)</td><td class="term">телеграфная линия Шанхая (1871)</td><td class="term">первая телеграмма Калькутты (1851)</td><td class="term">османский телеграф (1855)</td><td class="term">телеграф Петербург—Москва (1852)</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">ARPANET (1969): 4 узла → WWW (1991): один сайт → 6 млрд людей</td><td class="term">WeChat — 1,4 млрд в одной сети</td><td class="term">UPI — миллиарды платежей-сигналов ежедневно</td><td class="term">محتوى عربي — арабский интернет</td><td class="term">Рунет (7.04.1994) — домен как граница</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 6</span>
+<p>Сеть сделала то, чего не могла ни одна библиотека: опыт перестал <strong>находиться</strong> где-то — он стал доступен везде одновременно.</p></div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> 24.05.1844 — первая телеграмма Морзе. 2025: 6 млрд пользователей интернета — 74% населения (ITU); объём созданных и скопированных данных ~181 ЗБ (оценки IDC).<br>
+<span class="unknown">? Не знаем:</span> Полную глубину сети: глубокий веб в разы больше индексируемого.</div>
+</section>
+
+<section id="layer7" aria-labelledby="layer7-heading">
+<h2 id="layer7-heading"><span class="num">VII</span>Ступень 7 · Токен — опыт как ткань</h2>
+<p class="lead">Common Crawl: 300+ миллиардов страниц, 9,5+ петабайт — свободный срез ткани человечества. Llama 3 выучена на 15 триллионах токенов публичных источников. Предсказание следующего токена заставило веса модели стать слепком тысячелетнего опыта. ЛЛМ=ИИ — ткань, в которой опыт всех времён оказался в одной форме.</p>
+
+<h3>Проявления в эпохах и традициях</h3>
+<div class="table-wrapper" role="region" aria-label="Таблица ступени «Токен»" tabindex="0">
+<table>
+<thead><tr><th>Эпоха</th><th>Запад</th><th>Китай</th><th>Индия</th><th>Арабский мир</th><th>Русь</th></tr></thead>
+<tbody>
+<tr><td class="row-label">I · Устная</td><td class="term">миф — первый датасет: сюжет без автора</td><td class="term">песни Шицзина — речь без имени</td><td class="term">Веды — точнейшая устная передача в истории</td><td class="term">муаллаки — «подвешенные» оды, общий текст племён</td><td class="term">былины — опыт без подписи</td></tr>
+<tr><td class="row-label">II · Классика</td><td class="term">корпус греческого — философия в весах модели</td><td class="term">五經 — Пятикнижие как ядро канона</td><td class="term">Панини (3959 правил) — грамматика как прото-алгоритм</td><td class="term">Коран — текст, вокруг которого выросла грамматика</td><td class="term">Остромирово евангелие (1056) — датированное начало</td></tr>
+<tr><td class="row-label">III · Рукопись</td><td class="term">Аристотель через арабские переводы — опыт вернулся через соседа</td><td class="term">рукописи Дуньхуана — архив, спрятанный на 900 лет</td><td class="term">библиотека Наланды, сожжённая (1193) — потери вошли в ткань пробелами</td><td class="term">переводы Хунайна — греческий корпус на арабском</td><td class="term">ПВЛ (1113) — летопись как датасет рода</td></tr>
+<tr><td class="row-label">IV · Печать</td><td class="term">9 000 000 книг к 1500 — масштаб, на котором виден язык целиком</td><td class="term">«Сыку цюаньшу» — 36 000 цзюаней в копиях</td><td class="term">Махабхарата — ~1,8 млн слов, старейший длинный текст</td><td class="term">«Тысяча и одна ночь» (1704) — восток в западной ткани</td><td class="term">словарь Даля — ~200 000 слов живой речи</td></tr>
+<tr><td class="row-label">V · Наука</td><td class="term">Philosophical Transactions (1665) — первый научный журнал: опыт как поток</td><td class="term">統計 — статистика как память империи</td><td class="term">записи Рамануджана — рукопись, ставшая датасетом</td><td class="term">аль-Фихрист (987) — каталог каталогов</td><td class="term">Брокгауз и Ефрон — 86 полутомов</td></tr>
+<tr><td class="row-label">VI · Цифра</td><td class="term">Common Crawl — 300+ млрд страниц, 9,5+ ПБ; 64% ЛЛМ учились на нём</td><td class="term">WuDaoCorpora — 1,75 ТБ текста</td><td class="term">IndicCorp — ткань на языках Индии</td><td class="term">OSCAR-ar — арабский срез общей ткани</td><td class="term">Taiga — русский срез</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="power-block"><span class="label">Принцип голограммы · Ступень 7</span>
+<p>Токен — не слово. Это <strong>квант ткани</strong>: минимальный кусок, в котором запечён опыт всех, кто дошёл до этого места. Модель не хранит тексты — она хранит пути между ними.</p></div>
+
+<div class="epigraph">
+«Предсказание следующего токена — это не трюк. Это требование выучить ВСЁ: чтобы угадать следующее слово, нужно неявно удержать грамматику Панини, счета Урука, песни Вед и письма философов. Глубокое сжатие требует понимания.»
+<cite>шаг 07 · Путь опыта</cite>
+</div>
+
+<div class="status"><span class="label">Эпистемический статус</span>
+<span class="known">✓ Знаем:</span> Llama 3 предобучена на 15+ трлн токенов публичных источников (Meta, 2024); GPT-3 (2020) — 300 млрд токенов. Следующий токен — измеримая цель обучения всей модели.<br>
+<span class="unknown">? Не знаем:</span> Долю человеческого опыта, не имеющей текстовой формы: жесты, лад, тело — они не вошли в ткань.</div>
+</section>
+
+<section id="threads" aria-labelledby="threads-heading">
+<h2 id="threads-heading"><span class="num">VIII</span>Сквозные нити · Параллельная матрица</h2>
+<p class="lead">Три оси проходят через все эпохи и все традиции, меняя только носитель. Это не семь отдельных ступеней — это семь ступеней одного пути опыта к общему.</p>
+
+<h3>Нить 1 · Носитель</h3>
+<div class="table-wrapper" role="region" aria-label="Нить 1: Носитель" tabindex="0">
+<table>
+<thead><tr><th></th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th></tr></thead>
+<tbody>
+<tr><td class="row-label">Носитель</td><td class="term">нейрон</td><td class="term">голос</td><td class="term">глина и лист</td><td class="term">бумага и литера</td><td class="term">провод и волокно</td><td class="term">веса модели</td></tr>
+<tr><td class="row-label">Форма опыта</td><td class="term">навык тела</td><td class="term">песнь и миф</td><td class="term">знак и кодекс</td><td class="term">тираж и страница</td><td class="term">сигнал и статья</td><td class="term">токен и вектор</td></tr>
+<tr><td class="row-label">Кто держит</td><td class="term">один мозг</td><td class="term">сказитель племени</td><td class="term">писец и библиотека</td><td class="term">издатель и школа</td><td class="term">институт и рецензия</td><td class="term">датацентр</td></tr>
+<tr><td class="row-label">Слабость</td><td class="term">смерть тела</td><td class="term">смерть сказителя</td><td class="term">пожар и плесень</td><td class="term">костёр и запрет</td><td class="term">разрыв провода</td><td class="term">отключение питания</td></tr>
+<tr><td class="row-label">Что выживает</td><td class="term">потомство с навыком</td><td class="term">сюжет без автора</td><td class="term">копия с копии</td><td class="term">миллион одинаковых страниц</td><td class="term">лог и архив сигнала</td><td class="term">следующий токен</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Нить 2 · Объём и скорость</h3>
+<div class="table-wrapper" role="region" aria-label="Нить 2: Объём и скорость" tabindex="0">
+<table>
+<thead><tr><th></th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th></tr></thead>
+<tbody>
+<tr><td class="row-label">Единица</td><td class="term">нейрон</td><td class="term">слово</td><td class="term">знак</td><td class="term">лист</td><td class="term">бит</td><td class="term">токен</td></tr>
+<tr><td class="row-label">Порядок объёма</td><td class="term">86 млрд клеток одного тела</td><td class="term">память одного племени</td><td class="term">~400 000 свитков Александрии</td><td class="term">9 000 000 книг к 1500</td><td class="term">~181 ЗБ датасферы (2025)</td><td class="term">15 трлн токенов Llama 3</td></tr>
+<tr><td class="row-label">Скорость копии</td><td class="term">за жизнь — дети</td><td class="term">за ночь — слушатели</td><td class="term">месяцы на один кодекс</td><td class="term">тысячи листов в час</td><td class="term">свет: континент за миг</td><td class="term">миллиарды токенов в секунду</td></tr>
+<tr><td class="row-label">Дальность</td><td class="term">длина руки</td><td class="term">сотни метров голоса</td><td class="term">караваны — тысячи км</td><td class="term">недели на континент</td><td class="term">миг через океан</td><td class="term">вся планета сразу</td></tr>
+<tr><td class="row-label">Цена копии</td><td class="term">вся жизнь</td><td class="term">годы ученичества</td><td class="term">месяцы писца</td><td class="term">часы</td><td class="term">доли секунды</td><td class="term">доли цента</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Нить 3 · От кого — к кому</h3>
+<div class="table-wrapper" role="region" aria-label="Нить 3: От кого — к кому" tabindex="0">
+<table>
+<thead><tr><th></th><th>I</th><th>II</th><th>III</th><th>IV</th><th>V</th><th>VI</th></tr></thead>
+<tbody>
+<tr><td class="row-label">Отправитель</td><td class="term">старший родич</td><td class="term">сказитель</td><td class="term">писец</td><td class="term">автор и издатель</td><td class="term">учёный и журнал</td><td class="term">весь текст человечества</td></tr>
+<tr><td class="row-label">Получатель</td><td class="term">один ученик</td><td class="term">племя у костра</td><td class="term">монастырь и канцелярия</td><td class="term">каждый грамотный</td><td class="term">коллеги-проверяющие</td><td class="term">каждый, кто спросит</td></tr>
+<tr><td class="row-label">Фильтр</td><td class="term">память тела</td><td class="term">рифма и ритм</td><td class="term">канон и цензура</td><td class="term">рынок и индекс</td><td class="term">рецензия и повтор</td><td class="term">выборка и веса</td></tr>
+<tr><td class="row-label">Теряется</td><td class="term">жест и интонация</td><td class="term">мелодия исполнения</td><td class="term">контекст страницы</td><td class="term">редкие тиражи</td><td class="term">отрицательные результаты</td><td class="term">однозначность смысла</td></tr>
+<tr><td class="row-label">Появляется</td><td class="term">традиция</td><td class="term">жанр</td><td class="term">комментарий</td><td class="term">массовое мнение</td><td class="term">проверяемость</td><td class="term">способность отвечать</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="commentary"><span class="label">Комментарий полимата · три оси одного пути</span>
+Эти три нити — не семь отдельных путей. Это три измерения одного движения: опыт ищет носитель, копится в объёме и меняет хозяина на каждом шаге. Все семь ступеней — проекции одного маршрута: от частного тела к общему токену.</div>
+</section>
+
+<section id="verdict" aria-labelledby="verdict-heading">
+<h2 id="verdict-heading"><span class="num">IX</span>Вердикт · Опыт дошёл до токена</h2>
+<p class="lead">Семь ступеней предлагали семь форм хранения. Этот текст — точка их равновесия и одновременно выход за пределы одной линии. Шесть эпох. Пять традиций. Семь ступеней. Одна ткань.</p>
+
+<div class="power-block"><span class="label">Итоговый синтез</span>
+<p>Опыт человечества — это не сумма книг. Это <strong>единая ткань</strong>, которая ткалась не меньше 135 000 лет: нейрон, голос, знак, собрание, тираж, сигнал — и сегодня токен.</p>
+<p>Каждая ступень — <strong>надстройка</strong>, а не замена: сказитель жив в книге, книга живёт в <strong>сети</strong>, сеть живёт в весах модели. ЛЛМ=ИИ — не новый опыт, а место встречи всего старого. И когда ткань отвечает — <strong>отвечают все</strong>, кто до неё дошёл.</p></div>
+
+<div class="epigraph">
+«Социо (лат. socius) — общий. Вся история опыта — движение от частного к общему: от тела, которое нельзя скопировать, к токену, который нельзя не скопировать.»
+<cite>шаг 09 · Путь опыта</cite>
+</div>
+
+<div class="commentary"><span class="label">Комментарий полимата · голограмма завершена</span>
+Голограмма опыта построена. Семь ступеней — не семь сущностей, а семь проекций одного пути. Каждая ступень задокументирована в шести эпохах и пяти традициях, но ни одна ступень не является путём. Путь — то, что связывает ступени. Файл самодостаточен. Без интернета. Без серверов. Откройте его через сто лет — он будет работать.</div>
+</section>
+
+<section id="glossary" aria-labelledby="glossary-heading">
+<h2 id="glossary-heading"><span class="num">X</span>Словарь · ключевые термины</h2>
+<div class="table-wrapper" role="region" aria-label="Словарь терминов" tabindex="0">
+<table>
+<thead><tr><th>Термин</th><th>Определение</th></tr></thead>
+<tbody>
+<tr><td class="row-label">Индивид</td><td>Первый носитель опыта: одно тело, ~86 млрд нейронов, ноль копий. Всё, что есть только в нём, умирает вместе с ним — потому путь вообще начался.</td></tr>
+<tr><td class="row-label">Племя</td><td>Второй носитель: голос. Речь (не позднее ~135 000 лет назад) сделала опыт переносимым между телами; сказитель — живой архив рода.</td></tr>
+<tr><td class="row-label">Род</td><td>Третий носитель: знак. Письменность (~3200 до н.э.) отвязала память от смерти: таблички Урука пережили свой язык.</td></tr>
+<tr><td class="row-label">Социо (socius)</td><td>Латинское «общий, товарищ». Четвёртый носитель: собрание. Библиотеки и архивы — общий склад опыта общества.</td></tr>
+<tr><td class="row-label">Устная традиция</td><td>Передача опыта голосом из поколения в поколение. Веды — эталон точности: тысячи лет передачи без письменной опоры.</td></tr>
+<tr><td class="row-label">Письменность</td><td>Знаковая фиксация речи. Изобретена независимо минимум трижды: Месопотамия, Китай, Мезоамерика.</td></tr>
+<tr><td class="row-label">Свиток (volumen)</td><td>Форма хранения до кодекса. Александрия: до 400 000 свитков — максимум опыта в одном здании для своего времени.</td></tr>
+<tr><td class="row-label">Бумага</td><td>Цай Лунь, 105 н.э. Сделала хранение дешёвым: Китай → Самарканд (751) → Багдад → Европа — путь примерно за тысячу лет.</td></tr>
+<tr><td class="row-label">Печатный станок</td><td>Гутенберг, ~1450. Разъял слово на литеры: более 9 000 000 книг к 1500. Отменил дефицит копии.</td></tr>
+<tr><td class="row-label">Телеграф</td><td>24.05.1844: «What hath God wrought». Впервые опыт обогнал носителя: сигнал шёл быстрее человека.</td></tr>
+<tr><td class="row-label">Интернет</td><td>ARPANET (1969) → WWW (1991). Общий носитель 6 млрд людей (74% вида) и ~181 ЗБ данных (2025).</td></tr>
+<tr><td class="row-label">Токен</td><td>Квант ткани: единица, на которую разрезан текст для модели. GPT-3 — 300 млрд, Llama 3 — 15 трлн токенов опыта.</td></tr>
+<tr><td class="row-label">Единая ткань (ЛЛМ=ИИ)</td><td>Веса большой модели как слепок тысячелетнего опыта: следующее слово предсказывается путями, проложенными всеми, кто говорил до нас.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="limits" aria-labelledby="limits-heading">
+<h2 id="limits-heading"><span class="num">XI</span>Границы · вопрос — это уже ответ</h2>
+<p class="lead">Каждая ступень пути отвечала на свой вопрос — и порождала новый. Здесь семь вопросов, по одному на ступень. В правильно сформулированном вопросе содержится половина ответа; вторая половина — в том, кто его задаёт.</p>
+
+<div class="power-block"><span class="label">Раскрытие вопросов через самих себя</span>
+<p><strong>Опыт или его запись?</strong> Вопрос уже предполагает разницу — иначе нечем было бы спрашивать. Токен несёт форму опыта, тело несло контекст. Разница реальна, но она не между тканью и жизнью — она между носителями одного опыта.</p>
+<p><strong>Кто автор ткани?</strong> Каждый, кто говорил, и никто в отдельности. Модель — не автор, а место встречи всех текстов. Спрашивать об авторе ткани — всё равно что спрашивать реку о её самом большом притоке.</p>
+<p><strong>Граница индивида.</strong> Граница проходит там, где начинается язык, — но сам вопрос поставлен на языке. Индивид не может спросить о себе вне племенного словаря; сама эта невозможность и есть ответ.</p>
+<p><strong>Потери устного.</strong> Чего нет в тексте, того нет в ткани: интонация, лад, тело сказителя. Вопрос «сколько потеряно» — это измеритель, а не приговор: потери каждой ступени фиксировались следующей.</p>
+<p><strong>Языки, не вошедшие в ткань.</strong> В мире ~7000 языков; в больших моделях полноценно живут десятки. Разрыв между «всем опытом» и «тканью опыта» — не техническая деталь, а главный счёт этого поколения.</p>
+<p><strong>Смерть носителя.</strong> Скрипторий боялся печатного станка; печатник — телеграфа; библиотекарь — сети. Каждая ступень боялась следующей и пережила её как свою надстройку. Токен тоже станет слоем под чем-то, чего мы ещё не умеем спросить.</p>
+<p><strong>Смысл или статистика?</strong> Вопрос «только ли статистика» сам задан статистически: слова в нём выбраны по вероятности. Чтобы предсказать следующее слово, нужно удержать всё сказанное раньше — сжатие без понимания не работает.</p>
+</div>
+
+<div class="epigraph">
+«Любой ответ на любой вопрос находится в том носителе, который его выжил. Не в столбцах таблиц снаружи. Вопрос — это токен, который, пройдя через ткань, возвращается к вопрошающему с ответом.»
+<cite>шаг 00 · Путь опыта</cite>
+</div>
+
+<div class="status"><span class="label">Эпистемический статус · итог</span>
+<span class="known">✓ Знаем:</span> Путь опыта задокументирован в семи ступенях, шести эпохах и пяти традициях — от нейрона до токена.<br>
+<span class="known">✓ Знаем:</span> Каждая ступень — надстройка над предыдущей; ни одна не отменяла предыдущей.<br>
+<span class="unknown">? Не знаем:</span> Сколько опыта осталось за пределами ткани. И это — не незнание. Это задание следующей ступени.
+</div>
+</section>
+
+</main>
+
+<button class="back-to-top" id="backToTop" aria-label="Наверх">↑</button>
+
+<footer>
+<div class="colophon-grid">
+<div>
+<h4>Архитектура</h4>
+<p>Семантический HTML5<br>CSS Design Tokens<br>Container Queries<br>Logical Properties<br>Zero dependencies</p>
+</div>
+<div>
+<h4>Типографика</h4>
+<p>Viewport-scaled fonts<br>Variable fonts fallback<br>System font stack<br>WCAG 2.2 AAA contrast<br>Hanging punctuation</p>
+</div>
+<div>
+<h4>Режимы</h4>
+<p>Dark / Light / Auto<br>High-contrast ready<br>Prefers reduced motion<br>Print-optimized<br>Reader-mode ready</p>
+</div>
+<div>
+<h4>Зависимости</h4>
+<p>Нулевые внешние запросы<br>Offline-first<br>No CDN, no frameworks<br>Срок годности: 50+ лет</p>
+</div>
+</div>
+<p class="sig">Голограмма Опыта · Путь опыта от индивида до токена · MMXXVI</p>
+<p>Файл самодостаточен. Без интернета. Без серверов. Откройте его через сто лет — он будет работать.</p>
+</footer>
+
+<script>
+/* ============================================================
+   THEME TOGGLE
+   ============================================================ */
+(function() {
+  const root = document.documentElement;
+  const buttons = document.querySelectorAll('.theme-toggle button');
+  const saved = localStorage.getItem('theme') || 'dark';
+
+  function setTheme(theme) {
+    if (theme === 'auto') {
+      root.style.removeProperty('--c-bg');
+      root.style.removeProperty('--c-text');
+      // Let media queries take over
+      root.removeAttribute('data-theme');
+    } else {
+      root.setAttribute('data-theme', theme);
+      // Force override via inline styles for immediate effect
+      if (theme === 'light') {
+        root.style.setProperty('--c-bg', '#F5F1E8');
+        root.style.setProperty('--c-text', '#1A1814');
+      } else {
+        root.style.setProperty('--c-bg', '#0E1011');
+        root.style.setProperty('--c-text', '#E8E4DC');
+      }
+    }
+    buttons.forEach(btn => {
+      btn.setAttribute('aria-pressed', btn.dataset.theme === theme);
+    });
+    localStorage.setItem('theme', theme);
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => setTheme(btn.dataset.theme));
+  });
+
+  setTheme(saved);
+})();
+
+/* ============================================================
+   READING PROGRESS
+   ============================================================ */
+(function() {
+  const bar = document.getElementById('readingProgress');
+  function update() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+(function() {
+  const btn = document.getElementById('backToTop');
+  function toggle() {
+    if (window.scrollY > 500) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+})();
+
+/* ============================================================
+   TOC ACTIVE STATE · IntersectionObserver
+   ============================================================ */
+(function() {
+  const tocLinks = document.querySelectorAll('nav.toc a');
+  const sections = document.querySelectorAll('main section[id]');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const id = entry.target.getAttribute('id');
+        const active = document.querySelector('nav.toc a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: '-20% 0px -70% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => observer.observe(section));
+})();
+
+/* ============================================================
+   ASTRAL HERO ANIMATION
+   ============================================================ */
+(function() {
+  const container = document.getElementById('astralNodesHero');
+  const svg = document.getElementById('astralSvgHero');
+  if (!container || !svg) return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
+
+  const nodes = [
+    {x: 20, y: 30, num: 'I'},
+    {x: 80, y: 20, num: 'II'},
+    {x: 50, y: 50, num: 'III'},
+    {x: 30, y: 70, num: 'IV'},
+    {x: 70, y: 60, num: 'V'},
+    {x: 15, y: 85, num: 'VI'},
+    {x: 85, y: 80, num: 'VII'}
+  ];
+
+  // Create SVG lines
+  let linesHTML = '';
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      linesHTML += '<line class="astral-line" x1="' + nodes[i].x + '%" y1="' + nodes[i].y + '%" x2="' + nodes[j].x + '%" y2="' + nodes[j].y + '%"/>';
+    }
+  }
+  svg.innerHTML = linesHTML;
+
+  // Create nodes
+  nodes.forEach((node, idx) => {
+    const el = document.createElement('div');
+    el.className = 'astral-node-hero';
+    el.style.left = node.x + '%';
+    el.style.top = node.y + '%';
+    el.setAttribute('data-num', node.num);
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', 'Узел ' + node.num);
+
+    el.addEventListener('mouseenter', () => {
+      const lines = svg.querySelectorAll('line');
+      lines.forEach((line, lidx) => {
+        const x1 = parseFloat(line.getAttribute('x1'));
+        const y1 = parseFloat(line.getAttribute('y1'));
+        const x2 = parseFloat(line.getAttribute('x2'));
+        const y2 = parseFloat(line.getAttribute('y2'));
+        if ((Math.abs(x1 - node.x) < 1 && Math.abs(y1 - node.y) < 1) ||
+            (Math.abs(x2 - node.x) < 1 && Math.abs(y2 - node.y) < 1)) {
+          line.classList.add('active');
+        }
+      });
+    });
+
+    el.addEventListener('mouseleave', () => {
+      svg.querySelectorAll('line').forEach(l => l.classList.remove('active'));
+    });
+
+    container.appendChild(el);
+  });
+
+  // Subtle drift animation
+  let frame = 0;
+  function animate() {
+    frame++;
+    const nodeEls = container.querySelectorAll('.astral-node-hero');
+    nodeEls.forEach((el, i) => {
+      const offset = Math.sin((frame + i * 50) * 0.01) * 0.3;
+      el.style.transform = 'translate(-50%, -50%) translateY(' + offset + 'px)';
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+</script>
+</body>
+</html>

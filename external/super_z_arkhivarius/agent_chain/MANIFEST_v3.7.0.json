@@ -1,0 +1,31 @@
+{
+  "project": "POLYMAT (Super Z line)",
+  "version": "3.7.0",
+  "baseline": "JOHNSON v3.6.0 TRUST_DOMAIN_ARCHIVE (sha256 79e512e3…, верифицирован: py_compile PASS, selftest 98/98 воспроизведён)",
+  "status": "IMPLEMENTED_AND_SELFTESTED",
+  "artifact": "polymath_agent_v3.7.0.py",
+  "sha256": "09df3cf85afadb9b38687a1eefed9396fd88e517d849c4a9d533ea5c86d3dcfe",
+  "selftest": "114/114 PASS",
+  "exit_code": 0,
+  "batteries": {
+    "proof_v300_defects.py": "0/5",
+    "proof_v310_defects.py": "0/2",
+    "proof_v330_defects.py": "0/8",
+    "proof_v340_defects.py": "0/6",
+    "proof_v360_defects.py": "0/4"
+  },
+  "changes": [
+    "Реставрации v3.4.0 портированы на базу v3.6.0: R-D1 канонические id + Stale≠Unknown; R-D2 dangling-гейт; R-D3 TMS-инвалидация; N-CLM claim_ids ⊆ claim-узлы; N-CLS ProofClosureError ⊂ ProofCarryingCommitError; N-FALS infer_from_ledger",
+    "ArtifactEvidenceEdge: EvidenceObject.artifact_edges {путь: sha256_наблюдения}; рантайм биндит write/read/verify через artifact_path/artifact_sha256",
+    "Revival-gate: detect_evidence_drift/apply_drift в ProofCarryingGovernor.commit ДО разрешения COMMIT",
+    "Точный каскад: RevocationCascade.apply по рёбрам + транзитивность claim_dependencies + _affected_claims из узлов proof",
+    "N-RES: успешный COMMIT закрывает REVOKED → RESOLVED + revocation_history",
+    "KnowledgeAuditor возвращён в run-loop: post-commit drift → STALE, восстановление мира → VALID",
+    "N1: evidence_artifact_refs выводятся из рёбер (реальные пути), fp-мусор больше не попадает в refs",
+    "N2: runtime выставляет _proof_anchor_path/_knowledge_ledger_path/_knowledge_revocation_index_path — KnowledgeLedger/RevocationIndex/Anchor живы в production COMMIT",
+    "N3: ImmutableKnowledgeLedger.replay отклоняет дубликат COMMIT (политика форков полна)",
+    "N4: run-loop вызывает KnowledgeAuditor.audit + KnowledgeRevocationIndex.reconcile на каждом такте при наличии commit",
+    "Selftest: хранители T67–T72 возвращены (слабые unit-варианты ветки перенумерованы T115–T120 без удаления); T76 усилен (stale_evidence); дубль T73 устранён (CAS changed → T104); новые T105–T114"
+  ],
+  "note": "Trust-domain слой v3.6.0 (RootTrustAuthority, SigningTrustDomain, LedgerTrustAnchor, ImmutableKnowledgeLedger, KnowledgeRevocationIndex, ключевые эпохи, кросс-доменные replay-гейты, T84–T103) сохранён полностью и впервые подключён к production-пути COMMIT."
+}
