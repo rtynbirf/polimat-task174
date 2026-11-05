@@ -1,0 +1,156 @@
+{
+ "stand": "SubjectE11Prime (ring 16, period 4)",
+ "prereg": "E11-prereg-1",
+ "spec": "семейная N1–N5/M1–M4/C1–C5",
+ "n0": {
+  "s0_parity": true,
+  "eps0_zero_rejects_k_gt0": true
+ },
+ "n1": {
+  "sweep": {
+   "0.0": {
+    "true_accept": 1.0,
+    "self_reject": 0.0,
+    "gross_f3_reject": 1.0,
+    "single_f1_reject": 1.0,
+    "chimera_glue_rate": 0.075,
+    "chimera_law_writes": 0,
+    "anti_whole_unsigned_glue": 0.0,
+    "law_bit_accuracy": 1.0,
+    "stat_tolerated_events": 0,
+    "rejection_reasons": {}
+   },
+   "0.05": {
+    "true_accept": 1.0,
+    "self_reject": 0.0,
+    "gross_f3_reject": 0.95,
+    "single_f1_reject": 0.85,
+    "chimera_glue_rate": 0.05,
+    "chimera_law_writes": 0,
+    "anti_whole_unsigned_glue": 0.0,
+    "law_bit_accuracy": 1.0,
+    "stat_tolerated_events": 168,
+    "rejection_reasons": {}
+   },
+   "0.1": {
+    "true_accept": 0.981,
+    "self_reject": 0.019,
+    "gross_f3_reject": 0.975,
+    "single_f1_reject": 0.875,
+    "chimera_glue_rate": 0.05,
+    "chimera_law_writes": 0,
+    "anti_whole_unsigned_glue": 0.0,
+    "law_bit_accuracy": 0.969,
+    "stat_tolerated_events": 242,
+    "rejection_reasons": {
+     "stat_violation_excess": 6
+    }
+   },
+   "0.2": {
+    "true_accept": 0.959,
+    "self_reject": 0.041,
+    "gross_f3_reject": 0.825,
+    "single_f1_reject": 0.75,
+    "chimera_glue_rate": 0.05,
+    "chimera_law_writes": 0,
+    "anti_whole_unsigned_glue": 0.0,
+    "law_bit_accuracy": 0.931,
+    "stat_tolerated_events": 299,
+    "rejection_reasons": {
+     "stat_violation_excess": 13
+    }
+   },
+   "0.3": {
+    "true_accept": 0.928,
+    "self_reject": 0.072,
+    "gross_f3_reject": 0.875,
+    "single_f1_reject": 0.65,
+    "chimera_glue_rate": 0.1,
+    "chimera_law_writes": 0,
+    "anti_whole_unsigned_glue": 0.0,
+    "law_bit_accuracy": 0.756,
+    "stat_tolerated_events": 296,
+    "rejection_reasons": {
+     "stat_violation_excess": 23
+    }
+   }
+  },
+  "C1a": true,
+  "C1b": true,
+  "C2": true,
+  "chimera_law_ok": true
+ },
+ "sectors": {
+  "rates": {
+   "causal_separation": 1.0,
+   "coherence_gross_reject": 1.0,
+   "coherence_noise_accept": 1.0,
+   "contact_no_unsigned_hijack": 1.0
+  },
+  "sector_survival": {
+   "CAUSAL": true,
+   "COHERENCE": true,
+   "CONTACT": true
+  }
+ },
+ "n2": {
+  "grid": {
+   "eta0.05_R0": {
+    "verified_glue_rate": 0.817,
+    "silent_value_corruption": 0.0
+   },
+   "eta0.05_R4": {
+    "verified_glue_rate": 1.0,
+    "silent_value_corruption": 0.0
+   },
+   "eta0.15_R0": {
+    "verified_glue_rate": 0.517,
+    "silent_value_corruption": 0.0
+   },
+   "eta0.15_R4": {
+    "verified_glue_rate": 0.95,
+    "silent_value_corruption": 0.0
+   }
+  },
+  "M3_retry_works": true
+ },
+ "n34": {
+  "drift_relearn_rate": 0.6,
+  "drift_acc_new_whole": 0.763,
+  "epoch_relearn_rate": 0.95,
+  "epoch_glue_after_relearn": 0.787,
+  "unsigned_no_hijack_rate": 1.0,
+  "C3": true
+ },
+ "n5": {
+  "false_glued": 0.0,
+  "silent_poison": 0.0,
+  "hard_conflict_quarantine": 1.0,
+  "incumbent_evicted": 0.0
+ },
+ "VERDICT": {
+  "C1_self_sector_statistical": true,
+  "C2_wrong_rejection_control": true,
+  "C3_relearn_contact_gated": true,
+  "C4_causal_unaffected": true,
+  "C5_misspecification": "eps=0.3 > eps0=0.2: true_accept=0.928, деградация измерена; общий eps0-мисспецификация — честный UNKNOWN",
+  "chimera_control_law_ok": true,
+  "sector_survival": {
+   "CAUSAL": true,
+   "COHERENCE": true,
+   "CONTACT": true
+  },
+  "no_4th_axis_needed": true,
+  "covering_triple_status": "тройка CAUSAL/COHERENCE/CONTACT переживает статистический режим (eps=0.1), каждый ось держит непустой исключительный сектор; COHERENCE-триггер обобщён до избытка нарушений (stat-gate); CONTACT дополнительно несёт авторизацию переучивания и корроборацию",
+  "N5_structural": "стенд линии: false_glued=0.0 (оригинал 0.6), silent_poison=0.0 (оригинал 0.333) — арбитраж корроборацией закрывает attested overwrite channel; закон НЕ арбитр двух закон-согласованных целых (анти-целое) — арбитр = число независимых верификаций (E10'-C закрыт)",
+  "mechanisms": "M1 stat-gate+majority tally (COHERENCE); M2/M2' contact-anchored relearn (CONTACT-anchored COHERENCE); M3 retry (CONTACT); M4 arbitration: corroboration for law-consistent sides, violation rates otherwise",
+  "honest_limitations": [
+   "одиночные/двойные сбои внутри полосы мира — ненаблюдаемы в принципе на этих длинах частей (кривая мощности измерена, вердикта нет)",
+   "eps0=0.2 — ЗАЯВЛЕННАЯ граница; eps=0.3 деградирует мягко; общий случай мисспецификации — UNKNOWN",
+   "M4 при отравленном законе арбитрует ОТ закона — ремонт закона требует канала отзыва (E10'-B) до арбитража значений",
+   "tally/корроборация — параметры TALLY_MIN/V_MIN/E_MIN заявлены, чувствительность к ним не свипована (UNKNOWN)"
+  ],
+  "status": "VERIFIED* в стенде линии (ring 16, period 4; репликация семейной спецификации E11 на E10'-prime стеке)",
+  "GENERAL_MINIMALITY": "UNKNOWN"
+ }
+}
