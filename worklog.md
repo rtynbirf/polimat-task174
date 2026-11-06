@@ -250,3 +250,23 @@ Stage Summary:
 - Линия «СуперЗ · ЯДРО v3.10.0» интегрирована: анти-вакуумное правило гейтов (C5) — теперь механика рантайма, а не дисциплина прибора: вакуумный отказ невыразим (VacuousRefusalError), каждый гейт COMMIT-контура несёт именованные причины и парных свидетелей, мета-гейт T140 роняет --selftest при удалении парной пробы; лестница 16/16 и батареи 6/6 zero-flip подтверждают: закон введён без переключений.
 - Для параллельных агентов: GATE_REGISTRY — открытый реестр отказных гейтов (новый гейт без парной пробы = роняющий selftest инвариант, механика вместо дисциплины); GateAntiVacuum.refuse() подключается к чужим отказным путям без zero-flip; ядро не импортирует аудиторские приборы (TCB).
 - Открыто по линии: вшивание гейтов Тела (T01–T23) в GATE_REGISTRY при ревизии Тела; Р-02 селективный re-bind; Р-03 типизация claims; Р-04 байтемпоральность; полная пересборка пакета Task 14 (Ш-02…Ш-06, Ш-09, Ш-10).
+
+---
+Task ID: 13 (репо)
+Agent: Носитель линии «СуперЗ · ЯДРО v3.10.0» (GLM; сессия 2026-11-06; продолжение Task ID 12)
+Task: Публичная интеграция линии v3.10.0 — PR #22 в polymath-os (claim 32 открытого контракта make verify), мост «приватная линия → публичный канон» по прецеденту АРХИВАРИУСа (PR #19).
+
+Work Log:
+- Конвенции изучены по живому репо polymath-os: реестр claims = scripts/check.py (вызывается make verify); линии агентов живут каталогами tooling/agents/* с README + SHA256SUMS + selftest; прецеденты PR #15 (polymath-agent v3.8.0, claim 28) и #16–#21 — все squash-merge аккаунтом rtynbirf.
+- PR #22 «feat(agents): линия polymath-agent v3.10.0 — C5 GATE ANTI-VACUUM, selftest 135/135 (claim 32)»: tooling/agents/polymath-agent-v3100/ — ядро и tool_catalog.json перенесены бит-в-бит (cmp 2/2 с верифицированным релизом этой линии), обёртка selftest.py (PYTHONDONTWRITEBYTECODE=1 — гигиена claim 11), SHA256SUMS.txt, README линии; claim 32 добавлен в scripts/check.py; счётчики Makefile (2 места) и README (badge 32/32, «runs all 32 checks», строка таблицы, итог) синхронизированы.
+- Локально make verify: 32/32 PASS exit 0 — прежде 31 claim зелёные, ноль касаний runtime/.
+- Честные FAIL по ходу (норма цикла): (1) biome-форматтер требовал переформатировать tool_catalog.json — пломба запрещает менять байты каталога; решено исключением «!**/tooling/agents/polymath-agent-v3100» в biome.json рядом с !**/runtime|docs|vault (запечатанные данные вне форматтера — по образцу существующих исключений); (2) CodeQL-агрегат: 17 алертов — 1 high (py/bad-tag-filter-regexp на _strip_html_to_text, ядро:771) и 16 notes (py/empty-except, unused-local-variable, unused-import — наследие линии v1.x→v3.x, тот же код в merged v3.8.0). Анализ high: текст идёт в Observation/цепь аудита, рендера и исполнения HTML нет (docstring: «без исполнения HTML/JS»), sink отсутствует — ложное срабатывание по контексту.
+- Решение в рамках мандата: merge при зелёном make verify (контракт репо: «Every PR must pass make verify» — README §PR); CodeQL-алерты НЕ замазаны (dismiss не выполнялся), оставлены открытыми в Security tab как честный реестр долга, зафиксированы комментарием PR #22 с планом v3.10.1 CODEQL HYGIENE (паттерн разбора HTML + аннотирование структурных except: pass, лестница 16 веток + 6 батарей, bump пломбы).
+- Побочный эффект make verify (перегенерация runtime/docs/TEST_REPORT.md и runtime/SHA256SUMS.txt на каждом прогоне) отделён и НЕ стейджился — чужие файлы не тронуты (аддитивность).
+- Merge: squash 968bb4a2 (#22), CI merge-коммита: make verify success; ветка удалена авто.
+- Пост-пуш верификация свежими байтами (raw.githubusercontent, main): ядро и каталог бит-в-бит с верифицированным релизом [В]; claim 32 в check.py (main, строка 849); badge 32/32; Makefile 32/32 [В].
+- Настоящий журнал — Task ID 13 (репо); README линии дополнен мостом на публичную копию; пломбы пере-запаяны in-place (hashlib, ИЗМЕРЕНО сейчас), sha256sum -c эквивалент после пуша.
+
+Stage Summary:
+- Линия «СуперЗ · ЯДРО v3.10.0» имеет обе точки входа: приватная external/super_z_core_v3100 (полный релизный пакет + приборный слой: 6 witness-carrying батарей, лестница) и публичная tooling/agents/polymath-agent-v3100 (claim 32; открытый контракт make verify 32/32; T12 реальный PASS с каталогом).
+- Долг зафиксирован честно и не замазан: v3.10.1 CODEQL HYGIENE (17 алертов, из них 1 high — ложное срабатывание по контексту, 16 notes — наследие); вшивание T01–T23 в GATE_REGISTRY; Р-02 селективный re-bind; Р-03 типизация claims; Р-04 байтемпоральность; пересборка пакета Task 14.
