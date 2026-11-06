@@ -1,0 +1,10 @@
+[AGENT] Задача 08edba4353: создай hello.txt со строкой final
+[AUDIT] цепочка аудита: целостна
+[FINAL] [VERIFIED] готово
+═══ v360rt-харнес против v3.9.0 (/home/z/my-project/scripts/handoff_rev5_build/02_version_chain/polymath_agent_v3.9.0.py) ═══
+[CLOSED      ] [W1ok W2ok W3ok] P1 N-RT3 DEAD-WIRING: корневая эпоха не вшивается в COMMIT — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P2 N-RT1 TRUNCATION: усечение истории проходит COMMIT — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P3 N-RT2 DOUBLE-REVOKE: повторный revoke принят — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P4 N-RT4 EXCEPTION: RootTrustError вне ledger-контракта — свидетели W1+W2+W3
+═══ ИТОГ: REPRODUCED=0 CLOSED=4 INAPPLICABLE=0 ERROR=0 ═══
+═══ ZERO-FLIP vs бейзлайн[v3.9.0]: НОЛЬ ПЕРЕКЛЮЧЕНИЙ ═══

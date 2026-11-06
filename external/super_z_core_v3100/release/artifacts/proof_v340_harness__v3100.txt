@@ -1,0 +1,12 @@
+[AGENT] Задача c649362a18: задача чтения r.txt
+[AUDIT] цепочка аудита: целостна
+[FINAL] [VERIFIED] прочитано
+═══ v340-харнес против UNKNOWN (/home/z/my-project/download/polymath/v3.10.0_release/polymath_agent_v3.10.0.py) ═══
+[CLOSED      ] [W1ok W2ok W3ok] P1 REVIVAL: перекомпиляция launder'ит старое evidence — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P2 READ-UNBOUND: read-evidence без рёбер к артефакту — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P3 COARSE: каскад отзывает несвязанное знание — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P4 POST-COMMIT DRIFT: закреплённое знание не сверяется — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P5 STALE LABEL: REVOKED не закрывается re-commit'ом — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P6 DEAD FALSIFICATION: противоречия журнала не captured — свидетели W1+W2+W3
+═══ ИТОГ: REPRODUCED=0 CLOSED=6 INAPPLICABLE=0 ERROR=0 ═══
+═══ ветка вне матрицы — zero-flip не проверялся ═══

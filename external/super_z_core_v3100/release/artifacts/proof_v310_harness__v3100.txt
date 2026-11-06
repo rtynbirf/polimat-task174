@@ -1,0 +1,5 @@
+═══ v310-харнес против UNKNOWN (/home/z/my-project/download/polymath/v3.10.0_release/polymath_agent_v3.10.0.py) ═══
+[CLOSED      ] [W1ok W2ok W3ok] D4 evidence 6-летней давности даёт status=verified (свежесть не участвует) — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] D5 цикл зависимостей claim:1↔claim:2 не мешает status=verified — свидетели W1+W2+W3
+═══ ИТОГ: REPRODUCED=0 CLOSED=2 INAPPLICABLE=0 ERROR=0 ═══
+═══ ветка вне матрицы — zero-flip не проверялся ═══

@@ -1,0 +1,67 @@
+{
+  "project": "POLYMAT",
+  "version": "3.10.0",
+  "version_string": "C5 GATE ANTI-VACUUM",
+  "baseline": "polymath_agent_v3.9.0.py (ea1e9001d53a646a4def4930f4e17ec4ca5d63512d37284cbd466bd314fda2b3, 133/133)",
+  "status": "IMPLEMENTED_AND_SELFTESTED",
+  "artifact": "polymath_agent_v3.10.0.py",
+  "sha256": "ef73a15881fa4212abe5ab0ff5ff4ee947255048b342f90607c731d6621067dd",
+  "lines": 5783,
+  "selftest": "135/135 PASS",
+  "exit_code": 0,
+  "catalog": "tool_catalog.json (polymat.arsenal/1.0): 2444 записей, 34 категорий, каталог входит в пакет (Ш-01)",
+  "gate_registry": {
+    "families": 11,
+    "paired_witnesses": 51,
+    "meta_gate": "T140",
+    "vacuous_refusal_probe": "T141"
+  },
+  "ladder_zero_flip": {
+    "branches": 16,
+    "numbers": {
+      "v1.2.4": 19,
+      "v1.5.1": 29,
+      "v2.1.0": 43,
+      "v2.2.0": 52,
+      "v2.9.0": 57,
+      "v3.2.0": 66,
+      "v3.3.0": 69,
+      "v3.3.1": 78,
+      "v3.3.2": 72,
+      "v3.3.3": 74,
+      "v3.4.0": 88,
+      "v3.6.0_TD": 98,
+      "v3.6.0_RT": 98,
+      "v3.7.0": 114,
+      "v3.8.0": 130,
+      "v3.9.0": 133
+    },
+    "flips": 0
+  },
+  "batteries": {
+    "proof_v300_harness.py": "REPRODUCED=0 CLOSED=4 INAPPLICABLE=1 ERROR=0",
+    "proof_v310_harness.py": "REPRODUCED=0 CLOSED=2 ERROR=0",
+    "proof_v330_harness.py": "REPRODUCED=0 CLOSED=7 INAPPLICABLE=1 ERROR=0",
+    "proof_v340_harness.py": "REPRODUCED=0 CLOSED=6 ERROR=0",
+    "proof_v360_harness.py": "REPRODUCED=0 CLOSED=4 ERROR=0",
+    "proof_v360_rt_harness.py": "REPRODUCED=0 CLOSED=4 ERROR=0",
+    "zero_flip_vs_v390": "вердикты бит-в-бит идентичны на всех 6 харнесах"
+  },
+  "task14_packaging": [
+    "Ш-01: каталог в пакет",
+    "Ш-11: STATUS батарей с exit-конвенциями",
+    "Ш-13: SHA-аддендум с #-комментариями"
+  ],
+  "changes": [
+    "C5.1: VacuousRefusalError — отказной гейт без именованной причины сам поднимает нарушение политики",
+    "C5.2: GateAntiVacuum.refuse(gate, reason) — единственный способ отказа COMMIT-контура; 10 точек отказа переведены; тексты причин байт-в-байт",
+    "C5.3: GATE_REGISTRY — 11 отказных семейств, именованные причины, 51 парный свидетель (honest+refusal)",
+    "C5.4: GateAntiVacuum.audit() — механическая сверка реестра",
+    "C5.5: T140 мета-гейт — реестр сверен с фактом исполнения всех парных проб",
+    "C5.6: T141 — позитивный контроль невыразимости вакуумного отказа",
+    "C5.7: усиление refusal-проб T64/T65/T115/T117/T120 — ассерт именованной причины",
+    "Task 14: Ш-01/Ш-11/Ш-13 включены в пакет релиза"
+  ],
+  "note": "Гейты Тела (T01–T23) уже несут парные пробы в каждой паре; их вшивание в реестр — рубеж ревизии Тела. Р-02 (селективный re-bind), Р-03 (типизация claims), Р-04 (байтемпоральность) — в силе.",
+  "timestamp_utc": "2026-08-30T00:00:00+00:00"
+}
