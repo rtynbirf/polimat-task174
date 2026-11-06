@@ -12,7 +12,7 @@
 [AUDIT] цепочка аудита: целостна
 [FINAL] [ABORTED] стоп
 [AGENT] Задача 5797338247: resume идемпотентность T50
-[RESUME] восстановлен checkpoint шага 2: /tmp/poly_t50__o0y7sua/data/checkpoints/5797338247_00002_1793959256050625303.json
+[RESUME] восстановлен checkpoint шага 2: /tmp/poly_t50_w28v_c9o/data/checkpoints/5797338247_00002_1793960761275443452.json
 [AGENT] Задача 5797338247: resume идемпотентность T50
 [AUDIT] цепочка аудита: целостна
 [FINAL] [FAILED] T50: дубликат отклонён

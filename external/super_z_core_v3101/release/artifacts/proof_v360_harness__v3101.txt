@@ -4,7 +4,7 @@
 [AGENT] Задача 08edba4353: создай hello.txt со строкой final
 [AUDIT] цепочка аудита: целостна
 [FINAL] [VERIFIED] готово
-═══ v360-харнес против UNKNOWN (polymath_agent_v3.10.1.py) ═══
+═══ v360-харнес против UNKNOWN (/home/z/my-project/scripts/v3101_ws/polymath_agent_v3.10.1.py) ═══
 [CLOSED      ] [W1ok W2ok W3ok] N1 FP-REFS: production-каскад без атрибуции знания — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] N2 LEDGER-VACUUM: COMMIT не материализуется в knowledge ledger — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] N3 REPLAY-DUP-COMMIT: дубликат COMMIT принимается молча — свидетели W1+W2+W3

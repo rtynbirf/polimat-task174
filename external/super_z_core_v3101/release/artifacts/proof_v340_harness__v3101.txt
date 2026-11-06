@@ -1,7 +1,7 @@
 [AGENT] Задача c649362a18: задача чтения r.txt
 [AUDIT] цепочка аудита: целостна
 [FINAL] [VERIFIED] прочитано
-═══ v340-харнес против UNKNOWN (polymath_agent_v3.10.1.py) ═══
+═══ v340-харнес против UNKNOWN (/home/z/my-project/scripts/v3101_ws/polymath_agent_v3.10.1.py) ═══
 [CLOSED      ] [W1ok W2ok W3ok] P1 REVIVAL: перекомпиляция launder'ит старое evidence — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] P2 READ-UNBOUND: read-evidence без рёбер к артефакту — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] P3 COARSE: каскад отзывает несвязанное знание — свидетели W1+W2+W3

@@ -1,4 +1,4 @@
-═══ v330-харнес против UNKNOWN (polymath_agent_v3.10.1.py) ═══
+═══ v330-харнес против UNKNOWN (/home/z/my-project/scripts/v3101_ws/polymath_agent_v3.10.1.py) ═══
 [CLOSED      ] [W1ok W2ok W3ok] P1 R-D1 double-prefix + пустая атрибуция блокеров — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] P2 R-D4 stale evidence даёт verified — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] P3 R-D5 эпистемический цикл даёт verified — свидетели W1+W2+W3

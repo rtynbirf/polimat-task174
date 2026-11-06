@@ -1,7 +1,7 @@
 [AGENT] Задача 08edba4353: создай hello.txt со строкой final
 [AUDIT] цепочка аудита: целостна
 [FINAL] [VERIFIED] готово
-═══ v360rt-харнес против UNKNOWN (polymath_agent_v3.10.1.py) ═══
+═══ v360rt-харнес против UNKNOWN (/home/z/my-project/scripts/v3101_ws/polymath_agent_v3.10.1.py) ═══
 [CLOSED      ] [W1ok W2ok W3ok] P1 N-RT3 DEAD-WIRING: корневая эпоха не вшивается в COMMIT — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] P2 N-RT1 TRUNCATION: усечение истории проходит COMMIT — свидетели W1+W2+W3
 [CLOSED      ] [W1ok W2ok W3ok] P3 N-RT2 DOUBLE-REVOKE: повторный revoke принят — свидетели W1+W2+W3
