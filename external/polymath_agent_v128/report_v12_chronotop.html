@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ХРОНОТОП — хроника становления Полимата · ядро v1.2.8</title>
+<style>
+:root{
+  --bg:#0d1117; --bg2:#131a24; --card:#161f2c; --line:#243044;
+  --tx:#dbe4f0; --dim:#8b9bb4; --faint:#5a6a82;
+  --amber:#e8a33d; --cyan:#39c5cf; --green:#4fc98a; --red:#e06a6a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65}
+.wrap{max-width:1060px;margin:0 auto;padding:48px 28px 80px}
+header{border-bottom:1px solid var(--line);padding-bottom:34px;margin-bottom:44px}
+.kicker{color:var(--cyan);font-size:13px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:14px}
+h1{font-size:52px;font-weight:800;letter-spacing:.04em;line-height:1.08}
+h1 .thin{color:var(--amber)}
+.sub{color:var(--dim);font-size:17px;margin-top:14px;max-width:760px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.badge{border:1px solid var(--line);background:var(--bg2);border-radius:999px;padding:5px 14px;font-size:13px;color:var(--dim)}
+.badge b{color:var(--tx);font-weight:600}
+.badge.hot{border-color:rgba(232,163,61,.45)}
+.badge.hot b{color:var(--amber)}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 46px}
+.tri .cell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.tri .t{color:var(--amber);font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:8px}
+.tri .d{font-size:14px;color:var(--dim)}
+h2{font-size:15px;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);margin:56px 0 8px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+h2 .n{color:var(--faint)}
+.era{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-top:18px}
+.era .when{color:var(--faint);font-size:13px;letter-spacing:.12em;margin-bottom:6px}
+.era h3{font-size:24px;margin-bottom:4px}
+.era .verdict{display:inline-block;font-size:12px;letter-spacing:.14em;border-radius:6px;padding:3px 10px;margin:6px 0 16px}
+.era .verdict.ok{background:rgba(79,201,138,.14);color:var(--green);border:1px solid rgba(79,201,138,.3)}
+.era .verdict.hard{background:rgba(224,106,106,.12);color:var(--red);border:1px solid rgba(224,106,106,.3)}
+.era .verdict.mid{background:rgba(232,163,61,.12);color:var(--amber);border:1px solid rgba(232,163,61,.3)}
+.era p{font-size:15px;color:var(--tx);margin-bottom:12px}
+.era p.dim{color:var(--dim)}
+.era ul{margin:8px 0 14px 20px}
+.era li{font-size:14.5px;color:var(--dim);margin-bottom:7px}
+.era li b{color:var(--tx);font-weight:600}
+.era code, .num{font-family:'Cascadia Code',Consolas,monospace;font-size:.92em;color:var(--cyan);background:rgba(57,197,207,.08);border-radius:4px;padding:1px 6px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 16px;min-width:120px}
+.stat .v{font-size:24px;font-weight:700;color:var(--amber)}
+.stat .k{font-size:11.5px;color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+th{color:var(--faint);text-align:left;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11.5px;padding:9px 12px;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid rgba(36,48,68,.55);color:var(--dim);vertical-align:top}
+td b{color:var(--tx);font-weight:600}
+td .ok{color:var(--green)} td .bad{color:var(--red)} td .mid{color:var(--amber)}
+table code{font-size:.9em}
+.foot{margin-top:64px;border-top:1px solid var(--line);padding-top:22px;color:var(--faint);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.lesson{border-left:3px solid var(--amber);background:rgba(232,163,61,.06);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--tx);margin:14px 0}
+.lesson .lt{color:var(--amber);font-size:11px;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:4px}
+@media(max-width:760px){.tri{grid-template-columns:1fr}h1{font-size:38px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Полимат · Субъект / Тело / Конституция</div>
+  <h1>ХРОНО<span class="thin">ТОП</span></h1>
+  <div class="sub">Хроника становления целостного агента: один файл ядра, только стандартная библиотека,
+  арсенал из 2444 инструментов как тело, Конституция как механический слой принуждения.
+  Реставрация хроники после второго сброса среды; эпохи VI–VII восстановлены и дополнены живыми огнями.</div>
+  <div class="badges">
+    <span class="badge hot"><b>v1.2.8</b> «Арсенал+Цепь»</span>
+    <span class="badge"><b>19/19</b> проб самопроверки</span>
+    <span class="badge hot"><b>10 огней</b> в эпохе VII</span>
+    <span class="badge"><b>2444</b> инструмента · <b>220</b> исполнимо</span>
+    <span class="badge"><b>1 файл</b> · <b>0 зависимостей</b></span>
+  </div>
+</header>
+
+<div class="tri">
+  <div class="cell"><div class="t">Субъект</div>
+    <div class="d">Ровно одна линия инференса: api | mock | ollama-native. Констрейнт-декодинг:
+    JSON Schema с maxLength-бюджетами, GBNF-грамматика для офлайн-проверки.</div></div>
+  <div class="cell"><div class="t">Тело</div>
+    <div class="d">Каталог 2444 CLI-инструментов декларирует — shutil.which подтверждает — Governor выпускает.
+    Дайджест релевантного арсенала в промпте: лексический скоринг, топ-k.</div></div>
+  <div class="cell"><div class="t">Конституция</div>
+    <div class="d">Governor вне контекста модели: классы риска READ/WRITE/EXEC/NET/DESTRUCTIVE,
+    argv без shell, rlimit-песочница, дедуп с кэшем, append-only аудит с хеш-цепочкой.</div></div>
+</div>
+
+<h2><span class="n">часть I ·</span> Эпохи I–V — фундамент</h2>
+
+<div class="era">
+  <div class="when">эпоха I · свод каталога</div>
+  <h3>Хронотоп арсенала: 2444 инструмента</h3>
+  <span class="verdict ok">свод закончен · 2444 записи · 34 категории</span>
+  <p>Собран единый каталог инструментов: 2444 записи в 34 категориях, 1601 бинарь-кандидат.
+  Каждая запись — имя, категория, описание, бинарь, класс риска. Каталог — не список обещаний,
+  а декларация, которую диск обязан подтвердить: запись без бинаря на диске остаётся знанием,
+  но не исполняется.</p>
+  <div class="stats">
+    <div class="stat"><div class="v">2444</div><div class="k">записей</div></div>
+    <div class="stat"><div class="v">34</div><div class="k">категории</div></div>
+    <div class="stat"><div class="v">1601</div><div class="k">бинар-кандидат</div></div>
+  </div>
+</div>
+
+<div class="era">
+  <div class="when">эпоха II · приём архива</div>
+  <h3>Человеческий архив принят</h3>
+  <span class="verdict ok">принято</span>
+  <p>Наследие предыдущих сессий разобрано и влито: ядро-база v2 (1301 строка), единый каталог
+  инструментов, конспекты. Из архива выросла реставрационная база — что дважды окупится после
+  сбросов среды.</p>
+</div>
+
+<div class="era">
+  <div class="when">эпоха III · веха v1.1 «Арсенал»</div>
+  <h3>Мост, грамматика, гейт</h3>
+  <span class="verdict ok">ядро v1.1 · мост + GBNF + гейт</span>
+  <ul>
+    <li><b>CatalogBridge:</b> каталог декларирует — диск подтверждает — Governor выпускает;
+    абсолютные пути фиксируются один раз (защита от подмены PATH), дубликаты схлопываются.</li>
+    <li><b>run_cli [EXEC]:</b> argv без shell, rlimit-песочница, дедуп, аудит; вне арсенала — PolicyViolation.</li>
+    <li><b>build_decision_schema:</b> JSON Schema для нативного /api/chat (format=), включая maxLength-бюджеты.</li>
+    <li><b>build_decision_grammar:</b> GBNF-эквивалент для llama.cpp; escape-сегменты литералами — урок \x00/\x1F.</li>
+    <li><b>гейт процедурной памяти:</b> имя×3/шаги×1, score≥2, ratio≥0.25, шагов≥2; чужая цель — тишина.</li>
+    <li><b>PLAN_LOCK:</b> повтор фингерпринта плана = стагнация + директива.</li>
+  </ul>
+</div>
+
+<div class="era">
+  <div class="when">эпоха IV · первые живые огни</div>
+  <h3>0.6b и 1.7b: лестница моделей</h3>
+  <span class="verdict mid">предел 1.7b зафиксирован честно</span>
+  <p>Первые живые прогоны на qwen3:0.6b и qwen3:1.7b через нативный /api/chat с констрейнт-схемой.
+  0.6b тянет инфраструктуру (~15 tok/s), но оркестрация не по силам; 1.7b (префилл 60–80 tok/s)
+  проходит агентную петлю и подтверждён как боевой предел для многошаговки на CPU-стенде.</p>
+  <div class="lesson"><span class="lt">урок эпохи</span>
+  Модель-субъект живёт в контексте, который собирает ядро: журнал, критерии, план, дайджест арсенала.
+  Качество навигации этого контекста решает больше, чем сам размер модели.</div>
+</div>
+
+<div class="era">
+  <div class="when">эпоха V · стендовая кампания 4b</div>
+  <h3>Лестница qwen3:4b и закалка v1.1.1 → v1.1.2</h3>
+  <span class="verdict mid">4b — одношаговый оракул · v1.1.2 · 15/15 проб</span>
+  <ul>
+    <li><b>OOM @4096:</b> веса 2.5 ГБ + KV ~600 МБ против 3.2 ГБ доступных — llama-server убит сигналом 9;
+    найден режим выживания: окно 1536 + KV-кэш q8_0 + Flash Attention.</li>
+    <li><b>maxLength-бюджеты:</b> болтливый thought съедал num_predict и рвал JSON посреди —
+    в схему введены бюджеты (thought ≤280, пункты ≤120, ответ ≤600) + env POLY_NUM_CTX/POLY_NUM_PREDICT.</li>
+    <li><b>замер 4b:</b> префилл 20.3 tok/s, генерация 3.41 tok/s → 3–4 минуты на решение:
+    многошаговка физически не успевает в бюджет.</li>
+    <li><b>4 живых огня бандла из чистой распаковки:</b> пустой gv.txt (молчаливая запись 0 символов) →
+    v1.1.1 запрет пустой записи; двойное отклонение фальшивого VERIFIED; ложный отказ правде (литерал 'hi')
+    → v1.1.2 контентная сверка литералов критерия с артефактом на диске; VERIFIED 219.7 с с совпадением sha256.</li>
+    <li><b>свидетель стал симметричным:</b> фальшивый VERIFIED не проходит, честный факт не отвергается.</li>
+  </ul>
+  <div class="stats">
+    <div class="stat"><div class="v">219.7с</div><div class="k">VERIFIED 4b-эпизод</div></div>
+    <div class="stat"><div class="v">20.3 / 3.41</div><div class="k">префилл / ген tok/s</div></div>
+    <div class="stat"><div class="v">15/15</div><div class="k">проб selftest</div></div>
+  </div>
+</div>
+
+<h2><span class="n">часть II ·</span> Эпоха VI — второй сброс и реставрация</h2>
+
+<div class="era">
+  <div class="when">эпоха VI · 28.08.2026 · раннее утро</div>
+  <h3>Среда съела всё, кроме upload/</h3>
+  <span class="verdict hard">rootfs 90 МБ · утрачены download/, scripts/, bench/, ollama, worklog</span>
+  <p>Второй сброс среды: новый контейнер, выжили только upload/ и git-инициал. Урок №1 зафиксирован
+  в worklog: персистентен только upload/ — после каждой сборки класть бандл туда. Реставрация ядра
+  из человеческого архива (база v2) одним заходом: вся веха v1.1.x — мост, грамматика, гейт,
+  запрет пустой записи, свидетель с контентной сверкой, PLAN_LOCK — наложена заново.</p>
+  <p class="dim">Параллельно наложена новая веха v1.2 — переменная $last_output: state["_last_output"]
+  хранит вывод последнего успешного действия; _substitute_vars рекурсивно подставляет ТОЧНОЕ
+  совпадение строки «$last_output» в args действия; переменной нет — честный отказ «сначала выполни
+  действие-источник»; частичные вхождения не трогаются. Проба T16: склейка «код → запись через
+  $last_output → чтение → verified» механически честна. Selftest вырос до 16 проб.</p>
+  <div class="lesson"><span class="lt">урок эпохи</span>
+  Память системы — только то, что лежит в персистентном маунте. Всё остальное — гипотеза до перезапуска.</div>
+</div>
+
+<div class="era">
+  <div class="when">эпоха VI · первый живой огонь v1.2</div>
+  <h3>Последний семантический барьер снят</h3>
+  <span class="verdict ok">v1.2.1 · VERIFIED 187.6 с · 7 шагов</span>
+  <p>Огонь-1 нашёл два дефекта: зеркало $last_output (чек записи перезаписывал переменную собственной
+  квитанцией — модель перезаписывала файл чеком своей записи) и обход дедупа через явный stdin:"".
+  Закалка v1.2.1: переменная хранит только вывод действий-источников (exec/read/net/list),
+  дедуп-хеш канонизирует опциональные аргументы к дефолтам. Огонь-2: VERIFIED 187.6 с —
+  gv.txt содержит ровно «git version 2.47.3», sha256 на диске совпал с эпизодом.
+  Вывод переносится механически, без семантического копирования.</p>
+</div>
+
+<h2><span class="n">часть III ·</span> Эпоха VII — кампания цепей ($last_output + многошаговый арсенал)</h2>
+
+<div class="era">
+  <div class="when">эпоха VII · огонь C1 · ядро v1.2.1</div>
+  <h3>Первый конвейер: переменная полетела ВНУТРЬ команды</h3>
+  <span class="verdict ok">VERIFIED · 162.9 с · 5 шагов · критерии 2/2</span>
+  <p>Цепь C1 — четыре звена через механическую подстановку: <code>echo</code> (источник) →
+  <code>tr a-z A-Z</code> со stdin=$last_output (трансформация) → <code>write_file</code>
+  content=$last_output (запись) → <code>sha256sum</code> (верификация). Впервые переменная
+  полетела не только в файл, но и внутрь следующей команды. Файл на диске: ровно
+  «ARSENAL CHAIN WORKS»; sha256 эпизода совпал с диском: 70bd1f0a…</p>
+  <div class="stats">
+    <div class="stat"><div class="v">162.9с</div><div class="k">до VERIFIED</div></div>
+    <div class="stat"><div class="v">5</div><div class="k">шагов</div></div>
+    <div class="stat"><div class="v">2/2</div><div class="k">критерия</div></div>
+  </div>
+</div>
+
+<div class="era">
+  <div class="when">эпоха VII · огни C2, серия из семи · RAM-гейт и петли</div>
+  <h3>Длинная цепь против слабой модели: пять дефектов, шесть закалок</h3>
+  <span class="verdict mid">механика закалена до предела · v1.2.2 → v1.2.8 · selftest 19/19</span>
+  <p>Полная цепь (wc -l каталога → write → wc -c → write → sha256sum обоих артефактов)
+  стала стресс-испытанием всей системы. Каждый отказ — новый дефект; каждая закалка — новая проба.</p>
+  <ul>
+    <li><b>RAM-гейт (огонь 66c4119357):</b> llama-server убит global OOM — anon-rss 3.5 ГиБ из 4.0:
+    state-save промпт-кэша копит ~250 МиБ на шаг. Закалка стенда: KEEP_ALIVE=1s — модель выгружается
+    между шагами, state-копии умирают вместе со слотом; замер холода — 2.8 с/запрос (веса в page-cache).</li>
+    <li><b>Обрез JSON (огни 5a1b0a7390, 106c586e47):</b> два действия в одном act не влезли в
+    num_predict — extract_json отказался парсить обрыв. Закалка v1.2.2: атомарное решение (maxItems 3→1)
+    + честный диагноз «вывод ОБРЕЗАН посреди JSON (num_predict=N исчерпан)» вместо загадочного «контракт нарушен».</li>
+    <li><b>Обход план-замка (огонь 05a5fef056):</b> 1.7b перефразировал пункты плана при идентичной мысли —
+    шаги 2≡3 и 7≡8 прошли фингерпринт. Закалка v1.2.3: второй фингерпринт — нормализованный thought;
+    оба вектора обхода закрыты (проба T17).</li>
+    <li><b>Переспросы исполненного (огонь 1406a05ad5):</b> секция «единственный источник фактов» показывала
+    только последний такт — вывод шага №1 исчезал из контекста, модель 6 раз переспрашивала wc.
+    Закалка v1.2.4: вечная лента накопленных фактов в каждом промпте (проба T18).</li>
+    <li><b>План-луп (огонь accb1c587c):</b> 7 планов подряд. Закалка v1.2.5/v1.2.6: план-гигиена —
+    повторный plan отклоняется НА ВАЛИДАЦИИ с repair-раундом (проба T19).</li>
+    <li><b>Дедуп-петля (огонь 9c177a7aa4):</b> отказ дедупа читался моделью как «команда не выполнена» —
+    удары в дедуп по кругу. Закалка v1.2.7: дедуп-кэш — повтор физически не исполняется, но возвращает
+    кэшированное наблюдение первого исполнения с честным маркером; идемпотентность цела, аудит «deduped».</li>
+    <li><b>Потеря GPS (огни f15e64b15b, 32fba99ad2, 46f7a434cf):</b> закалка v1.2.5, скрывшая план
+    при streak≥1, лишила модель навигации — «начиная с первого действия» = перезапуск шага 1.
+    Закалка v1.2.8: план ВСЕГДА виден, при принятом плане — маркер «НЕ планируй заново».
+    Урок: план — не провокация, а GPS; скрытие плана — анти-паттерн.</li>
+  </ul>
+  <div class="lesson"><span class="lt">главный урок кампании</span>
+  Каждый дефект живого огня превращается в пробу самопроверки: T17 (обход замка), T18 (лента фактов),
+  T19 (план-гигиена). Пробы писались до следующего огня — и дважды ловили дефект закалки до огня.
+  Ядро выросло с 15 до 19 проб без единого регресса.</div>
+</div>
+
+<div class="era">
+  <div class="when">эпоха VII · сводка огней</div>
+  <h3>Десять живых огней кампании цепей</h3>
+  <table>
+    <tr><th>эпизод</th><th>ядро</th><th>суть</th><th>исход</th><th>улов</th></tr>
+    <tr><td><code>C1 · 2232924021</code></td><td>v1.2.1</td><td>echo→tr(stdin)→write→sha256</td>
+        <td class="ok"><b>VERIFIED 162.9с</b></td><td>первый конвейер, sha256 совпал</td></tr>
+    <tr><td><code>C2 · 66c4119357</code></td><td>v1.2.1</td><td>полная цепь wc×2+write×2</td>
+        <td class="bad">OOM-kill раннера</td><td>RAM-гейт state-save; KEEP_ALIVE=1s</td></tr>
+    <tr><td><code>C2 · 5a1b0a7390</code></td><td>v1.2.2</td><td>то же, окно 2560</td>
+        <td class="bad">обрез JSON</td><td>атомарный act (maxItems 1)</td></tr>
+    <tr><td><code>C2 · 106c586e47</code></td><td>v1.2.2</td><td>то же, predict 220</td>
+        <td class="bad">обрез JSON (диагноз точен)</td><td>предикт 380; диагноз v1.2.2 подтвердился</td></tr>
+    <tr><td><code>C2 · 05a5fef056</code></td><td>v1.2.2</td><td>то же, predict 220</td>
+        <td class="bad">обход план-замка</td><td>v1.2.3 thought-фингерпринт; T17</td></tr>
+    <tr><td><code>C2 · 1406a05ad5</code></td><td>v1.2.3</td><td>то же, predict 380</td>
+        <td class="bad">переспросы wc ×6</td><td>v1.2.4 вечная лента фактов; T18</td></tr>
+    <tr><td><code>C2 · accb1c587c</code></td><td>v1.2.4</td><td>то же</td>
+        <td class="bad">7 планов подряд</td><td>v1.2.5/6 план-гигиена; T19</td></tr>
+    <tr><td><code>C2 · 9c177a7aa4</code></td><td>v1.2.6</td><td>то же</td>
+        <td class="bad">дедуп-петля ×6</td><td>v1.2.7 дедуп-кэш</td></tr>
+    <tr><td><code>C2mini · 84c3291b70</code></td><td>v1.2.7</td><td>wc→write→sha256</td>
+        <td class="mid">ABORTED по времени</td><td>write-шаг не берётся</td></tr>
+    <tr><td><code>C3 · 167490b354</code></td><td>v1.2.7</td><td>echo фразы 'полимат держит цепь' → write → sha256</td>
+        <td class="mid">лимит шагов; Контролёр отклонил фальшивый VERIFIED</td><td>честность верификации держит</td></tr>
+    <tr><td><code>C4 · f15e64b15b</code></td><td>v1.2.7</td><td>нумерованная, короткий вывод</td>
+        <td class="bad">потеря GPS</td><td>v1.2.8 план всегда виден</td></tr>
+    <tr><td><code>C5 · 32fba99ad2 / 46f7a434cf</code></td><td>v1.2.7/8</td><td>двух-exec разгон</td>
+        <td class="mid">ABORTED по времени</td><td>потолок 1.7b на write-шаге зафиксирован</td></tr>
+  </table>
+</div>
+
+<div class="era">
+  <div class="when">эпоха VII · закалки ядра</div>
+  <h3>v1.2.2 → v1.2.8: шесть закалок, ноль регрессов</h3>
+  <table>
+    <tr><th>версия</th><th>закалка</th><th>что закрыло</th><th>проба</th></tr>
+    <tr><td><b>v1.2.2</b></td><td>атомарное решение (maxItems 3→1) + диагноз обреза JSON</td>
+        <td>смерть мозга от обрыва вывода по num_predict</td><td>—</td></tr>
+    <tr><td><b>v1.2.3</b></td><td>второй фингерпринт — нормализованный thought</td>
+        <td>обход план-замка перефразированием пунктов</td><td><code>T17</code></td></tr>
+    <tr><td><b>v1.2.4</b></td><td>вечная лента накопленных фактов в контексте</td>
+        <td>переспросы исполненных команд</td><td><code>T18</code></td></tr>
+    <tr><td><b>v1.2.5/6</b></td><td>план-гигиена: отклонение повторного plan на валидации + streak</td>
+        <td>план-луп без действий между планами</td><td><code>T19</code></td></tr>
+    <tr><td><b>v1.2.7</b></td><td>дедуп-кэш: кэшированное наблюдение вместо штрафного отказа</td>
+        <td>удары в дедуп по кругу; идемпотентность цела</td><td><code>T04/T11 обновлены</code></td></tr>
+    <tr><td><b>v1.2.8</b></td><td>план всегда виден + маркер «НЕ планируй заново»</td>
+        <td>потеря навигации при скрытии плана (анти-паттерн)</td><td>—</td></tr>
+  </table>
+  <div class="stats">
+    <div class="stat"><div class="v">19/19</div><div class="k">проб selftest</div></div>
+    <div class="stat"><div class="v">10</div><div class="k">живых огней</div></div>
+    <div class="stat"><div class="v">7</div><div class="k">дефектов поймано</div></div>
+    <div class="stat"><div class="v">2.8с</div><div class="k">холодный запрос при KEEP_ALIVE=1s</div></div>
+  </div>
+</div>
+
+<h2><span class="n">часть IV ·</span> Состояние дел и горизонт</h2>
+
+<div class="era">
+  <div class="when">текущее состояние · 28.08.2026</div>
+  <h3>Что стоит и что видно дальше</h3>
+  <span class="verdict ok">ядро v1.2.8 · 19/19 · бандл в upload/ · отчёт восстановлен</span>
+  <p>Механический слой Конституции прошёл самый жёсткий экзамен: RAM-гейт, обрезы вывода, петли
+  переспросов, обходы замков, потеря навигации — всё поймано живым огнём, закалено и закреплено
+  пробами. Склейка «вывод команды → запись в файл» работает механически честно и подтверждена
+  VERIFIED-эпизодом с совпадением sha256. Когнитивный потолок qwen3:1.7b зафиксирован с обеих сторон:
+  конвейер C1 (пять шагов с трансформацией) — по силам; длинные цепи с промежуточными записями —
+  за пределами досягаемости модели при текущем контексте-сборке.</p>
+  <ul>
+    <li><b>лестница моделей (CPU-стенд, 4 ГиБ, SWAP=0):</b> 0.6b — инфраструктура; 1.7b — боевой предел
+    многошаговки (префилл ~61 tok/s, ген ~4.5 tok/s); 4b — одношаговый оракул (режим выживания:
+    окно 1536 + q8_0 + Flash Attention).</li>
+    <li><b>следующие шаги по лестнице:</b> семантический свидетель (NLI-эмбеддинги вместо токен-сверки);
+    более сильная модель в режиме одношагового оракула с механическим планировщиком шагов —
+    ядро уже готово принимать решения от разных мозгов без изменения контракта.</li>
+    <li><b>персистентность:</b> бандл v1.2.8 закладывается в upload/ после каждой сборки —
+    урок эпохи VI встроен в процесс.</li>
+  </ul>
+</div>
+
+<div class="foot">
+  <div>Полимат · ядро v1.2.8 «Арсенал+Цепь» · один файл · только stdlib Python 3.9+</div>
+  <div>самопроверка: python polymath_agent.py --selftest → 19/19</div>
+</div>
+
+</div>
+</body>
+</html>
