@@ -1,0 +1,13 @@
+[AGENT] Задача d576936d2b: создай hello.txt со строкой final и проверь
+[AUDIT] цепочка аудита: целостна
+[FINAL] [VERIFIED] готово
+[AGENT] Задача 08edba4353: создай hello.txt со строкой final
+[AUDIT] цепочка аудита: целостна
+[FINAL] [VERIFIED] готово
+═══ v360-харнес против UNKNOWN (/home/z/my-project/download/polymath/v3.10.0_release/polymath_agent_v3.10.0.py) ═══
+[CLOSED      ] [W1ok W2ok W3ok] N1 FP-REFS: production-каскад без атрибуции знания — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] N2 LEDGER-VACUUM: COMMIT не материализуется в knowledge ledger — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] N3 REPLAY-DUP-COMMIT: дубликат COMMIT принимается молча — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] N4 NO-POST-COMMIT-RECONCILE: сверка мира после коммита отсутствует — свидетели W1+W2+W3
+═══ ИТОГ: REPRODUCED=0 CLOSED=4 INAPPLICABLE=0 ERROR=0 ═══
+═══ ветка вне матрицы — zero-flip не проверялся ═══

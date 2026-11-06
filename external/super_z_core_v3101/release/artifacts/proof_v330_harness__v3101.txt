@@ -1,0 +1,12 @@
+═══ v330-харнес против UNKNOWN (polymath_agent_v3.10.1.py) ═══
+[CLOSED      ] [W1ok W2ok W3ok] P1 R-D1 double-prefix + пустая атрибуция блокеров — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P2 R-D4 stale evidence даёт verified — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P3 R-D5 эпистемический цикл даёт verified — свидетели W1+W2+W3
+[INAPPLICABLE] [W1x W2ok W3x] P4 R-D2 висячая зависимость доходит до COMMIT — W1: преусловие не материализовалось — компилятор блокирует до COMMIT (энд-то-энд преусловие не материализовалось)
+[CLOSED      ] [W1ok W2ok W3ok] P5 N-ART мутация артефакта невидима COMMIT'у — свидетели W1+W2+W3 | отказ: COMMIT: REVOKED — bound artifact mutation [маркер: REVOKED]
+[CLOSED      ] [W1ok W2ok W3ok] P6 N-CLM чужие claim_ids проходят validate — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P7 R-D3 нет TMS-инвалидации дериваций — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] P8 N-CLS отказ COMMIT вырывается из runtime-контракта — свидетели W1+W2+W3
+═══ ИТОГ: REPRODUCED=0 CLOSED=7 INAPPLICABLE=1 ERROR=0 ═══
+ВНИМАНИЕ: зелёный НЕ полный — 1 проб(ы) со статусом НЕИЗВЕСТЕН
+═══ ветка вне матрицы — zero-flip не проверялся ═══

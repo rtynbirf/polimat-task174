@@ -1,0 +1,42 @@
+{
+  "project": "POLYMAT",
+  "version": "3.10.1",
+  "codename": "CODEQL HYGIENE",
+  "date": "2026-11-06",
+  "baseline": {
+    "version": "3.10.0",
+    "sha256": "ef73a15881fa4212abe5ab0ff5ff4ee947255048b342f90607c731d6621067dd",
+    "selftest": "135/135"
+  },
+  "core": {
+    "file": "polymath_agent_v3.10.1.py",
+    "sha256": "af5f6dd76fc3757428a3d4b2ec1e8940e86f445650a46e4e4a28aed14c070ee3",
+    "lines": 5767
+  },
+  "splices": 16,
+  "codeql_alerts_fixed": {
+    "high": 1,
+    "notes": 16
+  },
+  "selftest": {
+    "total": 135,
+    "result": "135/135 PASS",
+    "exit": 0,
+    "t12": "реальный PASS: каталог 2444/34, доступно 249"
+  },
+  "ladder": {
+    "branches": 16,
+    "flips": 0
+  },
+  "batteries": {
+    "reproduced": 0,
+    "errors": 0,
+    "probes": 29,
+    "verdicts": "бит-в-бит с эталоном v3.10.0"
+  },
+  "catalog": {
+    "records": 2444,
+    "sha256": "d7e0ce736f8cbbee48890839d99022870d4cfb0f67d2eea2c78bc56327cad05b"
+  },
+  "doctrine": "аддитивность; пломбы freshly-verified; zero-flip обязателен; поведение не менялось"
+}

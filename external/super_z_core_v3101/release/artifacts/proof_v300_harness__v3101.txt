@@ -1,0 +1,9 @@
+═══ v300-харнес против UNKNOWN (polymath_agent_v3.10.1.py) ═══
+[CLOSED      ] [W1ok W2ok W3ok] D1a missing-claim id двойным префиксом в unknowns — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] D1b epistemic_blockers пуст вместо конкретных блокеров — свидетели W1+W2+W3
+[CLOSED      ] [W1ok W2ok W3ok] D1c claim:2/claim:3 не помечены dependency_unknown (точная форма id) — свидетели W1+W2+W3
+[INAPPLICABLE] [W1x W2ok W3ok] D2 висячая зависимость claim:99 не мешает status=verified — W1: преусловие не материализовалось — компилятор блокирует до COMMIT (энд-то-энд сценарий не дошёл до гейта)
+[CLOSED      ] [W1ok W2ok W3ok] D3 деривация зависимого claim:2 остаётся valid=True при UNKNOWN-предпосылке — свидетели W1+W2+W3
+═══ ИТОГ: REPRODUCED=0 CLOSED=4 INAPPLICABLE=1 ERROR=0 ═══
+ВНИМАНИЕ: зелёный НЕ полный — 1 проб(ы) со статусом НЕИЗВЕСТЕН
+═══ ветка вне матрицы — zero-flip не проверялся ═══

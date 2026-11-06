@@ -1,0 +1,114 @@
+[AGENT] Задача 9505a854dc: Создай hello.txt со строкой hi и проверь
+[AUDIT] цепочка аудита: целостна
+[FINAL] [VERIFIED] hello.txt создан, содержит 'hi', подтверждено чтением
+[AGENT] Задача 4b9be444d1: Выполни код и запиши его вывод в itog.txt через $last_output
+[AUDIT] цепочка аудита: целостна
+[FINAL] [VERIFIED] вывод кода записан через $last_output и прочитан
+[AGENT] Задача d0ebc93f5f: тестовая задача план-замка
+[AUDIT] цепочка аудита: целостна
+[FINAL] [ABORTED] стоп
+[AGENT] Задача 43b54349be: тестовая задача план-гигиены
+[VALIDATE] отклонено, ремонт #1: PLAN_LOCK: план уже принят и зафиксирован; статус plan механически запрещён — верни status=act с ровно одним действием, продвигающим ближайший незавершённый пункт плана
+[AUDIT] цепочка аудита: целостна
+[FINAL] [ABORTED] стоп
+
+=== САМОПРОВЕРКА ЯДРА ===
+[PASS] T01 изоляция путей :: побеги блокированы, легитимные пути проходят
+[PASS] T02 валидатор схем инструментов :: типы, обязательность и неизвестные ключи отбраковываются
+[PASS] T03 хеш-цепочка аудита и детект подмены :: подмена записи №3 детектирована
+[PASS] T04 идемпотентность побочных вызовов :: повторный EXEC с тем же кодом отклонён как дубликат
+[PASS] T05 извлечение строгого JSON :: JSON извлекается из шума; мусор и обрыв отсекаются
+[PASS] T06 семантика TTL/stale :: истёкшая семантика помечается stale, а не выбрасывается молча
+[PASS] T07 эпизоды с sha256 артефактов :: эпизод хранит sha256 артефакта
+[PASS] T08 песочница execute_python :: exec считает 4; ненулевой RC фиксируется как FAIL
+[PASS] T09 SSRF-фильтр http_get :: SSRF-фильтр держит локальные/приватные/metadata адреса закрытыми
+[PASS] T10 сквозной цикл на MockBrain :: сквозной прогон: verified, файл на диске 'hi', эпизод записан
+[PASS] T11 мост каталог→Registry :: мост: run_cli исполнен (python3), вне арсенала отклонён, дубликаты схлопнуты, дайджест релевантен
+[PASS] T12 реальный арсенал 2444 :: реальный арсенал доступен: 2444/34, бинарей 2444, доступно 249
+[PASS] T13 грамматика и OllamaNativeBrain :: грамматика+схема детерминированы; замкнутость правил; фейк-ollama: format=схема, /v1 срезан, think=false
+[PASS] T14 гейт процедурной памяти :: гейт: admission score=9.0 ratio=0.5; чужая цель — тишина в промпте
+[PASS] T15 запрет пустой записи и честность свидетеля :: пустая запись отбракована; нуль-факт не свидетель; литерал сверяется с артефактом: правда проходит, ложь нет
+[PASS] T16 переменная $last_output :: подстановка точна/вложена/безопасна; сквозной прогон: вывод кода долетел до файла механически, verified
+[PASS] T17 непробиваемый план-замок :: перефразированный повтор плана взводит PLAN_LOCK (обход замка закрыт)
+[PASS] T18 вечная лента фактов :: накопленные факты вечны в контексте; переспросы исполненного закрыты
+[PASS] T19 план-гигиена: отказ повторного плана :: повторный план отклонён на валидации; repair вывел в act
+[PASS] T20 нативный арсенал файлов/JSON/архивов :: нативный арсенал: mkdir/write/verify/hash/copy/glob/archive/json/move/delete
+[PASS] T24 checkpoint roundtrip + tamper :: checkpoint атомарно сохраняется, восстанавливается и отвергает подмену по sha256
+[PASS] T25 provenance causal ledger :: observation→verification causal связь сохраняется в append-only provenance ledger
+[PASS] T26 recovery taxonomy :: ошибки классифицируются детерминированно и получают ограниченную стратегию восстановления
+[PASS] T27 capability graph + planner :: capability graph: зависимости → closure → детерминированный план
+[PASS] T28 evidence graph :: claim→observation→artifact сохраняются в EvidenceGraph
+[PASS] T29 goal compiler :: goal compiler создаёт criteria/capabilities/evidence/recovery
+[PASS] T30 goal compiler determinism :: goal compilation детерминирована
+[PASS] T31 formal GoalSpec :: GoalSpec имеет полный контракт и проходит валидацию
+[PASS] T32 formal GoalSpec determinism :: Formal GoalSpec compilation детерминирована
+[PASS] T33 execution graph guards :: execution graph запрещает нелегальные переходы и verdict без evidence
+[PASS] T34 execution graph no-skip :: state machine блокирует перескок через обязательное состояние
+[PASS] T37 mechanical goal verification :: verification опирается на успешное observation capability, а не на совпадение текста
+[PASS] T38 resume execution graph :: checkpoint способен восстановить state machine
+[PASS] T39 web policy failure observation :: web_search не падает исключением: PolicyViolation превращается в Observation
+[PASS] T40 action DAG dependencies :: ActionDAG реально блокирует действие до завершения зависимости
+[PASS] T41 action DAG resume :: ActionDAG состояние восстанавливается из snapshot
+[PASS] T42 execution graph runtime integration :: execution state machine имеет корректный runtime-контур
+[PASS] T44 claim evidence proof compiler :: Claim→Evidence→Rule→Proof компилируется детерминированно
+[PASS] T50 evidence matching non-positional :: evidence связывается с claim по контракту, а не по позиции
+[PASS] T70 proof closure cycle :: cycle блокируется
+[PASS] T71 falsification contested :: CONTESTED блокирует поддержку
+[PASS] T72 temporal future evidence :: future evidence блокируется
+[PASS] T73 proof anchor chain :: append-only proof anchor chain работает
+[PASS] T67 proof closure dangling :: dangling input блокируется
+[PASS] T68 proof closure closed :: closed DAG accepted
+[PASS] T69 temporal future :: future proof блокируется
+[PASS] T73 CAS changed state :: verify→commit TOCTOU изменение блокируется
+[PASS] T74 CAS unchanged state :: неизменённое state проходит CAS
+[PASS] T64 commit requires proof :: COMMIT без ProofObject блокируется
+[PASS] T65 commit rejects unknown proof :: COMMIT с UNKNOWN блокируется
+[PASS] T66 commit accepts closed proof :: замкнутый ProofObject + CAS разрешает COMMIT
+[PASS] T62 epistemic unknown propagation :: UNKNOWN транзитивно блокирует зависимые claims
+[PASS] T63 compiler dependency unknown :: ProofCompiler распространяет UNKNOWN по claim_dependencies
+[PASS] T75 compiler dependency cycle :: compiler блокирует цикл даже при полном локальном evidence
+[PASS] T76 freshness stale evidence :: старое evidence не закрывает claim
+[PASS] T77 artifact mutation reconciliation :: мутация артефакта после proof блокирует COMMIT через REVOKED
+[PASS] T78 revocation cascade :: мутация артефакта каскадно отзывает Evidence→Claim→Proof
+[PASS] T79 deleted artifact revocation :: удаление bound artifact приводит к REVOKED
+[PASS] T80 selective revocation :: ревокация точная: меняется только зависимая ветвь
+[PASS] T81 transitive revocation :: ревокация распространяется по claim dependency graph
+[PASS] T82 knowledge revocation index commit :: COMMIT регистрируется в персистентном Knowledge Revocation Index
+[PASS] T83 knowledge revocation index historical mutation :: исторический committed Proof автоматически найден и отозван после mutation
+[PASS] T60 typed rule wrong producer :: TypedRuleEngine отклоняет чужой producer
+[PASS] T61 typed rule matching producer :: TypedRuleEngine выводит claim только из matching producer
+[PASS] T56 unknown rule rejected :: неизвестное правило не может породить proof
+[PASS] T57 explicit versioned rule :: реестр правил: claim_witnessed_by_successful_action_observation@1.0
+[PASS] T54 derivation graph rule :: DerivationGraph сохраняет evidence→rule→claim
+[PASS] T55 derivation missing blocks :: отсутствующий вывод блокирует VERIFIED
+[PASS] T52 contract producer integrity :: contract проверяет producer и integrity
+[PASS] T53 contract matching observation :: EvidenceContract принимает только корректно типизированное evidence
+[PASS] T51 missing claim blocks verified :: непокрытый claim блокирует VERIFIED
+[PASS] T48 typed claim matching :: typed claim не закрывается чужим SUCCESS
+[PASS] T49 evidence claim linkage :: evidence получает claim linkage
+[PASS] T45 foreign success not proof :: чужой SUCCESS не закрывает требуемый claim
+[PASS] T43 failed action blocks success :: неуспешное действие не может стать completed
+[PASS] T21 запрет небезопасного HTTP redirect :: HTTP redirect не следует автоматически в потенциально внутренний адрес
+[PASS] T23 web research capability :: web research capability зарегистрирована
+[PASS] T22 отсутствие внешнего каталога не маскируется под FAIL :: реальный арсенал доступен: 2444/34, бинарей 2444, доступно 249
+[PASS] T84 knowledge ledger chain+replay :: immutable knowledge ledger: hash-chain + deterministic replay
+[PASS] T85 knowledge ledger tamper :: ledger tamper detected
+[PASS] T86 knowledge ledger fork/replay :: replay rejects commit-after-revoke fork
+[PASS] T87 replay reconstructs durable state :: replay детерминированно восстанавливает durable knowledge state
+[PASS] T88 replay distinguishes truncation :: усечённый ledger даёт отличимое reconstructed state
+[PASS] T89 replay proof binding :: replay обнаруживает semantic tamper через независимый proof resolver
+[PASS] T94 trust-domain separation :: root/signing domains are distinct
+[PASS] T95 root substitution :: root substitution rejected
+[PASS] T96 key-epoch rollback :: key epoch rollback rejected
+[PASS] T97 old-key resurrection :: old signing epoch resurrection rejected
+[PASS] T98 cross-domain replay :: signing checkpoint rejected in root domain
+[PASS] T99 root envelope in signing domain :: root authorization rejected as signing checkpoint
+[PASS] T100 key-history fork :: forked authorization cannot validate
+[PASS] T101 checkpoint epoch tamper :: checkpoint epoch tamper rejected
+[PASS] T102 revoked epoch checkpoint :: revoked epoch checkpoint rejected
+[PASS] T103 root authorization tamper :: root authorization tamper rejected
+[PASS] T90 trust anchor exact checkpoint :: exact pinned checkpoint accepted
+[PASS] T91 trust anchor rollback :: pinned trust anchor detects ledger rollback
+[PASS] T92 trust anchor fork :: pinned trust anchor detects post-checkpoint fork
+[PASS] T93 trust anchor substitution :: independent anchor digest rejects checkpoint substitution
+Итого: 98/98 зелёных
