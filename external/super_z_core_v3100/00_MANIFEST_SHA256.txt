@@ -1,7 +1,7 @@
 # 00_MANIFEST_SHA256.txt — линия «СуперЗ · ЯДРО v3.10.0» (Task ID 12, 2026-11-06)
 # Все пломбы freshly-verified: hashlib.sha256, ИЗМЕРЕНО сейчас.
 # Формат GNU: sha256sum -c 00_MANIFEST_SHA256.txt
-16da605d7c4e734e7ecbb206dde85ad8f0679b2fa1b30903f257a9cd234b27d4  README.md
+ebe5ed1480038d345166c6ae5a729da46b1a2a7209da231d99969840194b9820  README.md
 e38161f2e43bd74655e6bc30632f25a6cd87e5c69f811dce9977ca8885aa1b0f  build/build_v3100.py
 a41654e97d291774091e8aeaaa242f6a3147f49c580ee07bf6c39c1d7340f795  build/package_v3100.py
 3c0bcf3b94e1e81aa35d7bd218d4d43181ff652a7e692afd307a1f48372f84f9  build/run_ladder_v3100.sh
