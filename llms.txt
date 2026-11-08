@@ -1,0 +1,37 @@
+# polimat-task174
+> ПОЛИМАТ · TASK174 — протокол проверки канона по строкам: пломбы sha256, ловушки, Б25.8 приёмка чужаком. Канон v5.1.2 [В]; «ключ внутри» [О]; «протокол работает» [Н]. Прогон 3 — связка красной нити.
+
+Автоген 2026-11-08 · источник: живой GitHub API (номера и файлы не руками) · владелец rtynbirf · ветка `main`
+
+## Мембрана
+- README.md — для человека (ПОЛИМАТ · TASK174 — протокол проверки канона по строкам)
+- AGENTS.md — есть
+- LICENSE — CC-BY-4.0
+- topics: b25, epistemics, polimat, protocol, red-thread, research-verification, sha256, verification
+
+## Карта корня
+- .github/
+- .gitignore
+- AGENTS.md
+- CODEOWNERS
+- CONTRIBUTING.md
+- LICENSE
+- MANIFEST_SHA256.txt
+- PULSE.md
+- README.md
+- SECURITY.md
+- blind_arm/
+- canon/
+- corpus/
+- external/
+- ledger/
+- … ещё 4
+
+## CI
+- workflow: guardian-tripwire
+- workflow: self-audit
+
+## Ссылки
+- [GitHub](https://github.com/rtynbirf/polimat-task174)
+- [README](https://github.com/rtynbirf/polimat-task174/blob/main/README.md)
+- [raw llms.txt](https://raw.githubusercontent.com/rtynbirf/polimat-task174/main/llms.txt)
