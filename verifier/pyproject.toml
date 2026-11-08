@@ -1,0 +1,28 @@
+# ПОЛИМАТ · TASK174 · Волна ×4 · П45 (issue #2)
+# Верификатор канона как библиотека: pip-пакет + CLI.
+# Инвариант протокола: «проверяй строкой, не смыслом» — инструмент = договор.
+# std-only: рантайм-зависимостей нет (hashlib, argparse, json, tempfile, unittest).
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kanon-verify"
+version = "1.0.0"
+description = "Верификатор канона ПОЛИМАТ по строкам: пломбы sha256, манифесты, самоиспытание"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "POLIMAT swarm · rtynbirf" }]
+keywords = ["polymath", "canon", "verifier", "sha256", "audit"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Security :: Cryptography",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.scripts]
+kanon-verify = "kanon_verify.cli:main"
+
+[tool.setuptools]
+packages = ["kanon_verify"]
