@@ -4,11 +4,12 @@
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
 <div align="center">
-  <img src="repo-muse.svg" width="100%" alt="Муза polimat-task174: картина кузни ПОЛИМАТ, раунд 9" />
+  <img src="repo-muse.svg" width="100%" alt="Муза polimat-task174: мастерская БРУТАЛ · 174, кузня ПОЛИМАТ, раунд 11" />
   <br/>
-  <img src="forge-divider.svg" width="62%" alt="разделитель кузни ПОЛИМАТ" />
+  <img src="forge-divider.svg" width="62%" alt="делитель мастерской БРУТАЛ · 174" />
 </div>
 <!--ФОРЖ:МУЗА:КОНЕЦ-->
+
 
 
 # ПОЛИМАТ · TASK174 — протокол проверки канона по строкам
