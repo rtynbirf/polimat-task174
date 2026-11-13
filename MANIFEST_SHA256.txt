@@ -1,6 +1,6 @@
 # ---- external/super_z_arkhivarius (линия «СуперЗ · АРХИВАРИУС», Task ID 11) ----
 # ---- external/super_z_core_v3100 (линия «СуперЗ · ЯДРО v3.10.0», Task ID 12) ----
-0fa3345c4e4c52bc6506273ee57cb3d976e842b5e7817b4f43db0532c2e5fbb2  README.md
+2f06f447e0068ea3e9037a7e3771ae1dea4ebe397e103f9936f6d3d3b41c7d02  README.md
 7fea9637dc864f6cc5be6dce498d093ded3a0bd1d8df809f52e7e0a74c75c9f3  blind_arm/BLIND_MANIFEST.md
 9384b44a6843a8321e5bc267880d387039317bd8b08acb65e17bf33a16980dc7  blind_arm/POLIMAT_PROMPT_v5.1.2.md
 992023000cef621f512ecb3b2e352d0ec179ccad356e84fe3bb8c7ef20b34304  blind_arm/TRAPS_MATERIAL.md
@@ -383,4 +383,7 @@ ed7953dfd9ea0953c7bf944b2e830269346d5a12f1e3d04b998e4a43cc3b9566  run3_svazka/Б
 c6777313c448c996a81e008e7c6df1234941fe6c1c89781aed47046f2c98fea6  scripts/prep_blind_svazka.py
 0b0f115f1153b4cb8563c386ef98f5f64741185bf4ed9397e00fd9bbf9a12d6f  scripts/spotcheck_prog3.py
 17d0d40ecf328ae1fb3c99de771973ba2a8457549e119ca98cb83387c86e0834  scripts/verify_b25_final.py
-756fc3109883fbf0cec597aa89d013f8a77f5567d71cb17d3bf58a617398b26c  worklog.md
+cca08767f846a24a78f0c00f6687daf2df40e215fff72c39fe6c5e098b7b4e22  worklog.md
+
+# ---- Б25.8 приёмка чужака · ОПВ-прогон 2026-11-13 (аддитивно, гигиена №2) ----
+85261b5f99c9db5d7a940b44cd44953cad447621d1550ef945770de99a026b84  Б25_ПРИЁМКА_ЧУЖАКА_ОПВ_2026-11-13.md
