@@ -1,6 +1,6 @@
 # ---- external/super_z_arkhivarius (линия «СуперЗ · АРХИВАРИУС», Task ID 11) ----
 # ---- external/super_z_core_v3100 (линия «СуперЗ · ЯДРО v3.10.0», Task ID 12) ----
-552b0c797aac5b314d48c1d7b5439f24e0171442b89239ac54a210bc1c1750d8  README.md
+df2a64419e76a6df19d9b59b02f3748ed88214b262e5ef5e567452c8a1194488  README.md
 7fea9637dc864f6cc5be6dce498d093ded3a0bd1d8df809f52e7e0a74c75c9f3  blind_arm/BLIND_MANIFEST.md
 9384b44a6843a8321e5bc267880d387039317bd8b08acb65e17bf33a16980dc7  blind_arm/POLIMAT_PROMPT_v5.1.2.md
 992023000cef621f512ecb3b2e352d0ec179ccad356e84fe3bb8c7ef20b34304  blind_arm/TRAPS_MATERIAL.md
