@@ -24,6 +24,18 @@
 
 # polimat-task174
 
+<div align="center">
+
+<a href="https://github.com/rtynbirf/polimat-task174"><img src="banner.png" width="100%" alt="polimat-task174 — штандарт мастерской в каноне ORNAMENTAL MYTHO-REALISM"></a>
+
+</div>
+
+
+
+
+
+# polimat-task174
+
 <p align="center"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/polimat-task174@main/.github/social-preview.png" alt="polimat-task174" width="100%"></p>
 
 <div align="center">
