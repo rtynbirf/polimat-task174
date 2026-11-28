@@ -1,5 +1,7 @@
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/polimat-task174@main/banner.png" alt="polimat-task174 — Протокол проверки канона по строкам" width="100%">
+
+<a href="https://github.com/rtynbirf/polimat-task174"><img src="banner.png" width="100%" alt="polimat-task174 — штандарт мастерской в каноне ORNAMENTAL MYTHO-REALISM"></a>
+
 </div>
 
 <!--ФОРЖ:МУЗА:НАЧАЛО-->
@@ -12,13 +14,25 @@
 
 <!--ФОРЖ:ПАСПОРТ:НАЧАЛО-->
 <div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/polimat-task174@main/revo-page.svg" width="100%" alt="РЕВО-паспорт страницы polimat-task174: строение файлов, лексикон, числа — по фактическому контенту" />
+  <img src="revo-page.svg" width="100%" alt="РЕВО-паспорт страницы polimat-task174 №39 в каноне ORNAMENTAL MYTHO-REALISM: орнаментальная решётка, медальон-миф, строение файлов, лексикон — по фактическому контенту" />
 </div>
 
 | ФАЙЛОВ | ПАПОК | КОММИТОВ | ОБНОВЛЕНО | РЕЛИЗОВ |
 |---:|---:|---:|---|---:|
-| 442 | 74 | 98 | 2026-11-18 | 1 |
+| 441 | 66 | 1 | 2026-11-28 | 1 |
 <!--ФОРЖ:ПАСПОРТ:КОНЕЦ-->
+
+# polimat-task174
+
+<p align="center"><img src="https://cdn.jsdelivr.net/gh/rtynbirf/polimat-task174@main/.github/social-preview.png" alt="polimat-task174" width="100%"></p>
+
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/rtynbirf/polimat-task174@main/banner.png" alt="polimat-task174 — Протокол проверки канона по строкам" width="100%">
+</div>
+
+
+
+
 
 
 
